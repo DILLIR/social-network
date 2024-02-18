@@ -11,20 +11,18 @@ interface ThemeSwitcherProps {
 }
 
 export function ThemeSwitcher({ className }: ThemeSwitcherProps) {
-  const { theme, toggleTheme } = useTheme();
+   const { theme, toggleTheme } = useTheme();
 
-  const { t } = useTranslation();
+   const { t } = useTranslation();
 
-  return (
-    <Button
-      theme={ThemeButton.CLEAR}
-      className={classNames(cls.ThemeSwitcher, {}, [className])}
-      onClick={toggleTheme}
-      style={{ wordBreak: "break-word" }}
-    >
-      {theme === Theme.DARK ? <DarkIcon /> : <LightIcon />}
-
-      {/* {t("Toogle theme")} */}
-    </Button>
-  );
+   return (
+      <Button
+         theme={ThemeButton.CLEAR}
+         className={classNames(cls.ThemeSwitcher, {}, [className])}
+         onClick={toggleTheme}
+         style={{ wordBreak: "break-word" }}
+      >
+         {theme === Theme.DARK ? <DarkIcon /> : <LightIcon />}
+      </Button>
+   );
 }
