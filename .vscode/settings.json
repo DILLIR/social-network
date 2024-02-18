@@ -1,8 +1,5 @@
 {
-    "i18n-ally.localesPaths": [
-        "public/locales",
-        "src/shared/config/i18n"
-    ],
-    "i18n-ally.keystyle": "nested",
-    "eslint.enable": true
+  "i18n-ally.localesPaths": ["public/locales", "src/shared/config/i18n"],
+  "scss.validate": false,
+  "stylelint.validate": ["scss"]
 }
