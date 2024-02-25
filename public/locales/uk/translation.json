@@ -1,9 +1,10 @@
 {
-  "Test translation": "Тестовий переклад",
-  "Translate": "Перекласти",
-  "Toggle": "Розкрити панель",
-  "Toogle theme": "Переключити тему",
-  "Main": "Головна",
-  "About": "Про нас",
-  "Toggle back": "Закрити панель"
+    "Test translation": "Тестовий переклад",
+    "Translate": "Перекласти",
+    "Toggle": "Розкрити панель",
+    "Toogle theme": "Переключити тему",
+    "Main": "Головна",
+    "About": "Про нас",
+    "Toggle back": "Закрити панель",
+    "Page not found": "Сторінку не знайдено"
 }

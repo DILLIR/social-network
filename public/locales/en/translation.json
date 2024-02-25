@@ -5,5 +5,8 @@
   "Toogle theme": "Toogle theme",
   "Main": "Main",
   "About": "About",
-  "Toggle back": "Toggle"
+  "Toggle back": "Toggle",
+  "notFound": {
+    "Page not found": "Page not found"
+  }
 }
