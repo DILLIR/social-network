@@ -1,3 +1,4 @@
+import { ErrorButton } from 'app/providers/ErrorBoundary';
 import { useTranslation } from 'react-i18next';
 
 function MainPage() {
@@ -6,6 +7,7 @@ function MainPage() {
     return (
         <div>
             <h1>{t('MAIN PAGE')}</h1>
+            <ErrorButton/>
         </div>
     );
 }

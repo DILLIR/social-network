@@ -1,10 +1,12 @@
 {
-    "Test translation": "Тестовий переклад",
-    "Translate": "Перекласти",
-    "Toggle": "Розкрити панель",
-    "Toogle theme": "Переключити тему",
-    "Main": "Головна",
-    "About": "Про нас",
-    "Toggle back": "Закрити панель",
-    "Page not found": "Сторінку не знайдено"
+  "Test translation": "Тестовий переклад",
+  "Translate": "Перекласти",
+  "Toggle": "Розкрити панель",
+  "Toogle theme": "Переключити тему",
+  "Main": "Головна",
+  "About": "Про нас",
+  "Toggle back": "Закрити панель",
+  "Page not found": "Сторінку не знайдено",
+  "Something went wrong": "Щось пішло не так!",
+  "Reload": "Перезагрузити сторінку"
 }
