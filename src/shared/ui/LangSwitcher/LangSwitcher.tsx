@@ -1,19 +1,16 @@
-import { classNames } from "shared/lib/classNames/classNames";
-import { useTranslation } from "react-i18next";
+import { classNames } from 'shared/lib/classNames/classNames';
+import { useTranslation } from 'react-i18next';
 
 export function LangSwitcher() {
-  const { t, i18n } = useTranslation();
+    const { t, i18n } = useTranslation();
 
-  const toggleLanguage = () => {
-    i18n.changeLanguage(i18n.language === "uk" ? "en" : "uk");
-  };
+    const toggleLanguage = () => {
+        i18n.changeLanguage(i18n.language === 'uk' ? 'en' : 'uk');
+    };
 
-  return (
-    <button
-      className={classNames("", {}, [])}
-      onClick={toggleLanguage}
-    >
-      {t("Translate")}
-    </button>
-  );
+    return (
+        <button className={classNames('', {}, [])} onClick={toggleLanguage}>
+            {t('Translate')}
+        </button>
+    );
 }

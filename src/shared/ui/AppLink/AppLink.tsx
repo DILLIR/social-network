@@ -14,17 +14,17 @@ interface AppLinkProps extends LinkProps {
 }
 
 export function AppLink({
-  className,
-  children,
-  theme = AppLinkTheme.PRIMARY,
-  ...props
+    className,
+    children,
+    theme = AppLinkTheme.PRIMARY,
+    ...props
 }: AppLinkProps) {
-  return (
-    <Link
-      {...props}
-      className={classNames(cls.AppLink, {}, [className, cls[theme]])}
-    >
-      {children}
-    </Link>
-  );
+    return (
+        <Link
+            {...props}
+            className={classNames(cls.AppLink, {}, [className, cls[theme]])}
+        >
+            {children}
+        </Link>
+    );
 }
