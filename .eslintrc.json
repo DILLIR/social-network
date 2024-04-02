@@ -6,6 +6,7 @@
     },
     "extends": [
         "eslint:recommended",
+        "plugin:@typescript-eslint/eslint-recommended",
         "plugin:@typescript-eslint/recommended",
         "plugin:react/recommended",
         "plugin:i18next/recommended"
@@ -37,10 +38,9 @@
         ],
         "import/no-unresolved": "off",
         "import/prefer-default-export": "off",
-        "no-unused-vars": "warn",
         "react/require-default-props": "off",
         "react/react-in-jsx-scope": "off",
-        "react/jsx-props-no-spreading": "warn",
+        "react/jsx-props-no-spreading": "off",
         "react/function-component-definition": "off",
         "no-shadow": "off",
         "import/extensions": "off",
