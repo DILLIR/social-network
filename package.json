@@ -94,9 +94,6 @@
   },
   "loki": {
     "configurations": {
-      "looks-same": {
-        "ignoreCaret": true
-      },
       "chrome.laptop": {
         "target": "chrome.app",
         "width": 1366,
