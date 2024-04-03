@@ -18,7 +18,7 @@ This project is a robust, production-ready web application boilerplate. It is bu
 To get started with this project, clone the repository and install the dependencies:
 
 ```sh
-git clone <repository-url>
+git clone git@github.com:DILLIR/social-network.git
 npm install
 ```
 ## Available Scripts
