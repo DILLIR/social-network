@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
-import { Button, ThemeButton } from "./Button";
 import { classNames } from "shared/lib/classNames/classNames";
+import { Button, ButtonTheme } from "./Button";
 
 describe('Button', () => {
     test('Test render', () => {
@@ -9,7 +9,7 @@ describe('Button', () => {
     });
 
     test('Test render with clear theme', () => {
-        render(<Button theme={ThemeButton.CLEAR} className={classNames("button")}>{'Test'}</Button>);
+        render(<Button theme={ButtonTheme.CLEAR} className={classNames("button")}>{'Test'}</Button>);
         expect(screen.getByText('Test')).toHaveClass("clear");
     });
 });
