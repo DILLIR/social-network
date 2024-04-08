@@ -41,8 +41,8 @@ jobs:
               if: always()
             - name: Commit and push changes
               run: |
-                if [ -d ".loki/difference" ];then cp .loki/difference . ; fi
-                if [ -d "build" ];then cp -rfp build . ; fi
+                if [ -d ".loki/difference" ];then cp -rfp .loki/difference . ; fi
+                if [ -d "build/" ];then cp -rfp build/ . ; fi
                 git add .
                 git commit -m "Add build and difference files from last pipeline run." 
                 git push -f
