@@ -36,3 +36,12 @@ jobs:
             - name: screenshot testing
               if: always()
               run: npm run test:ui:ci
+            - name: Setup GIT user
+              uses: fregante/setup-git-user@v1
+            - name: Commit and push changes
+              run: |
+                if [ -d ".loki/difference" ];then cp .loki/difference . ; fi
+                if [ -d "build" ];then cp -rfp build . ; fi
+                git add .
+                git commit -m "Add build and difference files from last pipeline run." 
+                git push -f
