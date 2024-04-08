@@ -1,5 +1,7 @@
 name: linting, testing and building
 run-name: Project is linting, testing and building
+permissions:
+  contents: write
 on:
     push:
         branches: [main]
