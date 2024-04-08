@@ -24,23 +24,25 @@ jobs:
             - name: build production project
               run: npm run build:prod
               if: always()
-            # - name: linting typescript
-            #   run: npm run lint:ts
-            #   if: always()
-            # - name: linting scss
-            #   run: npm run lint:scss
-            # - name: unit testing
-            #   if: always()
-            #   run: npm run test:unit
+            - name: linting typescript
+              run: npm run lint:ts
+              if: always()
+            - name: linting scss
+              run: npm run lint:scss
+            - name: unit testing
+              if: always()
+              run: npm run test:unit
             - name: build storybook
               if: always()
               run: npm run storybook:build
             - name: screenshot testing
               if: always()
               run: npm run test:ui:ci
-            - name: Setup GIT user
-              uses: fregante/setup-git-user@v1
-              if: always()
-            - name: Commit and push changes
-              run: git add . && git commit -m "Add build and difference files from last pipeline run." && git push -f
-              if: always()
+              
+            # for debug
+            # - name: Setup GIT user
+            #   uses: fregante/setup-git-user@v1
+            #   if: always()
+            # - name: Commit and push changes
+            #   run: git add . && git commit -m "Add build and difference files from last pipeline run." && git push -f
+            #   if: always()
