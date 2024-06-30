@@ -6,8 +6,8 @@ function MainPage() {
 
     return (
         <div>
-            <h1>{t('MAIN PAGE')}</h1>
-            <ErrorButton/>
+            <h1 style={{ marginBottom: '10px' }}>{t('MAIN PAGE')}</h1>
+            <ErrorButton />
         </div>
     );
 }

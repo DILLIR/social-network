@@ -9,7 +9,8 @@
         "plugin:@typescript-eslint/eslint-recommended",
         "plugin:@typescript-eslint/recommended",
         "plugin:react/recommended",
-        "plugin:i18next/recommended"
+        "plugin:i18next/recommended",
+        "plugin:react-hooks/recommended"
     ],
     "overrides": [
         {
@@ -45,7 +46,9 @@
         "no-shadow": "off",
         "import/extensions": "off",
         "import/no-extraneous-dependencies": "off",
-        "i18next/no-literal-string": "off"
+        "i18next/no-literal-string": "off",
+        "react-hooks/rules-of-hooks": "error",
+        "react-hooks/exhaustive-deps": "error" 
         //  ["error", { "markupOnly": true }]
     },
     "globals": {
