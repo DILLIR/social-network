@@ -1,4 +1,4 @@
-import { ChangeEvent, memo, useEffect, useRef, useState } from 'react';
+import { ChangeEvent, memo, SyntheticEvent, useEffect, useRef, useState } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import cls from './Input.module.scss';
 
@@ -46,8 +46,10 @@ export const Input = memo(function Input({
         setCaretPosition(e.target.selectionStart || 0);
     };
 
+    
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const onSelect = (e: any) => {
-        setCaretPosition(e.target.selectionStart || 0);
+        setCaretPosition(e.target?.selectionStart || 0);
     }; 
 
     return (
