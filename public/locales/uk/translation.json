@@ -10,5 +10,8 @@
   "Something went wrong": "Щось пішло не так!",
   "Reload": "Перезагрузити сторінку",
   "ShortTranslate": "Укр",
-  "Login": "Війти"
+  "Login": "Вхід",
+  "Continue": "Продовжити",
+  "Enter_username": "Введіть імʼя користувача",
+  "Enter_password": "Введіть пароль"
 }

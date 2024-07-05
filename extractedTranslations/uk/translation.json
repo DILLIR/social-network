@@ -1,7 +1,11 @@
 {
+  "": "",
   "ABOUT PAGE": "ABOUT PAGE",
   "About": "About",
   "BUTTON": "BUTTON",
+  "Continue": "Continue",
+  "Enter_password": "Enter_password",
+  "Enter_username": "Enter_username",
   "Login": "Login",
   "MAIN PAGE": "MAIN PAGE",
   "Main": "Main",
@@ -10,5 +14,6 @@
   "Something went wrong": "Something went wrong",
   "Toggle": "Toggle",
   "Toggle back": "Toggle back",
-  "Translate": "Translate"
+  "Translate": "Translate",
+  "Сщтештгу": "Сщтештгу"
 }

@@ -13,5 +13,8 @@
   "Reload": "Reload the page",
   "ShortTranslate": "En",
   "Login": "Login",
-  "Page not found": "Page not found!"
+  "Page not found": "Page not found!",
+  "Continue": "Continue",
+  "Enter_username": "Enter username",
+  "Enter_password": "Enter password"
 }
