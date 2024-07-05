@@ -38,11 +38,10 @@ jobs:
             - name: screenshot testing
               if: always()
               run: npm run test:ui:ci
-              
             # for debug
-            # - name: Setup GIT user
-            #   uses: fregante/setup-git-user@v1
-            #   if: always()
-            # - name: Commit and push changes
-            #   run: git add . && git commit -m "Add build and difference files from last pipeline run." && git push -f
-            #   if: always()
+            - name: Setup GIT user
+              uses: fregante/setup-git-user@v1
+              if: always()
+            - name: Commit and push changes
+              run: git add . && git commit -m "Add build and difference files from last pipeline run." && git push -f
+              if: always()
