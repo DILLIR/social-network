@@ -1,8 +1,8 @@
+import { useTheme } from 'app/providers/ThemeProvider';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
-import cls from './Modal.module.scss';
 import { Portal } from '../Portal/Portal';
-import { useTheme } from 'app/providers/ThemeProvider';
+import cls from './Modal.module.scss';
 
 interface ModalProps {
     className?: string;
@@ -16,8 +16,7 @@ const ANIMATION_DURATION = 300;
 export function Modal({ className, children, isOpen, onClose }: ModalProps) {
     const [isClosing, setIsClosing] = useState(false);
     const timerRef = useRef<ReturnType<typeof setTimeout>>();
-    const {theme} = useTheme();
-    
+    const { theme } = useTheme();
 
     const handleClose = useCallback(() => {
         if (onClose) {
@@ -53,8 +52,7 @@ export function Modal({ className, children, isOpen, onClose }: ModalProps) {
 
     const mods: Record<string, boolean> = {
         [cls.opened]: isOpen,
-        [cls.closing]: isClosing,
-        [cls[theme]]: true,
+        [cls.closing]: isClosing
     };
 
     function onContentClick(e: React.MouseEvent<HTMLDivElement>) {
@@ -63,7 +61,7 @@ export function Modal({ className, children, isOpen, onClose }: ModalProps) {
 
     return (
         <Portal>
-            <div className={classNames(cls.Modal, mods, [className])}>
+            <div className={classNames(cls.Modal, mods, [className, theme])}>
                 <div className={cls.overlay} onClick={handleClose}>
                     <div className={cls.content} onClick={onContentClick}>
                         {children}
