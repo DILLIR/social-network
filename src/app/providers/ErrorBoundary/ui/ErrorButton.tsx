@@ -1,8 +1,10 @@
 import { useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Button } from 'shared/ui/Button/Button';
 
 // Component for testing ErrorBoundary
 export function ErrorButton() {
+    const { t } = useTranslation();
     const [error, setError] = useState<boolean>(false);
 
     const onThrow = () => {
@@ -15,12 +17,5 @@ export function ErrorButton() {
         }
     }, [error]);
 
-    return (
-        <Button
-            onClick={onThrow}
-            //eslint-disable-next-line
-        >
-            Throw error
-        </Button>
-    );
+    return <Button onClick={onThrow}>{t('Throw error')}</Button>;
 }

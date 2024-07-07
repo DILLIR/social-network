@@ -18,14 +18,26 @@ export default function ({ config }: { config: webpack.Configuration }) {
     // eslint-disable-next-line no-param-reassign
     config.module = config.module || {};
     config.module.rules = config.module?.rules?.map((rule) => {
-        if(typeof rule === 'object' && rule != null && rule.test != null && /svg/.test(rule.test.toString())) {
-            return {...rule, exclude: /\.svg$/i};
+        if (
+            typeof rule === 'object' &&
+            rule != null &&
+            rule.test != null &&
+            /svg/.test(rule.test.toString())
+        ) {
+            return { ...rule, exclude: /\.svg$/i };
         }
 
         return rule;
     });
-        
+
     config.module?.rules?.push(buildSvgLoader());
     config.module?.rules?.push(buildCssLoader(true));
+
+    config.plugins?.push(
+        new webpack.DefinePlugin({
+            __IS_DEV__: true
+        })
+    );
+
     return config;
 }

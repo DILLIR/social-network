@@ -13,5 +13,8 @@
   "Login": "Вхід",
   "Continue": "Продовжити",
   "Enter_username": "Введіть імʼя користувача",
-  "Enter_password": "Введіть пароль"
+  "Enter_password": "Введіть пароль",
+  "login_error": "Неправильний логін або пароль",
+  "Log_out": "Вийти",
+  "Throw error": "Викликати помилку"
 }

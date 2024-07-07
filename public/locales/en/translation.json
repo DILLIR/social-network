@@ -16,5 +16,8 @@
   "Page not found": "Page not found!",
   "Continue": "Continue",
   "Enter_username": "Enter username",
-  "Enter_password": "Enter password"
+  "Enter_password": "Enter password",
+  "login_error": "Wrong username or password ",
+  "Log_out": "Log out",
+  "Throw error": "Throw error"
 }

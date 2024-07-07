@@ -80,6 +80,14 @@ export const OutlineDark: Story = {
     decorators: [ThemeDecorator(Theme.DARK)]
 };
 
+export const Disabled: Story = {
+    args: {
+        children: 'Button',
+        theme: ButtonTheme.BACKGROUND_INVERTED,
+        disabled: true
+    },
+};
+
 export const Square: Story = {
     args: {
         children: '>',

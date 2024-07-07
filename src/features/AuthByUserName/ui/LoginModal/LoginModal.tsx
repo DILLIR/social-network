@@ -3,6 +3,7 @@ import cls from './LoginModal.module.scss';
 import { Modal } from 'shared/ui/Modal/Modal';
 import { LoginForm } from '../LoginForm/LoginForm';
 import { useTranslation } from 'react-i18next';
+import { Text } from 'shared/ui/Text/Text';
 
 interface LoginModalProps {
     className?: string;
@@ -21,7 +22,7 @@ export function LoginModal({ className, isOpen, onClose }: LoginModalProps) {
                 isOpen={isOpen}
                 lazy
             >
-                <h2 className={cls.Heading}>{t('Login')}</h2>
+                <Text title={t('Login')}/>
                 <LoginForm />
             </Modal>
         </>
