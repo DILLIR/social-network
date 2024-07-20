@@ -1,17 +1,22 @@
-import { RouteProps } from 'react-router-dom';
-import { MainPage } from 'pages/MainPage';
 import { AboutPage } from 'pages/AboutPage';
+import { MainPage } from 'pages/MainPage';
 import { NotFoundPage } from 'pages/NotFoundPage';
+import { ProfilePage } from 'pages/ProfilePage';
+import { RouteProps } from 'react-router-dom';
 
 export enum AppRoutes {
     MAIN = 'main',
     ABOUT = 'about',
+    PROFILE = 'profile',
+
+    // This route should be the last one
     NOT_FOUND = 'not-found'
 }
 
 export const RoutePath: Record<AppRoutes, string> = {
     [AppRoutes.MAIN]: '/',
     [AppRoutes.ABOUT]: '/about',
+    [AppRoutes.PROFILE]: '/profile',
     [AppRoutes.NOT_FOUND]: '*'
 };
 
@@ -24,6 +29,12 @@ export const routeConfig: Record<AppRoutes, RouteProps> = {
         path: RoutePath[AppRoutes.ABOUT],
         element: <AboutPage />
     },
+    [AppRoutes.PROFILE]: {
+        path: RoutePath[AppRoutes.PROFILE],
+        element: <ProfilePage />
+    },
+
+    // This route should be the last one
     [AppRoutes.NOT_FOUND]: {
         path: RoutePath[AppRoutes.NOT_FOUND],
         element: <NotFoundPage />

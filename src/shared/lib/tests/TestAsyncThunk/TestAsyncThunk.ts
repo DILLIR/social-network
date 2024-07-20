@@ -8,7 +8,7 @@ type ActionCreatorType<Return, Arg, RejectedValue> = (arg: Arg) => AsyncThunkAct
 >;
 
 export class TestAsyncThunk<Return, Arg, RejectedValue> {
-    dispatch: jest.MockedFn<any>;
+    dispatch: jest.MockedFn<typeof jest.fn>;
     getState: () => StateSchema;
     actionCreator: ActionCreatorType<Return, Arg, RejectedValue>;
 
