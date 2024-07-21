@@ -30,7 +30,8 @@ const config = {
     },
 
     globals: {
-        "__IS_DEV__": true
+        "__IS_DEV__": true,
+        "__API_URL__": ""
     },
 
     transformIgnorePatterns: ['node_modules/(?!axios)'],
