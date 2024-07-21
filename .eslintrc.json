@@ -48,7 +48,7 @@
         "import/no-extraneous-dependencies": "off",
         "i18next/no-literal-string": "off",
         "react-hooks/rules-of-hooks": "error",
-        "react-hooks/exhaustive-deps": "error" 
+        "react-hooks/exhaustive-deps": "error",
         //  ["error", { "markupOnly": true }]
     },
     "globals": {
