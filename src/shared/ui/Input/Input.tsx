@@ -22,7 +22,7 @@ export const Input = memo(function Input({
     autofocus,
     ...props
 }: InputProps) {
-    const ref = useRef(null);
+    const ref = useRef<HTMLInputElement>(null);
     const [isFocused, setIsFocused] = useState(false);
     const [caretPosition, setCaretPosition] = useState(0);
 

@@ -13,7 +13,7 @@ export function ErrorButton() {
 
     useEffect(() => {
         if (error) {
-            throw new Error('Error Button');
+            throw new Error();
         }
     }, [error]);
 

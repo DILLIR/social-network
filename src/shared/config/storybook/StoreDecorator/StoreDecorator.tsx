@@ -1,10 +1,10 @@
-import { DeepPartial, ReducersMapObject } from '@reduxjs/toolkit';
 import { StoryFn } from '@storybook/react';
 import { StateSchema, StoreProvider } from 'app/providers/StoreProvider';
-import { loginReducer } from 'features/AuthByUserName/model/slice/loginSlice';
 import { profileReducer } from 'entities/Profile';
+import { loginReducer } from 'features/AuthByUserName/model/slice/loginSlice';
+import { ReducersList } from '../../../lib/components/DynamicModuleLoader/DynamicModuleLoader';
 
-const defaultAsyncReducers: DeepPartial<ReducersMapObject<StateSchema>> = {
+const defaultAsyncReducers: ReducersList = {
     loginForm: loginReducer,
     profile: profileReducer
 };
@@ -12,7 +12,7 @@ const defaultAsyncReducers: DeepPartial<ReducersMapObject<StateSchema>> = {
 export const StoreDecorator =
     (
         state: DeepPartial<StateSchema>,
-        asyncReducers?: DeepPartial<ReducersMapObject<StateSchema>>
+        asyncReducers?: ReducersList
     ) =>
     // eslint-disable-next-line react/display-name
         (Story: StoryFn) => (

@@ -30,7 +30,7 @@ export const withAuthLight: Story = {
         StoreDecorator({
             user: {
                 authData: {
-                    username: 'admin'
+                    username: 'admin',
                 }
             }
         })
@@ -42,7 +42,7 @@ export const withAuthDark: Story = {
         StoreDecorator({
             user: {
                 authData: {
-                    username: 'admin'
+                    username: 'admin',
                 }
             }
         }),

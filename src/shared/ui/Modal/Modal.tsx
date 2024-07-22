@@ -1,5 +1,5 @@
-import { lazy, useCallback, useEffect, useRef, useState } from 'react';
-import { classNames } from 'shared/lib/classNames/classNames';
+import { useCallback, useEffect, useRef, useState } from 'react';
+import { classNames, Mods } from 'shared/lib/classNames/classNames';
 import { Portal } from '../Portal/Portal';
 import cls from './Modal.module.scss';
 
@@ -13,7 +13,7 @@ interface ModalProps {
 
 const ANIMATION_DURATION = 300;
 
-export function Modal({ className, children, isOpen, onClose }: ModalProps) {
+export function Modal({ className, children, isOpen, onClose, lazy }: ModalProps) {
     const [isClosing, setIsClosing] = useState(false);
     const [isMounted, setIsMounted] = useState(false);
     const timerRef = useRef<ReturnType<typeof setTimeout>>();
@@ -56,7 +56,7 @@ export function Modal({ className, children, isOpen, onClose }: ModalProps) {
         };
     }, [isOpen, onKeyDown]);
 
-    const mods: Record<string, boolean> = {
+    const mods: Mods = {
         [cls.opened]: isOpen,
         [cls.closing]: isClosing
     };
