@@ -2,5 +2,11 @@
   "Profile": "Profile",
   "Edit": "Edit",
   "Cancel": "Cancel",
-  "Save": "Save"
+  "Save": "Save",
+  "FirstAndLastNameRequired": "First or Last name is missing",
+  "AgeRequired": "Age is missing",
+  "AgeInvalid": "Age is invalid",
+  "CountryRequired": "Country is missing",
+  "NoData": "No data present",
+  "ServerError": "Something went wrong on server"
 }
