@@ -31,7 +31,8 @@ const config = {
 
     globals: {
         "__IS_DEV__": true,
-        "__API_URL__": ""
+        "__API_URL__": "",
+        "__PROJECT__": "jest"
     },
 
     transformIgnorePatterns: ['node_modules/(?!axios)'],

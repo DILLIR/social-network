@@ -3,12 +3,26 @@ import { Theme } from 'app/providers/ThemeProvider';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import ProfilePage from './ProfilePage';
 import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
+import { Country } from 'entities/Country';
+import { Currency } from 'entities/Currency';
 
 const meta: Meta<typeof ProfilePage> = {
     title: 'page/ProfilePage',
     component: ProfilePage,
     tags: ['autodocs'],
-    decorators: [StoreDecorator({})]
+    decorators: [StoreDecorator({
+        profile: {
+            form: {
+                username: 'admin',
+                age: 20,
+                country: Country.UK,
+                lastName: 'Doe',
+                firstName: 'John',
+                city: 'London',
+                currency: Currency.USD,
+            }
+        }
+    })]
 };
 
 export default meta;

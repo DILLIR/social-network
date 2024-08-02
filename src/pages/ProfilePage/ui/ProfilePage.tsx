@@ -41,8 +41,10 @@ export function ProfilePage({ className }: ProfilePageProps) {
     const readonly = useSelector(getProfileReadonly);
     const validateErrors = useSelector(getProfileValidateErrors);
 
-    const validateErrorTranslates : Record<ValidateProfileError, string>= {
-        [ValidateProfileError.FirstAndLastNameRequired]: t('FirstAndLastNameRequired'),
+    const validateErrorTranslates: Record<ValidateProfileError, string> = {
+        [ValidateProfileError.FirstAndLastNameRequired]: t(
+            'FirstAndLastNameRequired'
+        ),
         [ValidateProfileError.AgeRequired]: t('AgeRequired'),
         [ValidateProfileError.AgeInvalid]: t('AgeInvalid'),
         [ValidateProfileError.CountryRequired]: t('CountryRequired'),
@@ -51,7 +53,9 @@ export function ProfilePage({ className }: ProfilePageProps) {
     };
 
     useEffect(() => {
-        dispatch(fetchProfileData());
+        if (__PROJECT__ !== 'storybook') {
+            dispatch(fetchProfileData());
+        }
     }, [dispatch]);
 
     const onChangeFirstName = useCallback(
@@ -116,7 +120,11 @@ export function ProfilePage({ className }: ProfilePageProps) {
             <div className={classNames('', {}, [className])}>
                 <ProfilePageHeader />
                 {validateErrors?.map((error) => (
-                    <Text key={error} theme={TextTheme.ERROR} text={validateErrorTranslates[error]} />
+                    <Text
+                        key={error}
+                        theme={TextTheme.ERROR}
+                        text={validateErrorTranslates[error]}
+                    />
                 ))}
                 <ProfileCard
                     data={formData}
