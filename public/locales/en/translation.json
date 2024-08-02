@@ -5,6 +5,7 @@
   "Toogle theme": "Toogle theme",
   "Main": "Main",
   "About": "About",
+  "Profile": "Profile",
   "Toggle back": "Toggle",
   "notFound": {
     "Page not found": "Page not found"
@@ -19,5 +20,15 @@
   "Enter_password": "Enter password",
   "login_error": "Wrong username or password ",
   "Log_out": "Log out",
-  "Throw error": "Throw error"
+  "Throw error": "Throw error",
+  "Cancel": "Cancel",
+  "Save": "Save",
+  "Username": "Username",
+  "Avatar": "Avatar",
+  "City": "City",
+  "Age": "Age",
+  "Last name": "Last name",
+  "First name": "First name",
+  "Currency": "Currency",
+  "Country": "Country"
 }

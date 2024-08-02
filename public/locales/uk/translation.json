@@ -5,6 +5,7 @@
   "Toogle theme": "Переключити тему",
   "Main": "Головна",
   "About": "Про нас",
+  "Profile": "Профіль",
   "Toggle back": "Закрити панель",
   "Page not found": "Сторінку не знайдено",
   "Something went wrong": "Щось пішло не так!",
@@ -16,5 +17,15 @@
   "Enter_password": "Введіть пароль",
   "login_error": "Неправильний логін або пароль",
   "Log_out": "Вийти",
-  "Throw error": "Викликати помилку"
+  "Throw error": "Викликати помилку",
+  "Cancel": "Відмінити",
+  "Save": "Зберегти",
+  "Username": "Псевдонім",
+  "Avatar": "Аватарка",
+  "City": "Місто",
+  "Age": "Вік",
+  "Last name": "Прізвище",
+  "First name": "Імʼя",
+  "Currency": "Валюта",
+  "Country": "Країна"
 }

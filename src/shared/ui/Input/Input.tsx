@@ -9,7 +9,7 @@ type HTMInputProps = Omit<
 
 interface InputProps extends HTMInputProps {
     className?: string;
-    value?: string;
+    value?: string | number;
     onChange?: (value: string) => void;
     autofocus?: boolean;
 }
@@ -20,6 +20,7 @@ export const Input = memo(function Input({
     onChange,
     placeholder,
     autofocus,
+    disabled,
     ...props
 }: InputProps) {
     const ref = useRef<HTMLInputElement>(null);
@@ -53,7 +54,9 @@ export const Input = memo(function Input({
     }; 
 
     return (
-        <div className={classNames(cls.InputWrapper, {}, [className])}>
+        <div className={classNames(cls.InputWrapper, {
+            [cls.disabled]: disabled
+        }, [className])}>
             {placeholder && (
                 <div className={cls.Placeholder}>{`${placeholder}>`}</div>
             )}
@@ -66,9 +69,10 @@ export const Input = memo(function Input({
                     onFocus={onFocusHandler}
                     onBlur={onBlurHandler}
                     onSelect={onSelect}
+                    disabled={disabled}
                     {...props}
                 />
-                {isFocused && <span className={cls.caret} style={{left: `${caretPosition * 7.8}px`}}></span>}
+                {isFocused && <span className={cls.caret} style={{left: `${caretPosition * 9.6}px`}}></span>}
             </div>
         </div>
     );
