@@ -8,8 +8,6 @@ export const RequireAuth = ({ children }: { children: ReactNode }) => {
     const location = useLocation();
     const auth = useSelector(getUserAuthData);
 
-    console.log('auth', auth);
-
     if (auth != null) {
         return <>{children}</>;
     }
