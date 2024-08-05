@@ -30,5 +30,7 @@
   "Last name": "Last name",
   "First name": "First name",
   "Currency": "Currency",
-  "Country": "Country"
+  "Country": "Country",
+  "Article not found": "Article not found",
+  "Something went wrong while loading article": "Something went wrong while loading article"
 }
