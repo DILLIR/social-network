@@ -32,5 +32,6 @@
   "Currency": "Currency",
   "Country": "Country",
   "Article not found": "Article not found",
-  "Something went wrong while loading article": "Something went wrong while loading article"
+  "Something went wrong while loading article": "Something went wrong while loading article",
+  "Comments are missing": "Comments are missing"
 }
