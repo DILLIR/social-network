@@ -3,7 +3,7 @@ import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDeco
 import { CommentList } from './CommentList';
 
 const meta: Meta<typeof CommentList> = {
-    title: 'entities/CommentList',
+    title: 'entities/Comment/CommentList',
     component: CommentList,
     tags: ['autodocs'],
     decorators: [StoreDecorator({})]
@@ -12,7 +12,32 @@ const meta: Meta<typeof CommentList> = {
 export default meta;
 type Story = StoryObj<typeof CommentList>;
 
-
 export const Default: Story = {
-    args: {  }
+    args: {
+        comments: [
+            {
+                id: '1',
+                text: 'cool',
+                user: {
+                    id: '1',
+                    username: 'dillir'
+                }
+            },
+            {
+                id: '2',
+                text: 'Hello world',
+                user: {
+                    id: '2',
+                    username: 'Vlada'
+                }
+            }
+        ]
+    }
+};
+
+export const Loading: Story = {
+    args: {
+        isLoading: true,
+        comments: []
+    }
 };

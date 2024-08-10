@@ -21,6 +21,9 @@ import {
     getArticleComments
 } from '../../model/slices/articleDetailsCommentsSlice';
 import cls from './ArticleDetailsPage.module.scss';
+import { AddCommentFormAsync } from '../../../../features/AddNewComment/ui/AddCommentForm/AddCommentForm.async';
+import { useCallback } from 'react';
+import { addCommentForArticle } from '../../model/services/addCommentForArticle/addCommentForArticle';
 
 interface ArticleDetailsPageProps {
     className?: string;
@@ -37,6 +40,10 @@ function ArticleDetailsPage({ className }: ArticleDetailsPageProps) {
     const commentsIsLoading = useSelector(getArticleCommentsIsLoading);
     const commentsError = useSelector(getArticleCommentsError);
     const dispatch = useAppDispatch();
+
+    const onSendComment = useCallback((text: string) => {
+        dispatch(addCommentForArticle(text))
+    }, [dispatch])
 
     useInitialEffect(() => {
         dispatch(fetchCommentByArticleId(id));
@@ -55,6 +62,7 @@ function ArticleDetailsPage({ className }: ArticleDetailsPageProps) {
             <div className={classNames('', {}, [className])}>
                 <ArticleDetails id={id} />
                 <Text className={cls.commentTitle} title={t('Comments')} />
+                <AddCommentFormAsync onSendComment={onSendComment}/>
                 <CommentList
                     isLoading={commentsIsLoading}
                     comments={comments}

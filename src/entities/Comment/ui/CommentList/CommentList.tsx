@@ -17,11 +17,27 @@ export function CommentList({
     isLoading
 }: CommentListProps) {
     const { t } = useTranslation();
+
+    if (isLoading) {
+        return (
+            <div className={classNames(cls.CommentList, {}, [className])}>
+                <CommentCard isLoading />
+                <CommentCard isLoading />
+                <CommentCard isLoading />
+            </div>
+        );
+    }
+
     return (
         <div className={classNames(cls.CommentList, {}, [className])}>
             {comments.length > 0 ? (
                 comments.map((comment, index) => (
-                    <CommentCard className={cls.comment} key={index} comment={comment} isLoading={isLoading}/>
+                    <CommentCard
+                        className={cls.comment}
+                        key={index}
+                        comment={comment}
+                        isLoading={isLoading}
+                    />
                 ))
             ) : (
                 <Text text={t('Comments are missing')} />
