@@ -1,9 +1,9 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
-import { Article, ArticleBlockType, ArticleType } from '../../model/types/article';
-import { ArticleDetails } from './ArticleDetails';
+import { ArticleListItem } from './ArticleListItem';
+import { Article, ArticleView } from '../../model/types/article';
 
-const article: Article = {
+const article = {
     id: '1',
     title: 'Javascript news',
     subtitle: 'Что нового в JS за 2022 год?',
@@ -13,12 +13,13 @@ const article: Article = {
     user: {
         id: '1',
         username: 'John Doe',
+        avatar: 'https://avatars.githubusercontent.com/u/44670502?v=1'
     },
-    type: [ArticleType.IT],
+    type: ['IT'],
     blocks: [
         {
             id: '1',
-            type: ArticleBlockType.TEXT,
+            type: 'TEXT',
             title: 'Заголовок этого блока',
             paragraphs: [
                 'Программа, которую по традиции называют «Hello, world!», очень проста. Она выводит куда-либо фразу «Hello, world!», или другую подобную, средствами некоего языка.',
@@ -28,12 +29,12 @@ const article: Article = {
         },
         {
             id: '4',
-            type: ArticleBlockType.CODE,
+            type: 'CODE',
             code: '<!DOCTYPE html>\n<html>\n  <body>\n    <p id="hello"></p>\n\n    <script>\n      document.getElementById("hello").innerHTML = "Hello, world!";\n    </script>\n  </body>\n</html>;'
         },
         {
             id: '5',
-            type: ArticleBlockType.TEXT,
+            type: 'TEXT',
             title: 'Заголовок этого блока',
             paragraphs: [
                 'Программа, которую по традиции называют «Hello, world!», очень проста. Она выводит куда-либо фразу «Hello, world!», или другую подобную, средствами некоего языка.',
@@ -42,18 +43,18 @@ const article: Article = {
         },
         {
             id: '2',
-            type: ArticleBlockType.IMAGE,
+            type: 'IMAGE',
             src: 'https://hsto.org/r/w1560/getpro/habr/post_images/d56/a02/ffc/d56a02ffc62949b42904ca00c63d8cc1.png',
             title: 'Рисунок 1 - скриншот сайта'
         },
         {
             id: '3',
-            type: ArticleBlockType.CODE,
+            type: 'CODE',
             code: "const path = require('path');\n\nconst server = jsonServer.create();\n\nconst router = jsonServer.router(path.resolve(__dirname, 'db.json'));\n\nserver.use(jsonServer.defaults({}));\nserver.use(jsonServer.bodyParser);"
         },
         {
             id: '7',
-            type: ArticleBlockType.TEXT,
+            type: 'TEXT',
             title: 'Заголовок этого блока',
             paragraphs: [
                 'JavaScript — это язык, программы на котором можно выполнять в разных средах. В нашем случае речь идёт о браузерах и о серверной платформе Node.js. Если до сих пор вы не написали ни строчки кода на JS и читаете этот текст в браузере, на настольном компьютере, это значит, что вы буквально в считанных секундах от своей первой JavaScript-программы.',
@@ -62,65 +63,41 @@ const article: Article = {
         },
         {
             id: '8',
-            type: ArticleBlockType.IMAGE,
+            type: 'IMAGE',
             src: 'https://hsto.org/r/w1560/getpro/habr/post_images/d56/a02/ffc/d56a02ffc62949b42904ca00c63d8cc1.png',
             title: 'Рисунок 1 - скриншот сайта'
         },
         {
             id: '9',
-            type: ArticleBlockType.TEXT,
+            type: 'TEXT',
             title: 'Заголовок этого блока',
             paragraphs: [
                 'JavaScript — это язык, программы на котором можно выполнять в разных средах. В нашем случае речь идёт о браузерах и о серверной платформе Node.js. Если до сих пор вы не написали ни строчки кода на JS и читаете этот текст в браузере, на настольном компьютере, это значит, что вы буквально в считанных секундах от своей первой JavaScript-программы.'
             ]
         }
     ]
-};
+} as Article;
 
-const meta: Meta<typeof ArticleDetails> = {
-    title: 'entities/Article/ArticleDetails',
-    component: ArticleDetails,
+const meta: Meta<typeof ArticleListItem> = {
+    title: 'entities/Article/ArticleListItem',
+    component: ArticleListItem,
     tags: ['autodocs'],
+    decorators: [StoreDecorator({})]
 };
 
 export default meta;
-type Story = StoryObj<typeof ArticleDetails>;
+type Story = StoryObj<typeof ArticleListItem>;
 
-export const Default: Story = {
-    args: {},
-    decorators: [
-        StoreDecorator({
-            articleDetails: {
-                data: article,
-                isLoading: false,
-                error: undefined
-            }
-        })
-    ]
-};
-export const Error: Story = {
+export const DefaultList: Story = {
     args: {
-
-    },
-    decorators: [
-        StoreDecorator({
-            articleDetails: {
-                data: undefined,
-                isLoading: false,
-                error: "Error"
-            }
-        })
-    ]
+        article,
+        view: ArticleView.LIST
+    }
 };
-export const IsLoading: Story = {
-    args: {},
-    decorators: [
-        StoreDecorator({
-            articleDetails: {
-                data: undefined,
-                isLoading: true,
-                error: undefined
-            }
-        })
-    ]
+
+export const DefaultGrid: Story = {
+    args: {
+        article,
+        view: ArticleView.GRID
+    }
 };

@@ -9,6 +9,7 @@
   "Article not found": "Article not found",
   "Avatar": "Avatar",
   "BUTTON": "BUTTON",
+  "Back to articles": "Back to articles",
   "Cancel": "Cancel",
   "City": "City",
   "Comments": "Comments",
@@ -37,6 +38,7 @@
   "Profile": "Profile",
   "Profile Page": "Profile Page",
   "ProfilePage": "ProfilePage",
+  "Read more": "Read more",
   "Reload": "Reload",
   "Save": "Save",
   "Select": "Select",
@@ -51,5 +53,6 @@
   "Translate": "Translate",
   "Username": "Username",
   "login_error": "login_error",
+  "read more": "read more",
   "Сщтештгу": "Сщтештгу"
 }

@@ -1,7 +1,9 @@
+import { User } from 'entities/User';
+
 export enum ArticleBlockType {
     CODE = 'CODE',
     IMAGE = 'IMAGE',
-    TEXT = 'TEXT',
+    TEXT = 'TEXT'
 }
 export interface ArticleBlockDefault {
     id: string;
@@ -16,27 +18,36 @@ export interface ArticleImageBLock extends ArticleBlockDefault {
     src: string;
     title: string;
 }
-export interface ArticleTextBLock extends ArticleBlockDefault{
+export interface ArticleTextBLock extends ArticleBlockDefault {
     type: ArticleBlockType.TEXT;
     title?: string;
     paragraphs: string[];
 }
 
-export type ArticleBlock = ArticleCodeBLock | ArticleImageBLock | ArticleTextBLock;
+export type ArticleBlock =
+    | ArticleCodeBLock
+    | ArticleImageBLock
+    | ArticleTextBLock;
 
 export enum ArticleType {
-    "IT" = "IT",
-    "SCIENCE" = "SCIENCE",
-    "ECONOMICS" = "ECONOMICS",
+    'IT' = 'IT',
+    'SCIENCE' = 'SCIENCE',
+    'ECONOMICS' = 'ECONOMICS'
+}
+
+export enum ArticleView {
+    LIST = 'LIST',
+    GRID = 'GRID'
 }
 
 export interface Article {
-    id:        string;
-    title:     string;
-    subtitle:  string;
-    img:       string;
-    views:     number;
+    id: string;
+    title: string;
+    user: User;
+    subtitle: string;
+    img: string;
+    views: number;
     createdAt: string;
-    type:      ArticleType[];
-    blocks:    ArticleBlock[];
+    type: ArticleType[];
+    blocks: ArticleBlock[];
 }
