@@ -1,0 +1,7 @@
+.button {
+    fill: var(--secondary-color);
+
+    &.selected {
+        fill: var(--inverted-secondary-color);
+    }
+}
