@@ -25,7 +25,8 @@ import {
     articlesPageReducer,
     getArticles
 } from '../../model/slices/articlesPageSlice';
-import {Text, TextTheme} from 'shared/ui/Text/Text';
+import { Text, TextTheme } from 'shared/ui/Text/Text';
+import { initArticlesPage } from '../../model/services/initArticlesPage/initArticlesPage';
 
 interface ArticlesPageProps {
     className?: string;
@@ -50,25 +51,20 @@ function ArticlesPage({ className }: ArticlesPageProps) {
     );
 
     const onLoadNextPart = useCallback(() => {
-        dispatch(fetchNextArticlesPage())
+        dispatch(fetchNextArticlesPage());
     }, [dispatch]);
 
     useInitialEffect(() => {
-        dispatch(articlesPageActions.initState());
-        dispatch(
-            fetchArticlesList({
-                page: 1
-            })
-        );
+        dispatch(initArticlesPage());
     });
 
     return (
-        <DynamicModuleLoader reducers={reducers}>
+        <DynamicModuleLoader reducers={reducers} removeAfterUnmount={false}>
             <Page
                 className={classNames('', {}, [className])}
                 onScrollEnd={onLoadNextPart}
             >
-                {error && <Text title={error} theme={TextTheme.ERROR}/>}
+                {error && <Text title={error} theme={TextTheme.ERROR} />}
                 <ArticleViewSelector
                     viewMode={viewMode}
                     onViewClick={onChangeView}

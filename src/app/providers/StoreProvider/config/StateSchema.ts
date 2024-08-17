@@ -4,10 +4,9 @@ import { ArticleDetailsSchema } from 'entities/Article';
 import { CounterSchema } from 'entities/Counter';
 import { ProfileSchema } from 'entities/Profile/model/types/profile';
 import { UserSchema } from 'entities/User';
-import { LoginSchema } from 'features/AuthByUserName';
-import { NavigateOptions, To } from 'react-router-dom';
-import { ArticleDetailsCommentsSchema } from 'pages/ArticleDetailsPage';
 import { AddNewCommentSchema } from 'features/AddNewComment';
+import { LoginSchema } from 'features/AuthByUserName';
+import { ArticleDetailsCommentsSchema } from 'pages/ArticleDetailsPage';
 import { ArticlesPageSchema } from 'pages/ArticlesPage';
 
 export interface StateSchema {
@@ -39,7 +38,6 @@ export interface ReducerManager {
 
 export interface ThunkExtraArg {
     api: AxiosInstance;
-    navigate?: (to: To, options?:NavigateOptions) => void
 }
 
 export interface ThunkConfig<T>{
