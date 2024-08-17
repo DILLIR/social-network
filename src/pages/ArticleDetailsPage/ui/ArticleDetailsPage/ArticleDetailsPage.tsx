@@ -42,6 +42,7 @@ function ArticleDetailsPage({ className }: ArticleDetailsPageProps) {
     const comments = useSelector(getArticleComments.selectAll);
     const commentsIsLoading = useSelector(getArticleCommentsIsLoading);
     const commentsError = useSelector(getArticleCommentsError);
+    
     const dispatch = useAppDispatch();
     const navigate = useNavigate();
 

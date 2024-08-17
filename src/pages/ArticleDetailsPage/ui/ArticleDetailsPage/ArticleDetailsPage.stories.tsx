@@ -11,7 +11,6 @@ const meta: Meta<typeof ArticleDetailsPage> = {
     title: 'page/ArticleDetailsPage',
     component: ArticleDetailsPage,
     tags: ['autodocs'],
-    decorators: [StoreDecorator({})]
 };
 
 export default meta;
@@ -96,7 +95,14 @@ export const Default: Story = {
     decorators: [
         StoreDecorator({
             articleDetails: {
-                data: article
+                isLoading: false,
+                data: article,
+                
+            },
+            articleDetailsComments: {
+                isLoading: false,
+                ids: [],
+                entities: {},
             }
         })
     ]
