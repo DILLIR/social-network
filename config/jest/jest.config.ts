@@ -30,12 +30,14 @@ const config = {
     },
 
     globals: {
-        "__IS_DEV__": true,
-        "__API_URL__": "",
-        "__PROJECT__": "jest"
+        __IS_DEV__: true,
+        __API_URL__: '',
+        __PROJECT__: 'jest'
     },
 
     transformIgnorePatterns: ['node_modules/(?!axios)'],
+
+    resetMocks: true,
 
     // All imported modules in your tests should be mocked automatically
     // automock: false,
@@ -115,7 +117,6 @@ const config = {
     // reporters: undefined,
 
     // Automatically reset mock state before every test
-    // resetMocks: false,
 
     // Reset the module registry before running each individual test
     // resetModules: false,

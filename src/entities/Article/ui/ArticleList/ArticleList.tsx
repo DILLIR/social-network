@@ -25,19 +25,6 @@ export function ArticleList({
     isLoading,
     viewMode = ArticleView.GRID
 }: ArticleListProps) {
-    if (isLoading) {
-        return (
-            <div
-                className={classNames(cls.ArticleList, {}, [
-                    className,
-                    cls[viewMode]
-                ])}
-            >
-                {getSkeletons(viewMode)}
-            </div>
-        );
-    }
-
     const renderArticle = (article: Article) => {
         return (
             <ArticleListItem
@@ -57,6 +44,7 @@ export function ArticleList({
             ])}
         >
             {articles.length > 0 ? articles.map(renderArticle) : null}
+            {isLoading && getSkeletons(viewMode)}
         </div>
     );
 }
