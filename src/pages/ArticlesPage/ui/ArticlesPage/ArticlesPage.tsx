@@ -12,21 +12,20 @@ import {
 } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect';
-import { Page } from 'shared/ui/Page/Page';
+import { Text, TextTheme } from 'shared/ui/Text/Text';
+import { Page } from 'widgets/Page/Page';
 import {
     getArticlesPageError,
     getArticlesPageIsLoading,
     getArticlesPageView
 } from '../../model/selectors/articlesPageSelectors';
-import { fetchArticlesList } from '../../model/services/fetchArticlesList/fetchArticlesList';
 import { fetchNextArticlesPage } from '../../model/services/fetchNextArticlesPage/fetchNextArticlesPage';
+import { initArticlesPage } from '../../model/services/initArticlesPage/initArticlesPage';
 import {
     articlesPageActions,
     articlesPageReducer,
     getArticles
 } from '../../model/slices/articlesPageSlice';
-import { Text, TextTheme } from 'shared/ui/Text/Text';
-import { initArticlesPage } from '../../model/services/initArticlesPage/initArticlesPage';
 
 interface ArticlesPageProps {
     className?: string;

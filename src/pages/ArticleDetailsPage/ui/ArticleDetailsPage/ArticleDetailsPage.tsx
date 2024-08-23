@@ -15,6 +15,7 @@ import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect';
 import { Button } from 'shared/ui/Button/Button';
 import { Text } from 'shared/ui/Text/Text';
+import { Page } from 'widgets/Page/Page';
 import {
     getArticleCommentsError,
     getArticleCommentsIsLoading
@@ -26,7 +27,6 @@ import {
     getArticleComments
 } from '../../model/slices/articleDetailsCommentsSlice';
 import cls from './ArticleDetailsPage.module.scss';
-import { Page } from 'shared/ui/Page/Page';
 
 interface ArticleDetailsPageProps {
     className?: string;
