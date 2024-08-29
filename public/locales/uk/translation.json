@@ -34,5 +34,18 @@
   "Enter your comment": "Введіть коментарій",
   "Send": "Надіслати",
   "Read more": "Читати далі",
-  "article-details.Back to articles": "Повернутися до статей"
+  "article-details.Back to articles": "Повернутися до статей",
+  "Sort by": "Сортувати за",
+  "Search": "Пошук",
+  "Direction": "Напрямок",
+  "Ascending": "Висхідний",
+  "Descending": "Спускається",
+  "Views": "Перегляди",
+  "Title": "Назва",
+  "Created": "Створено",
+  "ALL": "ВСЕ",
+  "Economics": "Економіка",
+  "Science": "Наука",
+  "IT": "IT",
+  "Articles not found": "Статті не знайдено"
 }

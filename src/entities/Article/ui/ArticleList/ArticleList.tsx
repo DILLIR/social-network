@@ -3,6 +3,8 @@ import { Article, ArticleView } from '../../model/types/article';
 import { ArticleListItem } from '../ArticleListItem/ArticleListItem';
 import { ArticleListItemSkeleton } from '../ArticleListItem/ArticleListItemSkeleton';
 import cls from './ArticleList.module.scss';
+import { Text, TextAlign, TextSize } from 'shared/ui/Text/Text';
+import { useTranslation } from 'react-i18next';
 
 interface ArticleListProps {
     className?: string;
@@ -25,6 +27,8 @@ export function ArticleList({
     isLoading,
     viewMode = ArticleView.GRID
 }: ArticleListProps) {
+    const { t } = useTranslation();
+
     const renderArticle = (article: Article) => {
         return (
             <ArticleListItem
@@ -35,6 +39,19 @@ export function ArticleList({
             />
         );
     };
+
+    if (!isLoading && !articles.length) {
+        return (
+            <div
+                className={classNames(cls.ArticleList, {}, [
+                    className,
+                    cls[viewMode]
+                ])}
+            >
+                <Text size={TextSize.L} title={t('Articles not found')} align={TextAlign.CENTER} />
+            </div>
+        );
+    }
 
     return (
         <div

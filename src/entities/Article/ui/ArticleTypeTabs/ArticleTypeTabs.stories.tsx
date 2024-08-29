@@ -1,16 +1,16 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
-import ArticlesPage from './ArticlesPage';
+import { ArticleTypeTabs } from './ArticleTypeTabs';
 
-const meta: Meta<typeof ArticlesPage> = {
-    title: 'page/Article/ArticlesPage',
-    component: ArticlesPage,
+const meta: Meta<typeof ArticleTypeTabs> = {
+    title: 'entities/Article/ArticleTypeTabs',
+    component: ArticleTypeTabs,
     tags: ['autodocs'],
     decorators: [StoreDecorator({})]
 };
 
 export default meta;
-type Story = StoryObj<typeof ArticlesPage>;
+type Story = StoryObj<typeof ArticleTypeTabs>;
 
 
 export const Default: Story = {

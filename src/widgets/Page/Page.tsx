@@ -52,7 +52,7 @@ export function Page({ className, children, onScrollEnd }: PageProps) {
             className={classNames(cls.Page, {}, [className])}
         >
             {children}
-            <div ref={triggerRef}></div>
+            {onScrollEnd && <div className={cls.trigger} ref={triggerRef}></div>}
         </section>
     );
 }

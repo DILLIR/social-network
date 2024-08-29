@@ -1,7 +1,5 @@
 import {
-    ArticleList,
-    ArticleView,
-    ArticleViewSelector
+    ArticleList
 } from 'entities/Article';
 import { useCallback } from 'react';
 import { useSelector } from 'react-redux';
@@ -22,10 +20,12 @@ import {
 import { fetchNextArticlesPage } from '../../model/services/fetchNextArticlesPage/fetchNextArticlesPage';
 import { initArticlesPage } from '../../model/services/initArticlesPage/initArticlesPage';
 import {
-    articlesPageActions,
     articlesPageReducer,
     getArticles
 } from '../../model/slices/articlesPageSlice';
+import { ArticlesPageFilters } from '../ArticlesPageFilters/ArticlesPageFilters';
+import cls from './ArticlesPage.module.scss';
+import { useSearchParams } from 'react-router-dom';
 
 interface ArticlesPageProps {
     className?: string;
@@ -41,13 +41,7 @@ function ArticlesPage({ className }: ArticlesPageProps) {
     const viewMode = useSelector(getArticlesPageView);
     const isLoading = useSelector(getArticlesPageIsLoading);
     const error = useSelector(getArticlesPageError);
-
-    const onChangeView = useCallback(
-        (view: ArticleView) => {
-            dispatch(articlesPageActions.setView(view));
-        },
-        [dispatch]
-    );
+    const [searchParams] = useSearchParams();
 
     const onLoadNextPart = useCallback(() => {
         if (__PROJECT__ !== 'storybook') {
@@ -56,7 +50,7 @@ function ArticlesPage({ className }: ArticlesPageProps) {
     }, [dispatch]);
 
     useInitialEffect(() => {
-        dispatch(initArticlesPage());
+        dispatch(initArticlesPage(searchParams));
     });
 
     return (
@@ -66,11 +60,9 @@ function ArticlesPage({ className }: ArticlesPageProps) {
                 onScrollEnd={onLoadNextPart}
             >
                 {error && <Text title={error} theme={TextTheme.ERROR} />}
-                <ArticleViewSelector
-                    viewMode={viewMode}
-                    onViewClick={onChangeView}
-                />
+                <ArticlesPageFilters />
                 <ArticleList
+                    className={cls.list}
                     viewMode={viewMode}
                     articles={articles}
                     isLoading={isLoading}

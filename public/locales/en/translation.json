@@ -38,5 +38,19 @@
   "Enter your comment": "Enter your comment",
   "Send": "Send",
   "Read more": "Read more",
-  "article-details.Back to articles": "Back to articles"
+  "article-details.Back to articles": "Back to articles",
+  "Sort by": "Sort by",
+  "Search": "Search",
+  "Direction": "Direction",
+  "Ascending": "Ascending",
+  "Descending": "Descending",
+  "Created": "Created",
+  "Title": "Title",
+  "Views": "Views",
+  "IT": "IT",
+  "News": "News",
+  "Economics": "Economics",
+  "ALL": "ALL",
+  "Science": "Science",
+  "Articles not found": "Articles not found"
 }

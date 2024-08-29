@@ -1,32 +1,33 @@
-import { memo, useCallback, useMemo } from 'react';
+import { useCallback, useMemo } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import cls from './Select.module.scss';
 
-export interface SelectOption {
-    value: string;
+export interface SelectOption<T extends string> {
+    value: T;
     label: string;
 }
 
 // refactor to use generic type
-interface SelectProps extends Omit<React.SelectHTMLAttributes<HTMLSelectElement>, 'onChange'> {
+interface SelectProps<T extends string>
+    extends Omit<React.SelectHTMLAttributes<HTMLSelectElement>, 'onChange'> {
     className?: string;
     label?: string;
-    options?: SelectOption[];
-    value?: string;
-    onChange?: (value: string) => void;
+    options?: SelectOption<T>[];
+    value?: T;
+    onChange?: (value: T) => void;
 }
 
-export const Select = memo(function Select({
+export const Select = <T extends string>({
     className,
     label,
     options,
     value,
     onChange,
     ...props
-}: SelectProps) {
+}: SelectProps<T>) => {
     const onChangeHandler = useCallback(
         (event: React.ChangeEvent<HTMLSelectElement>) => {
-            onChange?.(event.target.value);
+            onChange?.(event.target.value as T);
         },
         [onChange]
     );
@@ -46,9 +47,15 @@ export const Select = memo(function Select({
     }, [options]);
 
     return (
-        <div className={classNames(cls.Wrapper, {
-            [cls.disabled]: props.disabled
-        }, [className])}>
+        <div
+            className={classNames(
+                cls.Wrapper,
+                {
+                    [cls.disabled]: props.disabled
+                },
+                [className]
+            )}
+        >
             {label != null && <span className={cls.label}>{label + '>'}</span>}
             <select
                 {...props}
@@ -60,4 +67,4 @@ export const Select = memo(function Select({
             </select>
         </div>
     );
-});
+};
