@@ -89,9 +89,9 @@ export function ArticlesPageFilters({ className }: ArticlesPageFiltersProps) {
         (tab: TabItem<ArticleType>) => {
             dispatch(articlesPageActions.setType(tab.value));
             dispatch(articlesPageActions.setPage(1));
-            debouncedFetchData();
+            fetchData();
         },
-        [dispatch, debouncedFetchData]
+        [dispatch, fetchData]
     );
 
     const typeTabs = useMemo<TabItem<ArticleType>[]>(() => {
