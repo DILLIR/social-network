@@ -6,6 +6,10 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 import { LoginModal } from '../../../features/AuthByUserName';
 import cls from './Navbar.module.scss';
+import { Text, TextTheme } from '../../../shared/ui/Text/Text';
+import { AppLink } from '../../../shared/ui/AppLink/AppLink';
+import { RoutePath } from '../../../shared/config/routeConfig/routeConfig';
+import { AppLinkTheme } from 'shared/ui/AppLink/AppLink';
 
 interface NavbarProps {
     className?: string;
@@ -26,6 +30,20 @@ export const Navbar = memo(function Navbar({ className }: NavbarProps) {
     if (authData != null) {
         return (
             <header className={classNames(cls.Navbar, {}, [className])}>
+                <AppLink
+                    to="/"
+                    className={cls.logo}
+                    theme={AppLinkTheme.SECONDARY}
+                >
+                    <Text title={'Social network'} theme={TextTheme.INVERTED} />
+                </AppLink>
+                <AppLink
+                    to={RoutePath.article_create}
+                    theme={AppLinkTheme.SECONDARY}
+                    className={cls.createLink}
+                >
+                    {t('Create article')}
+                </AppLink>
                 <Button
                     className={cls.links}
                     theme={ButtonTheme.CLEAR_INVERTED}
@@ -39,6 +57,7 @@ export const Navbar = memo(function Navbar({ className }: NavbarProps) {
 
     return (
         <header className={classNames(cls.Navbar, {}, [className])}>
+            <Text className={cls.logo} title={'Social network'} />
             <Button
                 className={cls.links}
                 theme={ButtonTheme.CLEAR_INVERTED}
@@ -49,4 +68,4 @@ export const Navbar = memo(function Navbar({ className }: NavbarProps) {
             {isOpen && <LoginModal isOpen={isOpen} onClose={onCloseModal} />}
         </header>
     );
-})
+});
