@@ -5,12 +5,14 @@ import { ArticleListItemSkeleton } from '../ArticleListItem/ArticleListItemSkele
 import cls from './ArticleList.module.scss';
 import { Text, TextAlign, TextSize } from 'shared/ui/Text/Text';
 import { useTranslation } from 'react-i18next';
+import { HTMLAttributeAnchorTarget } from 'react';
 
 interface ArticleListProps {
     className?: string;
     articles: Article[];
     isLoading?: boolean;
     viewMode?: ArticleView;
+    target?: HTMLAttributeAnchorTarget;
 }
 
 const getSkeletons = (viewMode: ArticleView) => {
@@ -25,7 +27,8 @@ export function ArticleList({
     className,
     articles,
     isLoading,
-    viewMode = ArticleView.GRID
+    viewMode = ArticleView.GRID,
+    target
 }: ArticleListProps) {
     const { t } = useTranslation();
 
@@ -36,6 +39,7 @@ export function ArticleList({
                 article={article}
                 view={viewMode}
                 className={cls.card}
+                target={target}
             />
         );
     };

@@ -10,7 +10,7 @@ import ArticleDetailsPage from './ArticleDetailsPage';
 const meta: Meta<typeof ArticleDetailsPage> = {
     title: 'page/ArticleDetailsPage',
     component: ArticleDetailsPage,
-    tags: ['autodocs'],
+    tags: ['autodocs']
 };
 
 export default meta;
@@ -25,7 +25,7 @@ const article: Article = {
     createdAt: '26.02.2022',
     user: {
         id: '1',
-        username: 'John Doe',
+        username: 'John Doe'
     },
     type: [ArticleType.IT],
     blocks: [
@@ -96,13 +96,14 @@ export const Default: Story = {
         StoreDecorator({
             articleDetails: {
                 isLoading: false,
-                data: article,
-                
+                data: article
             },
-            articleDetailsComments: {
-                isLoading: false,
-                ids: [],
-                entities: {},
+            articleDetailsPage: {
+                comments: {
+                    isLoading: false,
+                    ids: [],
+                    entities: {}
+                }
             }
         })
     ]
