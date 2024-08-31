@@ -4,28 +4,28 @@ import {
     ArticleTypeTabs,
     ArticleView
 } from 'entities/Article';
+import { ArticleType } from 'entities/Article/model/types/article';
 import { ArticleViewSelector } from 'entities/Article/ui/ArticleViewSelector/ArticleViewSelector';
-import { useCallback, useMemo } from 'react';
+import { getArticlesPageType } from 'pages/ArticlesPage/model/selectors/articlesPageSelectors';
+import { useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
+import { useDebounce } from 'shared/lib/hooks/useDebounce';
 import { OrderBy } from 'shared/types/index';
 import { Card } from 'shared/ui/Card/Card';
 import { Input } from 'shared/ui/Input/Input';
+import { TabItem } from '../../../../shared/ui/Tabs/Tabs';
 import {
     getArticlesPageOrder,
     getArticlesPageSearch,
     getArticlesPageSort,
     getArticlesPageView
 } from '../../model/selectors/articlesPageSelectors';
+import { fetchArticlesList } from '../../model/services/fetchArticlesList/fetchArticlesList';
 import { articlesPageActions } from '../../model/slices/articlesPageSlice';
 import cls from './ArticlesPageFilters.module.scss';
-import { useDebounce } from 'shared/lib/hooks/useDebounce';
-import { TabItem, Tabs } from '../../../../shared/ui/Tabs/Tabs';
-import { ArticleType } from 'entities/Article/model/types/article';
-import { getArticlesPageType } from 'pages/ArticlesPage/model/selectors/articlesPageSelectors';
-import { fetchArticlesList } from '../../model/services/fetchArticlesList/fetchArticlesList';
 
 interface ArticlesPageFiltersProps {
     className?: string;
@@ -93,15 +93,6 @@ export function ArticlesPageFilters({ className }: ArticlesPageFiltersProps) {
         },
         [dispatch, fetchData]
     );
-
-    const typeTabs = useMemo<TabItem<ArticleType>[]>(() => {
-        return [
-            { value: ArticleType.ALL, node: t('ALL') },
-            { value: ArticleType.IT, node: t('IT') },
-            { value: ArticleType.SCIENCE, node: t('Science') },
-            { value: ArticleType.ECONOMICS, node: t('Economics') }
-        ];
-    }, [t]);
 
     return (
         <div className={classNames(cls.ArticlesPageFilters, {}, [className])}>
