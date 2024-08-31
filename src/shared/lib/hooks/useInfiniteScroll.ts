@@ -19,7 +19,7 @@ export function useInfiniteScroll({
         if (callback != null) {
             const options = {
                 root: wrapperRefClosure,
-                rootMargin: '0px',
+                rootMargin: '20px',
                 threshold: 1.0
             };
 
@@ -34,7 +34,6 @@ export function useInfiniteScroll({
 
         return () => {
             if (observer != null && triggerRefClosure != null) {
-                // eslint-disable-next-line react-hooks/exhaustive-deps
                 observer.unobserve(triggerRefClosure);
             }
         };

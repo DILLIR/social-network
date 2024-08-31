@@ -62,8 +62,9 @@ const articlesPageSlice = createSlice({
             const view = localStorage.getItem(
                 ARTICLES_VIEW_LOCALSTORAGE_KEY
             ) as ArticleView;
+            const computedGridFetch = Math.ceil(( window.innerWidth / 320) * (window.innerHeight / 330));
             state.view = view ?? ArticleView.GRID;
-            state.limit = view === ArticleView.LIST ? 4 : 9;
+            state.limit = view === ArticleView.LIST ? 4 : computedGridFetch;
         }
     },
     extraReducers: (builder) => {

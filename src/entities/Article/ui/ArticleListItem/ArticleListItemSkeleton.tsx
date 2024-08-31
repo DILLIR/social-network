@@ -52,7 +52,7 @@ export function ArticleListItemSkeleton({
                 cls[view]
             ])}
         >
-            <Card className={cls.card}>
+            <Card className={cls.card} style={{height: "295px"}}>
                 <div className={cls.imageWrapper}>
                     <Skeleton width={200} height={200} className={cls.img} />
                 </div>
