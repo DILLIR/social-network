@@ -44,3 +44,5 @@ The project is structured as follows:
 - `src`: This directory contains the source code of the application.
 - `config`: This directory contains configuration files for various tools like Webpack, Storybook, Jest, and Loki.
 - `public`: This directory contains the public assets of the application.
+
+Backend [link](https://social-network-backend-phi.vercel.app/)
