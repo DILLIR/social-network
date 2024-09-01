@@ -8,35 +8,31 @@ import { useParams } from 'react-router-dom';
 import { classNames } from 'shared/lib/classNames/classNames';
 import {
     DynamicModuleLoader,
-    ReducersList,
+    ReducersList
 } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect';
 import { Text, TextSize } from 'shared/ui/Text/Text';
 import { Page } from 'widgets/Page/Page';
+import { Stack } from '../../../../shared/ui/Stack/Stack';
 import {
     getArticleCommentsError,
-    getArticleCommentsIsLoading,
+    getArticleCommentsIsLoading
 } from '../../model/selectors/comments';
 import { addCommentForArticle } from '../../model/services/addCommentForArticle/addCommentForArticle';
 import { fetchArticleRecommendations } from '../../model/services/fetchArticleRecommendations/fetchArticleRecommendations';
 import { fetchCommentByArticleId } from '../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
 import { articleDetailsPageReducer } from '../../model/slices';
-import {
-    getArticleComments,
-} from '../../model/slices/articleDetailsCommentsSlice';
-import {
-    getArticleRecommendations,
-} from '../../model/slices/articleDetailsPageRecommendationsSlice';
+import { getArticleComments } from '../../model/slices/articleDetailsCommentsSlice';
+import { getArticleRecommendations } from '../../model/slices/articleDetailsPageRecommendationsSlice';
 import { ArticleDetailsPageHeader } from '../ArticleDetailsPageHeader/ArticleDetailsPageHeader';
-import cls from './ArticleDetailsPage.module.scss';
 
 interface ArticleDetailsPageProps {
     className?: string;
 }
 
 const reducers: ReducersList = {
-    articleDetailsPage: articleDetailsPageReducer,
+    articleDetailsPage: articleDetailsPageReducer
 };
 
 function ArticleDetailsPage({ className }: ArticleDetailsPageProps) {
@@ -54,7 +50,7 @@ function ArticleDetailsPage({ className }: ArticleDetailsPageProps) {
         (text: string) => {
             dispatch(addCommentForArticle(text));
         },
-        [dispatch],
+        [dispatch]
     );
 
     useInitialEffect(() => {
@@ -73,32 +69,26 @@ function ArticleDetailsPage({ className }: ArticleDetailsPageProps) {
     return (
         <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
             <Page className={classNames('', {}, [className])}>
-                <ArticleDetailsPageHeader />
-                <ArticleDetails id={id} />
-                <Text
-                    size={TextSize.L}
-                    className={cls.commentTitle}
-                    title={t('Recommendations')}
-                />
-                <ArticleList
-                    target="_blank"
-                    articles={recommendations}
-                    isLoading={recommendationsIsLoading}
-                    className={cls.recommendations}
-                />
-                <Text
-                    size={TextSize.L}
-                    className={cls.commentTitle}
-                    title={t('Comments')}
-                />
-                <AddCommentFormAsync
-                    onSendComment={onSendComment}
-                    className={cls.commentForm}
-                />
-                <CommentList
-                    isLoading={commentsIsLoading}
-                    comments={comments}
-                />
+                <Stack gap={16}>
+                    <ArticleDetailsPageHeader />
+                    <ArticleDetails id={id} />
+                    <Stack gap={8}>
+                        <Text size={TextSize.L} title={t('Recommendations')} />
+                        <ArticleList
+                            target="_blank"
+                            articles={recommendations}
+                            isLoading={recommendationsIsLoading}
+                        />
+                    </Stack>
+                    <Stack gap={8}>
+                        <Text size={TextSize.L} title={t('Comments')} />
+                        <AddCommentFormAsync onSendComment={onSendComment} />
+                    </Stack>
+                    <CommentList
+                        isLoading={commentsIsLoading}
+                        comments={comments}
+                    />
+                </Stack>
             </Page>
         </DynamicModuleLoader>
     );

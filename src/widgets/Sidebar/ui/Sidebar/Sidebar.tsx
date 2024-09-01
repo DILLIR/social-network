@@ -3,8 +3,8 @@ import { ThemeSwitcher } from 'features/ThemeSwitcher';
 import { memo, useMemo, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { classNames } from 'shared/lib/classNames/classNames';
-import { ButtonSize } from 'shared/ui/Button/Button';
-import { Button, ButtonTheme } from '../../../../shared/ui/Button/Button';
+import { Button, ButtonSize, ButtonTheme } from 'shared/ui/Button/Button';
+import { Stack } from 'shared/ui/Stack/Stack';
 import cls from './Sidebar.module.scss';
 
 import { getSidebarItems } from '../../model/selectors/getSidebarItems';
@@ -41,8 +41,9 @@ export const Sidebar = memo(function Sidebar({ className }: SidebarProps) {
                 className
             ])}
         >
-            <div className={cls.items}>{itemsList}</div>
-
+            <Stack gap={24} className={cls.items}>
+                {itemsList}
+            </Stack>
             <div className={cls.switchers}>
                 <ThemeSwitcher />
                 <LangSwitcher className={cls.lang} short={collapsed} />

@@ -1,11 +1,12 @@
+import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import { classNames } from 'shared/lib/classNames/classNames';
-import { Avatar } from 'shared/ui/Avatar/Avatar';
-import { Text } from 'shared/ui/Text/Text';
-import { Skeleton } from 'shared/ui/Skeleton/Skeleton';
 import { AppLink } from 'shared/ui/AppLink/AppLink';
+import { Avatar } from 'shared/ui/Avatar/Avatar';
+import { Skeleton } from 'shared/ui/Skeleton/Skeleton';
+import { Stack } from 'shared/ui/Stack/Stack';
+import { Text } from 'shared/ui/Text/Text';
 import { Comment } from '../../model/types/comment';
 import cls from './CommentCard.module.scss';
-import { RoutePath } from '../../../../shared/config/routeConfig/routeConfig';
 
 interface CommentCardProps {
     className?: string;
@@ -16,31 +17,47 @@ interface CommentCardProps {
 export function CommentCard({
     className,
     comment,
-    isLoading,
+    isLoading
 }: CommentCardProps) {
     if (isLoading) {
         return (
-            <div className={classNames(cls.CommentCard, {}, [className, cls.loading])}>
-                <div className={cls.header}>
-                    <Skeleton className={cls.avatar} width={30} height={30} border="50%" />
+            <Stack
+                gap={10}
+                className={classNames(cls.CommentCard, {}, [
+                    className,
+                    cls.loading
+                ])}
+            >
+                <Stack direction="row" gap={8} alignItems="center">
+                    <Skeleton
+                        className={cls.avatar}
+                        width={30}
+                        height={30}
+                        border="50%"
+                    />
                     <Skeleton className={cls.username} height={16} width={90} />
-                </div>
+                </Stack>
                 <Skeleton className={cls.text} height={50} width="100%" />
-            </div>
+            </Stack>
         );
     }
 
     if (!comment) return null;
 
     return (
-        <div className={classNames(cls.CommentCard, {}, [className])}>
-            <AppLink to={`${RoutePath.profile}/${comment.user.id}`} className={cls.header}>
-                {comment.user.avatar != null && (
-                    <Avatar size={30} src={comment.user.avatar} />
-                )}
-                <Text title={comment.user.username} />
+        <Stack
+            gap={10}
+            className={classNames(cls.CommentCard, {}, [className])}
+        >
+            <AppLink to={`${RoutePath.profile}/${comment.user.id}`}>
+                <Stack direction="row" gap={8} alignItems="center">
+                    {comment.user.avatar != null && (
+                        <Avatar size={30} src={comment.user.avatar} />
+                    )}
+                    <Text title={comment.user.username} />
+                </Stack>
             </AppLink>
-            <Text text={comment.text} className={cls.text} />
-        </div>
+            <Text text={comment.text} />
+        </Stack>
     );
 }

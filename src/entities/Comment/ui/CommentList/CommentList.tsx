@@ -1,9 +1,9 @@
 import { useTranslation } from 'react-i18next';
 import { classNames } from 'shared/lib/classNames/classNames';
+import { Stack } from 'shared/ui/Stack/Stack';
 import { Text } from 'shared/ui/Text/Text';
-import { CommentCard } from '../CommentCard/CommentCard';
-import cls from './CommentList.module.scss';
 import { Comment } from '../../model/types/comment';
+import { CommentCard } from '../CommentCard/CommentCard';
 
 interface CommentListProps {
     className?: string;
@@ -14,26 +14,25 @@ interface CommentListProps {
 export function CommentList({
     className,
     comments,
-    isLoading,
+    isLoading
 }: CommentListProps) {
     const { t } = useTranslation();
 
     if (isLoading) {
         return (
-            <div className={classNames(cls.CommentList, {}, [className])}>
+            <Stack gap={16} className={classNames('', {}, [className])}>
                 <CommentCard isLoading />
                 <CommentCard isLoading />
                 <CommentCard isLoading />
-            </div>
+            </Stack>
         );
     }
 
     return (
-        <div className={classNames(cls.CommentList, {}, [className])}>
+        <Stack gap={10} className={classNames('', {}, [className])}>
             {comments.length > 0 ? (
                 comments.map((comment) => (
                     <CommentCard
-                        className={cls.comment}
                         key={comment.id}
                         comment={comment}
                         isLoading={isLoading}
@@ -42,6 +41,6 @@ export function CommentList({
             ) : (
                 <Text text={t('Comments are missing')} />
             )}
-        </div>
+        </Stack>
     );
 }

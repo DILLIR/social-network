@@ -12,6 +12,7 @@ import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { Avatar } from 'shared/ui/Avatar/Avatar';
 import { Icon } from 'shared/ui/Icon/Icon';
 import { Skeleton } from 'shared/ui/Skeleton/Skeleton';
+import { Stack } from 'shared/ui/Stack/Stack';
 import { Text, TextAlign, TextSize, TextTheme } from 'shared/ui/Text/Text';
 import { useInitialEffect } from '../../../../shared/lib/hooks/useInitialEffect';
 import {
@@ -85,18 +86,15 @@ export const ArticleDetails = memo(function ArticleDetails({
 
     if (isLoading) {
         content = (
-            <>
-                <Skeleton
-                    className={cls.avatar}
-                    width={200}
-                    height={200}
-                    border="50%"
-                />
+            <Stack gap={20}>
+                <Stack alignItems="center">
+                    <Skeleton width={200} height={200} border="50%" />
+                </Stack>
                 <Skeleton className={cls.title} width={300} height={32} />
                 <Skeleton className={cls.skeleton} width={600} height={24} />
                 <Skeleton className={cls.skeleton} width="100%" height={200} />
                 <Skeleton className={cls.skeleton} width="100%" height={200} />
-            </>
+            </Stack>
         );
     } else if (error) {
         content = (
@@ -109,27 +107,29 @@ export const ArticleDetails = memo(function ArticleDetails({
     } else {
         content = (
             <>
-                <div className={cls.avatarWrapper}>
+                <Stack alignItems="center" className={cls.avatarWrapper}>
                     <Avatar
                         size={200}
                         src={article?.img}
                         className={cls.avatar}
                     />
-                </div>
-                <Text
-                    className={cls.title}
-                    title={article?.title}
-                    text={article?.subtitle}
-                    size={TextSize.L}
-                />
-                <div className={cls.articleInfo}>
-                    <Icon Svg={EyeIcon} />
-                    <Text text={article?.views.toString()} />
-                </div>
-                <div className={cls.articleInfo}>
-                    <Icon Svg={CalendarIcon} />
-                    <Text text={article?.createdAt} />
-                </div>
+                </Stack>
+                <Stack gap={4}>
+                    <Text
+                        className={cls.title}
+                        title={article?.title}
+                        text={article?.subtitle}
+                        size={TextSize.L}
+                    />
+                    <Stack direction="row" gap={8} className={cls.articleInfo}>
+                        <Icon Svg={EyeIcon} />
+                        <Text text={article?.views.toString()} />
+                    </Stack>
+                    <Stack direction="row" gap={8} className={cls.articleInfo}>
+                        <Icon Svg={CalendarIcon} />
+                        <Text text={article?.createdAt} />
+                    </Stack>
+                </Stack>
                 {article?.blocks.map(renderBlock)}
             </>
         );
@@ -137,9 +137,12 @@ export const ArticleDetails = memo(function ArticleDetails({
 
     return (
         <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
-            <div className={classNames(cls.ArticleDetails, {}, [className])}>
+            <Stack
+                gap={16}
+                className={classNames(cls.ArticleDetails, {}, [className])}
+            >
                 {content}
-            </div>
+            </Stack>
         </DynamicModuleLoader>
     );
 });

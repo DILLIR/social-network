@@ -6,8 +6,8 @@ import { useNavigate } from 'react-router-dom';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Button } from 'shared/ui/Button/Button';
+import { Stack } from 'shared/ui/Stack/Stack';
 import { getCanEditArticle } from '../../model/selectors/article';
-import cls from './ArticleDetailsPageHeader.module.scss';
 
 interface ArticleDetailsPageHeaderProps {
     className?: string;
@@ -30,13 +30,15 @@ export function ArticleDetailsPageHeader({
     }, [article?.id, navigate]);
 
     return (
-        <div
-            className={classNames(cls.ArticleDetailsPageHeader, {}, [
+        <Stack
+            direction='row'
+            justifyContent='space-between'
+            className={classNames("", {}, [
                 className,
             ])}
         >
             <Button onClick={onBackToList}>{t('Back to articles')}</Button>
             {canEdit && <Button onClick={onEdit}>{t('Edit')}</Button>}
-        </div>
+        </Stack>
     );
 }

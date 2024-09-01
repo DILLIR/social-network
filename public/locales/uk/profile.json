@@ -2,11 +2,11 @@
   "Profile": "Профіль",
   "Edit": "Редагувати",
   "Cancel": "Скасувати",
-  "Save": "зберегти",
   "FirstAndLastNameRequired": "Відсутнє ім’я або прізвище",
   "AgeRequired": "Вік відсутній",
   "AgeInvalid": "Вік недійсний",
   "CountryRequired": "Відсутня країна",
   "NoData": "Немає даних",
-  "ServerError": "Щось пішло не так на сервері"
+  "ServerError": "Щось пішло не так на сервері",
+  "Save": "Зберегти"
 }

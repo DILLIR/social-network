@@ -5,6 +5,7 @@ import { classNames, Mods } from 'shared/lib/classNames/classNames';
 import { Avatar } from 'shared/ui/Avatar/Avatar';
 import { Input } from 'shared/ui/Input/Input';
 import { Loader } from 'shared/ui/Loader/ui/Loader';
+import { Stack } from 'shared/ui/Stack/Stack';
 import { Text, TextAlign, TextTheme } from 'shared/ui/Text/Text';
 import { CountrySelect } from '../../../Country';
 import { CurrencySelect } from '../../../Currency';
@@ -40,29 +41,34 @@ export function ProfileCard({
     onChangeAvatar,
     onChangeCurrency,
     onChangeCountry,
-    disabled = false,
+    disabled = false
 }: ProfileCardProps) {
     const { t } = useTranslation();
 
     if (isLoading) {
         return (
-            <div
+            <Stack
+                direction='row'
+                justifyContent='center'
+                alignItems='center'
                 className={classNames(cls.ProfileCard, {}, [
                     className,
-                    cls.loading,
+                    cls.loading
                 ])}
             >
                 <Loader />
-            </div>
+            </Stack>
         );
     }
 
     if (error) {
         return (
-            <div
+            <Stack
+                direction='row'
+                justifyContent='center'
                 className={classNames(cls.ProfileCard, {}, [
                     className,
-                    cls.error,
+                    cls.error
                 ])}
             >
                 <Text
@@ -70,78 +76,79 @@ export function ProfileCard({
                     text="Try to refresh page later"
                     theme={TextTheme.ERROR}
                     align={TextAlign.CENTER}
-                />
-            </div>
+                />w
+            </Stack>
         );
     }
 
     const mods: Mods = {
-        [cls.editing]: !disabled,
+        [cls.editing]: !disabled
     };
 
     return (
-        <div className={classNames(cls.ProfileCard, mods, [className])}>
-            <div className={cls.data}>
-                {data?.avatar != null && (
-                    <div className={cls.avatarWrapper}>
-                        <Avatar src={data.avatar} />
-                    </div>
-                )}
-                <Input
-                    placeholder={t('First name')}
-                    value={data?.firstName}
-                    disabled={disabled}
-                    className={cls.Input}
-                    onChange={onChangeFirstName}
-                />
-                <Input
-                    placeholder={t('Last name')}
-                    value={data?.lastName}
-                    disabled={disabled}
-                    className={cls.Input}
-                    onChange={onChangeLastName}
-                />
-                <Input
-                    placeholder={t('Age')}
-                    value={data?.age}
-                    disabled={disabled}
-                    className={cls.Input}
-                    onChange={onChangeAge}
-                />
-                <Input
-                    placeholder={t('City')}
-                    value={data?.city}
-                    disabled={disabled}
-                    className={cls.Input}
-                    onChange={onChangeCity}
-                />
-                <Input
-                    placeholder={t('Username')}
-                    value={data?.username}
-                    disabled={disabled}
-                    className={cls.Input}
-                    onChange={onChangeUsername}
-                />
-                <Input
-                    placeholder={t('Avatar')}
-                    value={data?.avatar}
-                    disabled={disabled}
-                    className={cls.Input}
-                    onChange={onChangeAvatar}
-                />
-                <CurrencySelect
-                    value={data?.currency}
-                    className={cls.Input}
-                    onChange={onChangeCurrency}
-                    disabled={disabled}
-                />
-                <CountrySelect
-                    disabled={disabled}
-                    value={data?.country}
-                    onChange={onChangeCountry}
-                    className={cls.Input}
-                />
-            </div>
-        </div>
+        <Stack
+            gap={8}
+            className={classNames(cls.ProfileCard, mods, [className])}
+        >
+            {data?.avatar != null && (
+                <Stack alignItems="center">
+                    <Avatar src={data.avatar} />
+                </Stack>
+            )}
+            <Input
+                placeholder={t('First name')}
+                value={data?.firstName}
+                disabled={disabled}
+                className={cls.Input}
+                onChange={onChangeFirstName}
+            />
+            <Input
+                placeholder={t('Last name')}
+                value={data?.lastName}
+                disabled={disabled}
+                className={cls.Input}
+                onChange={onChangeLastName}
+            />
+            <Input
+                placeholder={t('Age')}
+                value={data?.age}
+                disabled={disabled}
+                className={cls.Input}
+                onChange={onChangeAge}
+            />
+            <Input
+                placeholder={t('City')}
+                value={data?.city}
+                disabled={disabled}
+                className={cls.Input}
+                onChange={onChangeCity}
+            />
+            <Input
+                placeholder={t('Username')}
+                value={data?.username}
+                disabled={disabled}
+                className={cls.Input}
+                onChange={onChangeUsername}
+            />
+            <Input
+                placeholder={t('Avatar')}
+                value={data?.avatar}
+                disabled={disabled}
+                className={cls.Input}
+                onChange={onChangeAvatar}
+            />
+            <CurrencySelect
+                value={data?.currency}
+                className={cls.Input}
+                onChange={onChangeCurrency}
+                disabled={disabled}
+            />
+            <CountrySelect
+                disabled={disabled}
+                value={data?.country}
+                onChange={onChangeCountry}
+                className={cls.Input}
+            />
+        </Stack>
     );
 }
