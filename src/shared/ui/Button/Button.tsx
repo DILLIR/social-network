@@ -42,6 +42,7 @@ export const Button = memo(function Button({
 
     return (
         <button
+            type="button"
             className={classNames(cls.Button, mods, [
                 className,
                 cls[theme],

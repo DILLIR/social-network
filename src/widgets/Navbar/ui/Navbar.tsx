@@ -4,12 +4,12 @@ import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Button, ButtonTheme } from 'shared/ui/Button/Button';
+import { AppLinkTheme } from 'shared/ui/AppLink/AppLink';
 import { LoginModal } from '../../../features/AuthByUserName';
 import cls from './Navbar.module.scss';
 import { Text, TextTheme } from '../../../shared/ui/Text/Text';
 import { AppLink } from '../../../shared/ui/AppLink/AppLink';
 import { RoutePath } from '../../../shared/config/routeConfig/routeConfig';
-import { AppLinkTheme } from 'shared/ui/AppLink/AppLink';
 
 interface NavbarProps {
     className?: string;
@@ -35,7 +35,7 @@ export const Navbar = memo(function Navbar({ className }: NavbarProps) {
                     className={cls.logo}
                     theme={AppLinkTheme.SECONDARY}
                 >
-                    <Text title={'Social network'} theme={TextTheme.INVERTED} />
+                    <Text title="Social network" theme={TextTheme.INVERTED} />
                 </AppLink>
                 <AppLink
                     to={RoutePath.article_create}
@@ -57,7 +57,7 @@ export const Navbar = memo(function Navbar({ className }: NavbarProps) {
 
     return (
         <header className={classNames(cls.Navbar, {}, [className])}>
-            <Text className={cls.logo} title={'Social network'} />
+            <Text className={cls.logo} title="Social network" />
             <Button
                 className={cls.links}
                 theme={ButtonTheme.CLEAR_INVERTED}

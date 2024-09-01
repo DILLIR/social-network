@@ -12,13 +12,13 @@ export const getSidebarItems = createSelector([getUserAuthData], (authData) => {
         {
             path: RoutePath.main,
             Icon: MainIcon,
-            text: 'Main'
+            text: 'Main',
         },
         {
             path: RoutePath.about,
             Icon: AboutIcon,
-            text: 'About'
-        }
+            text: 'About',
+        },
     ];
 
     if (authData != null) {
@@ -27,14 +27,14 @@ export const getSidebarItems = createSelector([getUserAuthData], (authData) => {
                 path: `${RoutePath.profile}/${authData?.id}`,
                 Icon: ProfileIcon,
                 text: 'Profile',
-                authOnly: true
+                authOnly: true,
             },
             {
                 path: RoutePath.articles,
                 Icon: ArticlesIcon,
                 text: 'Articles',
-                authOnly: true
-            }
+                authOnly: true,
+            },
         );
     }
 

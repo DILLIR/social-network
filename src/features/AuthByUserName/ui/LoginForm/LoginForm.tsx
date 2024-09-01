@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 import { classNames } from 'shared/lib/classNames/classNames';
 import {
     DynamicModuleLoader,
-    ReducersList
+    ReducersList,
 } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { Button, ButtonTheme } from 'shared/ui/Button/Button';
@@ -37,19 +37,19 @@ const LoginForm = memo(function LoginForm({ className, onSuccess }: LoginFormPro
         (value: string) => {
             dispatch(loginActions.setUserName(value));
         },
-        [dispatch]
+        [dispatch],
     );
 
     const onChangePassword = useCallback(
         (value: string) => {
             dispatch(loginActions.setPassword(value));
         },
-        [dispatch]
+        [dispatch],
     );
 
-    const onLoginClick = useCallback(async() => {
+    const onLoginClick = useCallback(async () => {
         const result = await dispatch(loginByUsername({ username, password }));
-        if(result.meta.requestStatus === 'fulfilled' && onSuccess) {
+        if (result.meta.requestStatus === 'fulfilled' && onSuccess) {
             onSuccess();
         }
     }, [dispatch, username, password, onSuccess]);

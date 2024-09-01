@@ -1,4 +1,6 @@
-import { ChangeEvent, memo, useEffect, useRef, useState } from 'react';
+import {
+    ChangeEvent, memo, useEffect, useRef, useState,
+} from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import cls from './Input.module.scss';
 
@@ -22,7 +24,7 @@ export const Input = memo(function Input({
     autofocus,
     disabled,
     ...props
-}: InputProps) {
+}: InputProps)  {
     const ref = useRef<HTMLInputElement>(null);
     const [isFocused, setIsFocused] = useState(false);
     const [caretPosition, setCaretPosition] = useState(0);
@@ -32,7 +34,7 @@ export const Input = memo(function Input({
             setIsFocused(true);
             ref.current?.focus();
         }
-    }, [autofocus, ref, ]);
+    }, [autofocus, ref]);
 
     const onBlurHandler = () => {
         setIsFocused(false);
@@ -47,16 +49,16 @@ export const Input = memo(function Input({
         setCaretPosition(e.target.selectionStart || 0);
     };
 
-    
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const onSelect = (e: any) => {
         setCaretPosition(e.target?.selectionStart || 0);
-    }; 
+    };
 
     return (
         <div className={classNames(cls.InputWrapper, {
-            [cls.disabled]: disabled
-        }, [className])}>
+            [cls.disabled]: disabled,
+        }, [className])}
+        >
             {placeholder && (
                 <div className={cls.Placeholder}>{`${placeholder}>`}</div>
             )}
@@ -72,7 +74,7 @@ export const Input = memo(function Input({
                     disabled={disabled}
                     {...props}
                 />
-                {isFocused && <span className={cls.caret} style={{left: `${caretPosition * 9.6}px`}}></span>}
+                {isFocused && <span className={cls.caret} style={{ left: `${caretPosition * 9.6}px` }} />}
             </div>
         </div>
     );

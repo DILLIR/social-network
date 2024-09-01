@@ -8,7 +8,7 @@ const meta: Meta<typeof AddCommentForm> = {
     tags: ['autodocs'],
     decorators: [StoreDecorator({
 
-    })]
+    })],
 };
 
 export default meta;
@@ -18,6 +18,6 @@ export const Default: Story = {
     args: {
         onSendComment: (value) => {
             console.log(value);
-        }
-    }
+        },
+    },
 };

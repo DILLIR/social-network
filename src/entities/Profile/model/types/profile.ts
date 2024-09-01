@@ -1,5 +1,5 @@
-import { Country } from "entities/Country/types/country";
-import { Currency } from "entities/Currency/types/currency";
+import { Country } from 'entities/Country/types/country';
+import { Currency } from 'entities/Currency/types/currency';
 
 export enum ValidateProfileError {
     FirstAndLastNameRequired = 'First and Last name are required',
@@ -9,7 +9,6 @@ export enum ValidateProfileError {
     NoData = 'No data',
     ServerError = 'Server error'
 }
-
 
 export interface Profile {
     id?: string;

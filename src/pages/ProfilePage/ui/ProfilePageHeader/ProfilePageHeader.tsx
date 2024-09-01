@@ -1,7 +1,7 @@
 import {
     getProfileReadonly,
     profileActions,
-    updateProfileData
+    updateProfileData,
 } from 'entities/Profile';
 import { useCallback } from 'react';
 import { useTranslation } from 'react-i18next';

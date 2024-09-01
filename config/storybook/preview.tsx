@@ -9,15 +9,15 @@ const preview: Preview = {
         controls: {
             matchers: {
                 color: /(background|color)$/i,
-                date: /Date$/i
-            }
+                date: /Date$/i,
+            },
         },
-        layout: 'fullscreen'
+        layout: 'fullscreen',
     },
     decorators: [
         RouterDecorator,
-        ThemeDecorator(Theme.LIGHT)
-    ]
+        ThemeDecorator(Theme.LIGHT),
+    ],
 };
 
 export default preview;

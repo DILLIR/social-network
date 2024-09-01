@@ -6,13 +6,12 @@ const meta: Meta<typeof ArticleSortSelector> = {
     title: 'entities/ArticleSortSelector',
     component: ArticleSortSelector,
     tags: ['autodocs'],
-    decorators: [StoreDecorator({})]
+    decorators: [StoreDecorator({})],
 };
 
 export default meta;
 type Story = StoryObj<typeof ArticleSortSelector>;
 
-
 export const Default: Story = {
-    args: {  }
+    args: { },
 };

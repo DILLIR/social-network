@@ -1,14 +1,14 @@
-import webpack from "webpack";
-import { buildCssLoader } from "./loaders/buildCssLoader";
-import { BuildOptions } from "./types/config";
-import { buildSvgLoader } from "./loaders/buildSvgLoader";
+import webpack from 'webpack';
+import { buildCssLoader } from './loaders/buildCssLoader';
+import { BuildOptions } from './types/config';
+import { buildSvgLoader } from './loaders/buildSvgLoader';
+
 export function buildLoaders(options: BuildOptions): webpack.RuleSetRule[] {
     const typescriptLoader = {
         test: /\.tsx?$/,
-        use: "ts-loader",
+        use: 'ts-loader',
         exclude: /node_modules/,
     };
-
 
     const svgLoader = buildSvgLoader();
 
@@ -16,7 +16,7 @@ export function buildLoaders(options: BuildOptions): webpack.RuleSetRule[] {
         test: /\.(png|jpe?g|gif)$/i,
         use: [
             {
-                loader: "file-loader",
+                loader: 'file-loader',
             },
         ],
     };
@@ -25,10 +25,10 @@ export function buildLoaders(options: BuildOptions): webpack.RuleSetRule[] {
         test: /\.(js|jsx|tsx)$/,
         exclude: /node_modules/,
         use: {
-            loader: "babel-loader",
+            loader: 'babel-loader',
             options: {
-                presets: ["@babel/preset-env"],
-                plugins: [["i18next-extract", {locales: ["en", "uk"], keyAsDefaultValue: true}]]
+                presets: ['@babel/preset-env'],
+                plugins: [['i18next-extract', { locales: ['en', 'uk'], keyAsDefaultValue: true }]],
             },
         },
     };

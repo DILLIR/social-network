@@ -1,12 +1,12 @@
+import { LangSwitcher } from 'features/LangSwitcher/LangSwitcher';
+import { ThemeSwitcher } from 'features/ThemeSwitcher';
 import { memo, useMemo, useState } from 'react';
+import { useSelector } from 'react-redux';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { ButtonSize } from 'shared/ui/Button/Button';
-import { LangSwitcher } from 'shared/ui/LangSwitcher/LangSwitcher';
-import { ThemeSwitcher } from 'shared/ui/ThemeSwitcher/';
 import { Button, ButtonTheme } from '../../../../shared/ui/Button/Button';
 import cls from './Sidebar.module.scss';
 
-import { useSelector } from 'react-redux';
 import { getSidebarItems } from '../../model/selectors/getSidebarItems';
 import { SidebarItem } from '../SidebarItem/SidebarItem';
 
@@ -24,15 +24,13 @@ export const Sidebar = memo(function Sidebar({ className }: SidebarProps) {
 
     const itemsList = useMemo(
         () =>
-            SidebarItemsList.map((item) => {
-                return (
-                    <SidebarItem
-                        key={item.path}
-                        item={item}
-                        collapsed={collapsed}
-                    />
-                );
-            }),
+            SidebarItemsList.map((item) => (
+                <SidebarItem
+                    key={item.path}
+                    item={item}
+                    collapsed={collapsed}
+                />
+            )),
         [SidebarItemsList, collapsed]
     );
 

@@ -6,6 +6,6 @@ type EnumObject<T> = {
 export function generateOptions<T>(enumObj: EnumObject<T>) {
     return Object.keys(enumObj).map((key) => ({
         label: enumObj[key],
-        value: enumObj[key]
+        value: enumObj[key],
     }));
 }

@@ -1,5 +1,5 @@
-import MiniCssExtractPlugin from "mini-css-extract-plugin";
-import { BuildOptions } from "../types/config";
+import MiniCssExtractPlugin from 'mini-css-extract-plugin';
+import { BuildOptions } from '../types/config';
 
 export function buildCssLoader(isDev: BuildOptions['isDev']) {
     return {
@@ -13,11 +13,11 @@ export function buildCssLoader(isDev: BuildOptions['isDev']) {
                         auto: (path: string) => /\.module\.scss$/.test(path),
                         localIdentName: isDev
                             ? '[path][name]__[local]'
-                            : '[hash:base64:8]'
-                    }
-                }
+                            : '[hash:base64:8]',
+                    },
+                },
             },
-            'sass-loader'
-        ]
+            'sass-loader',
+        ],
     };
 }

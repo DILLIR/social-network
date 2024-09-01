@@ -1,11 +1,13 @@
 import { Profile, ValidateProfileError } from '../../types/profile';
 
 export const validateProfileData = (profile?: Profile) => {
-    if(!profile) {
+    if (!profile) {
         return [ValidateProfileError.NoData];
     }
 
-    const { firstName, lastName, age, country } = profile;
+    const {
+        firstName, lastName, age, country,
+    } = profile;
 
     const errors: ValidateProfileError[] = [];
 

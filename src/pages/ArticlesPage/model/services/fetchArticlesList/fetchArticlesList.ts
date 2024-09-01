@@ -8,7 +8,7 @@ import {
     getArticlesPageOrder,
     getArticlesPageSearch,
     getArticlesPageSort,
-    getArticlesPageType
+    getArticlesPageType,
 } from '../../selectors/articlesPageSelectors';
 
 interface FetchArticlesListProps {
@@ -34,9 +34,9 @@ export const fetchArticlesList = createAsyncThunk<
                 sort,
                 order,
                 search,
-                type
+                type,
             });
-            const response = await extra.api.get<Article[]>(`/articles`, {
+            const response = await extra.api.get<Article[]>('/articles', {
                 params: {
                     _expand: 'user',
                     _limit: limit,
@@ -44,8 +44,8 @@ export const fetchArticlesList = createAsyncThunk<
                     _sort: sort,
                     _order: order,
                     q: search || undefined,
-                    type: type !== ArticleType.ALL ? type : undefined
-                }
+                    type: type !== ArticleType.ALL ? type : undefined,
+                },
             });
             if (!response.data) {
                 throw new Error('No data');
@@ -54,5 +54,5 @@ export const fetchArticlesList = createAsyncThunk<
         } catch (error) {
             return rejectWithValue('error');
         }
-    }
+    },
 );

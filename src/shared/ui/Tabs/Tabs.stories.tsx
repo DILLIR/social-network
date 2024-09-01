@@ -6,7 +6,7 @@ const meta: Meta<typeof Tabs> = {
     title: 'shared/Tabs',
     component: Tabs,
     tags: ['autodocs'],
-    decorators: [StoreDecorator({})]
+    decorators: [StoreDecorator({})],
 };
 
 export default meta;
@@ -17,9 +17,8 @@ export const Default: Story = {
         tabs: [
             { value: '1', node: 'Tab 1' },
             { value: '2', node: 'Tab 2' },
-            { value: '3', node: 'Tab 3' }
+            { value: '3', node: 'Tab 3' },
         ],
         value: '1',
-        onTabClick: (tab) => console.log(tab)
-    }
+    },
 };

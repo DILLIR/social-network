@@ -10,15 +10,14 @@ interface CodeProps {
 }
 
 export function Code({ className, text }: CodeProps) {
-
     const onCopy = useCallback(() => {
         navigator.clipboard.writeText(text);
-    }, [text])
+    }, [text]);
 
     return (
         <pre className={classNames(cls.Code, {}, [className])}>
             <Button className={cls.copyBtn} theme={ButtonTheme.CLEAR} onClick={onCopy}>
-                <CopyIcon className={cls.copyIcon}/>
+                <CopyIcon className={cls.copyIcon} />
             </Button>
             <code>{text}</code>
         </pre>

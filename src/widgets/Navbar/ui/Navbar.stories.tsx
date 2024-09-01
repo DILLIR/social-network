@@ -8,21 +8,21 @@ const meta: Meta<typeof Navbar> = {
     title: 'widget/Navbar',
     component: Navbar,
     parameters: {
-        layout: 'fullscreen'
+        layout: 'fullscreen',
     },
 
-    tags: ['autodocs']
+    tags: ['autodocs'],
 };
 
 export default meta;
 type Story = StoryObj<typeof Navbar>;
 
 export const Light: Story = {
-    decorators: [StoreDecorator({})]
+    decorators: [StoreDecorator({})],
 };
 
 export const Dark: Story = {
-    decorators: [ThemeDecorator(Theme.DARK), StoreDecorator({})]
+    decorators: [ThemeDecorator(Theme.DARK), StoreDecorator({})],
 };
 
 export const withAuthLight: Story = {
@@ -31,10 +31,10 @@ export const withAuthLight: Story = {
             user: {
                 authData: {
                     username: 'admin',
-                }
-            }
-        })
-    ]
+                },
+            },
+        }),
+    ],
 };
 
 export const withAuthDark: Story = {
@@ -43,9 +43,9 @@ export const withAuthDark: Story = {
             user: {
                 authData: {
                     username: 'admin',
-                }
-            }
+                },
+            },
         }),
-        ThemeDecorator(Theme.DARK)
-    ]
+        ThemeDecorator(Theme.DARK),
+    ],
 };

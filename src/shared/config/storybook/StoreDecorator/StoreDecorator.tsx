@@ -4,25 +4,24 @@ import { articleDetailsReducer } from 'entities/Article/model/slice/articleDetai
 import { profileReducer } from 'entities/Profile';
 import { addNewCommentReducer } from 'features/AddNewComment/model/slices/addNewCommentSlice';
 import { loginReducer } from 'features/AuthByUserName/model/slice/loginSlice';
-import { ReducersList } from '../../../lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { articleDetailsPageReducer } from 'pages/ArticleDetailsPage/model/slices/index';
+import { ReducersList } from '../../../lib/components/DynamicModuleLoader/DynamicModuleLoader';
 
 const defaultAsyncReducers: ReducersList = {
     loginForm: loginReducer,
     profile: profileReducer,
     articleDetails: articleDetailsReducer,
     addNewComment: addNewCommentReducer,
-    articleDetailsPage: articleDetailsPageReducer
+    articleDetailsPage: articleDetailsPageReducer,
 };
 
-export const StoreDecorator =
-    (state: DeepPartial<StateSchema>, asyncReducers?: ReducersList) =>
+export const StoreDecorator = (state: DeepPartial<StateSchema>, asyncReducers?: ReducersList) =>
     // eslint-disable-next-line react/display-name
-        (Story: StoryFn) => (
-            <StoreProvider
-                initialState={state}
-                asyncReducers={{ ...defaultAsyncReducers, ...asyncReducers }}
-            >
-                <Story />
-            </StoreProvider>
-        );
+    (Story: StoryFn) => (
+        <StoreProvider
+            initialState={state}
+            asyncReducers={{ ...defaultAsyncReducers, ...asyncReducers }}
+        >
+            <Story />
+        </StoreProvider>
+    );

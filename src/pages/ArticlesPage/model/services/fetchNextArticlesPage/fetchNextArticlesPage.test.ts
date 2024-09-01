@@ -2,7 +2,7 @@ import { TestAsyncThunk } from 'shared/lib/tests/TestAsyncThunk/TestAsyncThunk';
 import { fetchArticlesList } from '../fetchArticlesList/fetchArticlesList';
 import { fetchNextArticlesPage } from './fetchNextArticlesPage';
 
-jest.mock('../fetchArticlesList/fetchArticlesList')
+jest.mock('../fetchArticlesList/fetchArticlesList');
 
 describe('fetchNextArticlesPage.test', () => {
     test('success', async () => {
@@ -13,14 +13,14 @@ describe('fetchNextArticlesPage.test', () => {
                 entities: {},
                 limit: 5,
                 isLoading: false,
-                hasMore: true
-            }
+                hasMore: true,
+            },
         });
 
         await thunk.callThunk();
 
         expect(thunk.dispatch).toBeCalledTimes(4);
-        expect(fetchArticlesList).toBeCalledWith({page: 3});
+        expect(fetchArticlesList).toBeCalledWith({ page: 3 });
     });
     test('fetchArticlesList not called if no more articles present', async () => {
         const thunk = new TestAsyncThunk(fetchNextArticlesPage, {
@@ -30,8 +30,8 @@ describe('fetchNextArticlesPage.test', () => {
                 entities: {},
                 limit: 5,
                 isLoading: false,
-                hasMore: false
-            }
+                hasMore: false,
+            },
         });
 
         await thunk.callThunk();
@@ -47,8 +47,8 @@ describe('fetchNextArticlesPage.test', () => {
                 entities: {},
                 limit: 5,
                 isLoading: true,
-                hasMore: true
-            }
+                hasMore: true,
+            },
         });
 
         await thunk.callThunk();

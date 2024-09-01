@@ -11,19 +11,19 @@ interface ArticleListItemSkeletonProps {
 
 export function ArticleListItemSkeleton({
     className,
-    view
+    view,
 }: ArticleListItemSkeletonProps) {
-    if (view == ArticleView.LIST) {
+    if (view === ArticleView.LIST) {
         return (
             <div
                 className={classNames(cls.ArticleListItem, {}, [
                     className,
-                    cls[view]
+                    cls[view],
                 ])}
             >
                 <Card className={cls.card}>
                     <div className={cls.header}>
-                        <Skeleton height={30} width={30} border='50%'/>
+                        <Skeleton height={30} width={30} border="50%" />
                         <Skeleton
                             height={16}
                             width={150}
@@ -49,10 +49,10 @@ export function ArticleListItemSkeleton({
         <div
             className={classNames(cls.ArticleListItem, {}, [
                 className,
-                cls[view]
+                cls[view],
             ])}
         >
-            <Card className={cls.card} style={{height: "295px"}}>
+            <Card className={cls.card} style={{ height: '295px' }}>
                 <div className={cls.imageWrapper}>
                     <Skeleton width={200} height={200} className={cls.img} />
                 </div>

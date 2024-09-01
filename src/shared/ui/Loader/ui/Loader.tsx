@@ -8,10 +8,10 @@ interface LoaderProps {
 export function Loader({ className }: LoaderProps) {
     return (
         <div className={classNames(cls.Loader, {}, [className])}>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
+            <div />
+            <div />
+            <div />
+            <div />
         </div>
     );
 }

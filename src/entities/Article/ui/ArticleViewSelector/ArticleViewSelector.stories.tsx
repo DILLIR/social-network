@@ -6,13 +6,12 @@ const meta: Meta<typeof ArticleViewSelector> = {
     title: 'entities/ArticleViewSelector',
     component: ArticleViewSelector,
     tags: ['autodocs'],
-    decorators: [StoreDecorator({})]
+    decorators: [StoreDecorator({})],
 };
 
 export default meta;
 type Story = StoryObj<typeof ArticleViewSelector>;
 
-
 export const Default: Story = {
-    args: {  }
+    args: { },
 };

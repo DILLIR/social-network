@@ -3,7 +3,6 @@ import { useTranslation } from 'react-i18next';
 import EyeIcon from 'shared/assets/icons/eye-20-20.svg';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import { classNames } from 'shared/lib/classNames/classNames';
-import { useHover } from 'shared/lib/hooks/useHover';
 import { AppLink } from 'shared/ui/AppLink/AppLink';
 import { Avatar } from 'shared/ui/Avatar/Avatar';
 import { Button, ButtonTheme } from 'shared/ui/Button/Button';
@@ -14,7 +13,7 @@ import {
     Article,
     ArticleBlockType,
     ArticleTextBLock,
-    ArticleView
+    ArticleView,
 } from '../../model/types/article';
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
 import cls from './ArticleListItem.module.scss';
@@ -30,9 +29,8 @@ export function ArticleListItem({
     className,
     article,
     view,
-    target
+    target,
 }: ArticleListItemProps) {
-    const [isHover, bindHover] = useHover();
     const { t } = useTranslation();
 
     const domains = (
@@ -46,16 +44,16 @@ export function ArticleListItem({
         </>
     );
 
-    if (view == ArticleView.LIST) {
+    if (view === ArticleView.LIST) {
         const textBlock = article.blocks.find(
-            (block) => block.type === ArticleBlockType.TEXT
+            (block) => block.type === ArticleBlockType.TEXT,
         ) as ArticleTextBLock;
 
         return (
             <div
                 className={classNames(cls.ArticleListItem, {}, [
                     className,
-                    cls[view]
+                    cls[view],
                 ])}
             >
                 <Card className={cls.card}>
@@ -98,10 +96,9 @@ export function ArticleListItem({
         <AppLink
             target={target}
             to={RoutePath.article_details + article.id}
-            {...bindHover}
             className={classNames(cls.ArticleListItem, {}, [
                 className,
-                cls[view]
+                cls[view],
             ])}
         >
             <Card className={cls.card}>
@@ -117,7 +114,7 @@ export function ArticleListItem({
                     {domains}
                     {views}
                 </div>
-                <Text text={article.title} className={cls.title}/>
+                <Text text={article.title} className={cls.title} />
             </Card>
         </AppLink>
     );

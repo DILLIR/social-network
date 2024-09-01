@@ -14,21 +14,20 @@ interface SidebarItemProps {
 
 export const SidebarItem = memo(function SidebarItem({
     item,
-    collapsed
+    collapsed,
 }: SidebarItemProps) {
     const { t } = useTranslation();
     const isAuth = useSelector(getUserAuthData);
-    
-    if(item.authOnly && !isAuth) {
-        return null;
 
+    if (item.authOnly && !isAuth) {
+        return null;
     }
 
     return (
         <AppLink
             to={item.path}
             className={classNames(cls.item, {
-                [cls.collapsed]: collapsed
+                [cls.collapsed]: collapsed,
             })}
             theme={AppLinkTheme.SECONDARY}
         >

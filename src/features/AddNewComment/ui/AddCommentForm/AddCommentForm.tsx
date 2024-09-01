@@ -4,18 +4,18 @@ import { useSelector } from 'react-redux';
 import { classNames } from 'shared/lib/classNames/classNames';
 import {
     DynamicModuleLoader,
-    ReducersList
+    ReducersList,
 } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { Button } from 'shared/ui/Button/Button';
 import { Input } from 'shared/ui/Input/Input';
 import {
     getAddNewCommentError,
-    getAddNewCommentText
+    getAddNewCommentText,
 } from '../../model/selectors/addNewCommentSelectors';
 import {
     addNewCommentActions,
-    addNewCommentReducer
+    addNewCommentReducer,
 } from '../../model/slices/addNewCommentSlice';
 import cls from './AddCommentForm.module.scss';
 
@@ -25,7 +25,7 @@ export interface AddCommentFormProps {
 }
 
 const reducers: ReducersList = {
-    addNewComment: addNewCommentReducer
+    addNewComment: addNewCommentReducer,
 };
 
 function AddCommentForm({ className, onSendComment }: AddCommentFormProps) {
@@ -38,7 +38,7 @@ function AddCommentForm({ className, onSendComment }: AddCommentFormProps) {
         (value: string) => {
             dispatch(addNewCommentActions.setText(value));
         },
-        [dispatch]
+        [dispatch],
     );
 
     const onSendHandler = useCallback(() => {

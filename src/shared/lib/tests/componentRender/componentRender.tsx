@@ -12,13 +12,13 @@ interface RenderComponentOptions {
 
 export function renderComponent(
     component: ReactNode,
-    { route = '/', initialState }: RenderComponentOptions = {}
+    { route = '/', initialState }: RenderComponentOptions = {},
 ) {
     return render(
         <MemoryRouter initialEntries={[route]}>
             <StoreProvider initialState={initialState}>
                 <I18nextProvider i18n={i18n}>{component}</I18nextProvider>
             </StoreProvider>
-        </MemoryRouter>
+        </MemoryRouter>,
     );
 }

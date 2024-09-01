@@ -7,7 +7,7 @@ const meta: Meta<typeof Card> = {
     title: 'shared/Card',
     component: Card,
     tags: ['autodocs'],
-    decorators: [StoreDecorator({})]
+    decorators: [StoreDecorator({})],
 };
 
 export default meta;
@@ -15,6 +15,6 @@ type Story = StoryObj<typeof Card>;
 
 export const Default: Story = {
     args: {
-        children: <Text text="Hello, world!" title='Title'/>
-    }
+        children: <Text text="Hello, world!" title="Title" />,
+    },
 };

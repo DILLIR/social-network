@@ -1,4 +1,7 @@
-import { useCallback, useEffect, useRef, useState } from 'react';
+/* eslint-disable jsx-a11y/no-static-element-interactions */
+import {
+    useCallback, useEffect, useRef, useState,
+} from 'react';
 import { classNames, Mods } from 'shared/lib/classNames/classNames';
 import { Portal } from '../Portal/Portal';
 import cls from './Modal.module.scss';
@@ -13,7 +16,9 @@ interface ModalProps {
 
 const ANIMATION_DURATION = 300;
 
-export function Modal({ className, children, isOpen, onClose, lazy }: ModalProps) {
+export function Modal({
+    className, children, isOpen, onClose, lazy,
+}: ModalProps) {
     const [isClosing, setIsClosing] = useState(false);
     const [isMounted, setIsMounted] = useState(false);
     const timerRef = useRef<ReturnType<typeof setTimeout>>();
@@ -40,7 +45,7 @@ export function Modal({ className, children, isOpen, onClose, lazy }: ModalProps
                 handleClose();
             }
         },
-        [handleClose]
+        [handleClose],
     );
 
     useEffect(() => {
@@ -58,14 +63,14 @@ export function Modal({ className, children, isOpen, onClose, lazy }: ModalProps
 
     const mods: Mods = {
         [cls.opened]: isOpen,
-        [cls.closing]: isClosing
+        [cls.closing]: isClosing,
     };
 
     function onContentClick(e: React.MouseEvent<HTMLDivElement>) {
         e.stopPropagation();
     }
 
-    if(lazy && !isMounted) {
+    if (lazy && !isMounted) {
         return null;
     }
 

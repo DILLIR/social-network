@@ -12,11 +12,11 @@ interface CountrySelectProps {
     disabled?: boolean;
 }
 
-export const CountrySelect = memo(function CurrencySelect({
+export const CountrySelect = memo(function CountrySelect({
     className,
     value,
     onChange,
-    disabled
+    disabled,
 }: CountrySelectProps) {
     const { t } = useTranslation();
     const currencyOptions = useMemo(() => generateOptions(Country), []);
@@ -24,11 +24,11 @@ export const CountrySelect = memo(function CurrencySelect({
         (value: string) => {
             onChange?.(value as Country);
         },
-        [onChange]
+        [onChange],
     );
     return (
         <Select
-            className={classNames("", {}, [className])}
+            className={classNames('', {}, [className])}
             label={t('Country')}
             options={currencyOptions}
             value={value}
@@ -37,4 +37,3 @@ export const CountrySelect = memo(function CurrencySelect({
         />
     );
 });
- 

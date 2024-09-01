@@ -1,38 +1,38 @@
 import {
-    ArticleList
+    ArticleList,
 } from 'entities/Article';
 import { useCallback } from 'react';
 import { useSelector } from 'react-redux';
 import { classNames } from 'shared/lib/classNames/classNames';
 import {
     DynamicModuleLoader,
-    ReducersList
+    ReducersList,
 } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect';
 import { Text, TextTheme } from 'shared/ui/Text/Text';
 import { Page } from 'widgets/Page/Page';
+import { useSearchParams } from 'react-router-dom';
 import {
     getArticlesPageError,
     getArticlesPageIsLoading,
-    getArticlesPageView
+    getArticlesPageView,
 } from '../../model/selectors/articlesPageSelectors';
 import { fetchNextArticlesPage } from '../../model/services/fetchNextArticlesPage/fetchNextArticlesPage';
 import { initArticlesPage } from '../../model/services/initArticlesPage/initArticlesPage';
 import {
     articlesPageReducer,
-    getArticles
+    getArticles,
 } from '../../model/slices/articlesPageSlice';
 import { ArticlesPageFilters } from '../ArticlesPageFilters/ArticlesPageFilters';
 import cls from './ArticlesPage.module.scss';
-import { useSearchParams } from 'react-router-dom';
 
 interface ArticlesPageProps {
     className?: string;
 }
 
 const reducers: ReducersList = {
-    articlesPage: articlesPageReducer
+    articlesPage: articlesPageReducer,
 };
 
 function ArticlesPage({ className }: ArticlesPageProps) {

@@ -1,13 +1,13 @@
-import { Country } from "entities/Country/types/country";
-import { Currency } from "entities/Currency/types/currency";
+import { Country } from 'entities/Country/types/country';
+import { Currency } from 'entities/Currency/types/currency';
 import { useTranslation } from 'react-i18next';
 import { classNames, Mods } from 'shared/lib/classNames/classNames';
 import { Avatar } from 'shared/ui/Avatar/Avatar';
 import { Input } from 'shared/ui/Input/Input';
 import { Loader } from 'shared/ui/Loader/ui/Loader';
 import { Text, TextAlign, TextTheme } from 'shared/ui/Text/Text';
-import { CountrySelect } from "../../../Country";
-import { CurrencySelect } from "../../../Currency";
+import { CountrySelect } from '../../../Country';
+import { CurrencySelect } from '../../../Currency';
 import { Profile } from '../../model/types/profile';
 import cls from './ProfileCard.module.scss';
 
@@ -40,7 +40,7 @@ export function ProfileCard({
     onChangeAvatar,
     onChangeCurrency,
     onChangeCountry,
-    disabled = false
+    disabled = false,
 }: ProfileCardProps) {
     const { t } = useTranslation();
 
@@ -49,7 +49,7 @@ export function ProfileCard({
             <div
                 className={classNames(cls.ProfileCard, {}, [
                     className,
-                    cls.loading
+                    cls.loading,
                 ])}
             >
                 <Loader />
@@ -62,7 +62,7 @@ export function ProfileCard({
             <div
                 className={classNames(cls.ProfileCard, {}, [
                     className,
-                    cls.error
+                    cls.error,
                 ])}
             >
                 <Text
@@ -76,7 +76,7 @@ export function ProfileCard({
     }
 
     const mods: Mods = {
-        [cls.editing]: !disabled
+        [cls.editing]: !disabled,
     };
 
     return (

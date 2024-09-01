@@ -6,4 +6,3 @@ export enum Country {
     FR = 'France',
     IT = 'Italy'
 }
-

@@ -1,4 +1,3 @@
-
 export type BuildMode = 'development' | 'production';
 
 export interface BuildPath {
@@ -24,4 +23,3 @@ export interface BuildOptions {
     apiUrl: string;
     project: 'storybook' | 'frontend' | 'jest';
 }
-

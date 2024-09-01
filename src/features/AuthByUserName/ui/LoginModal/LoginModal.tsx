@@ -17,19 +17,17 @@ export function LoginModal({ className, isOpen, onClose }: LoginModalProps) {
     const { t } = useTranslation();
 
     return (
-        <>
-            <Modal
-                className={classNames(cls.LoginModal, {}, [className])}
-                onClose={onClose}
-                isOpen={isOpen}
-                lazy
-            >
-                <Text title={t('Login')} />
+        <Modal
+            className={classNames(cls.LoginModal, {}, [className])}
+            onClose={onClose}
+            isOpen={isOpen}
+            lazy
+        >
+            <Text title={t('Login')} />
 
-                <Suspense fallback={<Loader />}>
-                    <LoginFormAsync onSuccess={onClose}/>
-                </Suspense>
-            </Modal>
-        </>
+            <Suspense fallback={<Loader />}>
+                <LoginFormAsync onSuccess={onClose} />
+            </Suspense>
+        </Modal>
     );
 }

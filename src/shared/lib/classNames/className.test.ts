@@ -7,7 +7,7 @@ describe('classNames', () => {
 
     test('with additional classes', () => {
         expect(classNames('somaClass', {}, ['additionalClass'])).toBe(
-            'somaClass additionalClass'
+            'somaClass additionalClass',
         );
     });
 
@@ -17,10 +17,10 @@ describe('classNames', () => {
                 'someClass',
                 {
                     hovered: true,
-                    scrollable: true
+                    scrollable: true,
                 },
-                ['class1', 'class2']
-            )
+                ['class1', 'class2'],
+            ),
         ).toBe('someClass class1 class2 hovered scrollable');
     });
 
@@ -30,10 +30,10 @@ describe('classNames', () => {
                 'someClass',
                 {
                     hovered: true,
-                    scrollable: false
+                    scrollable: false,
                 },
-                ['class1', 'class2']
-            )
+                ['class1', 'class2'],
+            ),
         ).toBe('someClass class1 class2 hovered');
     });
 
@@ -42,10 +42,10 @@ describe('classNames', () => {
             classNames(
                 'someClass',
                 {
-                    scrollable: true
+                    scrollable: true,
                 },
-                ['class1', 'class2']
-            )
+                ['class1', 'class2'],
+            ),
         ).toBe('someClass class1 class2 scrollable');
     });
 });

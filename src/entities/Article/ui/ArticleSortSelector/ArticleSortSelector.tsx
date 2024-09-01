@@ -19,7 +19,7 @@ export function ArticleSortSelector({
     sort,
     order,
     onChangeOrder,
-    onChangeSort
+    onChangeSort,
 }: ArticleSortSelectorProps) {
     const { t } = useTranslation();
 
@@ -27,34 +27,33 @@ export function ArticleSortSelector({
         () => [
             {
                 value: 'asc',
-                label: t('Ascending')
+                label: t('Ascending'),
             },
             {
                 value: 'desc',
-                label: t('Descending')
-            }
+                label: t('Descending'),
+            },
         ],
-        [t]
+        [t],
     );
 
     const sortFieldOptions = useMemo<SelectOption<ArticleSortField>[]>(
         () => [
             {
                 value: ArticleSortField.CREATED,
-                label: t('Created')
+                label: t('Created'),
             },
             {
                 value: ArticleSortField.TITLE,
-                label: t('Title')
+                label: t('Title'),
             },
             {
                 value: ArticleSortField.VIEWS,
-                label: t('Views')
-            }
+                label: t('Views'),
+            },
         ],
-        [t]
+        [t],
     );
-
 
     return (
         <div className={classNames(cls.ArticleSortSelector, {}, [className])}>

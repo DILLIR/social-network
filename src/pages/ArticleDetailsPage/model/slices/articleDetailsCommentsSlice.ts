@@ -5,11 +5,11 @@ import { ArticleDetailsCommentsSchema } from '../types/ArticleDetailsCommentsSch
 import { fetchCommentByArticleId } from '../services/fetchCommentsByArticleId/fetchCommentsByArticleId';
 
 const commentsAdapter = createEntityAdapter<Comment>({
-    selectId: (item: Comment) => item.id
+    selectId: (item: Comment) => item.id,
 });
 
 export const getArticleComments = commentsAdapter.getSelectors<StateSchema>(
-    (state) => state.articleDetailsPage?.comments || commentsAdapter.getInitialState()
+    (state) => state.articleDetailsPage?.comments || commentsAdapter.getInitialState(),
 );
 
 const articleDetailsCommentsSlice = createSlice({
@@ -19,8 +19,8 @@ const articleDetailsCommentsSlice = createSlice({
             isLoading: false,
             error: undefined,
             ids: [],
-            entities: {}
-        }
+            entities: {},
+        },
     ),
     reducers: {},
     extraReducers: (builder) => {
@@ -34,16 +34,16 @@ const articleDetailsCommentsSlice = createSlice({
                 (state, action: PayloadAction<Comment[]>) => {
                     state.isLoading = false;
                     commentsAdapter.setAll(state, action.payload);
-                }
+                },
             )
             .addCase(fetchCommentByArticleId.rejected, (state, action) => {
                 state.isLoading = false;
                 state.error = action.payload;
             });
-    }
+    },
 });
 
 export const {
     reducer: articleDetailsCommentsReducer,
-    actions: articleDetailsCommentsActions
+    actions: articleDetailsCommentsActions,
 } = articleDetailsCommentsSlice;

@@ -4,41 +4,39 @@ import { AddCommentFormAsync } from 'features/AddNewComment/ui/AddCommentForm/Ad
 import { useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import { useNavigate, useParams } from 'react-router-dom';
-import { RoutePath } from 'shared/config/routeConfig/routeConfig';
+import { useParams } from 'react-router-dom';
 import { classNames } from 'shared/lib/classNames/classNames';
 import {
     DynamicModuleLoader,
-    ReducersList
+    ReducersList,
 } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect';
-import { Button } from 'shared/ui/Button/Button';
 import { Text, TextSize } from 'shared/ui/Text/Text';
 import { Page } from 'widgets/Page/Page';
 import {
     getArticleCommentsError,
-    getArticleCommentsIsLoading
+    getArticleCommentsIsLoading,
 } from '../../model/selectors/comments';
 import { addCommentForArticle } from '../../model/services/addCommentForArticle/addCommentForArticle';
 import { fetchArticleRecommendations } from '../../model/services/fetchArticleRecommendations/fetchArticleRecommendations';
 import { fetchCommentByArticleId } from '../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
+import { articleDetailsPageReducer } from '../../model/slices';
 import {
-    getArticleComments
+    getArticleComments,
 } from '../../model/slices/articleDetailsCommentsSlice';
 import {
-    getArticleRecommendations
+    getArticleRecommendations,
 } from '../../model/slices/articleDetailsPageRecommendationsSlice';
-import cls from './ArticleDetailsPage.module.scss';
-import { articleDetailsPageReducer } from '../../model/slices';
 import { ArticleDetailsPageHeader } from '../ArticleDetailsPageHeader/ArticleDetailsPageHeader';
+import cls from './ArticleDetailsPage.module.scss';
 
 interface ArticleDetailsPageProps {
     className?: string;
 }
 
 const reducers: ReducersList = {
-    articleDetailsPage: articleDetailsPageReducer
+    articleDetailsPage: articleDetailsPageReducer,
 };
 
 function ArticleDetailsPage({ className }: ArticleDetailsPageProps) {
@@ -51,18 +49,17 @@ function ArticleDetailsPage({ className }: ArticleDetailsPageProps) {
     const commentsError = useSelector(getArticleCommentsError);
 
     const dispatch = useAppDispatch();
-    
 
     const onSendComment = useCallback(
         (text: string) => {
             dispatch(addCommentForArticle(text));
         },
-        [dispatch]
+        [dispatch],
     );
 
     useInitialEffect(() => {
         dispatch(fetchCommentByArticleId(id));
-        dispatch(fetchArticleRecommendations())
+        dispatch(fetchArticleRecommendations());
     });
 
     if (id === undefined) {
@@ -76,7 +73,7 @@ function ArticleDetailsPage({ className }: ArticleDetailsPageProps) {
     return (
         <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
             <Page className={classNames('', {}, [className])}>
-                <ArticleDetailsPageHeader/>
+                <ArticleDetailsPageHeader />
                 <ArticleDetails id={id} />
                 <Text
                     size={TextSize.L}
@@ -84,7 +81,7 @@ function ArticleDetailsPage({ className }: ArticleDetailsPageProps) {
                     title={t('Recommendations')}
                 />
                 <ArticleList
-                    target='_blank'
+                    target="_blank"
                     articles={recommendations}
                     isLoading={recommendationsIsLoading}
                     className={cls.recommendations}

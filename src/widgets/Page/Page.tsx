@@ -5,11 +5,11 @@ import { useLocation } from 'react-router-dom';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { useInfiniteScroll } from 'shared/lib/hooks/useInfiniteScroll';
+import { StateSchema } from 'app/providers/StoreProvider/config/StateSchema';
+import { useThrottle } from 'shared/lib/hooks/useThrottle';
 import { scrollSaveActions } from '../../features/ScrollSave/model/slices/ScrollSlice';
 import { useInitialEffect } from '../../shared/lib/hooks/useInitialEffect';
 import cls from './Page.module.scss';
-import { StateSchema } from 'app/providers/StoreProvider/config/StateSchema';
-import { useThrottle } from 'shared/lib/hooks/useThrottle';
 
 interface PageProps {
     className?: string;
@@ -22,9 +22,7 @@ export function Page({ className, children, onScrollEnd }: PageProps) {
     const triggerRef = useRef() as MutableRefObject<HTMLDivElement>;
     const dispatch = useAppDispatch();
     const { pathname } = useLocation();
-    const scrollPosition = useSelector((state: StateSchema) =>
-        getSaveScrollPositionByPath(state, pathname)
-    );
+    const scrollPosition = useSelector((state: StateSchema) => getSaveScrollPositionByPath(state, pathname));
 
     useInitialEffect(() => {
         wrapperRef.current.scrollTop = scrollPosition;
@@ -33,15 +31,15 @@ export function Page({ className, children, onScrollEnd }: PageProps) {
     useInfiniteScroll({
         triggerRef,
         wrapperRef,
-        callback: onScrollEnd
+        callback: onScrollEnd,
     });
 
     const onScroll = useThrottle((e: UIEvent<HTMLDivElement>) => {
         dispatch(
             scrollSaveActions.setScrollPosition({
                 position: e.currentTarget.scrollTop,
-                path: pathname
-            })
+                path: pathname,
+            }),
         );
     }, 500);
 
@@ -52,7 +50,7 @@ export function Page({ className, children, onScrollEnd }: PageProps) {
             className={classNames(cls.Page, {}, [className])}
         >
             {children}
-            {onScrollEnd && <div className={cls.trigger} ref={triggerRef}></div>}
+            {onScrollEnd && <div className={cls.trigger} ref={triggerRef} />}
         </section>
     );
 }

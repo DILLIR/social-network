@@ -2,7 +2,7 @@ import {
     ArticleSortField,
     ArticleSortSelector,
     ArticleTypeTabs,
-    ArticleView
+    ArticleView,
 } from 'entities/Article';
 import { ArticleType } from 'entities/Article/model/types/article';
 import { ArticleViewSelector } from 'entities/Article/ui/ArticleViewSelector/ArticleViewSelector';
@@ -21,7 +21,7 @@ import {
     getArticlesPageOrder,
     getArticlesPageSearch,
     getArticlesPageSort,
-    getArticlesPageView
+    getArticlesPageView,
 } from '../../model/selectors/articlesPageSelectors';
 import { fetchArticlesList } from '../../model/services/fetchArticlesList/fetchArticlesList';
 import { articlesPageActions } from '../../model/slices/articlesPageSlice';
@@ -43,8 +43,8 @@ export function ArticlesPageFilters({ className }: ArticlesPageFiltersProps) {
     const fetchData = useCallback(() => {
         dispatch(
             fetchArticlesList({
-                replace: true
-            })
+                replace: true,
+            }),
         );
     }, [dispatch]);
 
@@ -55,7 +55,7 @@ export function ArticlesPageFilters({ className }: ArticlesPageFiltersProps) {
             dispatch(articlesPageActions.setView(view));
             dispatch(articlesPageActions.setPage(1));
         },
-        [dispatch]
+        [dispatch],
     );
 
     const onChangeSort = useCallback(
@@ -64,7 +64,7 @@ export function ArticlesPageFilters({ className }: ArticlesPageFiltersProps) {
             dispatch(articlesPageActions.setPage(1));
             debouncedFetchData();
         },
-        [dispatch, debouncedFetchData]
+        [dispatch, debouncedFetchData],
     );
 
     const onChangeOrder = useCallback(
@@ -73,7 +73,7 @@ export function ArticlesPageFilters({ className }: ArticlesPageFiltersProps) {
             dispatch(articlesPageActions.setPage(1));
             debouncedFetchData();
         },
-        [dispatch, debouncedFetchData]
+        [dispatch, debouncedFetchData],
     );
 
     const onChangeSearch = useCallback(
@@ -82,7 +82,7 @@ export function ArticlesPageFilters({ className }: ArticlesPageFiltersProps) {
             dispatch(articlesPageActions.setPage(1));
             debouncedFetchData();
         },
-        [dispatch, debouncedFetchData]
+        [dispatch, debouncedFetchData],
     );
 
     const onChangeType = useCallback(
@@ -91,7 +91,7 @@ export function ArticlesPageFilters({ className }: ArticlesPageFiltersProps) {
             dispatch(articlesPageActions.setPage(1));
             fetchData();
         },
-        [dispatch, fetchData]
+        [dispatch, fetchData],
     );
 
     return (

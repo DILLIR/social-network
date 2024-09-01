@@ -5,11 +5,11 @@ import { ArticleDetailsRecommendationsSchema } from '../types/ArticleDetailsReco
 import { fetchArticleRecommendations } from '../services/fetchArticleRecommendations/fetchArticleRecommendations';
 
 const recommendationsAdapter = createEntityAdapter<Article>({
-    selectId: (item: Article) => item.id
+    selectId: (item: Article) => item.id,
 });
 
 export const getArticleRecommendations = recommendationsAdapter.getSelectors<StateSchema>(
-    (state) => state.articleDetailsPage?.recommendations || recommendationsAdapter.getInitialState()
+    (state) => state.articleDetailsPage?.recommendations || recommendationsAdapter.getInitialState(),
 );
 
 const articleDetailsPageRecommendationsSlice = createSlice({
@@ -19,8 +19,8 @@ const articleDetailsPageRecommendationsSlice = createSlice({
             isLoading: false,
             error: undefined,
             ids: [],
-            entities: {}
-        }
+            entities: {},
+        },
     ),
     reducers: {},
     extraReducers: (builder) => {
@@ -34,16 +34,16 @@ const articleDetailsPageRecommendationsSlice = createSlice({
                 (state, action: PayloadAction<Article[]>) => {
                     state.isLoading = false;
                     recommendationsAdapter.setAll(state, action.payload);
-                }
+                },
             )
             .addCase(fetchArticleRecommendations.rejected, (state, action) => {
                 state.isLoading = false;
                 state.error = action.payload;
             });
-    }
+    },
 });
 
 export const {
     reducer: articleDetailsPageRecommendationsReducer,
-    actions: articleDetailsPageRecommendationsActions
+    actions: articleDetailsPageRecommendationsActions,
 } = articleDetailsPageRecommendationsSlice;

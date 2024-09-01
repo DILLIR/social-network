@@ -32,47 +32,47 @@ export const RoutePath: Record<AppRoutes, string> = {
     [AppRoutes.ARTICLE_DETAILS]: '/articles/',
     [AppRoutes.ARTICLE_CREATE]: '/articles/new',
     [AppRoutes.ARTICLE_EDIT]: '/articles/:id/edit',
-    [AppRoutes.NOT_FOUND]: '*'
+    [AppRoutes.NOT_FOUND]: '*',
 };
 
 export const routeConfig: Record<AppRoutes, AppRoutesProps> = {
     [AppRoutes.MAIN]: {
         path: RoutePath[AppRoutes.MAIN],
-        element: <MainPage />
+        element: <MainPage />,
     },
     [AppRoutes.ABOUT]: {
         path: RoutePath[AppRoutes.ABOUT],
-        element: <AboutPage />
+        element: <AboutPage />,
     },
     [AppRoutes.PROFILE]: {
         path: `${RoutePath[AppRoutes.PROFILE]}/:id`,
         element: <ProfilePage />,
-        authOnly: true
+        authOnly: true,
     },
     [AppRoutes.ARTICLES]: {
         path: RoutePath[AppRoutes.ARTICLES],
         element: <ArticlesPage />,
-        authOnly: true
+        authOnly: true,
     },
     [AppRoutes.ARTICLE_DETAILS]: {
         path: `${RoutePath[AppRoutes.ARTICLES]}/:id`,
         element: <ArticleDetailsPage />,
-        authOnly: true
+        authOnly: true,
     },
     [AppRoutes.ARTICLE_EDIT]: {
         path: `${RoutePath[AppRoutes.ARTICLE_EDIT]}`,
         element: <ArticleEditPage />,
-        authOnly: true
+        authOnly: true,
     },
     [AppRoutes.ARTICLE_CREATE]: {
         path: `${RoutePath[AppRoutes.ARTICLE_CREATE]}`,
         element: <ArticleEditPage />,
-        authOnly: true
+        authOnly: true,
     },
 
     // This route should be the last one
     [AppRoutes.NOT_FOUND]: {
         path: RoutePath[AppRoutes.NOT_FOUND],
-        element: <NotFoundPage />
-    }
+        element: <NotFoundPage />,
+    },
 };

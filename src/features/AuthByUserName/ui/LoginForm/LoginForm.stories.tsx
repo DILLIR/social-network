@@ -5,7 +5,7 @@ import LoginForm from './LoginForm';
 const meta: Meta<typeof LoginForm> = {
     title: 'features/LoginForm',
     component: LoginForm,
-    tags: ['autodocs']
+    tags: ['autodocs'],
 };
 
 export default meta;
@@ -16,10 +16,10 @@ export const Default: Story = {
         StoreDecorator({
             loginForm: {
                 username: 'admin',
-                password: '123'
-            }
-        })
-    ]
+                password: '123',
+            },
+        }),
+    ],
 };
 
 export const withError: Story = {
@@ -28,10 +28,10 @@ export const withError: Story = {
             loginForm: {
                 username: 'admin',
                 password: '123',
-                error: 'Invalid username or password'
-            }
-        })
-    ]
+                error: 'Invalid username or password',
+            },
+        }),
+    ],
 };
 
 export const withLoading: Story = {
@@ -40,8 +40,8 @@ export const withLoading: Story = {
             loginForm: {
                 username: 'admin',
                 password: '123',
-                isLoading: true
-            }
-        })
-    ]
+                isLoading: true,
+            },
+        }),
+    ],
 };

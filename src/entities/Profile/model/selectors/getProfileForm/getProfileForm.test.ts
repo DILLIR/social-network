@@ -1,7 +1,7 @@
-import { StateSchema } from '../../../../../app/providers/StoreProvider';
-import { getProfileForm } from './getProfileForm';
 import { Country } from 'entities/Country';
 import { Currency } from 'entities/Currency';
+import { StateSchema } from '../../../../../app/providers/StoreProvider';
+import { getProfileForm } from './getProfileForm';
 
 describe('getProfileForm.test', () => {
     test('should return error', () => {
@@ -12,12 +12,12 @@ describe('getProfileForm.test', () => {
             lastName: 'Doe',
             firstName: 'John',
             city: 'London',
-            currency: Currency.USD
+            currency: Currency.USD,
         };
         const state: DeepPartial<StateSchema> = {
             profile: {
-                form: data
-            }
+                form: data,
+            },
         };
         expect(getProfileForm(state as StateSchema)).toEqual(data);
     });

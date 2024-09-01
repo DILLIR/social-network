@@ -1,22 +1,22 @@
 import {
     createEntityAdapter,
     createSlice,
-    PayloadAction
+    PayloadAction,
 } from '@reduxjs/toolkit';
 import { StateSchema } from 'app/providers/StoreProvider';
 import { Article, ArticleView } from 'entities/Article';
 import { ARTICLES_VIEW_LOCALSTORAGE_KEY } from 'shared/const/localstorage';
-import { fetchArticlesList } from '../services/fetchArticlesList/fetchArticlesList';
-import { ArticlesPageSchema } from '../types/articlesPageSchema';
 import { ArticleSortField, ArticleType } from 'entities/Article/model/types/article';
 import { OrderBy } from 'shared/types/index';
+import { fetchArticlesList } from '../services/fetchArticlesList/fetchArticlesList';
+import { ArticlesPageSchema } from '../types/articlesPageSchema';
 
 const articlesAdapter = createEntityAdapter<Article>({
-    selectId: (item: Article) => item.id
+    selectId: (item: Article) => item.id,
 });
 
 export const getArticles = articlesAdapter.getSelectors<StateSchema>(
-    (state) => state.articlesPage || articlesAdapter.getInitialState()
+    (state) => state.articlesPage || articlesAdapter.getInitialState(),
 );
 
 const articlesPageSlice = createSlice({
@@ -33,14 +33,14 @@ const articlesPageSlice = createSlice({
         sort: ArticleSortField.CREATED,
         orderBy: 'asc',
         search: '',
-        type: ArticleType.ALL
+        type: ArticleType.ALL,
     }),
     reducers: {
         setView: (state, action: PayloadAction<ArticleView>) => {
             state.view = action.payload;
             localStorage.setItem(
                 ARTICLES_VIEW_LOCALSTORAGE_KEY,
-                action.payload
+                action.payload,
             );
         },
         setPage: (state, action: PayloadAction<number>) => {
@@ -60,12 +60,12 @@ const articlesPageSlice = createSlice({
         },
         initState: (state) => {
             const view = localStorage.getItem(
-                ARTICLES_VIEW_LOCALSTORAGE_KEY
+                ARTICLES_VIEW_LOCALSTORAGE_KEY,
             ) as ArticleView;
-            const computedGridFetch = Math.ceil(( window.innerWidth / 320) * (window.innerHeight / 330));
+            const computedGridFetch = Math.ceil((window.innerWidth / 320) * (window.innerHeight / 330));
             state.view = view ?? ArticleView.GRID;
             state.limit = view === ArticleView.LIST ? 4 : computedGridFetch;
-        }
+        },
     },
     extraReducers: (builder) => {
         builder
@@ -91,8 +91,7 @@ const articlesPageSlice = createSlice({
                 state.isLoading = false;
                 state.error = action.payload;
             });
-    }
+    },
 });
 
-export const { reducer: articlesPageReducer, actions: articlesPageActions } =
-    articlesPageSlice;
+export const { reducer: articlesPageReducer, actions: articlesPageActions } = articlesPageSlice;

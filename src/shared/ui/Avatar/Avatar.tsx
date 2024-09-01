@@ -1,6 +1,6 @@
 import { classNames } from 'shared/lib/classNames/classNames';
-import cls from './Avatar.module.scss';
 import { CSSProperties, useMemo } from 'react';
+import cls from './Avatar.module.scss';
 
 interface AvatarProps extends React.HTMLAttributes<HTMLImageElement> {
     className?: string;
@@ -9,13 +9,15 @@ interface AvatarProps extends React.HTMLAttributes<HTMLImageElement> {
     alt?: string;
 }
 
-export function Avatar({ className, src, size, alt, ...props }: AvatarProps) {
+export function Avatar({
+    className, src, size, alt, ...props
+}: AvatarProps) {
     const styles = useMemo<CSSProperties>(
         () => ({
             width: size,
-            height: size
+            height: size,
         }),
-        [size]
+        [size],
     );
 
     return (

@@ -6,13 +6,12 @@ const meta: Meta<typeof Page> = {
     title: 'entities/Page',
     component: Page,
     tags: ['autodocs'],
-    decorators: [StoreDecorator({})]
+    decorators: [StoreDecorator({})],
 };
 
 export default meta;
 type Story = StoryObj<typeof Page>;
 
-
 export const Default: Story = {
-    args: {  }
+    args: { },
 };

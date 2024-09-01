@@ -16,7 +16,7 @@ export const CurrencySelect = memo(function CurrencySelect({
     className,
     value,
     onChange,
-    disabled
+    disabled,
 }: CurrencySelectProps) {
     const { t } = useTranslation();
     const currencyOptions = useMemo(() => generateOptions(Currency), []);
@@ -24,11 +24,11 @@ export const CurrencySelect = memo(function CurrencySelect({
         (value: string) => {
             onChange?.(value as Currency);
         },
-        [onChange]
+        [onChange],
     );
     return (
         <Select
-            className={classNames("", {}, [className])}
+            className={classNames('', {}, [className])}
             label={t('Currency')}
             options={currencyOptions}
             value={value}
@@ -37,4 +37,3 @@ export const CurrencySelect = memo(function CurrencySelect({
         />
     );
 });
- 

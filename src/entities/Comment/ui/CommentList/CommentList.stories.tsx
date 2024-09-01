@@ -6,7 +6,7 @@ const meta: Meta<typeof CommentList> = {
     title: 'entities/Comment/CommentList',
     component: CommentList,
     tags: ['autodocs'],
-    decorators: [StoreDecorator({})]
+    decorators: [StoreDecorator({})],
 };
 
 export default meta;
@@ -20,24 +20,24 @@ export const Default: Story = {
                 text: 'cool',
                 user: {
                     id: '1',
-                    username: 'dillir'
-                }
+                    username: 'dillir',
+                },
             },
             {
                 id: '2',
                 text: 'Hello world',
                 user: {
                     id: '2',
-                    username: 'Vlada'
-                }
-            }
-        ]
-    }
+                    username: 'Vlada',
+                },
+            },
+        ],
+    },
 };
 
 export const Loading: Story = {
     args: {
         isLoading: true,
-        comments: []
-    }
+        comments: [],
+    },
 };
