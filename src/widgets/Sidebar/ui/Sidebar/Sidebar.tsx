@@ -35,13 +35,13 @@ export const Sidebar = memo(function Sidebar({ className }: SidebarProps) {
     );
 
     return (
-        <menu
+        <aside
             data-testid="sidebar"
             className={classNames(cls.Sidebar, { [cls.collapsed]: collapsed }, [
                 className
             ])}
         >
-            <Stack gap={24} className={cls.items}>
+            <Stack gap={24} role="navigation" className={cls.items}>
                 {itemsList}
             </Stack>
             <div className={cls.switchers}>
@@ -58,6 +58,6 @@ export const Sidebar = memo(function Sidebar({ className }: SidebarProps) {
                     {collapsed ? '>' : '<'}
                 </Button>
             </div>
-        </menu>
+        </aside>
     );
 });

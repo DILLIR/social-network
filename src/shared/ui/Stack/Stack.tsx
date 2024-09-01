@@ -1,7 +1,12 @@
+import { DetailedHTMLProps, HTMLAttributes } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import cls from './Stack.module.scss';
 
-interface StackProps {
+interface StackProps
+    extends DetailedHTMLProps<
+        HTMLAttributes<HTMLDivElement>,
+        HTMLDivElement
+    > {
     className?: string;
     children?: React.ReactNode;
     gap?: 2 | 4 | 6 | 8 | 10 | 12 | 16 | 20 | 24 | 32 | 40 | 48 | 56 | 64;
@@ -24,7 +29,8 @@ export function Stack({
     justifyContent,
     alignItems,
     gap,
-    width
+    width,
+    ...props
 }: StackProps) {
     return (
         <div
@@ -36,6 +42,7 @@ export function Stack({
                 alignItems,
                 width
             }}
+            {...props}
         >
             {children}
         </div>

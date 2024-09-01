@@ -44,13 +44,13 @@ export function Page({ className, children, onScrollEnd }: PageProps) {
     }, 500);
 
     return (
-        <section
+        <main
             ref={wrapperRef}
             onScroll={onScroll}
             className={classNames(cls.Page, {}, [className])}
         >
             {children}
             {onScrollEnd && <div className={cls.trigger} ref={triggerRef} />}
-        </section>
+        </main>
     );
 }

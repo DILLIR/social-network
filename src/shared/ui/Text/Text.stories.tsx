@@ -27,6 +27,14 @@ export const SizeL: Story = {
     },
 };
 
+export const SizeS: Story = {
+    args: {
+        title: 'Titel lorem ipsum amen',
+        text: 'Text lorem ipsum amen',
+        size: TextSize.S,
+    },
+};
+
 export const Error: Story = {
     args: {
         title: 'Titel lorem ipsum amen',
