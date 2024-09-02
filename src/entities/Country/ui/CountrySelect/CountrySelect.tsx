@@ -2,7 +2,7 @@ import { memo, useCallback, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { generateOptions } from 'shared/lib/generateOptions/generateOptions';
-import { Select } from '../../../../shared/ui/Select/Select';
+import { ListBox } from '../../../../shared/ui/ListBox/ListBox';
 import { Country } from '../../types/country';
 
 interface CountrySelectProps {
@@ -16,24 +16,27 @@ export const CountrySelect = memo(function CountrySelect({
     className,
     value,
     onChange,
-    disabled,
+    disabled
 }: CountrySelectProps) {
     const { t } = useTranslation();
     const currencyOptions = useMemo(() => generateOptions(Country), []);
     const onChangeHandler = useCallback(
-        (value: string) => {
+        (value: string | number) => {
             onChange?.(value as Country);
         },
-        [onChange],
+        [onChange]
     );
+
     return (
-        <Select
+        <ListBox
             className={classNames('', {}, [className])}
-            label={t('Country')}
-            options={currencyOptions}
+            defaultValue="Select your country"
+            items={currencyOptions}
             value={value}
             onChange={onChangeHandler}
             disabled={disabled}
+            direction='up'
+            label='Select your country'
         />
     );
 });
