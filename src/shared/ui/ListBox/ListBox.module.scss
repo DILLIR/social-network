@@ -27,11 +27,26 @@
     z-index: 10000;
     box-shadow: 10px 10px 25px -10px var(--listbox-bg);
     overflow: hidden;
+}
 
-    &.up {
-        bottom: 100%;
-        margin-bottom: 8px;
-    }
+.optionsBottomLeft {
+    left: 0;
+}
+
+.optionsBottomRight {
+    right: 0;
+}
+
+.optionsTopRight {
+    bottom: 100%;
+    right: 0;
+    margin-bottom: 8px;
+}
+
+.optionsTopLeft {
+    bottom: 100%;
+    left: 0;
+    margin-bottom: 8px;
 }
 
 .item {

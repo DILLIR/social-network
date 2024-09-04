@@ -35,7 +35,7 @@ export const CurrencySelect = memo(function CurrencySelect({
             value={value}
             onChange={onChangeHandler}
             disabled={disabled}
-            direction='up'
+            direction='top right'
             label='Select your currency'
         />
     );

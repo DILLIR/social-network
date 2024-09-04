@@ -20,6 +20,7 @@ interface StackProps
         | 'space-evenly';
     alignItems?: 'flex-start' | 'center' | 'flex-end' | 'stretch';
     width?: string;
+    style?: React.CSSProperties;
 }
 
 export function Stack({
@@ -30,6 +31,7 @@ export function Stack({
     alignItems,
     gap,
     width,
+    style,
     ...props
 }: StackProps) {
     return (
@@ -40,7 +42,8 @@ export function Stack({
                 flexDirection: direction,
                 justifyContent,
                 alignItems,
-                width
+                width,
+                ...style
             }}
             {...props}
         >

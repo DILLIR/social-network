@@ -4,6 +4,7 @@ import { Page } from 'widgets/Page/Page';
 import { ListBox } from 'shared/ui/ListBox/ListBox';
 import { Stack } from 'shared/ui/Stack/Stack';
 import { useState } from 'react';
+import { Dropdown } from '../../../shared/ui/Dropdown/Dropdown';
 
 function MainPage() {
     const { t } = useTranslation('main');
@@ -23,6 +24,9 @@ function MainPage() {
                         { value: '2', label: 'Two' },
                         { value: '3', label: 'Three', disabled: true },
                     ]}
+                />
+                <Dropdown 
+                    items={[]}
                 />
             </Stack>
         </Page>

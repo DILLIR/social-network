@@ -8,7 +8,18 @@ const meta: Meta<typeof ListBox> = {
     title: 'shared/ListBox',
     component: ListBox,
     tags: ['autodocs'],
-    decorators: [StoreDecorator({})]
+    decorators: [
+        StoreDecorator({}),
+        (Story) => (
+            <Stack
+                style={{ height: '100vh' }}
+                alignItems="center"
+                justifyContent="center"
+            >
+                <Story />
+            </Stack>
+        )
+    ]
 };
 
 export default meta;
@@ -28,7 +39,28 @@ export const Default: Story = {
     render: ({ defaultValue, items }) => {
         const [selectedValue, setSelectedValue] = useState<string | number>();
         return (
-            <Stack width="300px">
+            <ListBox
+                defaultValue={defaultValue}
+                onChange={(value) => {
+                    setSelectedValue(value);
+                }}
+                value={selectedValue}
+                items={items}
+            />
+        );
+    }
+};
+
+export const topLeft: Story = {
+    args: {
+        defaultValue: 'Select value',
+        items: itemsOptions,
+        direction: 'top left'
+    },
+    render: ({ defaultValue, items, direction }) => {
+        const [selectedValue, setSelectedValue] = useState<string | number>();
+        return (
+            <Stack>
                 <ListBox
                     defaultValue={defaultValue}
                     onChange={(value) => {
@@ -36,8 +68,75 @@ export const Default: Story = {
                     }}
                     value={selectedValue}
                     items={items}
+                    direction={direction}
                 />
             </Stack>
+        );
+    }
+};
+
+export const topRight: Story = {
+    args: {
+        defaultValue: 'Select value',
+        items: itemsOptions,
+        direction: 'top right'
+    },
+    render: ({ defaultValue, items, direction }) => {
+        const [selectedValue, setSelectedValue] = useState<string | number>();
+        return (
+            <ListBox
+                defaultValue={defaultValue}
+                onChange={(value) => {
+                    setSelectedValue(value);
+                }}
+                value={selectedValue}
+                items={items}
+                direction={direction}
+            />
+        );
+    }
+};
+
+export const bottomLeft: Story = {
+    args: {
+        defaultValue: 'Select value',
+        items: itemsOptions,
+        direction: 'bottom left'
+    },
+    render: ({ defaultValue, items, direction }) => {
+        const [selectedValue, setSelectedValue] = useState<string | number>();
+        return (
+            <ListBox
+                defaultValue={defaultValue}
+                onChange={(value) => {
+                    setSelectedValue(value);
+                }}
+                value={selectedValue}
+                items={items}
+                direction={direction}
+            />
+        );
+    }
+};
+
+export const bottomRight: Story = {
+    args: {
+        defaultValue: 'Select value',
+        items: itemsOptions,
+        direction: 'bottom right'
+    },
+    render: ({ defaultValue, items, direction }) => {
+        const [selectedValue, setSelectedValue] = useState<string | number>();
+        return (
+            <ListBox
+                defaultValue={defaultValue}
+                onChange={(value) => {
+                    setSelectedValue(value);
+                }}
+                value={selectedValue}
+                items={items}
+                direction={direction}
+            />
         );
     }
 };

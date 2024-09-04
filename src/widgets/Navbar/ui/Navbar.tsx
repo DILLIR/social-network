@@ -8,6 +8,8 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import { AppLink, AppLinkTheme } from 'shared/ui/AppLink/AppLink';
 import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 import { Text, TextTheme } from 'shared/ui/Text/Text';
+import { Avatar } from '../../../shared/ui/Avatar/Avatar';
+import { Dropdown } from '../../../shared/ui/Dropdown/Dropdown';
 import cls from './Navbar.module.scss';
 
 interface NavbarProps {
@@ -43,13 +45,21 @@ export const Navbar = memo(function Navbar({ className }: NavbarProps) {
                 >
                     {t('Create article')}
                 </AppLink>
-                <Button
-                    className={cls.links}
-                    theme={ButtonTheme.CLEAR_INVERTED}
-                    onClick={onLogout}
-                >
-                    {t('Log_out')}
-                </Button>
+                <Dropdown
+                    direction='bottom right'
+                    className={cls.dropdown}
+                    trigger={<Avatar size={30} src={authData.avatar} />}
+                    items={[
+                        {
+                            content: t('Profile'),
+                            href: `${RoutePath.profile  }/${  authData.id}`
+                        },
+                        {
+                            content: t('Log_out'),
+                            onClick: onLogout
+                        }
+                    ]}
+                />
             </header>
         );
     }

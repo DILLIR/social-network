@@ -1,19 +1,18 @@
 import { Listbox } from '@headlessui/react';
 import { Fragment, ReactNode, useMemo } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
+import { DropdownDirection } from 'shared/types/ui';
 import CheckMark from '../../assets/icons/check-mark.svg';
 import { Button } from '../Button/Button';
 import { Icon } from '../Icon/Icon';
-import cls from './ListBox.module.scss';
 import { Stack } from '../Stack/Stack';
+import cls from './ListBox.module.scss';
 
 interface ListBoxItem {
     value: string | number;
     label: ReactNode;
     disabled?: boolean;
 }
-
-type DropdownDirection = 'up' | 'down';
 
 interface ListBoxProps {
     className?: string;
@@ -26,6 +25,13 @@ interface ListBoxProps {
     label?: string;
 }
 
+const mapDirectionClass: Record<DropdownDirection, string> = {
+    'bottom left': cls.optionsBottomLeft,
+    'bottom right': cls.optionsBottomRight,
+    'top right': cls.optionsTopRight,
+    'top left': cls.optionsTopLeft,
+};
+
 export function ListBox({
     className,
     items,
@@ -33,9 +39,11 @@ export function ListBox({
     defaultValue,
     onChange,
     disabled,
-    direction = 'down',
+    direction = 'bottom right',
     label
 }: ListBoxProps) {
+    const optionsClasses = [mapDirectionClass[direction]];
+
     const selectedItem = useMemo(
         () => items?.find((item) => item.value === value),
         [items, value]
@@ -63,7 +71,7 @@ export function ListBox({
                     </Button>
                 </Listbox.Button>
                 <Listbox.Options
-                    className={classNames(cls.options, {}, [cls[direction]])}
+                    className={classNames(cls.options, {}, optionsClasses)}
                 >
                     {items?.map((item) => (
                         <Listbox.Option
