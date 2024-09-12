@@ -3,7 +3,7 @@ import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDeco
 import { ArticleDetailsPageHeader } from './ArticleDetailsPageHeader';
 
 const meta: Meta<typeof ArticleDetailsPageHeader> = {
-    title: 'entities/ArticleDetailsPageHeader',
+    title: 'page/ArticleDetailsPage/ArticleDetailsPageHeader',
     component: ArticleDetailsPageHeader,
     tags: ['autodocs'],
     decorators: [StoreDecorator({})],
