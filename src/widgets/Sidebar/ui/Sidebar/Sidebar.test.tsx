@@ -3,7 +3,7 @@ import { withTranslation } from 'react-i18next';
 import { Sidebar } from './Sidebar';
 import { renderComponent } from '../../../../shared/lib/tests/componentRender/componentRender';
 
-describe('classNames', () => {
+describe('sidebar', () => {
     test('Test render', () => {
         const SidebarWithTranslation = withTranslation()(Sidebar);
         renderComponent(<SidebarWithTranslation />);

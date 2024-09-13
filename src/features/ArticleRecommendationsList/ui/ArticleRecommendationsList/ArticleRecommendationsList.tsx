@@ -16,7 +16,7 @@ export function ArticleRecommendationsList({
     const { t } = useTranslation('article-details');
     const {data: articles, isLoading, error }  = useArticleRecommendationList(5);
 
-    if(isLoading || error) {
+    if(isLoading || error || !articles) {
         return null;
     }
 

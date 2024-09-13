@@ -101,6 +101,7 @@ export function ProfileCard({
                 disabled={disabled}
                 className={cls.Input}
                 onChange={onChangeFirstName}
+                data-testid="ProfileCard.FirstName"
             />
             <Input
                 placeholder={t('Last name')}
@@ -108,6 +109,7 @@ export function ProfileCard({
                 disabled={disabled}
                 className={cls.Input}
                 onChange={onChangeLastName}
+                data-testid="ProfileCard.LastName"
             />
             <Input
                 placeholder={t('Age')}

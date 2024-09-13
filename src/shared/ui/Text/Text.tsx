@@ -27,15 +27,17 @@ interface TextProps {
     theme?: TextTheme;
     align?: TextAlign;
     size?: TextSize;
+
+    'data-testid'?: string;
 }
 
 type HeadingTagType = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
 
 const mapSizeToHeaderTag: Record<TextSize, HeadingTagType> = {
-    [TextSize.S] : 'h3',
-    [TextSize.M] : 'h2',
-    [TextSize.L] : 'h1'
-}
+    [TextSize.S]: 'h3',
+    [TextSize.M]: 'h2',
+    [TextSize.L]: 'h1'
+};
 
 export const Text = memo(function Text({
     className,
@@ -43,9 +45,9 @@ export const Text = memo(function Text({
     text,
     theme = TextTheme.PRIMARY,
     align = TextAlign.LEFT,
-    size = TextSize.M
+    size = TextSize.M,
+    'data-testid': dataTestId = 'Text'
 }: TextProps) {
-
     const HeadingTag = mapSizeToHeaderTag[size];
 
     return (
@@ -57,8 +59,19 @@ export const Text = memo(function Text({
                 cls[size]
             ])}
         >
-            {title && <HeadingTag className={cls.title}>{title}</HeadingTag>}
-            {text && <p className={cls.text}>{text}</p>}
+            {title && (
+                <HeadingTag
+                    className={cls.title}
+                    data-testid={`${dataTestId}.Header`}
+                >
+                    {title}
+                </HeadingTag>
+            )}
+            {text && (
+                <p className={cls.text} data-testid={`${dataTestId}.Paragraph`}>
+                    {text}
+                </p>
+            )}
         </div>
     );
 });
