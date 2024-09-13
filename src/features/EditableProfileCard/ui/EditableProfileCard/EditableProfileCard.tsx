@@ -3,7 +3,10 @@ import { Currency } from 'entities/Currency';
 import { useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import {
+    DynamicModuleLoader,
+    ReducersList
+} from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect';
 import { Stack } from 'shared/ui/Stack/Stack';
@@ -19,7 +22,6 @@ import { fetchProfileData } from '../../model/services/fetchProfileData/fetchPro
 import { profileActions, profileReducer } from '../../model/slice/profileSlice';
 import { ValidateProfileError } from '../../model/types/editableProfileCardSchema';
 import { EditableProfileCardHeader } from '../EditableProfileCardHeader/EditableProfileCardHeader';
-import cls from './EditableProfileCard.module.scss';
 
 interface EditableProfileCardProps {
     className?: string;
@@ -30,7 +32,10 @@ const reducers: ReducersList = {
     profile: profileReducer
 };
 
-export function EditableProfileCard({ className, id }: EditableProfileCardProps) {
+export function EditableProfileCard({
+    className,
+    id
+}: EditableProfileCardProps) {
     const { t } = useTranslation('profile');
     const dispatch = useAppDispatch();
     const formData = useSelector(getProfileForm);
@@ -113,8 +118,8 @@ export function EditableProfileCard({ className, id }: EditableProfileCardProps)
     );
     return (
         <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
-            <Stack gap={16} className={classNames(cls.ProfilePage, {}, [className])}>
-                <EditableProfileCardHeader/>
+            <Stack gap={16} className={classNames('', {}, [className])}>
+                <EditableProfileCardHeader />
                 {validateErrors?.map((error) => (
                     <Text
                         key={error}
