@@ -56,5 +56,7 @@
   "article-details.Recommendations": "Recommendations",
   "article-details.Edit": "Edit",
   "Edit article": "Edit article",
-  "Create article": "Create article"
+  "Create article": "Create article",
+  "Admin panel": "Admin panel",
+  "ForbiddenPage": "You don't have permission to visit this page"
 }

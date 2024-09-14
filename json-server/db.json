@@ -577,6 +577,12 @@
       "userId": "3",
       "text": "lol",
       "id": "Bpbi9Zf"
+    },
+    {
+      "articleId": "4",
+      "userId": "1",
+      "text": "test",
+      "id": "Xx5oCyA"
     }
   ],
   "users": [
@@ -584,21 +590,27 @@
       "id": "1",
       "username": "admin",
       "password": "123",
-      "role": "ADMIN",
+      "roles": ["ADMIN"],
       "avatar": "https://avatars.githubusercontent.com/u/44670502?v=1"
     },
     {
       "id": "2",
       "username": "si-fi",
       "password": "123",
-      "role": "USER",
+      "roles": ["USER"],
       "avatar": "https://yt3.googleusercontent.com/ytc/AIdro_lqcW7QiirwWk-U6Av4djDjf0TGNWFdg2PCBFRIIXDN878=s160-c-k-c0x00ffffff-no-rj"
     },
     {
       "id": "3",
       "username": "dillir",
       "password": "123",
-      "role": "ADMIN"
+      "roles": ["ADMIN"]
+    },
+    {
+      "id": "4",
+      "username": "manager",
+      "password": "123",
+      "roles": ["MANAGER"]
     }
   ],
   "profile": [

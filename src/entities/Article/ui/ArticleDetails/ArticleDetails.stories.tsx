@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
+import { UserRole } from 'entities/User/model/types/user';
 import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
 import { Article, ArticleBlockType, ArticleType } from '../../model/types/article';
 import { ArticleDetails } from './ArticleDetails';
@@ -13,6 +14,7 @@ const article: Article = {
     user: {
         id: '1',
         username: 'John Doe',
+        roles: [UserRole.USER]
     },
     type: [ArticleType.IT],
     blocks: [

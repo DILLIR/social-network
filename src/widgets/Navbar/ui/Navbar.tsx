@@ -1,4 +1,9 @@
-import { getUserAuthData, userActions } from 'entities/User';
+import {
+    getUserAuthData,
+    isUserAdmin,
+    isUserManager,
+    userActions
+} from 'entities/User';
 import { LoginModal } from 'features/AuthByUserName';
 import { memo, useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
@@ -21,6 +26,9 @@ export const Navbar = memo(function Navbar({ className }: NavbarProps) {
     const [isOpen, setIsOpen] = useState(false);
     const authData = useSelector(getUserAuthData);
     const dispatch = useDispatch();
+    const isAdmin = useSelector(isUserAdmin);
+    const isManager = useSelector(isUserManager);
+    const isAdminPanelAvailable = isAdmin || isManager;
 
     const onCloseModal = useCallback(() => setIsOpen(false), []);
     const onShowModal = useCallback(() => setIsOpen(true), []);
@@ -46,13 +54,21 @@ export const Navbar = memo(function Navbar({ className }: NavbarProps) {
                     {t('Create article')}
                 </AppLink>
                 <Dropdown
-                    direction='bottom right'
+                    direction="bottom right"
                     className={cls.dropdown}
                     trigger={<Avatar size={30} src={authData.avatar} />}
                     items={[
+                        ...(isAdminPanelAvailable
+                            ? [
+                                {
+                                    content: t('Admin panel'),
+                                    href: RoutePath.admin_panel
+                                }
+                            ]
+                            : []),
                         {
                             content: t('Profile'),
-                            href: `${RoutePath.profile  }/${  authData.id}`
+                            href: `${RoutePath.profile}/${authData.id}`
                         },
                         {
                             content: t('Log_out'),

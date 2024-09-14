@@ -4,10 +4,10 @@ import { Country } from 'entities/Country';
 import { Currency } from 'entities/Currency';
 import { Profile } from 'entities/Profile/model/types/profile';
 import { withTranslation } from 'react-i18next';
+import { $api } from 'shared/api/api';
 import { renderComponent } from '../../../../shared/lib/tests/componentRender/componentRender';
 import { profileReducer } from '../../model/slice/profileSlice';
 import { EditableProfileCard } from './EditableProfileCard';
-import { $api } from 'shared/api/api';
 
 const profile: Profile = {
     id: '1',

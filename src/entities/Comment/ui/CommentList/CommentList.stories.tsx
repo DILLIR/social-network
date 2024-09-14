@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
+import { UserRole } from 'entities/User/model/types/user';
 import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
 import { CommentList } from './CommentList';
 
@@ -21,6 +22,7 @@ export const Default: Story = {
                 user: {
                     id: '1',
                     username: 'dillir',
+                    roles: [UserRole.USER]
                 },
             },
             {
@@ -29,6 +31,7 @@ export const Default: Story = {
                 user: {
                     id: '2',
                     username: 'Vlada',
+                    roles: [UserRole.USER]
                 },
             },
         ],
