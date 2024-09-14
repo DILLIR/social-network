@@ -34,9 +34,7 @@ const meta: Meta<typeof Stack> = {
             }
         },
         children: {
-            control: {
-                type: 'none'
-            }
+            control: {}
         }
     }
 };
