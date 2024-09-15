@@ -9,7 +9,7 @@ import {
 import ArticleDetailsPage from './ArticleDetailsPage';
 
 const meta: Meta<typeof ArticleDetailsPage> = {
-    title: 'page/ArticleDetailsPage',
+    title: 'page/ArticleDetailsPage/ArticleDetailsPage',
     component: ArticleDetailsPage,
     tags: ['autodocs'],
 };

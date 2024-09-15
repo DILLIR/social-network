@@ -3,7 +3,7 @@ const createTemplate = require('./templates/createTemplate');
 const layer = process.argv[2];
 const slice = process.argv[3];
 
-const layers = ['features', 'entities', 'pages'];
+const layers = ['features', 'entities', 'page'];
 
 if (!layer || !layers.includes(layer)) {
     throw new Error(`Enter layer ${layers.join(', ')}`);

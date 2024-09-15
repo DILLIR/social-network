@@ -3,7 +3,7 @@ import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDeco
 import { EditableProfileCardHeader } from './EditableProfileCardHeader';
 
 const meta: Meta<typeof EditableProfileCardHeader> = {
-    title: 'features/editableProfileCard/EditableProfileCardHeader',
+    title: 'features/EditableProfileCard/EditableProfileCardHeader',
     component: EditableProfileCardHeader,
     tags: ['autodocs'],
     decorators: [StoreDecorator({})]

@@ -2,6 +2,7 @@ import type { Preview } from '@storybook/react';
 import { Theme } from '../../src/app/providers/ThemeProvider';
 import '../../src/app/styles/index.scss';
 import { RouterDecorator } from '../../src/shared/config/storybook/RouterDecorator/RouterDecorator';
+import { SuspenseDecorator } from '../../src/shared/config/storybook/SuspenseDecorator/SuspenseDecorator';
 import { ThemeDecorator } from '../../src/shared/config/storybook/ThemeDecorator/ThemeDecorator';
 
 const preview: Preview = {
@@ -17,6 +18,7 @@ const preview: Preview = {
     decorators: [
         RouterDecorator,
         ThemeDecorator(Theme.LIGHT),
+        SuspenseDecorator
     ],
 };
 

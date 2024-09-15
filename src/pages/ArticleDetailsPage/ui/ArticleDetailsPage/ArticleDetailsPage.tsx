@@ -1,14 +1,13 @@
 import { ArticleDetails } from 'entities/Article';
-import { useTranslation } from 'react-i18next';
+import { ArticleRecommendationsList } from 'features/ArticleRecommendationsList';
 import { useParams } from 'react-router-dom';
 import { classNames } from 'shared/lib/classNames/classNames';
 import {
     DynamicModuleLoader,
     ReducersList
 } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import { Stack } from 'shared/ui/Stack/Stack';
 import { Page } from 'widgets/Page/Page';
-import { ArticleRecommendationsList } from '../../../../features/ArticleRecommendationsList';
-import { Stack } from '../../../../shared/ui/Stack/Stack';
 import { articleDetailsPageReducer } from '../../model/slices';
 import { ArticleDetailsComments } from '../ArticleDetailsComments/ArticleDetailsComments';
 import { ArticleDetailsPageHeader } from '../ArticleDetailsPageHeader/ArticleDetailsPageHeader';
@@ -22,16 +21,7 @@ const reducers: ReducersList = {
 };
 
 function ArticleDetailsPage({ className }: ArticleDetailsPageProps) {
-    const { t } = useTranslation('article-details');
     const { id } = useParams<{ id: string }>();
-
-    if (id === undefined) {
-        return (
-            <Page className={classNames('', {}, [className])}>
-                {t('Article not found')}
-            </Page>
-        );
-    }
 
     return (
         <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
