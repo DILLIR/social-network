@@ -1,1 +1,12 @@
-{}
+{
+  "AgeInvalid": "AgeInvalid",
+  "AgeRequired": "AgeRequired",
+  "Cancel": "Cancel",
+  "CountryRequired": "CountryRequired",
+  "Edit": "Edit",
+  "FirstAndLastNameRequired": "FirstAndLastNameRequired",
+  "NoData": "NoData",
+  "Profile": "Profile",
+  "Save": "Save",
+  "ServerError": "ServerError"
+}
