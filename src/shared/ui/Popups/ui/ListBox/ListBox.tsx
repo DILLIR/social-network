@@ -1,12 +1,14 @@
 import { Listbox } from '@headlessui/react';
 import { Fragment, ReactNode, useMemo } from 'react';
+import CheckMark from 'shared/assets/icons/check-mark.svg';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { DropdownDirection } from 'shared/types/ui';
-import CheckMark from '../../assets/icons/check-mark.svg';
-import { Button } from '../Button/Button';
-import { Icon } from '../Icon/Icon';
-import { Stack } from '../Stack/Stack';
+import { Button } from 'shared/ui/Button/Button';
+import { Icon } from 'shared/ui/Icon/Icon';
+import { Stack } from 'shared/ui/Stack/Stack';
 import cls from './ListBox.module.scss';
+import { mapDirectionClass } from '../../styles/const';
+import popupCls from '../../styles/popup.module.scss'
 
 interface ListBoxItem {
     value: string | number;
@@ -24,13 +26,6 @@ interface ListBoxProps {
     direction?: DropdownDirection;
     label?: string;
 }
-
-const mapDirectionClass: Record<DropdownDirection, string> = {
-    'bottom left': cls.optionsBottomLeft,
-    'bottom right': cls.optionsBottomRight,
-    'top right': cls.optionsTopRight,
-    'top left': cls.optionsTopLeft,
-};
 
 export function ListBox({
     className,
@@ -61,11 +56,11 @@ export function ListBox({
             <Listbox
                 disabled={disabled}
                 as="div"
-                className={classNames(cls.ListBox, {}, [className])}
+                className={classNames(cls.ListBox, {}, [className, popupCls.popup])}
                 value={value}
                 onChange={onChange}
             >
-                <Listbox.Button className={cls.trigger}>
+                <Listbox.Button className={popupCls.trigger}>
                     <Button className={cls.button} disabled={disabled}>
                         {selectedItem?.label ?? defaultValue}
                     </Button>
@@ -83,9 +78,9 @@ export function ListBox({
                             {({ active, selected, disabled }) => (
                                 <li
                                     className={classNames(cls.item, {
-                                        [cls.active]: active,
+                                        [popupCls.active]: active,
                                         [cls.selected]: selected,
-                                        [cls.disabled]: disabled
+                                        [popupCls.disabled]: disabled
                                     })}
                                 >
                                     {item.label}

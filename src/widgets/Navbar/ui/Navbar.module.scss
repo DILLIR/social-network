@@ -8,7 +8,7 @@
 }
 
 .links,
-.dropdown {
+.actions {
     margin-left: auto;
 }
 
@@ -18,4 +18,9 @@
 
 .logo {
     width: var(--sidebar-width);
+}
+
+.notificationIcon {
+    width: 20px;
+    height: 20px;
 }
