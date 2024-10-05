@@ -20,6 +20,7 @@ interface NavbarProps {
 export const Navbar = memo(function Navbar({ className }: NavbarProps) {
     const { t } = useTranslation();
     const [isOpen, setIsOpen] = useState(false);
+
     const authData = useSelector(getUserAuthData);
 
     const onCloseModal = useCallback(() => setIsOpen(false), []);

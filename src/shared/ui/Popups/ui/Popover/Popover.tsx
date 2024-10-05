@@ -26,7 +26,7 @@ export function Popover({
             as="div"
             className={classNames(cls.Popover, {}, [className, popupCls.popup])}
         >
-            <DefaultPopover.Button className={popupCls.trigger}>
+            <DefaultPopover.Button className={popupCls.trigger} as="div">
                 {trigger}
             </DefaultPopover.Button>
 

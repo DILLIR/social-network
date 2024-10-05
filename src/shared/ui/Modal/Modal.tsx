@@ -1,8 +1,7 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
-import {
-    useCallback, useEffect, useRef, useState,
-} from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { classNames, Mods } from 'shared/lib/classNames/classNames';
+import { Overlay } from '../Overlay/Overlay';
 import { Portal } from '../Portal/Portal';
 import cls from './Modal.module.scss';
 
@@ -17,7 +16,11 @@ interface ModalProps {
 const ANIMATION_DURATION = 300;
 
 export function Modal({
-    className, children, isOpen, onClose, lazy,
+    className,
+    children,
+    isOpen,
+    onClose,
+    lazy
 }: ModalProps) {
     const [isClosing, setIsClosing] = useState(false);
     const [isMounted, setIsMounted] = useState(false);
@@ -45,7 +48,7 @@ export function Modal({
                 handleClose();
             }
         },
-        [handleClose],
+        [handleClose]
     );
 
     useEffect(() => {
@@ -63,12 +66,8 @@ export function Modal({
 
     const mods: Mods = {
         [cls.opened]: isOpen,
-        [cls.closing]: isClosing,
+        [cls.closing]: isClosing
     };
-
-    function onContentClick(e: React.MouseEvent<HTMLDivElement>) {
-        e.stopPropagation();
-    }
 
     if (lazy && !isMounted) {
         return null;
@@ -77,11 +76,8 @@ export function Modal({
     return (
         <Portal>
             <div className={classNames(cls.Modal, mods, [className])}>
-                <div className={cls.overlay} onClick={handleClose}>
-                    <div className={cls.content} onClick={onContentClick}>
-                        {children}
-                    </div>
-                </div>
+                <Overlay onClick={handleClose} />
+                <div className={cls.content}>{children}</div>
             </div>
         </Portal>
     );
