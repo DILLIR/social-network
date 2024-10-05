@@ -4,7 +4,10 @@ import { classNames, Mods } from '@/shared/lib/classNames/classNames';
 import { Overlay } from '@/shared/ui/Overlay/Overlay';
 import { Portal } from '@/shared/ui/Portal/Portal';
 import cls from './Drawer.module.scss';
-import { useAnimationLibs } from '@/shared/lib/components/AnimationProvider/AnimationProvider';
+import {
+    AnimationProvider,
+    useAnimationLibs
+} from '@/shared/lib/components/AnimationProvider/AnimationProvider';
 import { Loader } from '../Loader/ui/Loader';
 
 interface DrawerProps {
@@ -111,11 +114,19 @@ export function DrawerContent({
     );
 }
 
-export function Drawer({ ...props }: DrawerProps) {
+function DrawerAsync({ ...props }: DrawerProps) {
     const { isLoaded } = useAnimationLibs();
     if (!isLoaded) {
         return <Loader />;
     }
 
     return <DrawerContent {...props} />;
+}
+
+export function Drawer({ ...props }: DrawerProps) {
+    return (
+        <AnimationProvider>
+            <DrawerAsync {...props} />;
+        </AnimationProvider>
+    );
 }
