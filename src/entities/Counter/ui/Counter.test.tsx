@@ -1,5 +1,5 @@
 import { screen } from '@testing-library/react';
-import { renderComponent } from 'shared/lib/tests/componentRender/componentRender';
+import { renderComponent } from '@/shared/lib/tests/componentRender/componentRender';
 import { userEvent } from '@storybook/test';
 import { Counter } from './Counter';
 

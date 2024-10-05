@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { UserRole } from 'entities/User/model/types/user';
-import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
+import { UserRole } from '@/entities/User/model/types/user';
+import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
 import { ForbiddenPage } from './ForbiddenPage';
 
 const meta: Meta<typeof ForbiddenPage> = {

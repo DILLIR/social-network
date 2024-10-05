@@ -1,5 +1,5 @@
-import { classNames } from 'shared/lib/classNames/classNames';
-import { Text, TextAlign, TextSize } from 'shared/ui/Text/Text';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { Text, TextAlign, TextSize } from '@/shared/ui/Text/Text';
 import { useTranslation } from 'react-i18next';
 import { HTMLAttributeAnchorTarget } from 'react';
 import { Article, ArticleView } from '../../model/types/article';

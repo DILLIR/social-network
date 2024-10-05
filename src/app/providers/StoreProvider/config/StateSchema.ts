@@ -6,16 +6,16 @@ import {
     ReducersMapObject
 } from '@reduxjs/toolkit';
 import { AxiosInstance } from 'axios';
-import { ArticleDetailsSchema } from 'entities/Article';
-import { CounterSchema } from 'entities/Counter';
-import { UserSchema } from 'entities/User';
-import { AddNewCommentSchema } from 'features/AddNewComment';
-import { LoginSchema } from 'features/AuthByUserName';
-import { ProfileSchema } from 'features/EditableProfileCard/model/types/editableProfileCardSchema';
-import { ScrollSaveSchema } from 'features/ScrollSave/model/types/ScrollSaveSchema';
-import { ArticleDetailsPageSchema } from 'pages/ArticleDetailsPage';
-import { ArticlesPageSchema } from 'pages/ArticlesPage';
-import { rtkApi } from 'shared/api/rtkApi';
+import { ArticleDetailsSchema } from '@/entities/Article';
+import { CounterSchema } from '@/entities/Counter';
+import { UserSchema } from '@/entities/User';
+import { AddNewCommentSchema } from '@/features/AddNewComment';
+import { LoginSchema } from '@/features/AuthByUserName';
+import { ProfileSchema } from '@/features/EditableProfileCard/model/types/editableProfileCardSchema';
+import { ScrollSaveSchema } from '@/features/ScrollSave/model/types/ScrollSaveSchema';
+import { ArticleDetailsPageSchema } from '@/pages/ArticleDetailsPage';
+import { ArticlesPageSchema } from '@/pages/ArticlesPage';
+import { rtkApi } from '@/shared/api/rtkApi';
 
 export interface StateSchema {
     counter: CounterSchema;

@@ -1,12 +1,12 @@
-import { getCanEditProfile } from 'pages/ProfilePage/model/selectors/profile';
+import { getCanEditProfile } from '@/pages/ProfilePage/model/selectors/profile';
 import { useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import { classNames } from 'shared/lib/classNames/classNames';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
-import { Button, ButtonTheme } from 'shared/ui/Button/Button';
-import { Stack } from 'shared/ui/Stack/Stack';
-import { Text } from 'shared/ui/Text/Text';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
+import { Button, ButtonTheme } from '@/shared/ui/Button/Button';
+import { Stack } from '@/shared/ui/Stack/Stack';
+import { Text } from '@/shared/ui/Text/Text';
 import { getProfileReadonly } from '../../model/selectors/getProfileReadonly/getProfileReadonly';
 import { updateProfileData } from '../../model/services/updateProfileData/updateProfileData';
 import { profileActions } from '../../model/slice/profileSlice';

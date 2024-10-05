@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { UserRole } from 'entities/User/model/types/user';
-import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
+import { UserRole } from '@/entities/User/model/types/user';
+import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
 import { CommentList } from './CommentList';
 
 const meta: Meta<typeof CommentList> = {

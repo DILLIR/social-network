@@ -1,7 +1,7 @@
 import { useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import { classNames } from 'shared/lib/classNames/classNames';
+import { classNames } from '@/shared/lib/classNames/classNames';
 import { CommentList } from '../../../../entities/Comment';
 import { AddCommentFormAsync } from '../../../../features/AddNewComment/ui/AddCommentForm/AddCommentForm.async';
 import { useAppDispatch } from '../../../../shared/lib/hooks/useAppDispatch';

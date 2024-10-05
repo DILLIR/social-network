@@ -1,11 +1,11 @@
 import { Listbox } from '@headlessui/react';
 import { Fragment, ReactNode, useMemo } from 'react';
-import CheckMark from 'shared/assets/icons/check-mark.svg';
-import { classNames } from 'shared/lib/classNames/classNames';
-import { DropdownDirection } from 'shared/types/ui';
-import { Button } from 'shared/ui/Button/Button';
-import { Icon } from 'shared/ui/Icon/Icon';
-import { Stack } from 'shared/ui/Stack/Stack';
+import CheckMark from '@/shared/assets/icons/check-mark.svg';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { DropdownDirection } from '@/shared/types/ui';
+import { Button } from '@/shared/ui/Button/Button';
+import { Icon } from '@/shared/ui/Icon/Icon';
+import { Stack } from '@/shared/ui/Stack/Stack';
 import cls from './ListBox.module.scss';
 import { mapDirectionClass } from '../../styles/const';
 import popupCls from '../../styles/popup.module.scss'

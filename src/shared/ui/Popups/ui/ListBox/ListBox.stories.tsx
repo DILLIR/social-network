@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { useState } from 'react';
-import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
-import { Stack } from 'shared/ui/Stack/Stack';
+import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
+import { Stack } from '@/shared/ui/Stack/Stack';
 import { ListBox } from './ListBox';
 
 const meta: Meta<typeof ListBox> = {

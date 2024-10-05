@@ -1,7 +1,7 @@
-import { ErrorButton } from 'app/providers/ErrorBoundary';
+import { ErrorButton } from '@/app/providers/ErrorBoundary';
 import { useTranslation } from 'react-i18next';
-import { Stack } from 'shared/ui/Stack/Stack';
-import { Page } from 'widgets/Page/Page';
+import { Stack } from '@/shared/ui/Stack/Stack';
+import { Page } from '@/widgets/Page/Page';
 
 function MainPage() {
     const { t } = useTranslation('main');

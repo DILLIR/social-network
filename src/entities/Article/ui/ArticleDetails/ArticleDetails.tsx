@@ -1,19 +1,19 @@
 import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import CalendarIcon from 'shared/assets/icons/calendar-20-20.svg';
-import EyeIcon from 'shared/assets/icons/eye-20-20.svg';
-import { classNames } from 'shared/lib/classNames/classNames';
+import CalendarIcon from '@/shared/assets/icons/calendar-20-20.svg';
+import EyeIcon from '@/shared/assets/icons/eye-20-20.svg';
+import { classNames } from '@/shared/lib/classNames/classNames';
 import {
     DynamicModuleLoader,
     ReducersList
-} from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
-import { Avatar } from 'shared/ui/Avatar/Avatar';
-import { Icon } from 'shared/ui/Icon/Icon';
-import { Skeleton } from 'shared/ui/Skeleton/Skeleton';
-import { Stack } from 'shared/ui/Stack/Stack';
-import { Text, TextAlign, TextSize, TextTheme } from 'shared/ui/Text/Text';
+} from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
+import { Avatar } from '@/shared/ui/Avatar/Avatar';
+import { Icon } from '@/shared/ui/Icon/Icon';
+import { Skeleton } from '@/shared/ui/Skeleton/Skeleton';
+import { Stack } from '@/shared/ui/Stack/Stack';
+import { Text, TextAlign, TextSize, TextTheme } from '@/shared/ui/Text/Text';
 import { useInitialEffect } from '../../../../shared/lib/hooks/useInitialEffect';
 import {
     getArticleDetailsData,

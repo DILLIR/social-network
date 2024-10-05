@@ -1,12 +1,12 @@
-import { getSaveScrollPositionByPath } from 'features/ScrollSave/model/selectors/scrollSave';
+import { getSaveScrollPositionByPath } from '@/features/ScrollSave/model/selectors/scrollSave';
 import { MutableRefObject, UIEvent, useRef } from 'react';
 import { useSelector } from 'react-redux';
 import { useLocation } from 'react-router-dom';
-import { classNames } from 'shared/lib/classNames/classNames';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
-import { useInfiniteScroll } from 'shared/lib/hooks/useInfiniteScroll';
-import { StateSchema } from 'app/providers/StoreProvider/config/StateSchema';
-import { useThrottle } from 'shared/lib/hooks/useThrottle';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
+import { useInfiniteScroll } from '@/shared/lib/hooks/useInfiniteScroll';
+import { StateSchema } from '@/app/providers/StoreProvider/config/StateSchema';
+import { useThrottle } from '@/shared/lib/hooks/useThrottle';
 import { scrollSaveActions } from '../../features/ScrollSave/model/slices/ScrollSlice';
 import { useInitialEffect } from '../../shared/lib/hooks/useInitialEffect';
 import cls from './Page.module.scss';

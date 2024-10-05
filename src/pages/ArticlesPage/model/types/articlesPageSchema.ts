@@ -1,6 +1,6 @@
 import { EntityState } from '@reduxjs/toolkit';
-import { OrderBy } from 'shared/types/index';
-import { ArticleSortField, ArticleType } from 'entities/Article';
+import { OrderBy } from '@/shared/types/index';
+import { ArticleSortField, ArticleType } from '@/entities/Article';
 import { Article, ArticleView } from '../../../../entities/Article';
 
 export interface ArticlesPageSchema extends EntityState<Article> {

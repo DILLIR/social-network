@@ -1,9 +1,9 @@
-import { classNames } from 'shared/lib/classNames/classNames';
-import { ArticleView } from 'entities/Article/model/types/article';
-import ListIcon from 'shared/assets/icons/list-24-24.svg';
-import GridIcon from 'shared/assets/icons/tiled-24-24.svg';
-import { Button, ButtonTheme } from 'shared/ui/Button/Button';
-import { Icon } from 'shared/ui/Icon/Icon';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { ArticleView } from '@/entities/Article/model/types/article';
+import ListIcon from '@/shared/assets/icons/list-24-24.svg';
+import GridIcon from '@/shared/assets/icons/tiled-24-24.svg';
+import { Button, ButtonTheme } from '@/shared/ui/Button/Button';
+import { Icon } from '@/shared/ui/Icon/Icon';
 import cls from './ArticleViewSelector.module.scss';
 
 interface ArticleViewSelectorProps {
