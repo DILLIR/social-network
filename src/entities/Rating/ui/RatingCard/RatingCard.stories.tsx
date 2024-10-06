@@ -3,7 +3,7 @@ import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDe
 import { RatingCard } from './RatingCard';
 
 const meta: Meta<typeof RatingCard> = {
-    title: 'entities/RatingCard',
+    title: 'entities/Rating/RatingCard',
     component: RatingCard,
     tags: ['autodocs'],
     decorators: [StoreDecorator({})]

@@ -3,7 +3,7 @@ import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDe
 import { NotificationItem } from './NotificationItem';
 
 const meta: Meta<typeof NotificationItem> = {
-    title: 'entities/NotificationItem',
+    title: 'entities/Notification/NotificationItem',
     component: NotificationItem,
     tags: ['autodocs'],
     decorators: [StoreDecorator({})]
