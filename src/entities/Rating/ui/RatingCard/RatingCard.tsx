@@ -1,4 +1,3 @@
-import { classNames } from '@/shared/lib/classNames/classNames';
 import { Button, ButtonSize, ButtonTheme } from '@/shared/ui/Button/Button';
 import { Card } from '@/shared/ui/Card/Card';
 import { Input } from '@/shared/ui/Input/Input';
@@ -10,7 +9,6 @@ import { useCallback, useState } from 'react';
 import { BrowserView, MobileView } from 'react-device-detect';
 import { useTranslation } from 'react-i18next';
 import { Drawer } from '../../../../shared/ui/Drawer/Drawer';
-import cls from './RatingCard.module.scss';
 
 interface RatingCardProps {
     className?: string;
@@ -19,6 +17,7 @@ interface RatingCardProps {
     hasFeedback?: boolean;
     onCancel?: (starsCount: number) => void;
     onSubmit?: (starsCount: number, feedback?: string) => void;
+    rate?: number;
 }
 
 export function RatingCard({
@@ -27,11 +26,12 @@ export function RatingCard({
     feedbackTitle,
     hasFeedback,
     onCancel,
-    onSubmit
+    onSubmit,
+    rate = 0
 }: RatingCardProps) {
     const { t } = useTranslation();
     const [openModal, setOpenModal] = useState(false);
-    const [starsCount, setStarsCount] = useState(0);
+    const [starsCount, setStarsCount] = useState(rate);
     const [feedback, setFeedback] = useState('');
 
     const onSelectStars = useCallback(
@@ -53,11 +53,11 @@ export function RatingCard({
     const acceptHandler = useCallback(() => {
         onSubmit?.(starsCount, feedback);
         setOpenModal(false);
-    }, [starsCount, feedback]);
+    }, [starsCount, feedback, setStarsCount]);
 
     const cancelHandler = useCallback(() => {
-        onSubmit?.(starsCount);
         setOpenModal(false);
+        onCancel?.(starsCount);
     }, [starsCount]);
 
     const modalContent = (
@@ -72,10 +72,10 @@ export function RatingCard({
     );
 
     return (
-        <Card className={classNames(cls.RatingCard, {}, [className])}>
+        <Card className={className}>
             <Stack alignItems="center">
-                <Text title={title} />
-                <StarRating size={40} onSelect={onSelectStars} />
+                <Text title={starsCount ? t('Thank you for rate') : title} />
+                <StarRating selectedStars={starsCount} size={40} onSelect={onSelectStars} />
             </Stack>
             <BrowserView>
                 <Modal isOpen={openModal} onClose={closeModal}>
@@ -101,12 +101,6 @@ export function RatingCard({
                 <Drawer isOpen={openModal} onClose={closeModal} lazy>
                     <Stack gap={32}>
                         {modalContent}
-                        {/* <Button
-                            onClick={cancelHandler}
-                            theme={ButtonTheme.OUTLINE_RED}
-                        >
-                            {t('Cancel')}
-                        </Button> */}
                         <Button onClick={acceptHandler} size={ButtonSize.L}>
                             {t('Send')}
                         </Button>

@@ -1,9 +1,8 @@
 import { ErrorButton } from '@/app/providers/ErrorBoundary';
-import { useTranslation } from 'react-i18next';
+import { RatingCard } from '@/entities/Rating';
 import { Stack } from '@/shared/ui/Stack/Stack';
 import { Page } from '@/widgets/Page/Page';
-import { StarRating } from '../../../shared/ui/StarRating/StarRating';
-import { RatingCard } from '../../../entities/Rating';
+import { useTranslation } from 'react-i18next';
 
 function MainPage() {
     const { t } = useTranslation('main');

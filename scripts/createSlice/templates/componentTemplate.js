@@ -1,4 +1,4 @@
-module.exports = (componentName) => `import { classNames } from 'shared/lib/classNames/classNames';
+module.exports = (componentName) => `import { classNames } from '@/shared/lib/classNames/classNames';
 import cls from './${componentName}.module.scss';
 
 interface ${componentName}Props {

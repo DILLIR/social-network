@@ -11,6 +11,7 @@ import { Page } from '@/widgets/Page/Page';
 import { articleDetailsPageReducer } from '../../model/slices';
 import { ArticleDetailsComments } from '../ArticleDetailsComments/ArticleDetailsComments';
 import { ArticleDetailsPageHeader } from '../ArticleDetailsPageHeader/ArticleDetailsPageHeader';
+import { ArticleRating } from '../../../../features/ArticleRating';
 
 interface ArticleDetailsPageProps {
     className?: string;
@@ -29,6 +30,7 @@ function ArticleDetailsPage({ className }: ArticleDetailsPageProps) {
                 <Stack gap={16}>
                     <ArticleDetailsPageHeader />
                     <ArticleDetails id={id} />
+                    <ArticleRating articleId={id!} />
                     <ArticleRecommendationsList />
                     <ArticleDetailsComments id={id} />
                 </Stack>
