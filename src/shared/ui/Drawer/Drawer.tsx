@@ -126,7 +126,7 @@ function DrawerAsync({ ...props }: DrawerProps) {
 export function Drawer({ ...props }: DrawerProps) {
     return (
         <AnimationProvider>
-            <DrawerAsync {...props} />;
+            <DrawerAsync {...props} />
         </AnimationProvider>
     );
 }

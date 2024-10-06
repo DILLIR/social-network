@@ -54,7 +54,6 @@ export function Dropdown({
                                 as={AppLink}
                                 to={item.href}
                                 disabled={item.disabled}
-                                // eslint-disable-next-line react/no-array-index-key
                                 key={index}
                             >
                                 {content}
@@ -66,7 +65,6 @@ export function Dropdown({
                         <Menu.Item
                             as={Fragment}
                             disabled={item.disabled}
-                            // eslint-disable-next-line react/no-array-index-key
                             key={index}
                         >
                             {content}

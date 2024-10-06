@@ -60,7 +60,7 @@ export function ListBox({
                 value={value}
                 onChange={onChange}
             >
-                <Listbox.Button className={popupCls.trigger}>
+                <Listbox.Button className={popupCls.trigger} as="div">
                     <Button className={cls.button} disabled={disabled}>
                         {selectedItem?.label ?? defaultValue}
                     </Button>
