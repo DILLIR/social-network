@@ -1,8 +1,8 @@
-import type { Meta, StoryObj } from '@storybook/react';
 import { useState } from 'react';
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
 import { Stack } from '@/shared/ui/Stack/Stack';
 import { ListBox } from './ListBox';
+import type { Meta, StoryObj } from '@storybook/react';
 
 const meta: Meta<typeof ListBox> = {
     title: 'shared/ListBox',
@@ -18,8 +18,8 @@ const meta: Meta<typeof ListBox> = {
             >
                 <Story />
             </Stack>
-        )
-    ]
+        ),
+    ],
 };
 
 export default meta;
@@ -28,13 +28,13 @@ type Story = StoryObj<typeof ListBox>;
 const itemsOptions = [
     { value: '1', label: 'One' },
     { value: '2', label: 'Two' },
-    { value: '3', label: 'Three', disabled: true }
+    { value: '3', label: 'Three', disabled: true },
 ];
 
 export const Default: Story = {
     args: {
         defaultValue: 'Select value',
-        items: itemsOptions
+        items: itemsOptions,
     },
     render: ({ defaultValue, items }) => {
         const [selectedValue, setSelectedValue] = useState<string | number>();
@@ -48,14 +48,14 @@ export const Default: Story = {
                 items={items}
             />
         );
-    }
+    },
 };
 
 export const topLeft: Story = {
     args: {
         defaultValue: 'Select value',
         items: itemsOptions,
-        direction: 'top left'
+        direction: 'top left',
     },
     render: ({ defaultValue, items, direction }) => {
         const [selectedValue, setSelectedValue] = useState<string | number>();
@@ -72,14 +72,14 @@ export const topLeft: Story = {
                 />
             </Stack>
         );
-    }
+    },
 };
 
 export const topRight: Story = {
     args: {
         defaultValue: 'Select value',
         items: itemsOptions,
-        direction: 'top right'
+        direction: 'top right',
     },
     render: ({ defaultValue, items, direction }) => {
         const [selectedValue, setSelectedValue] = useState<string | number>();
@@ -94,14 +94,14 @@ export const topRight: Story = {
                 direction={direction}
             />
         );
-    }
+    },
 };
 
 export const bottomLeft: Story = {
     args: {
         defaultValue: 'Select value',
         items: itemsOptions,
-        direction: 'bottom left'
+        direction: 'bottom left',
     },
     render: ({ defaultValue, items, direction }) => {
         const [selectedValue, setSelectedValue] = useState<string | number>();
@@ -116,14 +116,14 @@ export const bottomLeft: Story = {
                 direction={direction}
             />
         );
-    }
+    },
 };
 
 export const bottomRight: Story = {
     args: {
         defaultValue: 'Select value',
         items: itemsOptions,
-        direction: 'bottom right'
+        direction: 'bottom right',
     },
     render: ({ defaultValue, items, direction }) => {
         const [selectedValue, setSelectedValue] = useState<string | number>();
@@ -138,5 +138,5 @@ export const bottomRight: Story = {
                 direction={direction}
             />
         );
-    }
+    },
 };

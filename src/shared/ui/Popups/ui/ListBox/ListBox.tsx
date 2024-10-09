@@ -6,9 +6,9 @@ import { DropdownDirection } from '@/shared/types/ui';
 import { Button } from '@/shared/ui/Button/Button';
 import { Icon } from '@/shared/ui/Icon/Icon';
 import { Stack } from '@/shared/ui/Stack/Stack';
-import cls from './ListBox.module.scss';
 import { mapDirectionClass } from '../../styles/const';
-import popupCls from '../../styles/popup.module.scss'
+import popupCls from '../../styles/popup.module.scss';
+import cls from './ListBox.module.scss';
 
 interface ListBoxItem {
     value: string | number;
@@ -35,13 +35,13 @@ export function ListBox({
     onChange,
     disabled,
     direction = 'bottom right',
-    label
+    label,
 }: ListBoxProps) {
     const optionsClasses = [mapDirectionClass[direction]];
 
     const selectedItem = useMemo(
         () => items?.find((item) => item.value === value),
-        [items, value]
+        [items, value],
     );
 
     return (
@@ -49,9 +49,11 @@ export function ListBox({
             {label && (
                 <span
                     className={classNames(cls.label, {
-                        [cls.disabled]: disabled
+                        [cls.disabled]: disabled,
                     })}
-                >{`${label}>`}</span>
+                >
+                    {`${label}>`}
+                </span>
             )}
             <Listbox
                 disabled={disabled}
@@ -80,7 +82,7 @@ export function ListBox({
                                     className={classNames(cls.item, {
                                         [popupCls.active]: active,
                                         [cls.selected]: selected,
-                                        [popupCls.disabled]: disabled
+                                        [popupCls.disabled]: disabled,
                                     })}
                                 >
                                     {item.label}

@@ -1,20 +1,19 @@
-import type { Meta, StoryObj } from '@storybook/react';
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
 import { NotificationList } from './NotificationList';
+import type { Meta, StoryObj } from '@storybook/react';
 
 const meta: Meta<typeof NotificationList> = {
     title: 'entities/Notification/NotificationList',
     component: NotificationList,
     tags: ['autodocs'],
-    decorators: [StoreDecorator({})]
+    decorators: [StoreDecorator({})],
 };
 
 export default meta;
 type Story = StoryObj<typeof NotificationList>;
 
-
 export const Default: Story = {
-    args: {  },
+    args: { },
     parameters: {
         mockData: [
             {
@@ -46,9 +45,9 @@ export const Default: Story = {
                         id: '5',
                         title: 'Alert',
                         description: "Hi there! I'm a notification",
-                    }
-                ]
-            }
-        ]
-    }
+                    },
+                ],
+            },
+        ],
+    },
 };

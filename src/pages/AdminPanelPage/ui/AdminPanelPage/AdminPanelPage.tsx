@@ -7,12 +7,12 @@ interface AdminPanelPageProps {
 }
 
 function AdminPanelPage({ className }: AdminPanelPageProps) {
-    const {t} = useTranslation();
+    const { t } = useTranslation();
     return (
-        <Page className={classNames("", {}, [className])}>
-            {t("Admin panel")}
+        <Page className={classNames('', {}, [className])}>
+            {t('Admin panel')}
         </Page>
     );
 }
 
-export default AdminPanelPage; 
+export default AdminPanelPage;

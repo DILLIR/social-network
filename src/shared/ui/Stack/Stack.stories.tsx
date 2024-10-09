@@ -1,6 +1,6 @@
-import type { Meta, StoryObj } from '@storybook/react';
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
 import { Stack } from './Stack';
+import type { Meta, StoryObj } from '@storybook/react';
 
 const meta: Meta<typeof Stack> = {
     title: 'shared/Stack',
@@ -11,8 +11,8 @@ const meta: Meta<typeof Stack> = {
         direction: {
             control: {
                 type: 'select',
-                options: ['row', 'column']
-            }
+                options: ['row', 'column'],
+            },
         },
         justifyContent: {
             control: {
@@ -23,20 +23,20 @@ const meta: Meta<typeof Stack> = {
                     'flex-end',
                     'space-between',
                     'space-around',
-                    'space-evenly'
-                ]
-            }
+                    'space-evenly',
+                ],
+            },
         },
         alignItems: {
             control: {
                 type: 'select',
-                options: ['flex-start', 'center', 'flex-end', 'stretch']
-            }
+                options: ['flex-start', 'center', 'flex-end', 'stretch'],
+            },
         },
         children: {
-            control: {}
-        }
-    }
+            control: {},
+        },
+    },
 };
 
 export default meta;
@@ -53,7 +53,7 @@ function Box(index: number) {
                 color: 'var(--inverted-primary-color)',
                 display: 'flex',
                 justifyContent: 'center',
-                alignItems: 'center'
+                alignItems: 'center',
             }}
         >
             {index}
@@ -65,14 +65,14 @@ export const Row: Story = {
     args: {
         direction: 'row',
         gap: 10,
-        children: <>{Array.from({ length: 5 }, (_, i) => Box(i))}</>
-    }
+        children: <>{Array.from({ length: 5 }, (_, i) => Box(i))}</>,
+    },
 };
 
 export const Column: Story = {
     args: {
         direction: 'column',
         gap: 10,
-        children: <>{Array.from({ length: 5 }, (_, i) => Box(i))}</>
-    }
+        children: <>{Array.from({ length: 5 }, (_, i) => Box(i))}</>,
+    },
 };

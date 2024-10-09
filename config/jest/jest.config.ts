@@ -26,13 +26,13 @@ const config = {
 
     moduleNameMapper: {
         '\\.svg': path.resolve(__dirname, 'jestEmptyComponent.tsx'),
-        '\\.(css|scss)$': 'identity-obj-proxy'
+        '\\.(css|scss)$': 'identity-obj-proxy',
     },
 
     globals: {
         __IS_DEV__: true,
         __API_URL__: '',
-        __PROJECT__: 'jest'
+        __PROJECT__: 'jest',
     },
 
     transformIgnorePatterns: ['node_modules/(?!axios)'],
@@ -48,9 +48,9 @@ const config = {
                 filename: 'report.html',
                 openReport: false,
                 inlineSource: true,
-            }
-        ]
-    ]
+            },
+        ],
+    ],
 
     // All imported modules in your tests should be mocked automatically
     // automock: false,

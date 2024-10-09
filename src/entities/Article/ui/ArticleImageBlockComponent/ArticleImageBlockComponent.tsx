@@ -12,12 +12,12 @@ interface ArticleImageBlockComponentProps {
 export const ArticleImageBlockComponent = memo(
     function ArticleImageBlockComponent({
         className,
-        block
+        block,
     }: ArticleImageBlockComponentProps) {
         return (
             <div
                 className={classNames(cls.ArticleImageBlockComponent, {}, [
-                    className
+                    className,
                 ])}
             >
                 <img src={block.src} className={cls.img} alt={block.title} />
@@ -26,5 +26,5 @@ export const ArticleImageBlockComponent = memo(
                 )}
             </div>
         );
-    }
+    },
 );

@@ -43,7 +43,7 @@ export function Stack({
                 justifyContent,
                 alignItems,
                 width,
-                ...style
+                ...style,
             }}
             {...props}
         >

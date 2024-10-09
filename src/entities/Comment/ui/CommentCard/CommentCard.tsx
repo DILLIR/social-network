@@ -17,7 +17,7 @@ interface CommentCardProps {
 export function CommentCard({
     className,
     comment,
-    isLoading
+    isLoading,
 }: CommentCardProps) {
     if (isLoading) {
         return (
@@ -25,7 +25,7 @@ export function CommentCard({
                 gap={10}
                 className={classNames(cls.CommentCard, {}, [
                     className,
-                    cls.loading
+                    cls.loading,
                 ])}
             >
                 <Stack direction="row" gap={8} alignItems="center">

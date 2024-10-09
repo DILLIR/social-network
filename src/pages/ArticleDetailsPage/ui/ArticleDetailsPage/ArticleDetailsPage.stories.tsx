@@ -1,4 +1,3 @@
-import type { Meta, StoryObj } from '@storybook/react';
 import { UserRole } from '@/entities/User/model/types/user';
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
 import { Article } from '../../../../entities/Article';
@@ -7,6 +6,7 @@ import {
     ArticleType,
 } from '../../../../entities/Article/model/types/article';
 import ArticleDetailsPage from './ArticleDetailsPage';
+import type { Meta, StoryObj } from '@storybook/react';
 
 const meta: Meta<typeof ArticleDetailsPage> = {
     title: 'page/ArticleDetailsPage/ArticleDetailsPage',
@@ -27,7 +27,7 @@ const article: Article = {
     user: {
         id: '1',
         username: 'John Doe',
-        roles: [UserRole.USER]
+        roles: [UserRole.USER],
     },
     type: [ArticleType.IT],
     blocks: [

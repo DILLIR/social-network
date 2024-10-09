@@ -1,6 +1,6 @@
-import type { Meta, StoryObj } from '@storybook/react';
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
 import { Page } from './Page';
+import type { Meta, StoryObj } from '@storybook/react';
 
 const meta: Meta<typeof Page> = {
     title: 'widget/Page',

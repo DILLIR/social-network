@@ -15,7 +15,7 @@ export function ProfilePage({ className }: ProfilePageProps) {
     return (
         <Page className={classNames('', {}, [className])}>
             <Stack gap={16}>
-                <EditableProfileCard id={id}/>
+                <EditableProfileCard id={id} />
             </Stack>
         </Page>
     );

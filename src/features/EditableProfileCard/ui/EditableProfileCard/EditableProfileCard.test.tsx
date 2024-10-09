@@ -1,9 +1,9 @@
 import { screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
+import { withTranslation } from 'react-i18next';
 import { Country } from '@/entities/Country';
 import { Currency } from '@/entities/Currency';
 import { Profile } from '@/entities/Profile/model/types/profile';
-import { withTranslation } from 'react-i18next';
 import { $api } from '@/shared/api/api';
 import { renderComponent } from '../../../../shared/lib/tests/componentRender/componentRender';
 import { profileReducer } from '../../model/slice/profileSlice';
@@ -17,7 +17,7 @@ const profile: Profile = {
     lastName: 'Doe',
     firstName: 'Ihor',
     city: 'London',
-    currency: Currency.USD
+    currency: Currency.USD,
 };
 
 const options = {
@@ -25,15 +25,15 @@ const options = {
         profile: {
             readonly: true,
             data: profile,
-            form: profile
+            form: profile,
         },
         user: {
             authData: {
-                id: '1'
-            }
-        }
+                id: '1',
+            },
+        },
     },
-    asyncReducers: { profile: profileReducer }
+    asyncReducers: { profile: profileReducer },
 };
 
 describe('features/EditableProfileCard', () => {
@@ -41,10 +41,10 @@ describe('features/EditableProfileCard', () => {
         const ProfileWithTranslation = withTranslation()(EditableProfileCard);
         renderComponent(<ProfileWithTranslation id="1" />, options);
         await userEvent.click(
-            screen.getByTestId('EditableProfileCardHeader.EditButton')
+            screen.getByTestId('EditableProfileCardHeader.EditButton'),
         );
         expect(
-            screen.getByTestId('EditableProfileCardHeader.CancelButton')
+            screen.getByTestId('EditableProfileCardHeader.CancelButton'),
         ).toBeInTheDocument();
     });
 
@@ -52,7 +52,7 @@ describe('features/EditableProfileCard', () => {
         const ProfileWithTranslation = withTranslation()(EditableProfileCard);
         renderComponent(<ProfileWithTranslation id="1" />, options);
         await userEvent.click(
-            screen.getByTestId('EditableProfileCardHeader.EditButton')
+            screen.getByTestId('EditableProfileCardHeader.EditButton'),
         );
 
         await userEvent.clear(screen.getByTestId('ProfileCard.FirstName'));
@@ -60,19 +60,19 @@ describe('features/EditableProfileCard', () => {
 
         await userEvent.type(
             screen.getByTestId('ProfileCard.FirstName'),
-            'John'
+            'John',
         );
 
         await userEvent.type(
             screen.getByTestId('ProfileCard.LastName'),
-            'Doess'
+            'Doess',
         );
 
         expect(screen.getByTestId('ProfileCard.FirstName')).toHaveValue('John');
         expect(screen.getByTestId('ProfileCard.LastName')).toHaveValue('Doess');
 
         await userEvent.click(
-            screen.getByTestId('EditableProfileCardHeader.CancelButton')
+            screen.getByTestId('EditableProfileCardHeader.CancelButton'),
         );
 
         expect(screen.getByTestId('ProfileCard.FirstName')).toHaveValue('Ihor');
@@ -83,35 +83,35 @@ describe('features/EditableProfileCard', () => {
         const ProfileWithTranslation = withTranslation()(EditableProfileCard);
         renderComponent(<ProfileWithTranslation id="1" />, options);
         await userEvent.click(
-            screen.getByTestId('EditableProfileCardHeader.EditButton')
+            screen.getByTestId('EditableProfileCardHeader.EditButton'),
         );
 
         await userEvent.clear(screen.getByTestId('ProfileCard.FirstName'));
 
         await userEvent.click(
-            screen.getByTestId('EditableProfileCardHeader.SaveButton')
+            screen.getByTestId('EditableProfileCardHeader.SaveButton'),
         );
 
         expect(screen.getByTestId('EditableProfileCard.Error.Paragraph')).toBeInTheDocument();
     });
-    
+
     test("If we don't have errors the PUT request must be sent", async () => {
         const mockPutReq = jest.spyOn($api, 'put');
         const ProfileWithTranslation = withTranslation()(EditableProfileCard);
         renderComponent(<ProfileWithTranslation id="1" />, options);
         await userEvent.click(
-            screen.getByTestId('EditableProfileCardHeader.EditButton')
+            screen.getByTestId('EditableProfileCardHeader.EditButton'),
         );
 
         await userEvent.clear(screen.getByTestId('ProfileCard.FirstName'));
 
         await userEvent.type(
             screen.getByTestId('ProfileCard.FirstName'),
-            'John'
+            'John',
         );
 
         await userEvent.click(
-            screen.getByTestId('EditableProfileCardHeader.SaveButton')
+            screen.getByTestId('EditableProfileCardHeader.SaveButton'),
         );
 
         expect(mockPutReq).toHaveBeenCalled();

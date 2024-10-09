@@ -1,6 +1,6 @@
+import { useTranslation } from 'react-i18next';
 import { Country } from '@/entities/Country/types/country';
 import { Currency } from '@/entities/Currency/types/currency';
-import { useTranslation } from 'react-i18next';
 import { classNames, Mods } from '@/shared/lib/classNames/classNames';
 import { Avatar } from '@/shared/ui/Avatar/Avatar';
 import { Input } from '@/shared/ui/Input/Input';
@@ -41,19 +41,19 @@ export function ProfileCard({
     onChangeAvatar,
     onChangeCurrency,
     onChangeCountry,
-    disabled = false
+    disabled = false,
 }: ProfileCardProps) {
     const { t } = useTranslation();
 
     if (isLoading) {
         return (
             <Stack
-                direction='row'
-                justifyContent='center'
-                alignItems='center'
+                direction="row"
+                justifyContent="center"
+                alignItems="center"
                 className={classNames(cls.ProfileCard, {}, [
                     className,
-                    cls.loading
+                    cls.loading,
                 ])}
             >
                 <Loader />
@@ -64,11 +64,11 @@ export function ProfileCard({
     if (error) {
         return (
             <Stack
-                direction='row'
-                justifyContent='center'
+                direction="row"
+                justifyContent="center"
                 className={classNames(cls.ProfileCard, {}, [
                     className,
-                    cls.error
+                    cls.error,
                 ])}
             >
                 <Text
@@ -76,13 +76,14 @@ export function ProfileCard({
                     text="Try to refresh page later"
                     theme={TextTheme.ERROR}
                     align={TextAlign.CENTER}
-                />w
+                />
+                w
             </Stack>
         );
     }
 
     const mods: Mods = {
-        [cls.editing]: !disabled
+        [cls.editing]: !disabled,
     };
 
     return (

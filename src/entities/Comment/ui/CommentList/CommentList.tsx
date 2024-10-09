@@ -14,7 +14,7 @@ interface CommentListProps {
 export function CommentList({
     className,
     comments,
-    isLoading
+    isLoading,
 }: CommentListProps) {
     const { t } = useTranslation();
 

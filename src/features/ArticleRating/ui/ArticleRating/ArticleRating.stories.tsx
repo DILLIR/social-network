@@ -1,12 +1,12 @@
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
-import type { Meta, StoryObj } from '@storybook/react';
 import ArticleRating from './ArticleRating';
+import type { Meta, StoryObj } from '@storybook/react';
 
 const meta: Meta<typeof ArticleRating> = {
     title: 'features/ArticleRating',
     component: ArticleRating,
     tags: ['autodocs'],
-    decorators: [StoreDecorator({})]
+    decorators: [StoreDecorator({})],
 };
 
 export default meta;
@@ -14,13 +14,13 @@ type Story = StoryObj<typeof ArticleRating>;
 
 export const Default: Story = {
     args: {
-        articleId: '1'
-    }
+        articleId: '1',
+    },
 };
 
 export const WithRate: Story = {
     args: {
-        articleId: '1'
+        articleId: '1',
     },
     parameters: {
         mockData: [
@@ -33,10 +33,10 @@ export const WithRate: Story = {
                         id: '1',
                         userId: '1',
                         articleId: '1',
-                        rate: 5
-                    }
-                ]
-            }
-        ]
-    }
+                        rate: 5,
+                    },
+                ],
+            },
+        ],
+    },
 };

@@ -16,7 +16,7 @@ export const CountrySelect = memo(function CountrySelect({
     className,
     value,
     onChange,
-    disabled
+    disabled,
 }: CountrySelectProps) {
     const { t } = useTranslation();
     const currencyOptions = useMemo(() => generateOptions(Country), []);
@@ -24,7 +24,7 @@ export const CountrySelect = memo(function CountrySelect({
         (value: string | number) => {
             onChange?.(value as Country);
         },
-        [onChange]
+        [onChange],
     );
 
     return (
@@ -35,8 +35,8 @@ export const CountrySelect = memo(function CountrySelect({
             value={value}
             onChange={onChangeHandler}
             disabled={disabled}
-            direction='top right'
-            label='Select your country'
+            direction="top right"
+            label="Select your country"
         />
     );
 });

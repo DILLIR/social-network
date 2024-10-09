@@ -10,7 +10,7 @@ import { Stack } from '../../../../shared/ui/Stack/Stack';
 import { Text, TextSize } from '../../../../shared/ui/Text/Text';
 import {
     getArticleCommentsError,
-    getArticleCommentsIsLoading
+    getArticleCommentsIsLoading,
 } from '../../model/selectors/comments';
 import { addCommentForArticle } from '../../model/services/addCommentForArticle/addCommentForArticle';
 import { fetchCommentByArticleId } from '../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
@@ -23,7 +23,7 @@ interface ArticleDetailsCommentsProps {
 
 export function ArticleDetailsComments({
     className,
-    id
+    id,
 }: ArticleDetailsCommentsProps) {
     const { t } = useTranslation('article-details');
     const dispatch = useAppDispatch();
@@ -36,7 +36,7 @@ export function ArticleDetailsComments({
         (text: string) => {
             dispatch(addCommentForArticle(text));
         },
-        [dispatch]
+        [dispatch],
     );
 
     useInitialEffect(() => {

@@ -1,7 +1,7 @@
-import { getSaveScrollPositionByPath } from '@/features/ScrollSave/model/selectors/scrollSave';
 import { MutableRefObject, UIEvent, useRef } from 'react';
 import { useSelector } from 'react-redux';
 import { useLocation } from 'react-router-dom';
+import { getSaveScrollPositionByPath } from '@/features/ScrollSave/model/selectors/scrollSave';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
 import { useInfiniteScroll } from '@/shared/lib/hooks/useInfiniteScroll';

@@ -8,4 +8,5 @@
   "cSpell.words": [
     "reduxjs"
   ],
+  "eslint.useFlatConfig": false,
 }

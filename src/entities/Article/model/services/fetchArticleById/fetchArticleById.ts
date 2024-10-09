@@ -18,9 +18,9 @@ export const fetchArticleById = createAsyncThunk<
                 `/articles/${articleId}`,
                 {
                     params: {
-                        _expand: 'user'
-                    }
-                }
+                        _expand: 'user',
+                    },
+                },
             );
             if (!response.data) {
                 throw new Error('No data');
@@ -30,5 +30,5 @@ export const fetchArticleById = createAsyncThunk<
             // console.error(error);
             return rejectWithValue('error');
         }
-    }
+    },
 );

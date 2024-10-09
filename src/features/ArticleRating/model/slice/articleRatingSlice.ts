@@ -3,14 +3,14 @@ import { ArticleRatingSchema } from '../types/articleRatingSchema';
 
 const initialState: ArticleRatingSchema = {
     // Add initial state here
-}
-    
+};
+
 export const articleRatingSlice = createSlice({
     name: 'articleRating',
     initialState,
     reducers: {
         setTemplate: (state, action: PayloadAction<string>) => {
-           
+
         },
     },
     // extraReducers: (builder) => {

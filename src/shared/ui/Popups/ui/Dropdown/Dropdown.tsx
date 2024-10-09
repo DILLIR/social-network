@@ -4,9 +4,9 @@ import { Fragment } from 'react/jsx-runtime';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { DropdownDirection } from '@/shared/types/ui';
 import { AppLink } from '@/shared/ui/AppLink/AppLink';
-import cls from './Dropdown.module.scss';
 import { mapDirectionClass } from '../../styles/const';
-import popupCls from '../../styles/popup.module.scss'
+import popupCls from '../../styles/popup.module.scss';
+import cls from './Dropdown.module.scss';
 
 export interface DropdownItem {
     disabled?: boolean;
@@ -26,7 +26,7 @@ export function Dropdown({
     className,
     trigger,
     items,
-    direction = 'bottom right'
+    direction = 'bottom right',
 }: DropdownProps) {
     const menuClasses = [mapDirectionClass[direction]];
 
@@ -41,7 +41,7 @@ export function Dropdown({
                             onClick={item.onClick}
                             disabled={item.disabled}
                             className={classNames(cls.item, {
-                                [popupCls.active]: active
+                                [popupCls.active]: active,
                             })}
                         >
                             {item.content}

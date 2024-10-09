@@ -11,6 +11,6 @@ export function Overlay({ className, onClick }: OverlayProps) {
         <div
             onClick={onClick}
             className={classNames(cls.Overlay, {}, [className])}
-        ></div>
+        />
     );
 }

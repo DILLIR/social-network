@@ -1,12 +1,12 @@
-import { RatingCard } from '@/entities/Rating';
-import { getUserAuthData } from '@/entities/User';
-import { Skeleton } from '@/shared/ui/Skeleton/Skeleton';
 import { useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
+import { RatingCard } from '@/entities/Rating';
+import { getUserAuthData } from '@/entities/User';
+import { Skeleton } from '@/shared/ui/Skeleton/Skeleton';
 import {
     useGetArticleRating,
-    useRateArticle
+    useRateArticle,
 } from '../../api/ArticleRatingApi';
 
 export interface ArticleRatingProps {
@@ -20,7 +20,7 @@ function ArticleRating({ className, articleId }: ArticleRatingProps) {
 
     const { data, isLoading } = useGetArticleRating({
         articleId,
-        userId: userData?.id ?? ''
+        userId: userData?.id ?? '',
     });
 
     const [rateArticleMutation] = useRateArticle();
@@ -32,27 +32,27 @@ function ArticleRating({ className, articleId }: ArticleRatingProps) {
                     userId: userData?.id ?? '',
                     articleId,
                     rate,
-                    feedback
+                    feedback,
                 });
             } catch (error) {
                 console.error(error);
             }
         },
-        [articleId, rateArticleMutation, userData?.id]
+        [articleId, rateArticleMutation, userData?.id],
     );
 
     const onCancel = useCallback(
         (rate: number) => {
             handleRateArticle(rate);
         },
-        [userData, articleId]
+        [userData, articleId],
     );
 
     const onSubmit = useCallback(
         (rate: number, feedback?: string) => {
             handleRateArticle(rate, feedback);
         },
-        [userData, articleId]
+        [userData, articleId],
     );
 
     if (isLoading) {
@@ -69,7 +69,7 @@ function ArticleRating({ className, articleId }: ArticleRatingProps) {
             className={className}
             title={t('Rate an article')}
             feedbackTitle={t(
-                'Leave your feedback about article it will help us to improve'
+                'Leave your feedback about article it will help us to improve',
             )}
             hasFeedback
         />

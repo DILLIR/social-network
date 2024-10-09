@@ -14,7 +14,7 @@ function ArticleEditPage({ className }: ArticleEditPageProps) {
     const isEdit = Boolean(id);
 
     return (
-        <Page className={classNames("", {}, [className])}>
+        <Page className={classNames('', {}, [className])}>
             <Text title={isEdit ? t('Edit article') : t('Create article')} />
         </Page>
     );

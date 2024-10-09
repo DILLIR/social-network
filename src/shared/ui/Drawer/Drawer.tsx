@@ -1,14 +1,14 @@
-import { useTheme } from '@/app/providers/ThemeProvider';
 import { ReactNode, useCallback, useEffect } from 'react';
+import { useTheme } from '@/app/providers/ThemeProvider';
 import { classNames, Mods } from '@/shared/lib/classNames/classNames';
 import { Overlay } from '@/shared/ui/Overlay/Overlay';
 import { Portal } from '@/shared/ui/Portal/Portal';
-import cls from './Drawer.module.scss';
 import {
     AnimationProvider,
-    useAnimationLibs
+    useAnimationLibs,
 } from '@/shared/lib/components/AnimationProvider/AnimationProvider';
 import { Loader } from '../Loader/ui/Loader';
+import cls from './Drawer.module.scss';
 
 interface DrawerProps {
     className?: string;
@@ -25,7 +25,7 @@ export function DrawerContent({
     children,
     isOpen,
     onClose,
-    lazy
+    lazy,
 }: DrawerProps) {
     const { Spring, Gesture } = useAnimationLibs();
     const [{ y }, api] = Spring.useSpring(() => ({ y: height }));
@@ -46,7 +46,7 @@ export function DrawerContent({
             y: height,
             immediate: false,
             config: { ...Spring.config.stiff, velocity },
-            onResolve: onClose
+            onResolve: onClose,
         });
     };
 
@@ -56,7 +56,7 @@ export function DrawerContent({
             velocity: [, vy],
             direction: [, dy],
             movement: [, my],
-            cancel
+            cancel,
         }) => {
             if (my < -70) cancel();
 
@@ -74,12 +74,12 @@ export function DrawerContent({
             from: () => [0, y.get()],
             filterTaps: true,
             bounds: { top: 0 },
-            rubberband: true
-        }
+            rubberband: true,
+        },
     );
 
     const mods: Mods = {
-        [cls.opened]: isOpen
+        [cls.opened]: isOpen,
     };
 
     if (!isOpen) {
@@ -94,7 +94,7 @@ export function DrawerContent({
                 className={classNames(cls.Drawer, mods, [
                     className,
                     theme,
-                    'app_drawer'
+                    'app_drawer',
                 ])}
             >
                 <Overlay onClick={close} />
@@ -103,7 +103,7 @@ export function DrawerContent({
                     style={{
                         display,
                         bottom: `calc(-100vh + ${height - 100}px)`,
-                        y
+                        y,
                     }}
                     {...bind()}
                 >

@@ -16,7 +16,7 @@ export function NotificationItem({ className, item }: NotificationItemProps) {
             theme={CardTheme.OUTLINE}
             className={classNames(cls.NotificationItem, {}, [className])}
         >
-            <Text title={item.title} text={item.description} size={TextSize.S}/>
+            <Text title={item.title} text={item.description} size={TextSize.S} />
         </Card>
     );
 

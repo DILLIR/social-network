@@ -37,7 +37,7 @@ export const Button = memo(function Button({
 }: ButtonProps) {
     const mods: Mods = {
         [cls.square]: square,
-        [cls.disabled]: disabled
+        [cls.disabled]: disabled,
     };
 
     return (
@@ -46,7 +46,7 @@ export const Button = memo(function Button({
             className={classNames(cls.Button, mods, [
                 className,
                 cls[theme],
-                cls[size]
+                cls[size],
             ])}
             disabled={disabled}
             {...otherProps}

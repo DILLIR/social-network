@@ -1,3 +1,6 @@
+import { useCallback, useState } from 'react';
+import { BrowserView, MobileView } from 'react-device-detect';
+import { useTranslation } from 'react-i18next';
 import { Button, ButtonSize, ButtonTheme } from '@/shared/ui/Button/Button';
 import { Card } from '@/shared/ui/Card/Card';
 import { Input } from '@/shared/ui/Input/Input';
@@ -5,9 +8,6 @@ import { Modal } from '@/shared/ui/Modal/Modal';
 import { Stack } from '@/shared/ui/Stack/Stack';
 import { StarRating } from '@/shared/ui/StarRating/StarRating';
 import { Text } from '@/shared/ui/Text/Text';
-import { useCallback, useState } from 'react';
-import { BrowserView, MobileView } from 'react-device-detect';
-import { useTranslation } from 'react-i18next';
 import { Drawer } from '../../../../shared/ui/Drawer/Drawer';
 
 interface RatingCardProps {
@@ -27,7 +27,7 @@ export function RatingCard({
     hasFeedback,
     onCancel,
     onSubmit,
-    rate = 0
+    rate = 0,
 }: RatingCardProps) {
     const { t } = useTranslation();
     const [openModal, setOpenModal] = useState(false);
@@ -43,7 +43,7 @@ export function RatingCard({
                 onSubmit?.(selectedStarsCount);
             }
         },
-        [hasFeedback, onSubmit]
+        [hasFeedback, onSubmit],
     );
 
     const closeModal = useCallback(() => {

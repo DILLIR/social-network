@@ -1,6 +1,6 @@
+import { useState } from 'react';
 import StarIcon from '@/shared/assets/icons/star.svg';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { useState } from 'react';
 import { Icon } from '../Icon/Icon';
 import cls from './StarRating.module.scss';
 
@@ -17,29 +17,28 @@ export function StarRating({
     className,
     onSelect,
     size = 24,
-    selectedStars = 0
+    selectedStars = 0,
 }: StarRatingProps) {
-
     const [currentStarsCount, setCurrentStarsCount] = useState(selectedStars);
     const [isSelected, setIsSelected] = useState(Boolean(selectedStars));
 
     const onHover = (startCount: number) => () => {
-        if(!isSelected) {
+        if (!isSelected) {
             setCurrentStarsCount(startCount);
         }
-    }
+    };
 
     const onLeave = () => {
-        if(!isSelected) {
+        if (!isSelected) {
             setCurrentStarsCount(0);
         }
-    }
+    };
 
     const onClick = (value: number) => () => {
         setIsSelected(true);
         setCurrentStarsCount(value);
         onSelect?.(value);
-    }
+    };
 
     return (
         <div className={classNames(cls.StarRating, {}, [className])}>
@@ -50,7 +49,7 @@ export function StarRating({
                     className={classNames(cls.starIcon, {
                         [cls.hovered]: currentStarsCount >= starNumber,
                         [cls.normal]: !(selectedStars >= starNumber),
-                        [cls.selected]: isSelected
+                        [cls.selected]: isSelected,
                     })}
                     width={size}
                     height={size}

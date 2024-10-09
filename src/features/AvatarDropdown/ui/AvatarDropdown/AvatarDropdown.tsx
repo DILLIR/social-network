@@ -1,12 +1,12 @@
+import { useCallback } from 'react';
+import { useTranslation } from 'react-i18next';
+import { useSelector } from 'react-redux';
 import {
     getUserAuthData,
     isUserAdmin,
     isUserManager,
-    userActions
+    userActions,
 } from '@/entities/User';
-import { useCallback } from 'react';
-import { useTranslation } from 'react-i18next';
-import { useSelector } from 'react-redux';
 import { RoutePath } from '@/shared/config/routeConfig/routeConfig';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
@@ -44,18 +44,18 @@ export function AvatarDropdown({ className }: AvatarDropdownProps) {
                     ? [
                         {
                             content: t('Admin panel'),
-                            href: RoutePath.admin_panel
-                        }
+                            href: RoutePath.admin_panel,
+                        },
                     ]
                     : []),
                 {
                     content: t('Profile'),
-                    href: `${RoutePath.profile}/${authData.id}`
+                    href: `${RoutePath.profile}/${authData.id}`,
                 },
                 {
                     content: t('Log_out'),
-                    onClick: onLogout
-                }
+                    onClick: onLogout,
+                },
             ]}
         />
     );

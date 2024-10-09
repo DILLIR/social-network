@@ -1,3 +1,6 @@
+import { useCallback } from 'react';
+import { useTranslation } from 'react-i18next';
+import { useSelector } from 'react-redux';
 import {
     ArticleSortField,
     ArticleSortSelector,
@@ -7,9 +10,6 @@ import {
 import { ArticleType } from '@/entities/Article/model/types/article';
 import { ArticleViewSelector } from '@/entities/Article/ui/ArticleViewSelector/ArticleViewSelector';
 import { getArticlesPageType } from '@/pages/ArticlesPage/model/selectors/articlesPageSelectors';
-import { useCallback } from 'react';
-import { useTranslation } from 'react-i18next';
-import { useSelector } from 'react-redux';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
 import { useDebounce } from '@/shared/lib/hooks/useDebounce';

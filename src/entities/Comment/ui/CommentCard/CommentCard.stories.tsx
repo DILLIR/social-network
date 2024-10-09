@@ -1,7 +1,7 @@
-import type { Meta, StoryObj } from '@storybook/react';
 import { UserRole } from '@/entities/User/model/types/user';
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
 import { CommentCard } from './CommentCard';
+import type { Meta, StoryObj } from '@storybook/react';
 
 const meta: Meta<typeof CommentCard> = {
     title: 'entities/Comment/CommentCard',
@@ -21,7 +21,7 @@ export const Default: Story = {
             user: {
                 id: '2',
                 username: 'Daniel',
-                roles: [UserRole.USER]
+                roles: [UserRole.USER],
             },
         },
     },

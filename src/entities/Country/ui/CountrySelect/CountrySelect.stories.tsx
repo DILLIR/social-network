@@ -1,5 +1,5 @@
-import type { Meta, StoryObj } from '@storybook/react';
 import { CountrySelect } from './CountrySelect';
+import type { Meta, StoryObj } from '@storybook/react';
 
 const meta: Meta<typeof CountrySelect> = {
     title: 'entities/CountrySelect',

@@ -6,19 +6,21 @@ import EyeIcon from '@/shared/assets/icons/eye-20-20.svg';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import {
     DynamicModuleLoader,
-    ReducersList
+    ReducersList,
 } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
 import { Avatar } from '@/shared/ui/Avatar/Avatar';
 import { Icon } from '@/shared/ui/Icon/Icon';
 import { Skeleton } from '@/shared/ui/Skeleton/Skeleton';
 import { Stack } from '@/shared/ui/Stack/Stack';
-import { Text, TextAlign, TextSize, TextTheme } from '@/shared/ui/Text/Text';
+import {
+    Text, TextAlign, TextSize, TextTheme,
+} from '@/shared/ui/Text/Text';
 import { useInitialEffect } from '../../../../shared/lib/hooks/useInitialEffect';
 import {
     getArticleDetailsData,
     getArticleDetailsError,
-    getArticleDetailsIsLoading
+    getArticleDetailsIsLoading,
 } from '../../model/selectors/ArticleDetails';
 import { fetchArticleById } from '../../model/services/fetchArticleById/fetchArticleById';
 import { articleDetailsReducer } from '../../model/slice/articleDetailsSlice';
@@ -34,12 +36,12 @@ interface ArticleDetailsProps {
 }
 
 const reducers: ReducersList = {
-    articleDetails: articleDetailsReducer
+    articleDetails: articleDetailsReducer,
 };
 
 export const ArticleDetails = memo(function ArticleDetails({
     className,
-    id
+    id,
 }: ArticleDetailsProps) {
     const { t } = useTranslation('articleDetails');
     const dispatch = useAppDispatch();

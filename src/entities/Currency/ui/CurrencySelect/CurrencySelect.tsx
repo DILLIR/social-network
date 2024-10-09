@@ -16,7 +16,7 @@ export const CurrencySelect = memo(function CurrencySelect({
     className,
     value,
     onChange,
-    disabled
+    disabled,
 }: CurrencySelectProps) {
     const { t } = useTranslation();
     const currencyOptions = useMemo(() => generateOptions(Currency), []);
@@ -24,7 +24,7 @@ export const CurrencySelect = memo(function CurrencySelect({
         (value: string | number) => {
             onChange?.(value as Currency);
         },
-        [onChange]
+        [onChange],
     );
 
     return (
@@ -35,8 +35,8 @@ export const CurrencySelect = memo(function CurrencySelect({
             value={value}
             onChange={onChangeHandler}
             disabled={disabled}
-            direction='top right'
-            label='Select your currency'
+            direction="top right"
+            label="Select your currency"
         />
     );
 });

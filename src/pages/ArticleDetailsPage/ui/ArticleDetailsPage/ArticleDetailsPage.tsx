@@ -1,10 +1,10 @@
+import { useParams } from 'react-router-dom';
 import { ArticleDetails } from '@/entities/Article';
 import { ArticleRecommendationsList } from '@/features/ArticleRecommendationsList';
-import { useParams } from 'react-router-dom';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import {
     DynamicModuleLoader,
-    ReducersList
+    ReducersList,
 } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { Stack } from '@/shared/ui/Stack/Stack';
 import { Page } from '@/widgets/Page/Page';
@@ -18,7 +18,7 @@ interface ArticleDetailsPageProps {
 }
 
 const reducers: ReducersList = {
-    articleDetailsPage: articleDetailsPageReducer
+    articleDetailsPage: articleDetailsPageReducer,
 };
 
 function ArticleDetailsPage({ className }: ArticleDetailsPageProps) {

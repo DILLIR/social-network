@@ -23,7 +23,7 @@ export const AppLink = memo(
             theme = AppLinkTheme.PRIMARY,
             ...props
         }: AppLinkProps,
-        ref
+        ref,
     ) {
         return (
             <Link
@@ -34,5 +34,5 @@ export const AppLink = memo(
                 {children}
             </Link>
         );
-    })
+    }),
 );

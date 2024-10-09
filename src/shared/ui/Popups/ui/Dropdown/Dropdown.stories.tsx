@@ -1,13 +1,13 @@
-import type { Meta, StoryObj } from '@storybook/react';
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
 import { Button } from '@/shared/ui/Button/Button';
 import { Dropdown } from './Dropdown';
+import type { Meta, StoryObj } from '@storybook/react';
 
 const meta: Meta<typeof Dropdown> = {
     title: 'shared/Dropdown',
     component: Dropdown,
     tags: ['autodocs'],
-    decorators: [StoreDecorator({})]
+    decorators: [StoreDecorator({})],
 };
 
 export default meta;
@@ -19,7 +19,7 @@ export const Default: Story = {
         items: [
             { content: 'Item 1' },
             { content: 'Item 2' },
-            { content: 'Item 3' }
-        ]
-    }
+            { content: 'Item 3' },
+        ],
+    },
 };

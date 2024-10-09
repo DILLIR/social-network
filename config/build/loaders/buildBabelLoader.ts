@@ -7,23 +7,23 @@ interface BuildBabelLoaderProps extends BuildOptions {
 
 export function BuildBabelLoader({
     isTsx = false,
-    isDev
+    isDev,
 }: BuildBabelLoaderProps) {
     const plugins = [
         ['i18next-extract', { locales: ['en', 'uk'], keyAsDefaultValue: true }],
         [
             '@babel/plugin-transform-typescript',
             {
-                isTsx
-            }
+                isTsx,
+            },
         ],
         '@babel/plugin-transform-runtime',
         isTsx && [
             babelRemovePropsPlugin,
             {
-                props: ['data-testid']
-            }
-        ]
+                props: ['data-testid'],
+            },
+        ],
     ].filter(Boolean);
 
     return {
@@ -33,8 +33,8 @@ export function BuildBabelLoader({
             loader: 'babel-loader',
             options: {
                 presets: ['@babel/preset-env', '@babel/preset-typescript'],
-                plugins
-            }
-        }
+                plugins,
+            },
+        },
     };
 }
