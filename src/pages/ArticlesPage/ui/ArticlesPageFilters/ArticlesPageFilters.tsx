@@ -6,18 +6,18 @@ import {
     ArticleSortSelector,
     ArticleTypeTabs,
     ArticleView,
+    ArticleType,
+    ArticleViewSelector
 } from '@/entities/Article';
-import { ArticleType } from '@/entities/Article/model/types/article';
-import { ArticleViewSelector } from '@/entities/Article/ui/ArticleViewSelector/ArticleViewSelector';
-import { getArticlesPageType } from '@/pages/ArticlesPage/model/selectors/articlesPageSelectors';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
 import { useDebounce } from '@/shared/lib/hooks/useDebounce';
 import { OrderBy } from '@/shared/types/index';
 import { Card } from '@/shared/ui/Card/Card';
 import { Input } from '@/shared/ui/Input/Input';
-import { TabItem } from '../../../../shared/ui/Tabs/Tabs';
+import { TabItem } from '@/shared/ui/Tabs/Tabs';
 import {
+    getArticlesPageType,
     getArticlesPageOrder,
     getArticlesPageSearch,
     getArticlesPageSort,

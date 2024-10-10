@@ -15,15 +15,15 @@ interface AppLinkProps extends LinkProps {
     theme?: AppLinkTheme;
 }
 
-export const AppLink = memo(
-    forwardRef<HTMLAnchorElement, AppLinkProps>(function AppLink(
+const AppLinkComponent = forwardRef<HTMLAnchorElement, AppLinkProps>(
+    function AppLink(
         {
             className,
             children,
             theme = AppLinkTheme.PRIMARY,
             ...props
         }: AppLinkProps,
-        ref,
+        ref
     ) {
         return (
             <Link
@@ -34,5 +34,7 @@ export const AppLink = memo(
                 {children}
             </Link>
         );
-    }),
+    }
 );
+
+export const AppLink = memo(AppLinkComponent);

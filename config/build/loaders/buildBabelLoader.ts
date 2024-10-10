@@ -7,7 +7,6 @@ interface BuildBabelLoaderProps extends BuildOptions {
 
 export function BuildBabelLoader({
     isTsx = false,
-    isDev,
 }: BuildBabelLoaderProps) {
     const plugins = [
         ['i18next-extract', { locales: ['en', 'uk'], keyAsDefaultValue: true }],

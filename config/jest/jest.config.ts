@@ -27,12 +27,13 @@ const config = {
     moduleNameMapper: {
         '\\.svg': path.resolve(__dirname, 'jestEmptyComponent.tsx'),
         '\\.(css|scss)$': 'identity-obj-proxy',
+        '^@/(.*)$': '<rootDir>/src/$1'
     },
 
     globals: {
         __IS_DEV__: true,
         __API_URL__: '',
-        __PROJECT__: 'jest',
+        __PROJECT__: 'jest'
     },
 
     transformIgnorePatterns: ['node_modules/(?!axios)'],
@@ -47,10 +48,10 @@ const config = {
                 publicPath: '<rootDir>/reports/unit',
                 filename: 'report.html',
                 openReport: false,
-                inlineSource: true,
-            },
-        ],
-    ],
+                inlineSource: true
+            }
+        ]
+    ]
 
     // All imported modules in your tests should be mocked automatically
     // automock: false,
@@ -109,7 +110,6 @@ const config = {
     // An array of file extensions your modules use
 
     // A map from regular expressions to module names or to arrays of module names that allow to stub out resources with a single module
-    // moduleNameMapper: {},
 
     // An array of regexp pattern strings, matched against all module paths before considered 'visible' to the module loader
     // modulePathIgnorePatterns: [],

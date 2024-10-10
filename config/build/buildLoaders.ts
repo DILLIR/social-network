@@ -5,12 +5,6 @@ import { buildSvgLoader } from './loaders/buildSvgLoader';
 import { BuildBabelLoader } from './loaders/buildBabelLoader';
 
 export function buildLoaders(options: BuildOptions): webpack.RuleSetRule[] {
-    const typescriptLoader = {
-        test: /\.tsx?$/,
-        use: 'ts-loader',
-        exclude: /node_modules/,
-    };
-
     const svgLoader = buildSvgLoader();
 
     const fileLoader = {

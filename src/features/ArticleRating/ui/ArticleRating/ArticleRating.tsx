@@ -35,6 +35,7 @@ function ArticleRating({ className, articleId }: ArticleRatingProps) {
                     feedback,
                 });
             } catch (error) {
+                // eslint-disable-next-line no-console
                 console.error(error);
             }
         },
@@ -45,14 +46,14 @@ function ArticleRating({ className, articleId }: ArticleRatingProps) {
         (rate: number) => {
             handleRateArticle(rate);
         },
-        [userData, articleId],
+        [handleRateArticle],
     );
 
     const onSubmit = useCallback(
         (rate: number, feedback?: string) => {
             handleRateArticle(rate, feedback);
         },
-        [userData, articleId],
+        [handleRateArticle],
     );
 
     if (isLoading) {

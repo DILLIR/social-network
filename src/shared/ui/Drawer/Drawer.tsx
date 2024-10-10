@@ -15,7 +15,6 @@ interface DrawerProps {
     children?: ReactNode;
     isOpen?: boolean;
     onClose?: () => void;
-    lazy?: boolean;
 }
 
 const height = window.innerHeight - 100;
@@ -25,7 +24,6 @@ export function DrawerContent({
     children,
     isOpen,
     onClose,
-    lazy,
 }: DrawerProps) {
     const { Spring, Gesture } = useAnimationLibs();
     const [{ y }, api] = Spring.useSpring(() => ({ y: height }));
@@ -33,7 +31,7 @@ export function DrawerContent({
 
     const openDrawer = useCallback(() => {
         api.start({ y: 0, immediate: false });
-    }, []);
+    }, [api]);
 
     useEffect(() => {
         if (isOpen) {

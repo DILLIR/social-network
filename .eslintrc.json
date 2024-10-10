@@ -81,6 +81,8 @@
         "no-underscore-dangle": "off",
         "jsx-a11y/click-events-have-key-events": "off",
         "comma-dangle": "off",
+        "max-len": "off",
+        "react/no-array-index-key": "warn",
         "import/order": [
             "error",
             {

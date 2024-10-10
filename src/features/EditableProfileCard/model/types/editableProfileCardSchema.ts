@@ -1,4 +1,4 @@
-import { Profile } from '@/entities/Profile/model/types/profile';
+import { Profile } from '@/entities/Profile';
 
 export enum ValidateProfileError {
     FirstAndLastNameRequired = 'First and Last name are required',

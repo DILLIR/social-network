@@ -3,7 +3,7 @@ import userEvent from '@testing-library/user-event';
 import { withTranslation } from 'react-i18next';
 import { Country } from '@/entities/Country';
 import { Currency } from '@/entities/Currency';
-import { Profile } from '@/entities/Profile/model/types/profile';
+import { Profile } from '@/entities/Profile';
 import { $api } from '@/shared/api/api';
 import { renderComponent } from '../../../../shared/lib/tests/componentRender/componentRender';
 import { profileReducer } from '../../model/slice/profileSlice';

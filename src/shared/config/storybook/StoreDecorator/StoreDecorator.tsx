@@ -1,10 +1,10 @@
 import { StoryFn } from '@storybook/react';
 import { StateSchema, StoreProvider } from '@/app/providers/StoreProvider';
-import { articleDetailsReducer } from '@/entities/Article/model/slice/articleDetailsSlice';
-import { addNewCommentReducer } from '@/features/AddNewComment/model/slices/addNewCommentSlice';
-import { loginReducer } from '@/features/AuthByUserName/model/slice/loginSlice';
-import { profileReducer } from '@/features/EditableProfileCard/model/slice/profileSlice';
-import { articleDetailsPageReducer } from '@/pages/ArticleDetailsPage/model/slices/index';
+import { articleDetailsReducer } from '@/entities/Article/testing';
+import { addNewCommentReducer } from '@/features/AddNewComment/testing';
+import { loginReducer } from '@/features/AuthByUserName/testing';
+import { profileReducer } from '@/features/EditableProfileCard/testing';
+import { articleDetailsPageReducer } from '@/pages/ArticleDetailsPage/testing';
 import { ReducersList } from '../../../lib/components/DynamicModuleLoader/DynamicModuleLoader';
 
 const defaultAsyncReducers: ReducersList = {
@@ -12,12 +12,14 @@ const defaultAsyncReducers: ReducersList = {
     profile: profileReducer,
     articleDetails: articleDetailsReducer,
     addNewComment: addNewCommentReducer,
-    articleDetailsPage: articleDetailsPageReducer,
+    articleDetailsPage: articleDetailsPageReducer
 };
 
-export const StoreDecorator = (state: DeepPartial<StateSchema>, asyncReducers?: ReducersList) =>
-    // eslint-disable-next-line react/display-name
-    (Story: StoryFn) => (
+export const StoreDecorator = (
+    state: DeepPartial<StateSchema>,
+    asyncReducers?: ReducersList
+) => function StoryFunction(Story: StoryFn) {
+    return (
         <StoreProvider
             initialState={state}
             asyncReducers={{ ...defaultAsyncReducers, ...asyncReducers }}
@@ -25,3 +27,4 @@ export const StoreDecorator = (state: DeepPartial<StateSchema>, asyncReducers?: 
             <Story />
         </StoreProvider>
     );
+};

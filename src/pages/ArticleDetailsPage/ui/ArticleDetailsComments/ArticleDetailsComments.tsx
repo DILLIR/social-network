@@ -2,15 +2,14 @@ import { useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { CommentList } from '../../../../entities/Comment';
-import { AddCommentFormAsync } from '../../../../features/AddNewComment/ui/AddCommentForm/AddCommentForm.async';
-import { useAppDispatch } from '../../../../shared/lib/hooks/useAppDispatch';
-import { useInitialEffect } from '../../../../shared/lib/hooks/useInitialEffect';
-import { Stack } from '../../../../shared/ui/Stack/Stack';
-import { Text, TextSize } from '../../../../shared/ui/Text/Text';
+import { CommentList } from '@/entities/Comment';
+import { AddCommentForm } from '@/features/AddNewComment';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
+import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect';
+import { Stack } from '@/shared/ui/Stack/Stack';
+import { Text, TextSize } from '@/shared/ui/Text/Text';
 import {
-    getArticleCommentsError,
-    getArticleCommentsIsLoading,
+    getArticleCommentsIsLoading
 } from '../../model/selectors/comments';
 import { addCommentForArticle } from '../../model/services/addCommentForArticle/addCommentForArticle';
 import { fetchCommentByArticleId } from '../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
@@ -30,7 +29,7 @@ export function ArticleDetailsComments({
 
     const comments = useSelector(getArticleComments.selectAll);
     const commentsIsLoading = useSelector(getArticleCommentsIsLoading);
-    const commentsError = useSelector(getArticleCommentsError);
+    // const commentsError = useSelector(getArticleCommentsError);
 
     const onSendComment = useCallback(
         (text: string) => {
@@ -47,7 +46,7 @@ export function ArticleDetailsComments({
         <Stack gap={16} className={classNames('', {}, [className])}>
             <Stack gap={8}>
                 <Text size={TextSize.L} title={t('Comments')} />
-                <AddCommentFormAsync onSendComment={onSendComment} />
+                <AddCommentForm onSendComment={onSendComment} />
             </Stack>
             <CommentList isLoading={commentsIsLoading} comments={comments} />
         </Stack>

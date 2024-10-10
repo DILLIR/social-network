@@ -8,7 +8,7 @@ import { Modal } from '@/shared/ui/Modal/Modal';
 import { Stack } from '@/shared/ui/Stack/Stack';
 import { StarRating } from '@/shared/ui/StarRating/StarRating';
 import { Text } from '@/shared/ui/Text/Text';
-import { Drawer } from '../../../../shared/ui/Drawer/Drawer';
+import { Drawer } from '@/shared/ui/Drawer/Drawer';
 
 interface RatingCardProps {
     className?: string;
@@ -53,12 +53,12 @@ export function RatingCard({
     const acceptHandler = useCallback(() => {
         onSubmit?.(starsCount, feedback);
         setOpenModal(false);
-    }, [starsCount, feedback, setStarsCount]);
+    }, [onSubmit, starsCount, feedback]);
 
     const cancelHandler = useCallback(() => {
         setOpenModal(false);
         onCancel?.(starsCount);
-    }, [starsCount]);
+    }, [onCancel, starsCount]);
 
     const modalContent = (
         <>
@@ -98,7 +98,7 @@ export function RatingCard({
                 </Modal>
             </BrowserView>
             <MobileView>
-                <Drawer isOpen={openModal} onClose={closeModal} lazy>
+                <Drawer isOpen={openModal} onClose={closeModal}>
                     <Stack gap={32}>
                         {modalContent}
                         <Button onClick={acceptHandler} size={ButtonSize.L}>

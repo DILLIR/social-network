@@ -17,6 +17,7 @@ type Story = StoryObj<typeof AddCommentForm>;
 export const Default: Story = {
     args: {
         onSendComment: (value) => {
+            // eslint-disable-next-line no-console
             console.log(value);
         },
     },

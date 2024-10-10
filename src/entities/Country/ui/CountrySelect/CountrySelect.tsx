@@ -1,5 +1,4 @@
 import { memo, useCallback, useMemo } from 'react';
-import { useTranslation } from 'react-i18next';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { generateOptions } from '@/shared/lib/generateOptions/generateOptions';
 import { ListBox } from '@/shared/ui/Popups';
@@ -18,7 +17,6 @@ export const CountrySelect = memo(function CountrySelect({
     onChange,
     disabled,
 }: CountrySelectProps) {
-    const { t } = useTranslation();
     const currencyOptions = useMemo(() => generateOptions(Country), []);
     const onChangeHandler = useCallback(
         (value: string | number) => {

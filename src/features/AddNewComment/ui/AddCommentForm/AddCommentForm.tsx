@@ -11,8 +11,7 @@ import { Button } from '@/shared/ui/Button/Button';
 import { Input } from '@/shared/ui/Input/Input';
 import { Stack } from '@/shared/ui/Stack/Stack';
 import {
-    getAddNewCommentError,
-    getAddNewCommentText,
+    getAddNewCommentText
 } from '../../model/selectors/addNewCommentSelectors';
 import {
     addNewCommentActions,
@@ -32,7 +31,7 @@ const reducers: ReducersList = {
 function AddCommentForm({ className, onSendComment }: AddCommentFormProps) {
     const { t } = useTranslation();
     const text = useSelector(getAddNewCommentText);
-    const error = useSelector(getAddNewCommentError);
+    // const error = useSelector(getAddNewCommentError);
     const dispatch = useAppDispatch();
 
     const onCommentTextChange = useCallback(

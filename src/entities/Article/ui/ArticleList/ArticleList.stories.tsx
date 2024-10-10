@@ -3,7 +3,7 @@ import { Article, ArticleView } from '../../model/types/article';
 import { ArticleList } from './ArticleList';
 import type { Meta, StoryObj } from '@storybook/react';
 
-export const article = {
+const article = {
     id: '1',
     title: 'Javascript news',
     subtitle: 'Что нового в JS за 2022 год?',

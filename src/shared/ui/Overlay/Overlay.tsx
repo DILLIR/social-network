@@ -9,6 +9,7 @@ interface OverlayProps {
 export function Overlay({ className, onClick }: OverlayProps) {
     return (
         <div
+            role="presentation"
             onClick={onClick}
             className={classNames(cls.Overlay, {}, [className])}
         />

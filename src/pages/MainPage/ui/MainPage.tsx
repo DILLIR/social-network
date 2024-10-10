@@ -2,7 +2,7 @@ import { useTranslation } from 'react-i18next';
 import { ErrorButton } from '@/app/providers/ErrorBoundary';
 import { RatingCard } from '@/entities/Rating';
 import { Stack } from '@/shared/ui/Stack/Stack';
-import { Page } from '@/widgets/Page/Page';
+import { Page } from '@/widgets/Page';
 
 function MainPage() {
     const { t } = useTranslation('main');
