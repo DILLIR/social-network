@@ -14,9 +14,9 @@ jobs:
             matrix:
                 node-version: [20.x]
         steps:
-            - uses: actions/checkout@v2
+            - uses: actions/checkout@v3
             - name: Starting Node.js ${{ matrix.node-version }}
-              uses: actions/setup-node@v2
+              uses: actions/setup-node@v3
               with:
                   node-version: ${{ matrix.node-version }}
             - name: Install dependencies
@@ -39,9 +39,9 @@ jobs:
               if: always()
               run: npm run test:ui:ci
             # for debug
-            # - name: Setup GIT user
-            #   uses: fregante/setup-git-user@v1
+            - name: Setup GIT user
+              uses: fregante/setup-git-user@v1
             #   if: always()
-            # - name: Commit and push changes
-            #   run: git add . && git commit -m "Add build and difference files from last pipeline run." && git push -f
+            - name: Commit and push changes
+              run: git add . && git commit -m "Add build and difference files from last pipeline run." && git push -f
             #   if: always()
