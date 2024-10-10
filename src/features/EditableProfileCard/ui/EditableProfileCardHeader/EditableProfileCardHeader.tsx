@@ -1,7 +1,6 @@
 import { useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import { getCanEditProfile } from '@/pages/ProfilePage';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
 import { Button, ButtonTheme } from '@/shared/ui/Button/Button';
@@ -10,6 +9,7 @@ import { Text } from '@/shared/ui/Text/Text';
 import { getProfileReadonly } from '../../model/selectors/getProfileReadonly/getProfileReadonly';
 import { updateProfileData } from '../../model/services/updateProfileData/updateProfileData';
 import { profileActions } from '../../model/slice/profileSlice';
+import { getCanEditProfile } from '../../model/selectors/getCanEditProfile/getCanEditProfile';
 
 interface EditableProfileCardHeaderProps {
     className?: string;

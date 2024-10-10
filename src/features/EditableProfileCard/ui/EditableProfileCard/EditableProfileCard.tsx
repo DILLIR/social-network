@@ -11,7 +11,7 @@ import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect';
 import { Stack } from '@/shared/ui/Stack/Stack';
 import { Text, TextTheme } from '@/shared/ui/Text/Text';
-import { ProfileCard } from '../../../../entities/Profile';
+import { ProfileCard } from '@/entities/Profile';
 import { classNames } from '../../../../shared/lib/classNames/classNames';
 import { getProfileError } from '../../model/selectors/getProfileError/getProfileError';
 import { getProfileForm } from '../../model/selectors/getProfileForm/getProfileForm';
