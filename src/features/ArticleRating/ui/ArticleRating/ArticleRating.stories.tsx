@@ -6,7 +6,7 @@ const meta: Meta<typeof ArticleRating> = {
     title: 'features/ArticleRating',
     component: ArticleRating,
     tags: ['autodocs'],
-    decorators: [StoreDecorator({})],
+    decorators: [StoreDecorator({})]
 };
 
 export default meta;
@@ -14,13 +14,23 @@ type Story = StoryObj<typeof ArticleRating>;
 
 export const Default: Story = {
     args: {
-        articleId: '1',
+        articleId: '1'
     },
+    parameters: {
+        mockData: [
+            {
+                url: `${__API_URL__}/article-ratings?userId=1&articleId=1`,
+                method: 'GET',
+                status: 200,
+                response: []
+            }
+        ]
+    }
 };
 
 export const WithRate: Story = {
     args: {
-        articleId: '1',
+        articleId: '1'
     },
     parameters: {
         mockData: [
@@ -33,10 +43,10 @@ export const WithRate: Story = {
                         id: '1',
                         userId: '1',
                         articleId: '1',
-                        rate: 5,
-                    },
-                ],
-            },
-        ],
-    },
+                        rate: 5
+                    }
+                ]
+            }
+        ]
+    }
 };
