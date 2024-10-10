@@ -80,6 +80,7 @@
         ],
         "no-underscore-dangle": "off",
         "jsx-a11y/click-events-have-key-events": "off",
+        "comma-dangle": "off",
         "import/order": [
             "error",
             {
