@@ -41,7 +41,7 @@ jobs:
             # for debug
             - name: Setup GIT user
               uses: fregante/setup-git-user@v1
-            #   if: always()
+              if: always()
             - name: Commit and push changes
               run: git add . && git commit -m "Add build and difference files from last pipeline run." && git push -f
-            #   if: always()
+              if: always()
