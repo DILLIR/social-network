@@ -40,7 +40,7 @@ jobs:
               run: npm run test:ui:ci
             # for debug
             - name: Setup GIT user
-              uses: fregante/setup-git-user@v1
+              uses: fregante/setup-git-user@v2
               if: always()
             - name: Commit and push changes
               run: git add . &/& git commit -m "Add build and difference files from last pipeline run." && git push -f
