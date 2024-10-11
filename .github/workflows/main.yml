@@ -1,5 +1,5 @@
 name: linting, testing and building
-run-name: Project is linting, testing and building after ${{ github.event_name }} event
+run-name: Project is linting, testing and building after ${{ github.ref_name }} event
 permissions:
   contents: write
 on:
