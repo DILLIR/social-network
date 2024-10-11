@@ -1,5 +1,5 @@
 name: linting, testing and building
-run-name: Project is linting, testing and building after ${{ github.event.head_commit.message }} event
+run-name: ${{ github.event.head_commit.message }} - project is linting, testing and building
 permissions:
   contents: write
 on:
@@ -21,9 +21,6 @@ jobs:
                   node-version: ${{ matrix.node-version }}
             - name: Install dependencies
               run: npm install --force
-            - name: build production project
-              run: npm run build:prod
-              if: always()
             - name: linting typescript
               run: npm run lint:ts
               if: always()
@@ -32,6 +29,9 @@ jobs:
             - name: unit testing
               if: always()
               run: npm run test:unit
+            - name: build production project
+              run: npm run build:prod
+              if: always()
             # - name: build storybook
               # if: always()
               # run: npm run storybook:build
