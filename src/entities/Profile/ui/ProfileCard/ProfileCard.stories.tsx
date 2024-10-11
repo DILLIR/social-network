@@ -1,6 +1,7 @@
 import { Theme } from '@/app/providers/ThemeProvider';
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
+import AvatarImg from '@/shared/assets/tests/logo.jpeg';
 import { Country } from '../../../Country';
 import { Currency } from '../../../Currency';
 import { ProfileCard } from './ProfileCard';
@@ -24,7 +25,7 @@ const data = {
     firstName: 'John',
     city: 'London',
     currency: Currency.USD,
-    avatar: 'https://2.gravatar.com/avatar/f0a41e6031c9e0e3736c0d8829c94e991c6ec583ccf63277fe4295a8d0d35637?size=512',
+    avatar: AvatarImg
 };
 
 export const Light: Story = {
