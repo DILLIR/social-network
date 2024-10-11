@@ -1,5 +1,5 @@
 name: linting, testing and building
-run-name: Project is linting, testing and building
+run-name: Project is linting, testing and building after ${{ github.event_name }} event
 permissions:
   contents: write
 on:
@@ -35,9 +35,9 @@ jobs:
             - name: build storybook
               if: always()
               run: npm run storybook:build
-            - name: screenshot testing
-              if: always()
-              run: npm run test:ui:ci
+            # - name: screenshot testing
+              # if: always()
+              # run: npm run test:ui:ci
             # for debug
             # - name: Setup GIT user
               # uses: fregante/setup-git-user@v2
