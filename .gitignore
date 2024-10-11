@@ -73,7 +73,7 @@ sketch
 social-network.code-workspace
 storybook-static
 .loki/report.html
-.loki/report.json
+# .loki/report.json
 /reports
 
 .env
