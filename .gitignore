@@ -77,3 +77,4 @@ storybook-static
 /reports
 
 .env
+.vscode/
