@@ -1,5 +1,4 @@
 import { useTranslation } from 'react-i18next';
-import { ErrorButton } from '@/app/providers/ErrorBoundary';
 import { RatingCard } from '@/entities/Rating';
 import { Stack } from '@/shared/ui/Stack/Stack';
 import { Page } from '@/widgets/Page';
@@ -11,7 +10,6 @@ function MainPage() {
         <Page>
             <h1 style={{ marginBottom: '10px' }}>{t('MAIN PAGE')}</h1>
             <Stack width="fit-content" gap={10}>
-                <ErrorButton />
                 <RatingCard
                     title="Rate an article"
                     feedbackTitle="Leave your feedback about article"

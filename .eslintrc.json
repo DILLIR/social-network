@@ -105,6 +105,10 @@
                     "type"
                 ]
             }
+        ],
+        "fs-path-checker/layer-imports": [
+            "error",
+            { "alias": "@", "ignoreImportPatterns": ["**/StoreProvider", "**/testing"] }
         ]
     },
     "globals": {

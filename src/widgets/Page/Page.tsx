@@ -1,14 +1,13 @@
 import { MutableRefObject, UIEvent, useRef } from 'react';
 import { useSelector } from 'react-redux';
 import { useLocation } from 'react-router-dom';
-import { getSaveScrollPositionByPath } from '@/features/ScrollSave';
+import { scrollSaveActions, getSaveScrollPositionByPath } from '@/features/ScrollSave';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
 import { useInfiniteScroll } from '@/shared/lib/hooks/useInfiniteScroll';
-import { StateSchema } from '@/app/providers/StoreProvider/config/StateSchema';
+import { StateSchema } from '@/app/providers/StoreProvider';
 import { useThrottle } from '@/shared/lib/hooks/useThrottle';
-import { scrollSaveActions } from '../../features/ScrollSave/model/slices/ScrollSlice';
-import { useInitialEffect } from '../../shared/lib/hooks/useInitialEffect';
+import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect';
 import cls from './Page.module.scss';
 
 interface PageProps {
@@ -31,15 +30,15 @@ export function Page({ className, children, onScrollEnd }: PageProps) {
     useInfiniteScroll({
         triggerRef,
         wrapperRef,
-        callback: onScrollEnd,
+        callback: onScrollEnd
     });
 
     const onScroll = useThrottle((e: UIEvent<HTMLDivElement>) => {
         dispatch(
             scrollSaveActions.setScrollPosition({
                 position: e.currentTarget.scrollTop,
-                path: pathname,
-            }),
+                path: pathname
+            })
         );
     }, 500);
 
