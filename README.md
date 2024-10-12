@@ -23,7 +23,7 @@ This project is a robust, production-ready web application boilerplate. It is bu
 ## Online Links
 
 Frontend - [https://enchanting-frangipane-99052e.netlify.app/](https://enchanting-frangipane-99052e.netlify.app/)\
-Backend - [(https://social-network-backend-phi.vercel.app/)](https://social-network-backend-phi.vercel.app/)
+Backend - [https://social-network-backend-phi.vercel.app/](https://social-network-backend-phi.vercel.app/)
 
 ## Getting Started
 

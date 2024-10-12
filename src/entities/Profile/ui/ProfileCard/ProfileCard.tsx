@@ -77,7 +77,6 @@ export function ProfileCard({
                     theme={TextTheme.ERROR}
                     align={TextAlign.CENTER}
                 />
-                w
             </Stack>
         );
     }
