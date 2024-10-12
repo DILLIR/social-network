@@ -17,6 +17,7 @@ const config: StorybookConfig = {
         name: '@storybook/react-webpack5',
         options: {},
     },
+    staticDirs: [{ from: '../../src/shared/assets/tests', to: '/assets' }],
     docs: {
         autodocs: 'tag',
     },

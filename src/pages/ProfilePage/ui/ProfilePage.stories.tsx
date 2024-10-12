@@ -3,7 +3,7 @@ import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDe
 import { Country } from '@/entities/Country';
 import { Currency } from '@/entities/Currency';
 import { Theme } from '@/shared/const/theme';
-import avatar from '@/shared/assets/tests/logo.jpeg';
+// import avatar from '@/shared/assets/tests/logo.jpeg';
 import ProfilePage from './ProfilePage';
 import type { Meta, StoryObj } from '@storybook/react';
 
@@ -21,7 +21,7 @@ const meta: Meta<typeof ProfilePage> = {
                 firstName: 'John',
                 city: 'London',
                 currency: Currency.USD,
-                avatar
+                avatar: '/assets/logo.jpeg',
             },
         },
     })],
