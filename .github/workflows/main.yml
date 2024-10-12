@@ -58,7 +58,7 @@ jobs:
     runs-on: ubuntu-latest
     concurrency: ci-${{ github.ref }}
     environment:
-      name: github-pages
+      name: github
       url: ${{ steps.deployment.outputs.page_url }}
     strategy:
       matrix:
