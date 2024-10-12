@@ -39,7 +39,7 @@
         "ecmaVersion": "latest",
         "sourceType": "module"
     },
-    "plugins": ["@typescript-eslint", "react", "i18next", "fs-path-checker"],
+    "plugins": ["@typescript-eslint", "react", "i18next", "fs-path-checker", "unused-imports"],
     "rules": {
         "react/jsx-indent": [2, 4],
         "react/jsx-indent-props": [2, 4],
@@ -109,7 +109,8 @@
         "fs-path-checker/layer-imports": [
             "error",
             { "alias": "@", "ignoreImportPatterns": ["**/StoreProvider", "**/testing"] }
-        ]
+        ],
+        "unused-imports/no-unused-imports": "error"
     },
     "globals": {
         "__IS_DEV__": true,
