@@ -44,6 +44,7 @@ function ArticlesPage({ className }: ArticlesPageProps) {
             <Page
                 className={classNames('', {}, [className])}
                 onScrollEnd={onLoadNextPart}
+                dataTestId="ArticlesPage"
             >
                 <Stack gap={24}>
                     <ArticlesPageFilters />

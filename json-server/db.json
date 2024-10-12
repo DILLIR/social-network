@@ -1,4 +1,4 @@
-{
+ {
   "notifications": [
     {
       "id": "1",
@@ -653,6 +653,15 @@
       "roles": [
         "MANAGER"
       ]
+    },
+    {
+      "id": "5",
+      "username": "testuser",
+      "password": "123",
+      "roles": [
+        "ADMIN"
+      ],
+       "avatar": "https://avatars.githubusercontent.com/u/44670502?v=1"
     }
   ],
   "profile": [
