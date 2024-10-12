@@ -1,8 +1,9 @@
 import '../../src/app/styles/index.scss';
+import { withThemeByClassName } from '@storybook/addon-themes';
 import { Theme } from '../../src/shared/const/theme';
 import { RouterDecorator } from '../../src/shared/config/storybook/RouterDecorator/RouterDecorator';
 import { SuspenseDecorator } from '../../src/shared/config/storybook/SuspenseDecorator/SuspenseDecorator';
-import { ThemeDecorator } from '../../src/shared/config/storybook/ThemeDecorator/ThemeDecorator';
+import { ContainerDecorator } from '../../src/shared/config/storybook/ContainerDecorator/ContainerDecorator';
 import type { Preview } from '@storybook/react';
 import 'loki/configure-react';
 
@@ -11,16 +12,27 @@ const preview: Preview = {
         controls: {
             matchers: {
                 color: /(background|color)$/i,
-                date: /Date$/i,
-            },
+                date: /Date$/i
+            }
         },
-        layout: 'fullscreen',
+        backgrounds: { disabled: true },
+        layout: 'fullscreen'
     },
     decorators: [
         RouterDecorator,
-        ThemeDecorator(Theme.LIGHT),
         SuspenseDecorator,
-    ],
+        withThemeByClassName({
+            themes: {
+                light: `app ${Theme.LIGHT}`,
+                dark: `app ${Theme.DARK}`,
+                blue: `app ${Theme.BLUE}`,
+                orange: `app ${Theme.ORANGE}`
+            },
+            defaultTheme: 'light',
+            parentSelector: 'body'
+        }),
+        ContainerDecorator
+    ]
 };
 
 export default preview;

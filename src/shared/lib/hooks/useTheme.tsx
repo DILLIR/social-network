@@ -18,9 +18,12 @@ export function useTheme(): useThemeResult {
                 newTheme = Theme.DARK;
                 break;
             case Theme.DARK:
-                newTheme = Theme.GREEN;
+                newTheme = Theme.ORANGE;
                 break;
-            case Theme.GREEN:
+            case Theme.ORANGE:
+                newTheme = Theme.BLUE;
+                break;
+            case Theme.BLUE:
                 newTheme = Theme.LIGHT;
                 break;
             default:
@@ -35,6 +38,6 @@ export function useTheme(): useThemeResult {
 
     return {
         theme: theme || Theme.LIGHT,
-        toggleTheme,
+        toggleTheme
     };
 }
