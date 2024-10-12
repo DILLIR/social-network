@@ -72,9 +72,7 @@ sketch
 
 social-network.code-workspace
 storybook-static
-.loki/report.html
-# .loki/report.json
-/reports
+/reports/unit
 
 .env
 .vscode/
