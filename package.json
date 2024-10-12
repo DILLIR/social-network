@@ -91,6 +91,7 @@
         "jest": "^27.5.1",
         "jest-html-reporters": "^3.1.7",
         "json-server": "^0.17.0",
+        "lint-staged": "^15.2.10",
         "loki": "^0.35.1",
         "mini-css-extract-plugin": "^2.5.3",
         "react-reconciler": "^0.29.2",
@@ -160,5 +161,9 @@
             "last 2 firefox version",
             "last 1 safari version"
         ]
+    },
+    "lint-staged": {
+        "**/*.{ts,tsx}": "eslint",
+        "**/*.scss": "npx stylelint"
     }
 }
