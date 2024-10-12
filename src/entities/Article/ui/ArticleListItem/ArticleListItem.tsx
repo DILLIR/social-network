@@ -9,6 +9,8 @@ import { Button, ButtonTheme } from '@/shared/ui/Button';
 import { Card } from '@/shared/ui/Card';
 import { Icon } from '@/shared/ui/Icon';
 import { Text } from '@/shared/ui/Text';
+import { AppImage } from '@/shared/ui/AppImage';
+import { Skeleton } from '@/shared/ui/Skeleton';
 import {
     Article,
     ArticleBlockType,
@@ -67,7 +69,8 @@ export function ArticleListItem({
                     </div>
                     <Text text={article.title} className={cls.title} />
                     {domains}
-                    <img
+                    <AppImage
+                        fallback={<Skeleton className={cls.img} width="100%" height="250px" />}
                         src={article.img}
                         alt={article.title}
                         className={cls.img}
@@ -103,10 +106,11 @@ export function ArticleListItem({
         >
             <Card className={cls.card}>
                 <div className={cls.imageWrapper}>
-                    <img
+                    <AppImage
                         src={article.img}
                         alt={article.title}
                         className={cls.img}
+                        fallback={<Skeleton className={cls.img} width="200px" height="200px" />}
                     />
                     <Text className={cls.date} text={article.createdAt} />
                 </div>
