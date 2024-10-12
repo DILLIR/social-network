@@ -116,7 +116,7 @@ export const ArticleDetails = memo(function ArticleDetails({
                         className={cls.avatar}
                     />
                 </Stack>
-                <Stack gap={4}>
+                <Stack gap={4} data-testid="ArticleDetails.Info">
                     <Text
                         className={cls.title}
                         title={article?.title}

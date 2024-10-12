@@ -56,6 +56,8 @@ export function StarRating({
                     onMouseEnter={onHover(starNumber)}
                     onMouseLeave={onLeave}
                     onClick={onClick(starNumber)}
+                    data-testid={`StarRating.${starNumber}`}
+                    data-selected={currentStarsCount >= starNumber}
                 />
             ))}
         </div>

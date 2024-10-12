@@ -53,6 +53,7 @@ export function ArticleListItem({
 
         return (
             <div
+                data-testid="ArticleListItem"
                 className={classNames(cls.ArticleListItem, {}, [
                     className,
                     cls[view]
@@ -97,6 +98,7 @@ export function ArticleListItem({
 
     return (
         <AppLink
+            data-testid="ArticleListItem"
             target={target}
             to={getRouteArticleDetails(article.id)}
             className={classNames(cls.ArticleListItem, {}, [

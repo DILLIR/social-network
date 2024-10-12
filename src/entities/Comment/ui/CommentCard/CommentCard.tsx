@@ -22,6 +22,7 @@ export function CommentCard({
     if (isLoading) {
         return (
             <Stack
+                data-testid="CommentCard.Loading"
                 gap={10}
                 className={classNames(cls.CommentCard, {}, [
                     className,
@@ -46,6 +47,7 @@ export function CommentCard({
 
     return (
         <Stack
+            data-testid="CommentCard.Content"
             gap={10}
             className={classNames(cls.CommentCard, {}, [className])}
         >

@@ -54,6 +54,7 @@ export function ArticleList({
 
     return (
         <div
+            data-testid="ArticleList"
             className={classNames(cls.ArticleList, {}, [
                 className,
                 cls[viewMode],

@@ -27,7 +27,7 @@ export function RatingCard({
     hasFeedback,
     onCancel,
     onSubmit,
-    rate = 0,
+    rate = 0
 }: RatingCardProps) {
     const { t } = useTranslation();
     const [openModal, setOpenModal] = useState(false);
@@ -43,7 +43,7 @@ export function RatingCard({
                 onSubmit?.(selectedStarsCount);
             }
         },
-        [hasFeedback, onSubmit],
+        [hasFeedback, onSubmit]
     );
 
     const closeModal = useCallback(() => {
@@ -64,6 +64,7 @@ export function RatingCard({
         <>
             <Text title={feedbackTitle} />
             <Input
+                data-testid="RatingCard.Input"
                 placeholder={t('Your feedback')}
                 value={feedback}
                 onChange={(value) => setFeedback(value)}
@@ -72,10 +73,14 @@ export function RatingCard({
     );
 
     return (
-        <Card className={className}>
+        <Card className={className} data-testid="RatingCard">
             <Stack alignItems="center">
                 <Text title={starsCount ? t('Thank you for rate') : title} />
-                <StarRating selectedStars={starsCount} size={40} onSelect={onSelectStars} />
+                <StarRating
+                    selectedStars={starsCount}
+                    size={40}
+                    onSelect={onSelectStars}
+                />
             </Stack>
             <BrowserView>
                 <Modal isOpen={openModal} onClose={closeModal}>
@@ -89,10 +94,16 @@ export function RatingCard({
                             <Button
                                 onClick={cancelHandler}
                                 theme={ButtonTheme.OUTLINE_RED}
+                                data-testid="RatingCard.Cancel"
                             >
                                 {t('Cancel')}
                             </Button>
-                            <Button onClick={acceptHandler}>{t('Send')}</Button>
+                            <Button
+                                onClick={acceptHandler}
+                                data-testid="RatingCard.Send"
+                            >
+                                {t('Send')}
+                            </Button>
                         </Stack>
                     </Stack>
                 </Modal>

@@ -20,7 +20,7 @@ export function ArticleRecommendationsList({
     }
 
     return (
-        <Stack gap={8} className={classNames('', {}, [className])}>
+        <Stack gap={8} data-testid="ArticleRecommendationsList" className={classNames('', {}, [className])}>
             <Text size={TextSize.L} title={t('Recommendations')} />
             <ArticleList target="_blank" articles={articles} />
         </Stack>

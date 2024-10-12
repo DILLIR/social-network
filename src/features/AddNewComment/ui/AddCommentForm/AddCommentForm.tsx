@@ -52,6 +52,7 @@ function AddCommentForm({ className, onSendComment }: AddCommentFormProps) {
                 direction="row"
                 justifyContent="space-between"
                 alignItems="center"
+                data-testid="AddCommentForm"
                 className={classNames(cls.AddCommentForm, {}, [className])}
             >
                 <Input
@@ -59,8 +60,9 @@ function AddCommentForm({ className, onSendComment }: AddCommentFormProps) {
                     placeholder={t('Enter your comment')}
                     value={text}
                     onChange={onCommentTextChange}
+                    data-testid="AddCommentForm.Input"
                 />
-                <Button onClick={onSendHandler}>{t('Send')}</Button>
+                <Button onClick={onSendHandler} data-testid="AddCommentForm.Button">{t('Send')}</Button>
             </Stack>
         </DynamicModuleLoader>
     );
