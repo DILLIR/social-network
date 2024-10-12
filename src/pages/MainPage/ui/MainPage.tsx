@@ -13,7 +13,7 @@ function MainPage() {
             <Stack width="fit-content" gap={10}>
                 <Counter />
                 <RatingCard
-                    title="Rate an article"
+                    title="Rate articles"
                     feedbackTitle="Leave your feedback about article"
                     hasFeedback
                 />
