@@ -4,14 +4,18 @@ import { buildCssLoader } from '../build/loaders/buildCssLoader';
 import { buildSvgLoader } from '../build/loaders/buildSvgLoader';
 import { BuildPath } from '../build/types/config';
 
-export default function DefineConfig({ config }: { config: webpack.Configuration }) {
+export default function DefineConfig({
+    config
+}: {
+    config: webpack.Configuration;
+}) {
     const paths: BuildPath = {
         src: path.resolve(__dirname, '../../src'),
         entry: '',
         html: '',
         build: '',
         buildLocales: '',
-        locales: '',
+        locales: ''
     };
 
     config.resolve?.modules?.push(paths.src);
@@ -19,7 +23,7 @@ export default function DefineConfig({ config }: { config: webpack.Configuration
     // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
     config.resolve!.alias = {
         ...config.resolve?.alias,
-        '@': paths.src,
+        '@': paths.src
     };
 
     // eslint-disable-next-line no-param-reassign
@@ -44,8 +48,8 @@ export default function DefineConfig({ config }: { config: webpack.Configuration
         new webpack.DefinePlugin({
             __IS_DEV__: true,
             __API_URL__: JSON.stringify('http://localhost:8000'),
-            __PROJECT__: JSON.stringify('storybook'),
-        }),
+            __PROJECT__: JSON.stringify('storybook')
+        })
     );
 
     return config;
