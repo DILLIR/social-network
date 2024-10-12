@@ -11,7 +11,7 @@ import { useInfiniteScroll } from '@/shared/lib/hooks/useInfiniteScroll';
 import { StateSchema } from '@/app/providers/StoreProvider';
 import { useThrottle } from '@/shared/lib/hooks/useThrottle';
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect';
-import { TestProps } from '@/shared/types/test';
+import { TestProps } from '@/shared/types/testing';
 import cls from './Page.module.scss';
 
 interface PageProps extends TestProps {
