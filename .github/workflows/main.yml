@@ -2,9 +2,9 @@ name: linting, testing and building
 run-name: ${{ github.event.head_commit.message }} - project is linting, testing and building
 on:
     push:
-        branches: [master]
+        branches: [main]
     pull_request:
-        branches: [master]
+        branches: [main]
 permissions:
     contents: write
     pages: write
