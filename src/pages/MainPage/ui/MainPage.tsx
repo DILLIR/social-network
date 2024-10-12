@@ -8,7 +8,7 @@ function MainPage() {
     const { t } = useTranslation('main');
 
     return (
-        <Page>
+        <Page dataTestId="MainPage">
             <h1 style={{ marginBottom: '10px' }}>{t('MAIN PAGE')}</h1>
             <Stack width="fit-content" gap={10}>
                 <Counter />

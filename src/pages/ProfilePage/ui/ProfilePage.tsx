@@ -12,7 +12,7 @@ export function ProfilePage({ className }: ProfilePageProps) {
     const { id } = useParams<{ id: string }>();
 
     return (
-        <Page className={classNames('', {}, [className])}>
+        <Page dataTestId="ProfilePage" className={classNames('', {}, [className])}>
             <Stack gap={16}>
                 <EditableProfileCard id={id} />
             </Stack>
