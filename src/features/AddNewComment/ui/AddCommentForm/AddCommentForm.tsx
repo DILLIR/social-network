@@ -7,9 +7,9 @@ import {
     ReducersList,
 } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
-import { Button } from '@/shared/ui/Button/Button';
-import { Input } from '@/shared/ui/Input/Input';
-import { Stack } from '@/shared/ui/Stack/Stack';
+import { Button } from '@/shared/ui/Button';
+import { Input } from '@/shared/ui/Input';
+import { Stack } from '@/shared/ui/Stack';
 import {
     getAddNewCommentText
 } from '../../model/selectors/addNewCommentSelectors';

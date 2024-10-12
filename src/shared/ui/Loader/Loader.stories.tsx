@@ -1,6 +1,6 @@
 import { Theme } from '@/shared/const/theme';
-import { ThemeDecorator } from '../../../config/storybook/ThemeDecorator/ThemeDecorator';
-import { Loader } from './Loader';
+import { ThemeDecorator } from '../../config/storybook/ThemeDecorator/ThemeDecorator';
+import { Loader } from './ui/Loader';
 import type { Meta, StoryObj } from '@storybook/react';
 
 const meta: Meta<typeof Loader> = {

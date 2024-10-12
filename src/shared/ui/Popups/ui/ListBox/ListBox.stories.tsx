@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
-import { Stack } from '@/shared/ui/Stack/Stack';
+import { Stack } from '@/shared/ui/Stack';
 import { ListBox } from './ListBox';
 import type { Meta, StoryObj } from '@storybook/react';
 

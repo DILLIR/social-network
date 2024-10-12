@@ -9,13 +9,13 @@ import {
     ReducersList,
 } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
-import { Avatar } from '@/shared/ui/Avatar/Avatar';
-import { Icon } from '@/shared/ui/Icon/Icon';
-import { Skeleton } from '@/shared/ui/Skeleton/Skeleton';
-import { Stack } from '@/shared/ui/Stack/Stack';
+import { Avatar } from '@/shared/ui/Avatar';
+import { Icon } from '@/shared/ui/Icon';
+import { Skeleton } from '@/shared/ui/Skeleton';
+import { Stack } from '@/shared/ui/Stack';
 import {
     Text, TextAlign, TextSize, TextTheme,
-} from '@/shared/ui/Text/Text';
+} from '@/shared/ui/Text';
 import { useInitialEffect } from '../../../../shared/lib/hooks/useInitialEffect';
 import {
     getArticleDetailsData,

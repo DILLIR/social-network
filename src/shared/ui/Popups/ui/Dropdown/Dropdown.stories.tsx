@@ -1,5 +1,5 @@
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
-import { Button } from '@/shared/ui/Button/Button';
+import { Button } from '@/shared/ui/Button';
 import { Dropdown } from './Dropdown';
 import type { Meta, StoryObj } from '@storybook/react';
 

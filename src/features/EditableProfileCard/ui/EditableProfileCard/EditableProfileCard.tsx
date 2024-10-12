@@ -9,8 +9,8 @@ import {
 } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect';
-import { Stack } from '@/shared/ui/Stack/Stack';
-import { Text, TextTheme } from '@/shared/ui/Text/Text';
+import { Stack } from '@/shared/ui/Stack';
+import { Text, TextTheme } from '@/shared/ui/Text';
 import { ProfileCard } from '@/entities/Profile';
 import { classNames } from '../../../../shared/lib/classNames/classNames';
 import { getProfileError } from '../../model/selectors/getProfileError/getProfileError';

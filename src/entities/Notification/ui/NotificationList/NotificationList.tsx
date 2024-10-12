@@ -1,6 +1,6 @@
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { Skeleton } from '@/shared/ui/Skeleton/Skeleton';
-import { Stack } from '@/shared/ui/Stack/Stack';
+import { Skeleton } from '@/shared/ui/Skeleton';
+import { Stack } from '@/shared/ui/Stack';
 import { useNotifications } from '../../api/notificationApi';
 import { NotificationItem } from '../NotificationItem/NotificationItem';
 

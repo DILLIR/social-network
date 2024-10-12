@@ -5,8 +5,8 @@ import { useNavigate } from 'react-router-dom';
 import { getArticleDetailsData } from '@/entities/Article';
 import { RoutePath } from '@/shared/const/router';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { Button } from '@/shared/ui/Button/Button';
-import { Stack } from '@/shared/ui/Stack/Stack';
+import { Button } from '@/shared/ui/Button';
+import { Stack } from '@/shared/ui/Stack';
 import { getCanEditArticle } from '../../model/selectors/article';
 
 interface ArticleDetailsPageHeaderProps {

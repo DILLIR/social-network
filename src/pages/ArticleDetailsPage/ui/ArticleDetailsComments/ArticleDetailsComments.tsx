@@ -6,8 +6,8 @@ import { CommentList } from '@/entities/Comment';
 import { AddCommentForm } from '@/features/AddNewComment';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect';
-import { Stack } from '@/shared/ui/Stack/Stack';
-import { Text, TextSize } from '@/shared/ui/Text/Text';
+import { Stack } from '@/shared/ui/Stack';
+import { Text, TextSize } from '@/shared/ui/Text';
 import {
     getArticleCommentsIsLoading
 } from '../../model/selectors/comments';
