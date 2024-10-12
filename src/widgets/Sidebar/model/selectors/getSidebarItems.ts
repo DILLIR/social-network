@@ -4,37 +4,42 @@ import ArticlesIcon from '@/shared/assets/icons/article-20-20.svg';
 import MainIcon from '@/shared/assets/icons/main-20-20.svg';
 import ProfileIcon from '@/shared/assets/icons/profile-20-20.svg';
 import { getUserAuthData } from '@/entities/User';
-import { RoutePath } from '@/shared/const/router';
+import {
+    getRouteAbout,
+    getRouteArticles,
+    getRouteMain,
+    getRouteProfile
+} from '@/shared/const/router';
 import { SidebarItemType } from '../types/sidebar';
 
 export const getSidebarItems = createSelector([getUserAuthData], (authData) => {
     const SidebarItemsList: SidebarItemType[] = [
         {
-            path: RoutePath.main,
+            path: getRouteMain(),
             Icon: MainIcon,
-            text: 'Main',
+            text: 'Main'
         },
         {
-            path: RoutePath.about,
+            path: getRouteAbout(),
             Icon: AboutIcon,
-            text: 'About',
-        },
+            text: 'About'
+        }
     ];
 
     if (authData != null) {
         SidebarItemsList.push(
             {
-                path: `${RoutePath.profile}/${authData?.id}`,
+                path: getRouteProfile(authData.id),
                 Icon: ProfileIcon,
                 text: 'Profile',
-                authOnly: true,
+                authOnly: true
             },
             {
-                path: RoutePath.articles,
+                path: getRouteArticles(),
                 Icon: ArticlesIcon,
                 text: 'Articles',
-                authOnly: true,
-            },
+                authOnly: true
+            }
         );
     }
 

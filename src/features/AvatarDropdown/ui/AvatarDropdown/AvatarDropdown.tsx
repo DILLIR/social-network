@@ -7,7 +7,7 @@ import {
     isUserManager,
     userActions,
 } from '@/entities/User';
-import { RoutePath } from '@/shared/const/router';
+import { getRouteAdminPanel, getRouteProfile } from '@/shared/const/router';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
 import { Avatar } from '@/shared/ui/Avatar';
@@ -44,13 +44,13 @@ export function AvatarDropdown({ className }: AvatarDropdownProps) {
                     ? [
                         {
                             content: t('Admin panel'),
-                            href: RoutePath.admin_panel,
+                            href: getRouteAdminPanel(),
                         },
                     ]
                     : []),
                 {
                     content: t('Profile'),
-                    href: `${RoutePath.profile}/${authData.id}`,
+                    href: getRouteProfile(authData.id),
                 },
                 {
                     content: t('Log_out'),

@@ -1,4 +1,4 @@
-import { RoutePath } from '@/shared/const/router';
+import { getRouteProfile } from '@/shared/const/router';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { AppLink } from '@/shared/ui/AppLink';
 import { Avatar } from '@/shared/ui/Avatar';
@@ -49,7 +49,7 @@ export function CommentCard({
             gap={10}
             className={classNames(cls.CommentCard, {}, [className])}
         >
-            <AppLink to={`${RoutePath.profile}/${comment.user.id}`}>
+            <AppLink to={getRouteProfile(comment.user.id)}>
                 <Stack direction="row" gap={8} alignItems="center">
                     {comment.user.avatar != null && (
                         <Avatar size={30} src={comment.user.avatar} />
