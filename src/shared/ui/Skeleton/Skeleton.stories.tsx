@@ -1,6 +1,6 @@
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
+import { Theme } from '@/shared/const/theme';
 import { ThemeDecorator } from '../../config/storybook/ThemeDecorator/ThemeDecorator';
-import { Theme } from '../../../app/providers/ThemeProvider';
 import { Skeleton } from './Skeleton';
 import type { Meta, StoryObj } from '@storybook/react';
 

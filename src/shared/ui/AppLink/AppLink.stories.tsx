@@ -1,6 +1,6 @@
 import { fn } from '@storybook/test';
 
-import { Theme } from '../../../app/providers/ThemeProvider';
+import { Theme } from '@/shared/const/theme';
 import { ThemeDecorator } from '../../config/storybook/ThemeDecorator/ThemeDecorator';
 import { AppLink, AppLinkTheme } from './AppLink';
 import type { Meta, StoryObj } from '@storybook/react';
