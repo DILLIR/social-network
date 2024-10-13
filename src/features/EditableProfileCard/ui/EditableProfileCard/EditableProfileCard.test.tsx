@@ -5,7 +5,7 @@ import { Country } from '@/entities/Country';
 import { Currency } from '@/entities/Currency';
 import { Profile } from '@/entities/Profile';
 import { $api } from '@/shared/api/api';
-import { renderComponent } from '../../../../shared/lib/tests/componentRender/componentRender';
+import { componentRender } from '../../../../shared/lib/tests/componentRender/componentRender';
 import { profileReducer } from '../../model/slice/profileSlice';
 import { EditableProfileCard } from './EditableProfileCard';
 
@@ -39,7 +39,7 @@ const options = {
 describe('features/EditableProfileCard', () => {
     test('Test readonly must be switched to false', async () => {
         const ProfileWithTranslation = withTranslation()(EditableProfileCard);
-        renderComponent(<ProfileWithTranslation id="1" />, options);
+        componentRender(<ProfileWithTranslation id="1" />, options);
         await userEvent.click(
             screen.getByTestId('EditableProfileCardHeader.EditButton'),
         );
@@ -50,7 +50,7 @@ describe('features/EditableProfileCard', () => {
 
     test('Test data must be the same after the cancel', async () => {
         const ProfileWithTranslation = withTranslation()(EditableProfileCard);
-        renderComponent(<ProfileWithTranslation id="1" />, options);
+        componentRender(<ProfileWithTranslation id="1" />, options);
         await userEvent.click(
             screen.getByTestId('EditableProfileCardHeader.EditButton'),
         );
@@ -81,7 +81,7 @@ describe('features/EditableProfileCard', () => {
 
     test('Error must appear', async () => {
         const ProfileWithTranslation = withTranslation()(EditableProfileCard);
-        renderComponent(<ProfileWithTranslation id="1" />, options);
+        componentRender(<ProfileWithTranslation id="1" />, options);
         await userEvent.click(
             screen.getByTestId('EditableProfileCardHeader.EditButton'),
         );
@@ -98,7 +98,7 @@ describe('features/EditableProfileCard', () => {
     test("If we don't have errors the PUT request must be sent", async () => {
         const mockPutReq = jest.spyOn($api, 'put');
         const ProfileWithTranslation = withTranslation()(EditableProfileCard);
-        renderComponent(<ProfileWithTranslation id="1" />, options);
+        componentRender(<ProfileWithTranslation id="1" />, options);
         await userEvent.click(
             screen.getByTestId('EditableProfileCardHeader.EditButton'),
         );

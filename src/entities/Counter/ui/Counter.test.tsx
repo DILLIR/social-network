@@ -1,12 +1,12 @@
 import { screen } from '@testing-library/react';
 // import { userEvent } from '@storybook/test';
 import userEvent from '@testing-library/user-event';
-import { renderComponent } from '@/shared/lib/tests/componentRender/componentRender';
+import { componentRender } from '@/shared/lib/tests/componentRender/componentRender';
 import { Counter } from './Counter';
 
 describe('Counter', () => {
     test('Test render', () => {
-        renderComponent(<Counter />, {
+        componentRender(<Counter />, {
             initialState: {
                 counter: {
                     value: 11,
@@ -17,7 +17,7 @@ describe('Counter', () => {
     });
 
     test('Increment', async () => {
-        renderComponent(<Counter />, {
+        componentRender(<Counter />, {
             initialState: {
                 counter: {
                     value: 11,
@@ -29,7 +29,7 @@ describe('Counter', () => {
     });
 
     test('Decrement', async () => {
-        renderComponent(<Counter />, {
+        componentRender(<Counter />, {
             initialState: {
                 counter: {
                     value: 11,

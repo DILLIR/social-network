@@ -1,5 +1,5 @@
 import { screen } from '@testing-library/react';
-import { renderComponent } from '@/shared/lib/tests/componentRender/componentRender';
+import { componentRender } from '@/shared/lib/tests/componentRender/componentRender';
 import {
     getRouteAbout,
     getRouteAdminPanel,
@@ -10,7 +10,7 @@ import AppRouter from './AppRouter';
 
 describe('AppRouter', () => {
     test('Page must be rendered correctly', async () => {
-        renderComponent(<AppRouter />, {
+        componentRender(<AppRouter />, {
             route: getRouteAbout()
         });
 
@@ -19,7 +19,7 @@ describe('AppRouter', () => {
     });
 
     test('Page not found', async () => {
-        renderComponent(<AppRouter />, {
+        componentRender(<AppRouter />, {
             route: '/asfjksdjkfs'
         });
 
@@ -28,7 +28,7 @@ describe('AppRouter', () => {
     });
 
     test('Redirect unauthorize user onto main page', async () => {
-        renderComponent(<AppRouter />, {
+        componentRender(<AppRouter />, {
             route: getRouteProfile('10'),
             initialState: {
                 user: {
@@ -42,7 +42,7 @@ describe('AppRouter', () => {
     });
 
     test('Access to private page by authorized user', async () => {
-        renderComponent(<AppRouter />, {
+        componentRender(<AppRouter />, {
             route: getRouteProfile('1'),
             initialState: {
                 user: {
@@ -57,7 +57,7 @@ describe('AppRouter', () => {
     });
 
     test('Access denied (missing role)', async () => {
-        renderComponent(<AppRouter />, {
+        componentRender(<AppRouter />, {
             route: getRouteAdminPanel(),
             initialState: {
                 user: {
@@ -72,7 +72,7 @@ describe('AppRouter', () => {
     });
 
     test('Access granted', async () => {
-        renderComponent(<AppRouter />, {
+        componentRender(<AppRouter />, {
             route: getRouteAdminPanel(),
             initialState: {
                 user: {
