@@ -12,6 +12,7 @@ import { StateSchema } from '@/app/providers/StoreProvider';
 import { useThrottle } from '@/shared/lib/hooks/useThrottle';
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect';
 import { TestProps } from '@/shared/types/testing';
+import { toggleFeatures } from '../../shared/lib/features';
 import cls from './Page.module.scss';
 
 interface PageProps extends TestProps {
@@ -58,7 +59,15 @@ export function Page({
             data-testid={dataTestId ?? 'Page'}
             ref={wrapperRef}
             onScroll={onScroll}
-            className={classNames(cls.Page, {}, [className])}
+            className={classNames(
+                toggleFeatures({
+                    name: 'isAppRedesigned',
+                    on: () => cls.PageRedesigned,
+                    off: () => cls.Page
+                }),
+                {},
+                [className]
+            )}
         >
             {children}
             {onScrollEnd && <div className={cls.trigger} ref={triggerRef} />}

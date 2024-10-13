@@ -11,6 +11,7 @@ import { AppLink, AppLinkTheme } from '@/shared/ui/AppLink';
 import { Button, ButtonTheme } from '@/shared/ui/Button';
 import { Stack } from '@/shared/ui/Stack';
 import { Text, TextTheme } from '@/shared/ui/Text';
+import { ToggleFeatures } from '../../../shared/lib/features';
 import cls from './Navbar.module.scss';
 
 interface NavbarProps {
@@ -28,31 +29,56 @@ export const Navbar = memo(function Navbar({ className }: NavbarProps) {
 
     if (authData != null) {
         return (
-            <header className={classNames(cls.Navbar, {}, [className])}>
-                <AppLink
-                    to="/"
-                    className={cls.logo}
-                    theme={AppLinkTheme.SECONDARY}
-                >
-                    <Text title="Social network" theme={TextTheme.INVERTED} />
-                </AppLink>
-                <AppLink
-                    to={getRouteArticleCreate()}
-                    theme={AppLinkTheme.SECONDARY}
-                    className={cls.createLink}
-                >
-                    {t('Create article')}
-                </AppLink>
-                <Stack
-                    gap={16}
-                    direction="row"
-                    alignItems="center"
-                    className={cls.actions}
-                >
-                    <NotificationButton />
-                    <AvatarDropdown />
-                </Stack>
-            </header>
+            <ToggleFeatures
+                feature="isAppRedesigned"
+                on={
+                    <header
+                        className={classNames(cls.NavbarRedesigned, {}, [
+                            className
+                        ])}
+                    >
+                        <Stack
+                            gap={16}
+                            direction="row"
+                            alignItems="center"
+                            className={cls.actions}
+                        >
+                            <NotificationButton />
+                            <AvatarDropdown />
+                        </Stack>
+                    </header>
+                }
+                off={
+                    <header className={classNames(cls.Navbar, {}, [className])}>
+                        <AppLink
+                            to="/"
+                            className={cls.logo}
+                            theme={AppLinkTheme.SECONDARY}
+                        >
+                            <Text
+                                title="Social network"
+                                theme={TextTheme.INVERTED}
+                            />
+                        </AppLink>
+                        <AppLink
+                            to={getRouteArticleCreate()}
+                            theme={AppLinkTheme.SECONDARY}
+                            className={cls.createLink}
+                        >
+                            {t('Create article')}
+                        </AppLink>
+                        <Stack
+                            gap={16}
+                            direction="row"
+                            alignItems="center"
+                            className={cls.actions}
+                        >
+                            <NotificationButton />
+                            <AvatarDropdown />
+                        </Stack>
+                    </header>
+                }
+            />
         );
     }
 
