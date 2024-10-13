@@ -9,6 +9,7 @@ import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
 import { Stack } from '@/shared/ui/Stack';
 import { Page } from '@/widgets/Page';
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect';
+import { ArticlePageGreeting } from '@/features/ArticlePageGreeting';
 import { fetchNextArticlesPage } from '../../model/services/fetchNextArticlesPage/fetchNextArticlesPage';
 import { initArticlesPage } from '../../model/services/initArticlesPage/initArticlesPage';
 import { articlesPageReducer } from '../../model/slices/articlesPageSlice';
@@ -46,6 +47,7 @@ function ArticlesPage({ className }: ArticlesPageProps) {
                 <Stack gap={24}>
                     <ArticlesPageFilters />
                     <ArticlesInfiniteList />
+                    <ArticlePageGreeting />
                 </Stack>
             </Page>
         </DynamicModuleLoader>

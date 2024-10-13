@@ -945,9 +945,10 @@
       },
       "avatar": "https://avatars.githubusercontent.com/u/44670502?v=1",
       "jsonSettings": {
-        "theme": "app_orange_theme",
+        "theme": "app_dark_theme",
         "isFirstVisit": true,
-        "settingsPageHasBeenOpen": false
+        "settingsPageHasBeenOpen": false,
+        "isArticlePageWasOpen": true
       }
     },
     {
@@ -974,7 +975,10 @@
       "roles": [
         "ADMIN"
       ],
-      "avatar": "https://avatars.githubusercontent.com/u/44670502?v=1"
+      "avatar": "https://avatars.githubusercontent.com/u/44670502?v=1",
+      "jsonSettings": {
+        "isArticlePageWasOpen": true
+      }
     },
     {
       "id": "4",
@@ -986,7 +990,10 @@
       },
       "roles": [
         "MANAGER"
-      ]
+      ],
+      "jsonSettings": {
+        "isArticlePageWasOpen": true
+      }
     },
     {
       "id": "5",

@@ -6,7 +6,17 @@ const meta: Meta<typeof ArticlesPage> = {
     title: 'page/ArticleDetailsPage/ArticlesPage',
     component: ArticlesPage,
     tags: ['autodocs'],
-    decorators: [StoreDecorator({})]
+    decorators: [
+        StoreDecorator({
+            user: {
+                authData: {
+                    jsonSettings: {
+                        isArticlePageWasOpen: true
+                    }
+                }
+            }
+        })
+    ]
 };
 
 export default meta;
