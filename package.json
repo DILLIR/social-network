@@ -167,7 +167,7 @@
     },
     "lint-staged": {
         "**/*.{ts,tsx}": [
-            "npm run prettier",
+            "prettier --write",
             "eslint"
         ],
         "**/*.scss": "npx stylelint"
