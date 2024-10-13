@@ -6,13 +6,13 @@
     },
     "ignorePatterns": ["node_modules/", "dist/", "scripts/"],
     "extends": [
-        "prettier",
         "airbnb",
         "eslint:recommended",
         "plugin:@typescript-eslint/recommended",
         "plugin:react/recommended",
         "plugin:i18next/recommended",
-        "plugin:react-hooks/recommended"
+        "plugin:react-hooks/recommended",
+        "prettier"
     ],
     "overrides": [
         {
@@ -39,11 +39,14 @@
         "ecmaVersion": "latest",
         "sourceType": "module"
     },
-    "plugins": ["@typescript-eslint", "react", "i18next", "fs-path-checker", "unused-imports"],
+    "plugins": [
+        "@typescript-eslint",
+        "react",
+        "i18next",
+        "fs-path-checker",
+        "unused-imports"
+    ],
     "rules": {
-        "react/jsx-indent": [2, 4],
-        "react/jsx-indent-props": [2, 4],
-        "indent": [2, 4, { "SwitchCase": 1 }],
         "react/jsx-filename-extension": [
             2,
             { "extensions": [".js", ".jsx", ".tsx"] }
@@ -60,18 +63,6 @@
         "i18next/no-literal-string": "off",
         "react-hooks/rules-of-hooks": "error",
         "react-hooks/exhaustive-deps": "error",
-        "fs-path-checker/path-checker": ["error", { "alias": "@" }],
-        "fs-path-checker/public-api-import": [
-            "error",
-            {
-                "alias": "@",
-                "testFilesPatterns": [
-                    "**/*.test.*",
-                    "**/*.story.*",
-                    "**/*StoreDecorator.tsx"
-                ]
-            }
-        ],
         "prefer-arrow-callback": "off",
         "no-param-reassign": ["error", { "props": false }],
         "react/jsx-no-useless-fragment": [
@@ -108,7 +99,22 @@
         ],
         "fs-path-checker/layer-imports": [
             "error",
-            { "alias": "@", "ignoreImportPatterns": ["**/StoreProvider", "**/testing"] }
+            {
+                "alias": "@",
+                "ignoreImportPatterns": ["**/StoreProvider", "**/testing"]
+            }
+        ],
+        "fs-path-checker/path-checker": ["error", { "alias": "@" }],
+        "fs-path-checker/public-api-import": [
+            "error",
+            {
+                "alias": "@",
+                "testFilesPatterns": [
+                    "**/*.test.*",
+                    "**/*.story.*",
+                    "**/*StoreDecorator.tsx"
+                ]
+            }
         ],
         "unused-imports/no-unused-imports": "error"
     },

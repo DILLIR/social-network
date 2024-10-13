@@ -11,10 +11,10 @@ const meta: Meta<typeof Sidebar> = {
     decorators: [
         StoreDecorator({
             user: {
-                authData: {},
-            },
-        }),
-    ],
+                authData: {}
+            }
+        })
+    ]
 };
 
 export default meta;
@@ -23,13 +23,13 @@ type Story = StoryObj<typeof Sidebar>;
 export const Light: Story = {};
 
 export const Dark: Story = {
-    decorators: [ThemeDecorator(Theme.DARK)],
+    decorators: [ThemeDecorator(Theme.DARK)]
 };
 
 export const NoAuth: Story = {
     decorators: [
         StoreDecorator({
-            user: {},
-        }),
-    ],
+            user: {}
+        })
+    ]
 };

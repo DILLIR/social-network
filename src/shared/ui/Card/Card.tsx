@@ -14,10 +14,16 @@ interface CardProps extends HTMLAttributes<HTMLDivElement> {
 }
 
 export function Card({
-    className, children, theme = CardTheme.NORMAL, ...rest
+    className,
+    children,
+    theme = CardTheme.NORMAL,
+    ...rest
 }: CardProps) {
     return (
-        <div className={classNames(cls.Card, {}, [className, cls[theme]])} {...rest}>
+        <div
+            className={classNames(cls.Card, {}, [className, cls[theme]])}
+            {...rest}
+        >
             {children}
         </div>
     );

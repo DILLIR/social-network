@@ -9,14 +9,29 @@ interface ArticleTextBlockComponentProps {
     block: ArticleTextBLock;
 }
 
-export const ArticleTextBlockComponent = memo(function ArticleTextBlockComponent({ className, block }: ArticleTextBlockComponentProps) {
-    return (
-        <div className={classNames(cls.ArticleTextBlockComponent, {}, [className])}>
-            {block.title && <Text title={block.title} className={cls.title} />}
-            {block.paragraphs.map((paragraph, index) => (
-            // eslint-disable-next-line react/no-array-index-key
-                <Text key={index} text={paragraph} className={cls.paragraph} />
-            ))}
-        </div>
-    );
-});
+export const ArticleTextBlockComponent = memo(
+    function ArticleTextBlockComponent({
+        className,
+        block
+    }: ArticleTextBlockComponentProps) {
+        return (
+            <div
+                className={classNames(cls.ArticleTextBlockComponent, {}, [
+                    className
+                ])}
+            >
+                {block.title && (
+                    <Text title={block.title} className={cls.title} />
+                )}
+                {block.paragraphs.map((paragraph, index) => (
+                    <Text
+                        // eslint-disable-next-line react/no-array-index-key
+                        key={index}
+                        text={paragraph}
+                        className={cls.paragraph}
+                    />
+                ))}
+            </div>
+        );
+    }
+);

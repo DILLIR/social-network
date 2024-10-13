@@ -6,16 +6,14 @@ import type { Meta, StoryObj } from '@storybook/react';
 const meta: Meta<typeof PageError> = {
     title: 'widget/PageError',
     component: PageError,
-    tags: ['autodocs'],
+    tags: ['autodocs']
 };
 
 export default meta;
 type Story = StoryObj<typeof PageError>;
 
-export const Light: Story = {
-
-};
+export const Light: Story = {};
 
 export const Dark: Story = {
-    decorators: [ThemeDecorator(Theme.DARK)],
+    decorators: [ThemeDecorator(Theme.DARK)]
 };

@@ -9,34 +9,40 @@ describe('Counter', () => {
         componentRender(<Counter />, {
             initialState: {
                 counter: {
-                    value: 11,
-                },
-            },
+                    value: 11
+                }
+            }
         });
-        expect(screen.getByTestId('value-title')).toHaveTextContent('value =11');
+        expect(screen.getByTestId('value-title')).toHaveTextContent(
+            'value =11'
+        );
     });
 
     test('Increment', async () => {
         componentRender(<Counter />, {
             initialState: {
                 counter: {
-                    value: 11,
-                },
-            },
+                    value: 11
+                }
+            }
         });
         await userEvent.click(screen.getByTestId('increment-btn'));
-        expect(screen.getByTestId('value-title')).toHaveTextContent('value =12');
+        expect(screen.getByTestId('value-title')).toHaveTextContent(
+            'value =12'
+        );
     });
 
     test('Decrement', async () => {
         componentRender(<Counter />, {
             initialState: {
                 counter: {
-                    value: 11,
-                },
-            },
+                    value: 11
+                }
+            }
         });
         await userEvent.click(screen.getByTestId('decrement-btn'));
-        expect(screen.getByTestId('value-title')).toHaveTextContent('value =10');
+        expect(screen.getByTestId('value-title')).toHaveTextContent(
+            'value =10'
+        );
     });
 });

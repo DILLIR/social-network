@@ -30,7 +30,9 @@ describe('User visits article details page', () => {
         cy.get('[data-selected=true]').should('have.length', 3);
     });
     it('and rates it example with stubs on fixture', () => {
-        cy.intercept('GET', '**/articles/*', { fixture: 'article-details.json' });
+        cy.intercept('GET', '**/articles/*', {
+            fixture: 'article-details.json'
+        });
         cy.getByTestId('ArticleDetails.Info').should('exist');
         cy.getByTestId('RatingCard').scrollIntoView().should('be.visible');
         cy.setRate(3, 'Test feedback');

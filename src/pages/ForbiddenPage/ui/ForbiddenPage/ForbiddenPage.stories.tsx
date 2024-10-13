@@ -7,19 +7,21 @@ const meta: Meta<typeof ForbiddenPage> = {
     title: 'page/ForbiddenPage',
     component: ForbiddenPage,
     tags: ['autodocs'],
-    decorators: [StoreDecorator({
-        user: {
-            authData: {
-                username: 'test',
-                roles: [UserRole.ADMIN],
-            },
-        },
-    })],
+    decorators: [
+        StoreDecorator({
+            user: {
+                authData: {
+                    username: 'test',
+                    roles: [UserRole.ADMIN]
+                }
+            }
+        })
+    ]
 };
 
 export default meta;
 type Story = StoryObj<typeof ForbiddenPage>;
 
 export const Default: Story = {
-    args: { },
+    args: {}
 };

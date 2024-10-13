@@ -1,4 +1,4 @@
-let profileId : string;
+let profileId: string;
 
 describe('User opens his profile page', () => {
     beforeEach(() => {
@@ -17,7 +17,13 @@ describe('User opens his profile page', () => {
         const newFirstName = 'John';
         const newLastName = 'Doe';
         cy.updateProfile(newFirstName, newLastName);
-        cy.getByTestId('ProfileCard.FirstName').should('have.value', newFirstName);
-        cy.getByTestId('ProfileCard.LastName').should('have.value', newLastName);
+        cy.getByTestId('ProfileCard.FirstName').should(
+            'have.value',
+            newFirstName
+        );
+        cy.getByTestId('ProfileCard.LastName').should(
+            'have.value',
+            newLastName
+        );
     });
 });

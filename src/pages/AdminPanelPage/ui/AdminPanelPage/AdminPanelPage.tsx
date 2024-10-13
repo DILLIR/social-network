@@ -9,7 +9,10 @@ interface AdminPanelPageProps {
 function AdminPanelPage({ className }: AdminPanelPageProps) {
     const { t } = useTranslation();
     return (
-        <Page dataTestId="AdminPanelPage" className={classNames('', {}, [className])}>
+        <Page
+            dataTestId="AdminPanelPage"
+            className={classNames('', {}, [className])}
+        >
             {t('Admin panel')}
         </Page>
     );

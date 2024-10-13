@@ -15,14 +15,14 @@ export const CountrySelect = memo(function CountrySelect({
     className,
     value,
     onChange,
-    disabled,
+    disabled
 }: CountrySelectProps) {
     const currencyOptions = useMemo(() => generateOptions(Country), []);
     const onChangeHandler = useCallback(
         (value: string | number) => {
             onChange?.(value as Country);
         },
-        [onChange],
+        [onChange]
     );
 
     return (

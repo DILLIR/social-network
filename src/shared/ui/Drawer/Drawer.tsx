@@ -4,7 +4,7 @@ import { Overlay } from '@/shared/ui/Overlay';
 import { Portal } from '@/shared/ui/Portal';
 import {
     AnimationProvider,
-    useAnimationLibs,
+    useAnimationLibs
 } from '@/shared/lib/components/AnimationProvider/AnimationProvider';
 import { useTheme } from '@/shared/lib/hooks/useTheme';
 import { Loader } from '../Loader/Loader';
@@ -23,7 +23,7 @@ export function DrawerContent({
     className,
     children,
     isOpen,
-    onClose,
+    onClose
 }: DrawerProps) {
     const { Spring, Gesture } = useAnimationLibs();
     const [{ y }, api] = Spring.useSpring(() => ({ y: height }));
@@ -44,7 +44,7 @@ export function DrawerContent({
             y: height,
             immediate: false,
             config: { ...Spring.config.stiff, velocity },
-            onResolve: onClose,
+            onResolve: onClose
         });
     };
 
@@ -54,7 +54,7 @@ export function DrawerContent({
             velocity: [, vy],
             direction: [, dy],
             movement: [, my],
-            cancel,
+            cancel
         }) => {
             if (my < -70) cancel();
 
@@ -72,12 +72,12 @@ export function DrawerContent({
             from: () => [0, y.get()],
             filterTaps: true,
             bounds: { top: 0 },
-            rubberband: true,
-        },
+            rubberband: true
+        }
     );
 
     const mods: Mods = {
-        [cls.opened]: isOpen,
+        [cls.opened]: isOpen
     };
 
     if (!isOpen) {
@@ -92,7 +92,7 @@ export function DrawerContent({
                 className={classNames(cls.Drawer, mods, [
                     className,
                     theme,
-                    'app_drawer',
+                    'app_drawer'
                 ])}
             >
                 <Overlay onClick={close} />
@@ -101,7 +101,7 @@ export function DrawerContent({
                     style={{
                         display,
                         bottom: `calc(-100vh + ${height - 100}px)`,
-                        y,
+                        y
                     }}
                     {...bind()}
                 >

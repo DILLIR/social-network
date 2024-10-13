@@ -8,5 +8,5 @@ export const getCanEditArticle = createSelector(
     (article, user) => {
         if (!article || !user) return false;
         return article?.user.id === user?.id;
-    },
+    }
 );

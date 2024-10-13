@@ -5,7 +5,7 @@ import {
     getUserAuthData,
     isUserAdmin,
     isUserManager,
-    userActions,
+    userActions
 } from '@/entities/User';
 import { getRouteAdminPanel, getRouteProfile } from '@/shared/const/router';
 import { classNames } from '@/shared/lib/classNames/classNames';
@@ -42,20 +42,20 @@ export function AvatarDropdown({ className }: AvatarDropdownProps) {
             items={[
                 ...(isAdminPanelAvailable
                     ? [
-                        {
-                            content: t('Admin panel'),
-                            href: getRouteAdminPanel(),
-                        },
-                    ]
+                          {
+                              content: t('Admin panel'),
+                              href: getRouteAdminPanel()
+                          }
+                      ]
                     : []),
                 {
                     content: t('Profile'),
-                    href: getRouteProfile(authData.id),
+                    href: getRouteProfile(authData.id)
                 },
                 {
                     content: t('Log_out'),
-                    onClick: onLogout,
-                },
+                    onClick: onLogout
+                }
             ]}
         />
     );

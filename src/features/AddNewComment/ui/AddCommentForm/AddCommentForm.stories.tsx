@@ -6,9 +6,7 @@ const meta: Meta<typeof AddCommentForm> = {
     title: 'features/AddCommentForm',
     component: AddCommentForm,
     tags: ['autodocs'],
-    decorators: [StoreDecorator({
-
-    })],
+    decorators: [StoreDecorator({})]
 };
 
 export default meta;
@@ -19,6 +17,6 @@ export const Default: Story = {
         onSendComment: (value) => {
             // eslint-disable-next-line no-console
             console.log(value);
-        },
-    },
+        }
+    }
 };

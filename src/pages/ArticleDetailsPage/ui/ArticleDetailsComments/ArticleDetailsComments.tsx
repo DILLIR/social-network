@@ -8,9 +8,7 @@ import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect';
 import { Stack } from '@/shared/ui/Stack';
 import { Text, TextSize } from '@/shared/ui/Text';
-import {
-    getArticleCommentsIsLoading
-} from '../../model/selectors/comments';
+import { getArticleCommentsIsLoading } from '../../model/selectors/comments';
 import { addCommentForArticle } from '../../model/services/addCommentForArticle/addCommentForArticle';
 import { fetchCommentByArticleId } from '../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
 import { getArticleComments } from '../../model/slices/articleDetailsCommentsSlice';
@@ -22,7 +20,7 @@ interface ArticleDetailsCommentsProps {
 
 export function ArticleDetailsComments({
     className,
-    id,
+    id
 }: ArticleDetailsCommentsProps) {
     const { t } = useTranslation('article-details');
     const dispatch = useAppDispatch();
@@ -35,7 +33,7 @@ export function ArticleDetailsComments({
         (text: string) => {
             dispatch(addCommentForArticle(text));
         },
-        [dispatch],
+        [dispatch]
     );
 
     useInitialEffect(() => {

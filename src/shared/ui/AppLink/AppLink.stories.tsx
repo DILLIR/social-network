@@ -9,7 +9,7 @@ const meta: Meta<typeof AppLink> = {
     title: 'shared/AppLink',
     component: AppLink,
     tags: ['autodocs'],
-    args: { onClick: fn(), to: '/' },
+    args: { onClick: fn(), to: '/' }
 };
 
 export default meta;
@@ -18,44 +18,44 @@ type Story = StoryObj<typeof AppLink>;
 export const Primary: Story = {
     args: {
         children: 'Button',
-        theme: AppLinkTheme.PRIMARY,
-    },
+        theme: AppLinkTheme.PRIMARY
+    }
 };
 
 export const Secondary: Story = {
     args: {
         children: 'Button',
-        theme: AppLinkTheme.SECONDARY,
-    },
+        theme: AppLinkTheme.SECONDARY
+    }
 };
 
 export const Red: Story = {
     args: {
         children: 'Button',
-        theme: AppLinkTheme.RED,
-    },
+        theme: AppLinkTheme.RED
+    }
 };
 
 export const DarkPrimary: Story = {
     args: {
         children: 'Button',
-        theme: AppLinkTheme.PRIMARY,
+        theme: AppLinkTheme.PRIMARY
     },
-    decorators: [ThemeDecorator(Theme.DARK)],
+    decorators: [ThemeDecorator(Theme.DARK)]
 };
 
 export const DarkSecondary: Story = {
     args: {
         children: 'Button',
-        theme: AppLinkTheme.SECONDARY,
+        theme: AppLinkTheme.SECONDARY
     },
-    decorators: [ThemeDecorator(Theme.DARK)],
+    decorators: [ThemeDecorator(Theme.DARK)]
 };
 
 export const DarkRed: Story = {
     args: {
         children: 'Button',
-        theme: AppLinkTheme.RED,
+        theme: AppLinkTheme.RED
     },
-    decorators: [ThemeDecorator(Theme.DARK)],
+    decorators: [ThemeDecorator(Theme.DARK)]
 };

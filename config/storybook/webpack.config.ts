@@ -30,10 +30,10 @@ export default function DefineConfig({
     config.module = config.module || {};
     config.module.rules = config.module?.rules?.map((rule) => {
         if (
-            typeof rule === 'object'
-            && rule != null
-            && rule.test != null
-            && /svg/.test(rule.test.toString())
+            typeof rule === 'object' &&
+            rule != null &&
+            rule.test != null &&
+            /svg/.test(rule.test.toString())
         ) {
             return { ...rule, exclude: /\.svg$/i };
         }

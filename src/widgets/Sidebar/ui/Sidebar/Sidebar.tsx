@@ -23,21 +23,22 @@ export const Sidebar = memo(function Sidebar({ className }: SidebarProps) {
     };
 
     const itemsList = useMemo(
-        () => SidebarItemsList.map((item) => (
-            <SidebarItem
-                key={item.path}
-                item={item}
-                collapsed={collapsed}
-            />
-        )),
-        [SidebarItemsList, collapsed],
+        () =>
+            SidebarItemsList.map((item) => (
+                <SidebarItem
+                    key={item.path}
+                    item={item}
+                    collapsed={collapsed}
+                />
+            )),
+        [SidebarItemsList, collapsed]
     );
 
     return (
         <aside
             data-testid="sidebar"
             className={classNames(cls.Sidebar, { [cls.collapsed]: collapsed }, [
-                className,
+                className
             ])}
         >
             <Stack gap={24} role="navigation" className={cls.items}>

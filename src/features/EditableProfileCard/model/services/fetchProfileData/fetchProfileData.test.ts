@@ -10,7 +10,7 @@ const data = {
     lastName: 'Doe',
     firstName: 'John',
     city: 'London',
-    currency: Currency.USD,
+    currency: Currency.USD
 };
 
 describe('fetchProfileData.test', () => {
@@ -29,8 +29,8 @@ describe('fetchProfileData.test', () => {
         const thunk = new TestAsyncThunk(fetchProfileData);
         thunk.api.get.mockReturnValue(
             Promise.resolve({
-                status: 403,
-            }),
+                status: 403
+            })
         );
         const result = await thunk.callThunk('1');
         expect(result.meta.requestStatus).toBe('rejected');

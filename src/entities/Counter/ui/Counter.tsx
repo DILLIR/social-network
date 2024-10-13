@@ -21,10 +21,7 @@ export function Counter({ className }: CounterProps) {
 
     return (
         <div className={classNames('', {}, [className])}>
-            <h1 data-testid="value-title">
-                value =
-                {counterValue}
-            </h1>
+            <h1 data-testid="value-title">value ={counterValue}</h1>
             <Button onClick={handleIncrement} data-testid="increment-btn">
                 Increment
             </Button>

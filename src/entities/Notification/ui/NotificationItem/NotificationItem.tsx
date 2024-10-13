@@ -16,12 +16,20 @@ export function NotificationItem({ className, item }: NotificationItemProps) {
             theme={CardTheme.OUTLINE}
             className={classNames(cls.NotificationItem, {}, [className])}
         >
-            <Text title={item.title} text={item.description} size={TextSize.S} />
+            <Text
+                title={item.title}
+                text={item.description}
+                size={TextSize.S}
+            />
         </Card>
     );
 
     if (item.href != null) {
-        return <AppLink className={cls.link} to={item.href}>{content}</AppLink>;
+        return (
+            <AppLink className={cls.link} to={item.href}>
+                {content}
+            </AppLink>
+        );
     }
 
     return content;

@@ -30,7 +30,9 @@ export function Page({
     const triggerRef = useRef() as MutableRefObject<HTMLDivElement>;
     const dispatch = useAppDispatch();
     const { pathname } = useLocation();
-    const scrollPosition = useSelector((state: StateSchema) => getSaveScrollPositionByPath(state, pathname));
+    const scrollPosition = useSelector((state: StateSchema) =>
+        getSaveScrollPositionByPath(state, pathname)
+    );
 
     useInitialEffect(() => {
         wrapperRef.current.scrollTop = scrollPosition;

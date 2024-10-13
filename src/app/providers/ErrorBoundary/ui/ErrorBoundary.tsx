@@ -30,14 +30,10 @@ class ErrorBoundary extends React.Component<
 
     render() {
         const { hasError } = this.state;
+        // eslint-disable-next-line react/prop-types
         const { children } = this.props;
         if (hasError) {
-            return (
-                // <Suspense fallback="">
-                <PageError />
-
-            // </Suspense>
-            );
+            return <PageError />;
         }
 
         return children;

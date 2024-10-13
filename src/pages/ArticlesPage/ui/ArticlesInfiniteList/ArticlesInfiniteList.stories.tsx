@@ -6,12 +6,12 @@ const meta: Meta<typeof ArticlesInfiniteList> = {
     title: 'page/ArticleDetailsPage/ArticlesInfiniteList',
     component: ArticlesInfiniteList,
     tags: ['autodocs'],
-    decorators: [StoreDecorator({})],
+    decorators: [StoreDecorator({})]
 };
 
 export default meta;
 type Story = StoryObj<typeof ArticlesInfiniteList>;
 
 export const Default: Story = {
-    args: { },
+    args: {}
 };

@@ -8,7 +8,7 @@ const meta: Meta<typeof NotFoundPage> = {
     title: 'page/NotFoundPage',
     component: NotFoundPage,
     tags: ['autodocs'],
-    decorators: [StoreDecorator({})],
+    decorators: [StoreDecorator({})]
 };
 
 export default meta;
@@ -17,5 +17,5 @@ type Story = StoryObj<typeof NotFoundPage>;
 export const Light: Story = {};
 
 export const Dark: Story = {
-    decorators: [ThemeDecorator(Theme.DARK)],
+    decorators: [ThemeDecorator(Theme.DARK)]
 };

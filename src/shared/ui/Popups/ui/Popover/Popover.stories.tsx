@@ -6,12 +6,12 @@ const meta: Meta<typeof Popover> = {
     title: 'shared/Popover',
     component: Popover,
     tags: ['autodocs'],
-    decorators: [StoreDecorator({})],
+    decorators: [StoreDecorator({})]
 };
 
 export default meta;
 type Story = StoryObj<typeof Popover>;
 
 export const Default: Story = {
-    args: { },
+    args: {}
 };

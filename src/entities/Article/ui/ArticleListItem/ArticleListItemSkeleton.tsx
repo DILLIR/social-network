@@ -11,14 +11,14 @@ interface ArticleListItemSkeletonProps {
 
 export function ArticleListItemSkeleton({
     className,
-    view,
+    view
 }: ArticleListItemSkeletonProps) {
     if (view === ArticleView.LIST) {
         return (
             <div
                 className={classNames(cls.ArticleListItem, {}, [
                     className,
-                    cls[view],
+                    cls[view]
                 ])}
             >
                 <Card className={cls.card}>
@@ -49,7 +49,7 @@ export function ArticleListItemSkeleton({
         <div
             className={classNames(cls.ArticleListItem, {}, [
                 className,
-                cls[view],
+                cls[view]
             ])}
         >
             <Card className={cls.card} style={{ height: '295px' }}>

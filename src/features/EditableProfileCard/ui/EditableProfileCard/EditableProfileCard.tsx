@@ -5,7 +5,7 @@ import { Currency } from '@/entities/Currency';
 import { Country } from '@/entities/Country';
 import {
     DynamicModuleLoader,
-    ReducersList,
+    ReducersList
 } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect';
@@ -29,12 +29,12 @@ interface EditableProfileCardProps {
 }
 
 const reducers: ReducersList = {
-    profile: profileReducer,
+    profile: profileReducer
 };
 
 export function EditableProfileCard({
     className,
-    id,
+    id
 }: EditableProfileCardProps) {
     const { t } = useTranslation('profile');
     const dispatch = useAppDispatch();
@@ -46,13 +46,13 @@ export function EditableProfileCard({
 
     const validateErrorTranslates: Record<ValidateProfileError, string> = {
         [ValidateProfileError.FirstAndLastNameRequired]: t(
-            'FirstAndLastNameRequired',
+            'FirstAndLastNameRequired'
         ),
         [ValidateProfileError.AgeRequired]: t('AgeRequired'),
         [ValidateProfileError.AgeInvalid]: t('AgeInvalid'),
         [ValidateProfileError.CountryRequired]: t('CountryRequired'),
         [ValidateProfileError.NoData]: t('NoData'),
-        [ValidateProfileError.ServerError]: t('ServerError'),
+        [ValidateProfileError.ServerError]: t('ServerError')
     };
 
     useInitialEffect(() => {
@@ -64,14 +64,14 @@ export function EditableProfileCard({
         (value?: string) => {
             dispatch(profileActions.updateProfile({ firstName: value ?? '' }));
         },
-        [dispatch],
+        [dispatch]
     );
 
     const onChangeLastName = useCallback(
         (value: string) => {
             dispatch(profileActions.updateProfile({ lastName: value ?? '' }));
         },
-        [dispatch],
+        [dispatch]
     );
 
     const onChangeAge = useCallback(
@@ -79,42 +79,42 @@ export function EditableProfileCard({
             if (Number.isNaN(Number(value))) return;
             dispatch(profileActions.updateProfile({ age: Number(value ?? 0) }));
         },
-        [dispatch],
+        [dispatch]
     );
 
     const onChangeCity = useCallback(
         (value?: string) => {
             dispatch(profileActions.updateProfile({ city: value ?? '' }));
         },
-        [dispatch],
+        [dispatch]
     );
 
     const onChangeUsername = useCallback(
         (value?: string) => {
             dispatch(profileActions.updateProfile({ username: value ?? '' }));
         },
-        [dispatch],
+        [dispatch]
     );
 
     const onChangeAvatar = useCallback(
         (value?: string) => {
             dispatch(profileActions.updateProfile({ avatar: value ?? '' }));
         },
-        [dispatch],
+        [dispatch]
     );
 
     const onChangeCurrency = useCallback(
         (currency: Currency) => {
             dispatch(profileActions.updateProfile({ currency }));
         },
-        [dispatch],
+        [dispatch]
     );
 
     const onChangeCountry = useCallback(
         (country: Country) => {
             dispatch(profileActions.updateProfile({ country }));
         },
-        [dispatch],
+        [dispatch]
     );
     return (
         <DynamicModuleLoader reducers={reducers} removeAfterUnmount>

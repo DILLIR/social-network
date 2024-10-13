@@ -3,7 +3,7 @@ import { AddNewCommentSchema } from '../types/addNewComment';
 
 const initialState: AddNewCommentSchema = {
     text: undefined,
-    error: undefined,
+    error: undefined
 };
 
 export const addNewCommentSlice = createSlice({
@@ -12,8 +12,8 @@ export const addNewCommentSlice = createSlice({
     reducers: {
         setText: (state, action: PayloadAction<string>) => {
             state.text = action.payload;
-        },
-    },
+        }
+    }
     // extraReducers: (builder) => {
     //     builder
     //         .addCase(sendComment.pending, (state) => {
@@ -28,4 +28,5 @@ export const addNewCommentSlice = createSlice({
     // }
 });
 
-export const { actions: addNewCommentActions, reducer: addNewCommentReducer } = addNewCommentSlice;
+export const { actions: addNewCommentActions, reducer: addNewCommentReducer } =
+    addNewCommentSlice;

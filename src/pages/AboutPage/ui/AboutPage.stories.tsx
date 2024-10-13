@@ -8,7 +8,7 @@ const meta: Meta<typeof AboutPage> = {
     title: 'page/AboutPage',
     component: AboutPage,
     tags: ['autodocs'],
-    decorators: [StoreDecorator({})],
+    decorators: [StoreDecorator({})]
 };
 
 export default meta;
@@ -17,5 +17,5 @@ type Story = StoryObj<typeof AboutPage>;
 export const Light: Story = {};
 
 export const Dark: Story = {
-    decorators: [ThemeDecorator(Theme.DARK)],
+    decorators: [ThemeDecorator(Theme.DARK)]
 };

@@ -6,12 +6,12 @@ const meta: Meta<typeof ArticleDetailsComments> = {
     title: 'page/ArticleDetailsPage/ArticleDetailsComments',
     component: ArticleDetailsComments,
     tags: ['autodocs'],
-    decorators: [StoreDecorator({})],
+    decorators: [StoreDecorator({})]
 };
 
 export default meta;
 type Story = StoryObj<typeof ArticleDetailsComments>;
 
 export const Default: Story = {
-    args: { },
+    args: {}
 };

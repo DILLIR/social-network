@@ -18,17 +18,16 @@ export const fetchArticleById = createAsyncThunk<
                 `/articles/${articleId}`,
                 {
                     params: {
-                        _expand: 'user',
-                    },
-                },
+                        _expand: 'user'
+                    }
+                }
             );
             if (!response.data) {
                 throw new Error('No data');
             }
             return response.data;
         } catch (error) {
-            // console.error(error);
-            return rejectWithValue('error');
+            return rejectWithValue(String(error));
         }
-    },
+    }
 );

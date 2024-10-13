@@ -11,22 +11,26 @@ const defaultArticle = {
     blocks: []
 };
 
-export const createArticle = (article?: Article) => cy.request({
-    method: 'POST',
-    url: 'http://localhost:8000/articles',
-    headers: {
-        Authorization: 'Bearer'
-    },
-    body: article ?? defaultArticle
-}).then((req) => req.body);
+export const createArticle = (article?: Article) =>
+    cy
+        .request({
+            method: 'POST',
+            url: 'http://localhost:8000/articles',
+            headers: {
+                Authorization: 'Bearer'
+            },
+            body: article ?? defaultArticle
+        })
+        .then((req) => req.body);
 
-export const deleteArticle = (articleId: string) => cy.request({
-    method: 'DELETE',
-    url: `http://localhost:8000/articles/${articleId}`,
-    headers: {
-        Authorization: 'Bearer'
-    }
-});
+export const deleteArticle = (articleId: string) =>
+    cy.request({
+        method: 'DELETE',
+        url: `http://localhost:8000/articles/${articleId}`,
+        headers: {
+            Authorization: 'Bearer'
+        }
+    });
 
 declare global {
     // eslint-disable-next-line @typescript-eslint/no-namespace

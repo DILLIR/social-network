@@ -12,15 +12,15 @@ export const fetchArticleRecommendations = createAsyncThunk<
         try {
             const response = await extra.api.get<Article[]>('/articles', {
                 params: {
-                    _limit: 4,
-                },
+                    _limit: 4
+                }
             });
             if (!response.data) {
                 throw new Error('No data');
             }
             return response.data;
         } catch (error) {
-            return rejectWithValue('error');
+            return rejectWithValue(String(error));
         }
-    },
+    }
 );

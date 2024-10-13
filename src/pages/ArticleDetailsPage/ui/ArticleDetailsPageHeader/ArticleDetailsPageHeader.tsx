@@ -14,7 +14,7 @@ interface ArticleDetailsPageHeaderProps {
 }
 
 export function ArticleDetailsPageHeader({
-    className,
+    className
 }: ArticleDetailsPageHeaderProps) {
     const { t } = useTranslation('article-details');
     const navigate = useNavigate();
@@ -33,9 +33,7 @@ export function ArticleDetailsPageHeader({
         <Stack
             direction="row"
             justifyContent="space-between"
-            className={classNames('', {}, [
-                className,
-            ])}
+            className={classNames('', {}, [className])}
         >
             <Button onClick={onBackToList}>{t('Back to articles')}</Button>
             {canEdit && <Button onClick={onEdit}>{t('Edit')}</Button>}

@@ -10,17 +10,25 @@ interface ArticleRecommendationsListProps {
 }
 
 export function ArticleRecommendationsList({
-    className,
+    className
 }: ArticleRecommendationsListProps) {
     const { t } = useTranslation('article-details');
-    const { data: articles, isLoading, error } = useArticleRecommendationList(5);
+    const {
+        data: articles,
+        isLoading,
+        error
+    } = useArticleRecommendationList(5);
 
     if (isLoading || error || !articles) {
         return null;
     }
 
     return (
-        <Stack gap={8} data-testid="ArticleRecommendationsList" className={classNames('', {}, [className])}>
+        <Stack
+            gap={8}
+            data-testid="ArticleRecommendationsList"
+            className={classNames('', {}, [className])}
+        >
             <Text size={TextSize.L} title={t('Recommendations')} />
             <ArticleList target="_blank" articles={articles} />
         </Stack>

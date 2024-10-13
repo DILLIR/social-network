@@ -16,20 +16,21 @@ interface TabsProps<T extends string | number> {
 }
 
 export function Tabs<T extends string | number>({
-    className, tabs, value, onTabClick,
+    className,
+    tabs,
+    value,
+    onTabClick
 }: TabsProps<T>) {
     const onClick = useCallback(
         (tab: TabItem<T>) => () => onTabClick(tab),
-        [onTabClick],
+        [onTabClick]
     );
 
     const renderTabs = useCallback(
         (tab: TabItem<T>) => (
             <Card
                 theme={
-                    tab.value === value
-                        ? CardTheme.NORMAL
-                        : CardTheme.OUTLINE
+                    tab.value === value ? CardTheme.NORMAL : CardTheme.OUTLINE
                 }
                 className={cls.tab}
                 key={tab.value}
@@ -38,7 +39,7 @@ export function Tabs<T extends string | number>({
                 {tab.node}
             </Card>
         ),
-        [onClick, value],
+        [onClick, value]
     );
 
     return (

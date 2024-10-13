@@ -1,6 +1,4 @@
-import {
-    ChangeEvent, memo, useEffect, useRef, useState,
-} from 'react';
+import { ChangeEvent, memo, useEffect, useRef, useState } from 'react';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import cls from './Input.module.scss';
 
@@ -55,9 +53,14 @@ export const Input = memo(function Input({
     };
 
     return (
-        <div className={classNames(cls.InputWrapper, {
-            [cls.disabled]: disabled,
-        }, [className])}
+        <div
+            className={classNames(
+                cls.InputWrapper,
+                {
+                    [cls.disabled]: disabled
+                },
+                [className]
+            )}
         >
             {placeholder && (
                 <div className={cls.Placeholder}>{`${placeholder}>`}</div>
@@ -74,7 +77,12 @@ export const Input = memo(function Input({
                     disabled={disabled}
                     {...props}
                 />
-                {isFocused && <span className={cls.caret} style={{ left: `${caretPosition * 9.6}px` }} />}
+                {isFocused && (
+                    <span
+                        className={cls.caret}
+                        style={{ left: `${caretPosition * 9.6}px` }}
+                    />
+                )}
             </div>
         </div>
     );

@@ -26,13 +26,15 @@ function isAbsolute(path: string) {
 componentsDirs?.forEach((dir) => {
     const indexFilePath = `${dir.getPath()}/index.ts`;
     const indexFile = dir.getSourceFile(indexFilePath);
-    
-    if(!indexFile) {
+
+    if (!indexFile) {
         const sourceCode = `export * from './${dir.getBaseName()}';
         `;
-        const file = dir.createSourceFile(indexFilePath, sourceCode, {overwrite: true});
+        const file = dir.createSourceFile(indexFilePath, sourceCode, {
+            overwrite: true
+        });
 
-        file.save(); 
+        file.save();
     }
 });
 
@@ -40,16 +42,23 @@ files.forEach((file) => {
     const importDeclarations = file.getImportDeclarations();
     importDeclarations.forEach((importDeclaration) => {
         const moduleSpecifier = importDeclaration.getModuleSpecifierValue();
-        const moduleSpecifierWithoutAlias = moduleSpecifier.replace("@/", '');
+        const moduleSpecifierWithoutAlias = moduleSpecifier.replace('@/', '');
 
         const segments = moduleSpecifierWithoutAlias.split('/');
 
         const isSharedLayer = segments[0] === 'shared';
         const isUiLayer = segments[1] === 'ui';
 
-        if(isAbsolute(moduleSpecifierWithoutAlias) && isSharedLayer && isUiLayer) {
+        if (
+            isAbsolute(moduleSpecifierWithoutAlias) &&
+            isSharedLayer &&
+            isUiLayer
+        ) {
             console.log(`Updating import: ${moduleSpecifier}`);
-            const result = moduleSpecifierWithoutAlias.split('/').slice(0, 3).join('/');
+            const result = moduleSpecifierWithoutAlias
+                .split('/')
+                .slice(0, 3)
+                .join('/');
             importDeclaration.setModuleSpecifier(`@/${result}`);
         }
     });

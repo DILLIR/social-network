@@ -10,15 +10,12 @@ interface NotificationListProps {
 
 export function NotificationList({ className }: NotificationListProps) {
     const { data, isLoading } = useNotifications(undefined, {
-        pollingInterval: 5000,
+        pollingInterval: 5000
     });
 
     if (isLoading) {
         return (
-            <Stack
-                gap={16}
-                className={classNames('', {}, [className])}
-            >
+            <Stack gap={16} className={classNames('', {}, [className])}>
                 <Skeleton width="100%" height={80} border="8px" />
                 <Skeleton width="100%" height={80} border="8px" />
                 <Skeleton width="100%" height={80} border="8px" />
@@ -27,10 +24,7 @@ export function NotificationList({ className }: NotificationListProps) {
     }
 
     return (
-        <Stack
-            gap={16}
-            className={classNames('', {}, [className])}
-        >
+        <Stack gap={16} className={classNames('', {}, [className])}>
             {data?.map((item) => (
                 <NotificationItem key={item.id} item={item} />
             ))}

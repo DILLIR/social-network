@@ -6,12 +6,12 @@ const meta: Meta<typeof EditableProfileCard> = {
     title: 'features/EditableProfileCard/EditableProfileCard',
     component: EditableProfileCard,
     tags: ['autodocs'],
-    decorators: [StoreDecorator({})],
+    decorators: [StoreDecorator({})]
 };
 
 export default meta;
 type Story = StoryObj<typeof EditableProfileCard>;
 
 export const Default: Story = {
-    args: { },
+    args: {}
 };

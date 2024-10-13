@@ -15,17 +15,20 @@ interface ArticleListProps {
     target?: HTMLAttributeAnchorTarget;
 }
 
-const getSkeletons = (viewMode: ArticleView) => new Array(viewMode === ArticleView.GRID ? 9 : 3)
-    .fill(0)
-    // eslint-disable-next-line react/no-array-index-key
-    .map((item, index) => <ArticleListItemSkeleton key={index} view={viewMode} />);
+const getSkeletons = (viewMode: ArticleView) =>
+    new Array(viewMode === ArticleView.GRID ? 9 : 3)
+        .fill(0)
+        .map((item, index) => (
+            // eslint-disable-next-line react/no-array-index-key
+            <ArticleListItemSkeleton key={index} view={viewMode} />
+        ));
 
 export function ArticleList({
     className,
     articles,
     isLoading,
     viewMode = ArticleView.GRID,
-    target,
+    target
 }: ArticleListProps) {
     const { t } = useTranslation();
 
@@ -44,10 +47,14 @@ export function ArticleList({
             <div
                 className={classNames(cls.ArticleList, {}, [
                     className,
-                    cls[viewMode],
+                    cls[viewMode]
                 ])}
             >
-                <Text size={TextSize.L} title={t('Articles not found')} align={TextAlign.CENTER} />
+                <Text
+                    size={TextSize.L}
+                    title={t('Articles not found')}
+                    align={TextAlign.CENTER}
+                />
             </div>
         );
     }
@@ -57,7 +64,7 @@ export function ArticleList({
             data-testid="ArticleList"
             className={classNames(cls.ArticleList, {}, [
                 className,
-                cls[viewMode],
+                cls[viewMode]
             ])}
         >
             {articles.length > 0 ? articles.map(renderArticle) : null}

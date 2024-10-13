@@ -19,7 +19,12 @@ export function buildSlice<
 
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
         // @ts-ignore
-        return useMemo(() => bindActionCreators(slice.actions, dispatch), [dispatch]);
+        return useMemo(
+            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+            // @ts-ignore
+            () => bindActionCreators(slice.actions, dispatch),
+            [dispatch]
+        );
     };
 
     return {

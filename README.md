@@ -4,21 +4,21 @@ This project is a robust, production-ready web application boilerplate. It is bu
 
 ## Table of Contents
 
-- [Social-Network](#social-network)
-  - [Table of Contents](#table-of-contents)
-  - [Online Links](#online-links)
-  - [Getting Started](#getting-started)
-  - [Features](#features)
-  - [Available Scripts](#available-scripts)
-  - [Project architecture](#project-architecture)
-  - [Working with Translations](#working-with-translations)
-  - [Tests](#tests)
-  - [Linting](#linting)
-  - [Storybook](#storybook)
-  - [Project Configuration](#project-configuration)
-  - [CI Pipeline and Pre-commit Hooks](#ci-pipeline-and-pre-commit-hooks)
-  - [Working with Data](#working-with-data)
-  - [Entities](#entities)
+-   [Social-Network](#social-network)
+    -   [Table of Contents](#table-of-contents)
+    -   [Online Links](#online-links)
+    -   [Getting Started](#getting-started)
+    -   [Features](#features)
+    -   [Available Scripts](#available-scripts)
+    -   [Project architecture](#project-architecture)
+    -   [Working with Translations](#working-with-translations)
+    -   [Tests](#tests)
+    -   [Linting](#linting)
+    -   [Storybook](#storybook)
+    -   [Project Configuration](#project-configuration)
+    -   [CI Pipeline and Pre-commit Hooks](#ci-pipeline-and-pre-commit-hooks)
+    -   [Working with Data](#working-with-data)
+    -   [Entities](#entities)
 
 ## Online Links
 

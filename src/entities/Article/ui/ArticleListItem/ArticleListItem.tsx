@@ -71,7 +71,13 @@ export function ArticleListItem({
                     <Text text={article.title} className={cls.title} />
                     {domains}
                     <AppImage
-                        fallback={<Skeleton className={cls.img} width="100%" height="250px" />}
+                        fallback={
+                            <Skeleton
+                                className={cls.img}
+                                width="100%"
+                                height="250px"
+                            />
+                        }
                         src={article.img}
                         alt={article.title}
                         className={cls.img}
@@ -112,7 +118,13 @@ export function ArticleListItem({
                         src={article.img}
                         alt={article.title}
                         className={cls.img}
-                        fallback={<Skeleton className={cls.img} width="200px" height="200px" />}
+                        fallback={
+                            <Skeleton
+                                className={cls.img}
+                                width="200px"
+                                height="200px"
+                            />
+                        }
                     />
                     <Text className={cls.date} text={article.createdAt} />
                 </div>

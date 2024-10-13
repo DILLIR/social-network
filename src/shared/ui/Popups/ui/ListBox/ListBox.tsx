@@ -35,13 +35,13 @@ export function ListBox({
     onChange,
     disabled,
     direction = 'bottom right',
-    label,
+    label
 }: ListBoxProps) {
     const optionsClasses = [mapDirectionClass[direction]];
 
     const selectedItem = useMemo(
         () => items?.find((item) => item.value === value),
-        [items, value],
+        [items, value]
     );
 
     return (
@@ -49,7 +49,7 @@ export function ListBox({
             {label && (
                 <span
                     className={classNames(cls.label, {
-                        [cls.disabled]: disabled,
+                        [cls.disabled]: disabled
                     })}
                 >
                     {`${label}>`}
@@ -58,7 +58,10 @@ export function ListBox({
             <Listbox
                 disabled={disabled}
                 as="div"
-                className={classNames(cls.ListBox, {}, [className, popupCls.popup])}
+                className={classNames(cls.ListBox, {}, [
+                    className,
+                    popupCls.popup
+                ])}
                 value={value}
                 onChange={onChange}
             >
@@ -82,7 +85,7 @@ export function ListBox({
                                     className={classNames(cls.item, {
                                         [popupCls.active]: active,
                                         [cls.selected]: selected,
-                                        [popupCls.disabled]: disabled,
+                                        [popupCls.disabled]: disabled
                                     })}
                                 >
                                     {item.label}

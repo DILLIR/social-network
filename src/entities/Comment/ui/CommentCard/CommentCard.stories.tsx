@@ -7,7 +7,7 @@ const meta: Meta<typeof CommentCard> = {
     title: 'entities/Comment/CommentCard',
     component: CommentCard,
     tags: ['autodocs'],
-    decorators: [StoreDecorator({})],
+    decorators: [StoreDecorator({})]
 };
 
 export default meta;
@@ -21,14 +21,14 @@ export const Default: Story = {
             user: {
                 id: '2',
                 username: 'Daniel',
-                roles: [UserRole.USER],
-            },
-        },
-    },
+                roles: [UserRole.USER]
+            }
+        }
+    }
 };
 
 export const Loading: Story = {
     args: {
-        isLoading: true,
-    },
+        isLoading: true
+    }
 };

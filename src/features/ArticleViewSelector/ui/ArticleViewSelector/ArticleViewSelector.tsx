@@ -15,18 +15,18 @@ interface ArticleViewSelectorProps {
 const viewTypes = [
     {
         view: ArticleView.GRID,
-        icon: GridIcon,
+        icon: GridIcon
     },
     {
         view: ArticleView.LIST,
-        icon: ListIcon,
-    },
+        icon: ListIcon
+    }
 ];
 
 export function ArticleViewSelector({
     className,
     viewMode,
-    onViewClick,
+    onViewClick
 }: ArticleViewSelectorProps) {
     const onClick = (newView: ArticleView) => () => {
         onViewClick?.(newView);
@@ -43,7 +43,7 @@ export function ArticleViewSelector({
                     <Icon
                         Svg={icon}
                         className={classNames(cls.button, {
-                            [cls.selected]: viewType === viewMode,
+                            [cls.selected]: viewType === viewMode
                         })}
                     />
                 </Button>

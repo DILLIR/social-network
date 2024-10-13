@@ -13,9 +13,9 @@ export default function ProcessFunction(): PluginItem {
                         if (forbidden.includes(nodeName)) {
                             current.parentPath.remove();
                         }
-                    },
+                    }
                 });
-            },
-        },
+            }
+        }
     };
 }

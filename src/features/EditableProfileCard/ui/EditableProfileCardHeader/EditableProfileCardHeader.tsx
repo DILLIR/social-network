@@ -16,7 +16,7 @@ interface EditableProfileCardHeaderProps {
 }
 
 export function EditableProfileCardHeader({
-    className,
+    className
 }: EditableProfileCardHeaderProps) {
     const { t } = useTranslation('profile');
     const readonly = useSelector(getProfileReadonly);

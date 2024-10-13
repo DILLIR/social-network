@@ -27,11 +27,7 @@ export const RequireAuth = ({ children, roles }: RequireAuthProps) => {
 
     if (!auth) {
         return (
-            <Navigate
-                replace
-                to={getRouteMain()}
-                state={{ from: location }}
-            />
+            <Navigate replace to={getRouteMain()} state={{ from: location }} />
         );
     }
 

@@ -17,7 +17,7 @@ export function StarRating({
     className,
     onSelect,
     size = 24,
-    selectedStars = 0,
+    selectedStars = 0
 }: StarRatingProps) {
     const [currentStarsCount, setCurrentStarsCount] = useState(selectedStars);
     const [isSelected, setIsSelected] = useState(Boolean(selectedStars));
@@ -49,7 +49,7 @@ export function StarRating({
                     className={classNames(cls.starIcon, {
                         [cls.hovered]: currentStarsCount >= starNumber,
                         [cls.normal]: !(selectedStars >= starNumber),
-                        [cls.selected]: isSelected,
+                        [cls.selected]: isSelected
                     })}
                     width={size}
                     height={size}

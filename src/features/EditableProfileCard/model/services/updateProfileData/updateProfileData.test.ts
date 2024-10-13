@@ -12,15 +12,15 @@ const data = {
     lastName: 'Doe',
     firstName: 'John',
     city: 'London',
-    currency: Currency.USD,
+    currency: Currency.USD
 };
 
 describe('updateProfileData.test', () => {
     test('success', async () => {
         const thunk = new TestAsyncThunk(updateProfileData, {
             profile: {
-                form: data,
-            },
+                form: data
+            }
         });
 
         thunk.api.put.mockReturnValue(Promise.resolve({ data }));
@@ -35,13 +35,13 @@ describe('updateProfileData.test', () => {
     test('error update profile', async () => {
         const thunk = new TestAsyncThunk(updateProfileData, {
             profile: {
-                form: data,
-            },
+                form: data
+            }
         });
         thunk.api.put.mockReturnValue(
             Promise.resolve({
-                status: 403,
-            }),
+                status: 403
+            })
         );
         const result = await thunk.callThunk();
         expect(result.meta.requestStatus).toBe('rejected');
@@ -51,12 +51,14 @@ describe('updateProfileData.test', () => {
     test('validate error', async () => {
         const thunk = new TestAsyncThunk(updateProfileData, {
             profile: {
-                form: { ...data, lastName: '' },
-            },
+                form: { ...data, lastName: '' }
+            }
         });
 
         const result = await thunk.callThunk();
         expect(result.meta.requestStatus).toBe('rejected');
-        expect(result.payload).toEqual([ValidateProfileError.FirstAndLastNameRequired]);
+        expect(result.payload).toEqual([
+            ValidateProfileError.FirstAndLastNameRequired
+        ]);
     });
 });

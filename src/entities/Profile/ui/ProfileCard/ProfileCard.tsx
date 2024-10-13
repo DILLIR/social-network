@@ -41,7 +41,7 @@ export function ProfileCard({
     onChangeAvatar,
     onChangeCurrency,
     onChangeCountry,
-    disabled = false,
+    disabled = false
 }: ProfileCardProps) {
     const { t } = useTranslation();
 
@@ -53,7 +53,7 @@ export function ProfileCard({
                 alignItems="center"
                 className={classNames(cls.ProfileCard, {}, [
                     className,
-                    cls.loading,
+                    cls.loading
                 ])}
             >
                 <Loader />
@@ -68,7 +68,7 @@ export function ProfileCard({
                 justifyContent="center"
                 className={classNames(cls.ProfileCard, {}, [
                     className,
-                    cls.error,
+                    cls.error
                 ])}
             >
                 <Text
@@ -82,7 +82,7 @@ export function ProfileCard({
     }
 
     const mods: Mods = {
-        [cls.editing]: !disabled,
+        [cls.editing]: !disabled
     };
 
     return (

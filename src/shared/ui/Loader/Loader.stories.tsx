@@ -6,7 +6,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 const meta: Meta<typeof Loader> = {
     title: 'shared/Loader',
     component: Loader,
-    tags: ['autodocs'],
+    tags: ['autodocs']
 };
 
 export default meta;
@@ -15,5 +15,5 @@ type Story = StoryObj<typeof Loader>;
 export const Light: Story = {};
 
 export const Dark: Story = {
-    decorators: [ThemeDecorator(Theme.DARK)],
+    decorators: [ThemeDecorator(Theme.DARK)]
 };

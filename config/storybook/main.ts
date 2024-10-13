@@ -1,9 +1,7 @@
 import type { StorybookConfig } from '@storybook/react-webpack5';
 
 const config: StorybookConfig = {
-    stories: [
-        '../../src/**/*.stories.@(js|jsx|mjs|ts|tsx)',
-    ],
+    stories: ['../../src/**/*.stories.@(js|jsx|mjs|ts|tsx)'],
     addons: [
         '@storybook/addon-webpack5-compiler-swc',
         '@storybook/addon-links',
@@ -15,20 +13,20 @@ const config: StorybookConfig = {
     ],
     framework: {
         name: '@storybook/react-webpack5',
-        options: {},
+        options: {}
     },
     staticDirs: [{ from: '../../src/shared/assets/tests', to: '/assets' }],
     docs: {
-        autodocs: 'tag',
+        autodocs: 'tag'
     },
     swc: () => ({
         jsc: {
             transform: {
                 react: {
-                    runtime: 'automatic',
-                },
-            },
-        },
-    }),
+                    runtime: 'automatic'
+                }
+            }
+        }
+    })
 };
 export default config;

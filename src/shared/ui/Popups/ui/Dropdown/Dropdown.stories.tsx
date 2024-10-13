@@ -7,7 +7,7 @@ const meta: Meta<typeof Dropdown> = {
     title: 'shared/Dropdown',
     component: Dropdown,
     tags: ['autodocs'],
-    decorators: [StoreDecorator({})],
+    decorators: [StoreDecorator({})]
 };
 
 export default meta;
@@ -19,7 +19,7 @@ export const Default: Story = {
         items: [
             { content: 'Item 1' },
             { content: 'Item 2' },
-            { content: 'Item 3' },
-        ],
-    },
+            { content: 'Item 3' }
+        ]
+    }
 };

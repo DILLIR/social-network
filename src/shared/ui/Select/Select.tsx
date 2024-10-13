@@ -29,27 +29,31 @@ export const Select = <T extends string>({
         (event: React.ChangeEvent<HTMLSelectElement>) => {
             onChange?.(event.target.value as T);
         },
-        [onChange],
+        [onChange]
     );
 
-    const optionsList = useMemo(() => options?.map((item) => (
-        <option
-            key={item.value}
-            value={item.value}
-            className={cls.option}
-        >
-            {item.label}
-        </option>
-    )), [options]);
+    const optionsList = useMemo(
+        () =>
+            options?.map((item) => (
+                <option
+                    key={item.value}
+                    value={item.value}
+                    className={cls.option}
+                >
+                    {item.label}
+                </option>
+            )),
+        [options]
+    );
 
     return (
         <div
             className={classNames(
                 cls.Wrapper,
                 {
-                    [cls.disabled]: props.disabled,
+                    [cls.disabled]: props.disabled
                 },
-                [className],
+                [className]
             )}
         >
             {label != null && <span className={cls.label}>{`${label}>`}</span>}

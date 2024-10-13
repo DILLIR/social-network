@@ -17,16 +17,16 @@ export function Modal({
     children,
     isOpen,
     onClose,
-    lazy,
+    lazy
 }: ModalProps) {
     const { close, isMounted, isClosing } = useModal({
         isOpen,
-        onClose,
+        onClose
     });
 
     const mods: Mods = {
         [cls.opened]: isOpen,
-        [cls.closing]: isClosing,
+        [cls.closing]: isClosing
     };
 
     if (lazy && !isMounted) {

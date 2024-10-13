@@ -6,7 +6,7 @@ const meta: Meta<typeof NotificationItem> = {
     title: 'entities/Notification/NotificationItem',
     component: NotificationItem,
     tags: ['autodocs'],
-    decorators: [StoreDecorator({})],
+    decorators: [StoreDecorator({})]
 };
 
 export default meta;
@@ -17,7 +17,7 @@ export const Default: Story = {
         item: {
             id: 1,
             title: 'Title',
-            description: 'Description',
+            description: 'Description'
         }
-    },
+    }
 };

@@ -17,7 +17,7 @@ export function Popover({
     className,
     trigger,
     direction = 'bottom right',
-    children,
+    children
 }: PopoverProps) {
     const menuClasses = [mapDirectionClass[direction]];
 

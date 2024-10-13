@@ -13,7 +13,7 @@ export function AppImage({
     errorFallback,
     fallback,
     ...other
-}: AppImageProps) : JSX.Element {
+}: AppImageProps): JSX.Element {
     const [isLoading, setIsLoading] = useState(true);
     const [hasError, setHasError] = useState(false);
 

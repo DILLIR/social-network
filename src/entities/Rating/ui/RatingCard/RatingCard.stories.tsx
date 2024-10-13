@@ -6,12 +6,12 @@ const meta: Meta<typeof RatingCard> = {
     title: 'entities/Rating/RatingCard',
     component: RatingCard,
     tags: ['autodocs'],
-    decorators: [StoreDecorator({})],
+    decorators: [StoreDecorator({})]
 };
 
 export default meta;
 type Story = StoryObj<typeof RatingCard>;
 
 export const Default: Story = {
-    args: { },
+    args: {}
 };

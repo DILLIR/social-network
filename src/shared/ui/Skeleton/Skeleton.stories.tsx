@@ -6,7 +6,7 @@ const meta: Meta<typeof Skeleton> = {
     title: 'shared/Skeleton',
     component: Skeleton,
     tags: ['autodocs'],
-    decorators: [StoreDecorator({})],
+    decorators: [StoreDecorator({})]
 };
 
 export default meta;
@@ -15,14 +15,14 @@ type Story = StoryObj<typeof Skeleton>;
 export const Default: Story = {
     args: {
         width: '100%',
-        height: '200px',
-    },
+        height: '200px'
+    }
 };
 
 export const Circle: Story = {
     args: {
         border: '50%',
         height: 100,
-        width: 100,
-    },
+        width: 100
+    }
 };

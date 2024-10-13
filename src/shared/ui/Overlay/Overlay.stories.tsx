@@ -6,12 +6,12 @@ const meta: Meta<typeof Overlay> = {
     title: 'entities/Overlay',
     component: Overlay,
     tags: ['autodocs'],
-    decorators: [StoreDecorator({})],
+    decorators: [StoreDecorator({})]
 };
 
 export default meta;
 type Story = StoryObj<typeof Overlay>;
 
 export const Default: Story = {
-    args: { },
+    args: {}
 };

@@ -9,13 +9,11 @@ interface SkeletonProps {
     border?: string;
 }
 
-export function Skeleton({
-    className, height, width, border,
-}: SkeletonProps) {
+export function Skeleton({ className, height, width, border }: SkeletonProps) {
     const styles: CSSProperties = {
         height,
         width,
-        borderRadius: border,
+        borderRadius: border
     };
 
     return (

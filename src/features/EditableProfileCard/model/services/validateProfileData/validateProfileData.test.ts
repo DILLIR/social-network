@@ -10,7 +10,7 @@ const data = {
     lastName: 'Doe',
     firstName: 'John',
     city: 'London',
-    currency: Currency.USD,
+    currency: Currency.USD
 };
 
 describe('validateProfileData.test', () => {
@@ -24,7 +24,7 @@ describe('validateProfileData.test', () => {
         const result = validateProfileData({
             ...data,
             firstName: '',
-            lastName: '',
+            lastName: ''
         });
 
         expect(result).toEqual([ValidateProfileError.FirstAndLastNameRequired]);
@@ -33,7 +33,7 @@ describe('validateProfileData.test', () => {
     test('incorrect age', async () => {
         const result = validateProfileData({
             ...data,
-            age: -1,
+            age: -1
         });
 
         expect(result).toEqual([ValidateProfileError.AgeInvalid]);
@@ -42,7 +42,7 @@ describe('validateProfileData.test', () => {
     test('incorrect country', async () => {
         const result = validateProfileData({
             ...data,
-            country: undefined,
+            country: undefined
         });
 
         expect(result).toEqual([ValidateProfileError.CountryRequired]);
@@ -54,7 +54,7 @@ describe('validateProfileData.test', () => {
         expect(result).toEqual([
             ValidateProfileError.FirstAndLastNameRequired,
             ValidateProfileError.AgeRequired,
-            ValidateProfileError.CountryRequired,
+            ValidateProfileError.CountryRequired
         ]);
     });
 });

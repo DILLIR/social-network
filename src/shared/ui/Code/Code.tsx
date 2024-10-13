@@ -16,7 +16,11 @@ export function Code({ className, text }: CodeProps) {
 
     return (
         <pre className={classNames(cls.Code, {}, [className])}>
-            <Button className={cls.copyBtn} theme={ButtonTheme.CLEAR} onClick={onCopy}>
+            <Button
+                className={cls.copyBtn}
+                theme={ButtonTheme.CLEAR}
+                onClick={onCopy}
+            >
                 <CopyIcon className={cls.copyIcon} />
             </Button>
             <code>{text}</code>

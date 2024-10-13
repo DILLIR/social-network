@@ -39,7 +39,7 @@ export function NotificationButton({ className }: NotificationButtonProps) {
             <BrowserView>
                 <Popover
                     className={classNames(cls.NotificationButton, {}, [
-                        className,
+                        className
                     ])}
                     direction="bottom right"
                     trigger={trigger}

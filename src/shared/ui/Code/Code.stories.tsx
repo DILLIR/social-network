@@ -8,7 +8,7 @@ const meta: Meta<typeof Code> = {
     title: 'shared/Code',
     component: Code,
     tags: ['autodocs'],
-    decorators: [StoreDecorator({})],
+    decorators: [StoreDecorator({})]
 };
 
 export default meta;
@@ -29,8 +29,8 @@ const meta: Meta<typeof Code> = {
 
 export default meta;
 type Story = StoryObj<typeof Code>;
-`,
-    },
+`
+    }
 };
 
 export const Dark: Story = {
@@ -48,7 +48,7 @@ const meta: Meta<typeof Code> = {
 
 export default meta;
 type Story = StoryObj<typeof Code>;
-`,
+`
     },
-    decorators: [ThemeDecorator(Theme.DARK)],
+    decorators: [ThemeDecorator(Theme.DARK)]
 };

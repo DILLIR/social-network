@@ -18,13 +18,14 @@ const defaultAsyncReducers: ReducersList = {
 export const StoreDecorator = (
     state: DeepPartial<StateSchema>,
     asyncReducers?: ReducersList
-) => function StoryFunction(Story: StoryFn) {
-    return (
-        <StoreProvider
-            initialState={state}
-            asyncReducers={{ ...defaultAsyncReducers, ...asyncReducers }}
-        >
-            <Story />
-        </StoreProvider>
-    );
-};
+) =>
+    function StoryFunction(Story: StoryFn) {
+        return (
+            <StoreProvider
+                initialState={state}
+                asyncReducers={{ ...defaultAsyncReducers, ...asyncReducers }}
+            >
+                <Story />
+            </StoreProvider>
+        );
+    };

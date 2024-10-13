@@ -3,10 +3,7 @@ import { classNames } from '@/shared/lib/classNames/classNames';
 import cls from './Stack.module.scss';
 
 interface StackProps
-    extends DetailedHTMLProps<
-        HTMLAttributes<HTMLDivElement>,
-        HTMLDivElement
-    > {
+    extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
     className?: string;
     children?: React.ReactNode;
     gap?: 2 | 4 | 6 | 8 | 10 | 12 | 16 | 20 | 24 | 32 | 40 | 48 | 56 | 64;
@@ -43,7 +40,7 @@ export function Stack({
                 justifyContent,
                 alignItems,
                 width,
-                ...style,
+                ...style
             }}
             {...props}
         >

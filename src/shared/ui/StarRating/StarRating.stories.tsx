@@ -6,12 +6,12 @@ const meta: Meta<typeof StarRating> = {
     title: 'entities/StarRating',
     component: StarRating,
     tags: ['autodocs'],
-    decorators: [StoreDecorator({})],
+    decorators: [StoreDecorator({})]
 };
 
 export default meta;
 type Story = StoryObj<typeof StarRating>;
 
 export const Default: Story = {
-    args: { },
+    args: {}
 };

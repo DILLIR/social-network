@@ -6,12 +6,12 @@ const meta: Meta<typeof AvatarDropdown> = {
     title: 'features/AvatarDropdown',
     component: AvatarDropdown,
     tags: ['autodocs'],
-    decorators: [StoreDecorator({})],
+    decorators: [StoreDecorator({})]
 };
 
 export default meta;
 type Story = StoryObj<typeof AvatarDropdown>;
 
 export const Default: Story = {
-    args: { },
+    args: {}
 };

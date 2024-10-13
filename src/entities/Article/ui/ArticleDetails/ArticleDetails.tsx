@@ -13,9 +13,7 @@ import { Avatar } from '@/shared/ui/Avatar';
 import { Icon } from '@/shared/ui/Icon';
 import { Skeleton } from '@/shared/ui/Skeleton';
 import { Stack } from '@/shared/ui/Stack';
-import {
-    Text, TextAlign, TextSize, TextTheme
-} from '@/shared/ui/Text';
+import { Text, TextAlign, TextSize, TextTheme } from '@/shared/ui/Text';
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect';
 import {
     getArticleDetailsData,

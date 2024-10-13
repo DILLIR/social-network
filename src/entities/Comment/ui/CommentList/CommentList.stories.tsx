@@ -7,7 +7,7 @@ const meta: Meta<typeof CommentList> = {
     title: 'entities/Comment/CommentList',
     component: CommentList,
     tags: ['autodocs'],
-    decorators: [StoreDecorator({})],
+    decorators: [StoreDecorator({})]
 };
 
 export default meta;
@@ -22,8 +22,8 @@ export const Default: Story = {
                 user: {
                     id: '1',
                     username: 'dillir',
-                    roles: [UserRole.USER],
-                },
+                    roles: [UserRole.USER]
+                }
             },
             {
                 id: '2',
@@ -31,16 +31,16 @@ export const Default: Story = {
                 user: {
                     id: '2',
                     username: 'Vlada',
-                    roles: [UserRole.USER],
-                },
-            },
-        ],
-    },
+                    roles: [UserRole.USER]
+                }
+            }
+        ]
+    }
 };
 
 export const Loading: Story = {
     args: {
         isLoading: true,
-        comments: [],
-    },
+        comments: []
+    }
 };

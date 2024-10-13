@@ -11,20 +11,22 @@ const meta: Meta<typeof ProfilePage> = {
     title: 'page/ProfilePage',
     component: ProfilePage,
     tags: ['autodocs'],
-    decorators: [StoreDecorator({
-        profile: {
-            form: {
-                username: 'admin',
-                age: 20,
-                country: Country.UK,
-                lastName: 'Doe',
-                firstName: 'John',
-                city: 'London',
-                currency: Currency.USD,
-                avatar: '/assets/logo.jpeg',
-            },
-        },
-    })],
+    decorators: [
+        StoreDecorator({
+            profile: {
+                form: {
+                    username: 'admin',
+                    age: 20,
+                    country: Country.UK,
+                    lastName: 'Doe',
+                    firstName: 'John',
+                    city: 'London',
+                    currency: Currency.USD,
+                    avatar: '/assets/logo.jpeg'
+                }
+            }
+        })
+    ]
 };
 
 export default meta;
@@ -33,5 +35,5 @@ type Story = StoryObj<typeof ProfilePage>;
 export const Light: Story = {};
 
 export const Dark: Story = {
-    decorators: [ThemeDecorator(Theme.DARK)],
+    decorators: [ThemeDecorator(Theme.DARK)]
 };

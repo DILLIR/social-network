@@ -1,8 +1,6 @@
 import { Project } from 'ts-morph';
 
-const project = new Project({
-
-});
+const project = new Project({});
 
 project.addSourceFilesAtPaths(['src/**/*.ts', 'src/**/*.tsx']);
 
@@ -24,7 +22,7 @@ files.forEach((file) => {
     const importDeclarations = file.getImportDeclarations();
     importDeclarations.forEach((importDeclaration) => {
         const moduleSpecifier = importDeclaration.getModuleSpecifierValue();
-        if(isAbsolute(moduleSpecifier)) {
+        if (isAbsolute(moduleSpecifier)) {
             console.log(`Updating import: ${moduleSpecifier}`);
             importDeclaration.setModuleSpecifier(`@/${moduleSpecifier}`);
         }

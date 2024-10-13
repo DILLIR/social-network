@@ -10,7 +10,7 @@ const meta: Meta<typeof ProfileCard> = {
     title: 'entities/ProfileCard',
     component: ProfileCard,
     tags: ['autodocs'],
-    decorators: [StoreDecorator({})],
+    decorators: [StoreDecorator({})]
 };
 
 export default meta;
@@ -24,22 +24,22 @@ const data = {
     firstName: 'John',
     city: 'London',
     currency: Currency.USD,
-    avatar: '/assets/logo.jpeg',
+    avatar: '/assets/logo.jpeg'
 };
 
 export const Light: Story = {
-    args: { data },
+    args: { data }
 };
 
 export const Dark: Story = {
     args: { data },
-    decorators: [ThemeDecorator(Theme.DARK)],
+    decorators: [ThemeDecorator(Theme.DARK)]
 };
 
 export const WithError: Story = {
-    args: { error: 'error' },
+    args: { error: 'error' }
 };
 
 export const Loading: Story = {
-    args: { isLoading: true },
+    args: { isLoading: true }
 };

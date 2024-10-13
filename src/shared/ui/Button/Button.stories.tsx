@@ -9,7 +9,7 @@ const meta: Meta<typeof Button> = {
     title: 'shared/Button',
     component: Button,
     tags: ['autodocs'],
-    args: { onClick: fn() },
+    args: { onClick: fn() }
 };
 
 export default meta;
@@ -17,83 +17,83 @@ type Story = StoryObj<typeof Button>;
 
 export const Default: Story = {
     args: {
-        children: 'Button',
-    },
+        children: 'Button'
+    }
 };
 
 export const Clear: Story = {
     args: {
         children: 'Button',
-        theme: ButtonTheme.CLEAR,
-    },
+        theme: ButtonTheme.CLEAR
+    }
 };
 
 export const ClearInverted: Story = {
     args: {
         children: 'Button',
-        theme: ButtonTheme.BACKGROUND_INVERTED,
-    },
+        theme: ButtonTheme.BACKGROUND_INVERTED
+    }
 };
 
 export const Outline: Story = {
     args: {
         children: 'Button',
-        theme: ButtonTheme.OUTLINE,
-    },
+        theme: ButtonTheme.OUTLINE
+    }
 };
 
 export const OutlineL: Story = {
     args: {
         children: 'Button',
         theme: ButtonTheme.OUTLINE,
-        size: ButtonSize.L,
-    },
+        size: ButtonSize.L
+    }
 };
 
 export const OutlineXL: Story = {
     args: {
         children: 'Button',
         theme: ButtonTheme.OUTLINE,
-        size: ButtonSize.XL,
-    },
+        size: ButtonSize.XL
+    }
 };
 
 export const Background: Story = {
     args: {
         children: 'Button',
-        theme: ButtonTheme.BACKGROUND,
-    },
+        theme: ButtonTheme.BACKGROUND
+    }
 };
 
 export const BackgroundInverse: Story = {
     args: {
         children: 'Button',
-        theme: ButtonTheme.BACKGROUND_INVERTED,
-    },
+        theme: ButtonTheme.BACKGROUND_INVERTED
+    }
 };
 
 export const OutlineDark: Story = {
     args: {
         children: 'Button',
-        theme: ButtonTheme.OUTLINE,
+        theme: ButtonTheme.OUTLINE
     },
-    decorators: [ThemeDecorator(Theme.DARK)],
+    decorators: [ThemeDecorator(Theme.DARK)]
 };
 
 export const Disabled: Story = {
     args: {
         children: 'Button',
         theme: ButtonTheme.BACKGROUND_INVERTED,
-        disabled: true,
-    },
+        disabled: true
+    }
 };
 
 export const Square: Story = {
     args: {
         children: '>',
         square: true,
-        theme: ButtonTheme.BACKGROUND_INVERTED,
-    },
+        theme: ButtonTheme.BACKGROUND_INVERTED
+    }
 };
 
 export const SquareSizeL: Story = {
@@ -101,8 +101,8 @@ export const SquareSizeL: Story = {
         children: '>',
         square: true,
         theme: ButtonTheme.BACKGROUND_INVERTED,
-        size: ButtonSize.L,
-    },
+        size: ButtonSize.L
+    }
 };
 
 export const SquareSizeXL: Story = {
@@ -110,6 +110,6 @@ export const SquareSizeXL: Story = {
         children: '>',
         square: true,
         theme: ButtonTheme.BACKGROUND_INVERTED,
-        size: ButtonSize.XL,
-    },
+        size: ButtonSize.XL
+    }
 };
