@@ -41,6 +41,8 @@ export function ArticleViewSelector({
                     onClick={onClick(viewType)}
                 >
                     <Icon
+                        width={24}
+                        height={24}
                         Svg={icon}
                         className={classNames(cls.button, {
                             [cls.selected]: viewType === viewMode
