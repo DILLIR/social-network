@@ -13,3 +13,4 @@ export {
 } from './model/selectors/roleSelectors';
 export { userActions, userReducer } from './model/slice/userSlice';
 export { saveJsonSettings } from './model/services/saveJsonSettings';
+export { initAuthData } from './model/services/initAuthData';
