@@ -1,7 +1,5 @@
 import { fn } from '@storybook/test';
 
-import { Theme } from '@/shared/const/theme';
-import { ThemeDecorator } from '../../config/storybook/ThemeDecorator/ThemeDecorator';
 import { AppLink, AppLinkTheme } from './AppLink';
 import type { Meta, StoryObj } from '@storybook/react';
 
@@ -34,28 +32,4 @@ export const Red: Story = {
         children: 'Button',
         theme: AppLinkTheme.RED
     }
-};
-
-export const DarkPrimary: Story = {
-    args: {
-        children: 'Button',
-        theme: AppLinkTheme.PRIMARY
-    },
-    decorators: [ThemeDecorator(Theme.DARK)]
-};
-
-export const DarkSecondary: Story = {
-    args: {
-        children: 'Button',
-        theme: AppLinkTheme.SECONDARY
-    },
-    decorators: [ThemeDecorator(Theme.DARK)]
-};
-
-export const DarkRed: Story = {
-    args: {
-        children: 'Button',
-        theme: AppLinkTheme.RED
-    },
-    decorators: [ThemeDecorator(Theme.DARK)]
 };

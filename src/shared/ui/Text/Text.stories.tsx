@@ -1,5 +1,3 @@
-import { Theme } from '@/shared/const/theme';
-import { ThemeDecorator } from '../../config/storybook/ThemeDecorator/ThemeDecorator';
 import { Text, TextSize, TextTheme } from './Text';
 import type { Meta, StoryObj } from '@storybook/react';
 
@@ -53,26 +51,4 @@ export const onlyText: Story = {
     args: {
         text: 'Text lorem ipsum amen'
     }
-};
-
-export const PrimaryDark: Story = {
-    args: {
-        title: 'Titel lorem ipsum amen',
-        text: 'Text lorem ipsum amen'
-    },
-    decorators: [ThemeDecorator(Theme.DARK)]
-};
-
-export const onlyTitleDark: Story = {
-    args: {
-        title: 'Titel lorem ipsum amen'
-    },
-    decorators: [ThemeDecorator(Theme.DARK)]
-};
-
-export const onlyTextDark: Story = {
-    args: {
-        text: 'Text lorem ipsum amen'
-    },
-    decorators: [ThemeDecorator(Theme.DARK)]
 };

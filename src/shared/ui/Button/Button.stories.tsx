@@ -1,7 +1,5 @@
 import { fn } from '@storybook/test';
 
-import { Theme } from '@/shared/const/theme';
-import { ThemeDecorator } from '../../config/storybook/ThemeDecorator/ThemeDecorator';
 import { Button, ButtonSize, ButtonTheme } from './Button';
 import type { Meta, StoryObj } from '@storybook/react';
 
@@ -70,14 +68,6 @@ export const BackgroundInverse: Story = {
         children: 'Button',
         theme: ButtonTheme.BACKGROUND_INVERTED
     }
-};
-
-export const OutlineDark: Story = {
-    args: {
-        children: 'Button',
-        theme: ButtonTheme.OUTLINE
-    },
-    decorators: [ThemeDecorator(Theme.DARK)]
 };
 
 export const Disabled: Story = {

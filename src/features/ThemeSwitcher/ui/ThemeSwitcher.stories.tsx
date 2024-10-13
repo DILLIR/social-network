@@ -1,19 +1,15 @@
-import { Theme } from '@/shared/const/theme';
-import { ThemeDecorator } from '../../../shared/config/storybook/ThemeDecorator/ThemeDecorator';
+import { StoreDecorator } from '../../../shared/config/storybook/StoreDecorator/StoreDecorator';
 import { ThemeSwitcher } from './ThemeSwitcher';
 import type { Meta, StoryObj } from '@storybook/react';
 
 const meta: Meta<typeof ThemeSwitcher> = {
     title: 'features/ThemeSwitcher',
     component: ThemeSwitcher,
-    tags: ['autodocs']
+    tags: ['autodocs'],
+    decorators: [StoreDecorator({})]
 };
 
 export default meta;
 type Story = StoryObj<typeof ThemeSwitcher>;
 
-export const Light: Story = {};
-
-export const Dark: Story = {
-    decorators: [ThemeDecorator(Theme.DARK)]
-};
+export const Default: Story = {};
