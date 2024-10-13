@@ -30,11 +30,7 @@ function ArticlesPage({ className }: ArticlesPageProps) {
 
     const onLoadNextPart = useCallback(() => {
         if (__PROJECT__ !== 'storybook') {
-
-
             dispatch(fetchNextArticlesPage());
-
-
         }
     }, [dispatch]);
 
@@ -46,16 +42,9 @@ function ArticlesPage({ className }: ArticlesPageProps) {
         <DynamicModuleLoader reducers={reducers} removeAfterUnmount={false}>
             <Page
                 className={classNames('', {}, [className])}
-
-
-
-                
                 onScrollEnd={onLoadNextPart}
                 dataTestId="ArticlesPage"
             >
-
-
-
                 <Stack gap={24}>
                     <ArticlesPageFilters />
                     <ArticlesInfiniteList />
