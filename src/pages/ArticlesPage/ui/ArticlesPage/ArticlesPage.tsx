@@ -25,9 +25,7 @@ const reducers: ReducersList = {
 
 function ArticlesPage({ className }: ArticlesPageProps) {
     const dispatch = useAppDispatch();
-
     const [searchParams] = useSearchParams();
-
     const onLoadNextPart = useCallback(() => {
         if (__PROJECT__ !== 'storybook') {
             dispatch(fetchNextArticlesPage());
