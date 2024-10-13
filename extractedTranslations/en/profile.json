@@ -1,12 +1,12 @@
 {
-  "AgeInvalid": "",
-  "AgeRequired": "",
-  "Cancel": "",
-  "CountryRequired": "",
-  "Edit": "",
-  "FirstAndLastNameRequired": "",
-  "NoData": "",
-  "Profile": "",
-  "Save": "",
-  "ServerError": ""
+    "AgeInvalid": "",
+    "AgeRequired": "",
+    "Cancel": "",
+    "CountryRequired": "",
+    "Edit": "",
+    "FirstAndLastNameRequired": "",
+    "NoData": "",
+    "Profile": "",
+    "Save": "",
+    "ServerError": ""
 }

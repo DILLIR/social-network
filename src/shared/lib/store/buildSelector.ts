@@ -6,7 +6,6 @@ type Selector<T, Args extends unknown[]> = (
     ...args: Args
 ) => T;
 type Hook<T, Args extends unknown[]> = (...args: Args) => T;
-
 type Result<T, Args extends unknown[]> = [Hook<T, Args>, Selector<T, Args>];
 
 export function buildSelector<T, Args extends unknown[]>(
