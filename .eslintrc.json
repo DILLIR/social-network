@@ -51,6 +51,7 @@
             2,
             { "extensions": [".js", ".jsx", ".tsx"] }
         ],
+        "react/no-unstable-nested-components": "warn",
         "import/no-unresolved": "off",
         "import/prefer-default-export": "off",
         "react/require-default-props": "off",

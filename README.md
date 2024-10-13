@@ -4,21 +4,22 @@ This project is a robust, production-ready web application boilerplate. It is bu
 
 ## Table of Contents
 
--   [Social-Network](#social-network)
-    -   [Table of Contents](#table-of-contents)
-    -   [Online Links](#online-links)
-    -   [Getting Started](#getting-started)
-    -   [Features](#features)
-    -   [Available Scripts](#available-scripts)
-    -   [Project architecture](#project-architecture)
-    -   [Working with Translations](#working-with-translations)
-    -   [Tests](#tests)
-    -   [Linting](#linting)
-    -   [Storybook](#storybook)
-    -   [Project Configuration](#project-configuration)
-    -   [CI Pipeline and Pre-commit Hooks](#ci-pipeline-and-pre-commit-hooks)
-    -   [Working with Data](#working-with-data)
-    -   [Entities](#entities)
+- [Social-Network](#social-network)
+  - [Table of Contents](#table-of-contents)
+  - [Online Links](#online-links)
+  - [Getting Started](#getting-started)
+  - [Features](#features)
+  - [Available Scripts](#available-scripts)
+  - [Project architecture](#project-architecture)
+  - [Working with Translations](#working-with-translations)
+  - [Tests](#tests)
+  - [Linting](#linting)
+  - [Storybook](#storybook)
+  - [Project Configuration](#project-configuration)
+  - [CI Pipeline and Pre-commit Hooks](#ci-pipeline-and-pre-commit-hooks)
+  - [Working with Data](#working-with-data)
+  - [Working with Feature Flags](#working-with-feature-flags)
+  - [Entities](#entities)
 
 ## Online Links
 
@@ -191,6 +192,25 @@ Reusable entities should be normalized using `EntityAdapter` whenever possible.
 Server requests are made using [RTK Query](/src/shared/api/rtkApi.ts).
 
 For asynchronously loading reducers (to avoid pulling them into the main bundle), the [DynamicModuleLoader](/src/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader.tsx) is used.
+
+## Working with Feature Flags
+
+The use of feature flags is only allowed through the `toggleFeatures` helper.
+
+It takes an object with the following options:
+
+```typescript
+{
+   name: feature flag name, 
+   on: function that will execute when the feature is turned ON, 
+   off: function that will execute when the feature is turned OFF
+}
+```
+
+To automatically remove a feature, use the remove-feature.ts script, which accepts 2 arguments:
+
+1. The name of the feature flag to be removed
+2. The state (on/off)
 
 ## Entities
 
