@@ -32,9 +32,7 @@ function ArticlesPage({ className }: ArticlesPageProps) {
         if (__PROJECT__ !== 'storybook') {
 
 
-
             dispatch(fetchNextArticlesPage());
-
 
 
         }
