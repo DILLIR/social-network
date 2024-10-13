@@ -9,9 +9,11 @@ import {
 import { Stack } from '@/shared/ui/Stack';
 import { Page } from '@/widgets/Page';
 import { ArticleRating } from '@/features/ArticleRating';
+import { getFeatureFlag } from '@/shared/lib/features';
 import { ArticleDetailsComments } from '../ArticleDetailsComments/ArticleDetailsComments';
 import { ArticleDetailsPageHeader } from '../ArticleDetailsPageHeader/ArticleDetailsPageHeader';
 import { articleDetailsPageReducer } from '../../model/slices';
+import { Counter } from '../../../../entities/Counter';
 
 interface ArticleDetailsPageProps {
     className?: string;
@@ -23,6 +25,8 @@ const reducers: ReducersList = {
 
 function ArticleDetailsPage({ className }: ArticleDetailsPageProps) {
     const { id } = useParams<{ id: string }>();
+    const isArticleRatingEnabled = getFeatureFlag('isArticleRatingEnabled');
+    const isCounterEnabled = getFeatureFlag('isCounterEnabled');
 
     if (id === undefined) {
         return null;
@@ -34,7 +38,8 @@ function ArticleDetailsPage({ className }: ArticleDetailsPageProps) {
                 <Stack gap={16}>
                     <ArticleDetailsPageHeader />
                     <ArticleDetails id={id} />
-                    <ArticleRating articleId={id} />
+                    {isCounterEnabled && <Counter />}
+                    {isArticleRatingEnabled && <ArticleRating articleId={id} />}
                     <ArticleRecommendationsList />
                     <ArticleDetailsComments id={id} />
                 </Stack>
