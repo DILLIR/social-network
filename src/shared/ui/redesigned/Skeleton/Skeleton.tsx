@@ -8,10 +8,7 @@ interface SkeletonProps {
     width?: string | number;
     border?: string;
 }
-/**
- * Outdated, use components from redesigned directory
- * @deprecated
- */
+
 export function Skeleton({ className, height, width, border }: SkeletonProps) {
     const styles: CSSProperties = {
         height,
