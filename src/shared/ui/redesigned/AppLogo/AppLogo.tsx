@@ -17,13 +17,13 @@ export const AppLogo = memo(({ className, size = 50 }: AppLogoProps) => (
         alignItems="center"
         className={classNames(cls.appLogoWrapper, {}, [className])}
     >
-        <div className={cls.gradientBig} />
-        <div className={cls.gradientSmall} />
         <AppSvg
             className={cls.appLogo}
             height={size}
             width={size}
             color="black"
         />
+        <div className={cls.gradientBig} />
+        <div className={cls.gradientSmall} />
     </Stack>
 ));

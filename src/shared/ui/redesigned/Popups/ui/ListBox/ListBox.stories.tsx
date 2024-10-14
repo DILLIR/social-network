@@ -37,7 +37,7 @@ export const Default: Story = {
         items: itemsOptions
     },
     render: ({ defaultValue, items }) => {
-        const [selectedValue, setSelectedValue] = useState<string | number>();
+        const [selectedValue, setSelectedValue] = useState<string>();
         return (
             <ListBox
                 defaultValue={defaultValue}
@@ -58,7 +58,7 @@ export const topLeft: Story = {
         direction: 'top left'
     },
     render: ({ defaultValue, items, direction }) => {
-        const [selectedValue, setSelectedValue] = useState<string | number>();
+        const [selectedValue, setSelectedValue] = useState<string>();
         return (
             <Stack>
                 <ListBox
@@ -82,7 +82,7 @@ export const topRight: Story = {
         direction: 'top right'
     },
     render: ({ defaultValue, items, direction }) => {
-        const [selectedValue, setSelectedValue] = useState<string | number>();
+        const [selectedValue, setSelectedValue] = useState<string>();
         return (
             <ListBox
                 defaultValue={defaultValue}
@@ -104,7 +104,7 @@ export const bottomLeft: Story = {
         direction: 'bottom left'
     },
     render: ({ defaultValue, items, direction }) => {
-        const [selectedValue, setSelectedValue] = useState<string | number>();
+        const [selectedValue, setSelectedValue] = useState<string>();
         return (
             <ListBox
                 defaultValue={defaultValue}
@@ -126,7 +126,7 @@ export const bottomRight: Story = {
         direction: 'bottom right'
     },
     render: ({ defaultValue, items, direction }) => {
-        const [selectedValue, setSelectedValue] = useState<string | number>();
+        const [selectedValue, setSelectedValue] = useState<string>();
         return (
             <ListBox
                 defaultValue={defaultValue}
