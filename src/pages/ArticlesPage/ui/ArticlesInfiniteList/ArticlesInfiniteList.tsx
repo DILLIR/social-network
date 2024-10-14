@@ -1,6 +1,6 @@
 import { useSelector } from 'react-redux';
 import { ArticleList } from '../../../../entities/Article';
-import { Text, TextTheme } from '../../../../shared/ui/Text/Text';
+import { Text, TextTheme } from '../../../../shared/ui/deprecated/Text/Text';
 import {
     getArticlesPageError,
     getArticlesPageIsLoading,

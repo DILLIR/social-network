@@ -6,7 +6,7 @@ import {
     ReducersList
 } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
-import { Stack } from '@/shared/ui/Stack';
+import { Stack } from '@/shared/ui/deprecated/Stack';
 import { Page } from '@/widgets/Page';
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect';
 import { ArticlePageGreeting } from '@/features/ArticlePageGreeting';
