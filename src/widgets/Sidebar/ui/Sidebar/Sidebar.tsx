@@ -5,8 +5,10 @@ import { ThemeSwitcher } from '@/features/ThemeSwitcher';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { Button, ButtonSize, ButtonTheme } from '@/shared/ui/deprecated/Button';
 import { Stack } from '@/shared/ui/deprecated/Stack';
-import { AppLogo } from '@/shared/ui/deprecated/AppLogo';
+import { AppLogo } from '@/shared/ui/redesigned/AppLogo';
 import { ToggleFeatures } from '@/shared/lib/features';
+import { Icon } from '@/shared/ui/redesigned/Icon';
+import ArrowIcon from '@/shared/assets/icons/arrow-bottom.svg';
 import { getSidebarItems } from '../../model/selectors/getSidebarItems';
 import { SidebarItem } from '../SidebarItem/SidebarItem';
 import cls from './Sidebar.module.scss';
@@ -43,12 +45,28 @@ export const Sidebar = memo(function Sidebar({ className }: SidebarProps) {
                     data-testid="sidebar"
                     className={classNames(
                         cls.SidebarRedesigned,
-                        { [cls.collapsed]: collapsed },
+                        { [cls.collapsedRedesigned]: collapsed },
                         [className]
                     )}
                 >
-                    <AppLogo className={cls.appLogo} />
-                    sdfsdfsd
+                    <AppLogo
+                        className={cls.appLogo}
+                        size={collapsed ? 30 : 50}
+                    />
+                    <Stack gap={8} role="navigation" className={cls.items}>
+                        {itemsList}
+                    </Stack>
+                    <Icon
+                        Svg={ArrowIcon}
+                        onClick={onToggle}
+                        data-testid="sidebar-toggle"
+                        className={cls.collapsedBtn}
+                        clickable
+                    />
+                    <div className={cls.switchers}>
+                        <ThemeSwitcher />
+                        <LangSwitcher className={cls.lang} short={collapsed} />
+                    </div>
                 </aside>
             }
             off={

@@ -2,6 +2,7 @@
     display: flex;
     align-items: center;
     gap: 10px;
+    white-space: nowrap;
 }
 
 .icon {
@@ -19,4 +20,28 @@
         transition: opacity 0.2s ease-in-out;
         width: 0;
     }
+}
+
+.itemRedesigned {
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+    gap: 10px;
+    width: 100%;
+    padding: 0 16px;
+}
+
+.collapsedRedesigned {
+    padding: 0 8px;
+
+    .link {
+        opacity: 0;
+        width: 0;
+        display: none;
+    }
+}
+
+.active {
+    background: linear-gradient(89.97deg, rgb(29 89 255 / 30%) 1.15%, rgb(94 211 243 / 0%) 99.97%);
+    border-left: 2px solid rgb(94 211 243 / 100%);
 }

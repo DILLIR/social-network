@@ -43,7 +43,6 @@ export function App() {
                             header={<Navbar />}
                             content={<AppRouter />}
                             sidebar={<Sidebar />}
-                            toolbar={<>toolbar</>}
                         />
                     </Suspense>
                 </div>
