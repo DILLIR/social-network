@@ -1,8 +1,10 @@
 .Card {
-    border-radius: 32px;
+    &.none {
+        border: none;
+    }
 
     &.s {
-        padding: 0;
+        padding: 8px;
     }
 
     &.m {
@@ -12,6 +14,14 @@
     &.l {
         padding: 24px;
     }
+}
+
+.default {
+    border-radius: 12px;
+}
+
+.rounded {
+    border-radius: 40px;
 }
 
 .normal {

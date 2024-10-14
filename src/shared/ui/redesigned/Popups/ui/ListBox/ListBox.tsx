@@ -3,31 +3,31 @@ import { Fragment, ReactNode, useMemo } from 'react';
 import CheckMark from '@/shared/assets/icons/check-mark.svg';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { DropdownDirection } from '@/shared/types/ui';
-import { Button } from '@/shared/ui/deprecated/Button';
-import { Icon } from '@/shared/ui/deprecated/Icon';
 import { Stack } from '@/shared/ui/redesigned/Stack';
+import { Button } from '@/shared/ui/redesigned/Button';
+import { Icon } from '@/shared/ui/redesigned/Icon';
 import { mapDirectionClass } from '../../styles/const';
 import popupCls from '../../styles/popup.module.scss';
 import cls from './ListBox.module.scss';
 
-interface ListBoxItem {
-    value: string | number;
+interface ListBoxItem<T extends string> {
+    value: T;
     label: ReactNode;
     disabled?: boolean;
 }
 
-interface ListBoxProps {
+interface ListBoxProps<T extends string> {
     className?: string;
-    items?: ListBoxItem[];
-    value?: string | number;
-    defaultValue?: string | number;
-    onChange: (value: string | number) => void;
+    items?: ListBoxItem<T>[];
+    value?: T;
+    defaultValue?: T;
+    onChange: (value: T) => void;
     disabled?: boolean;
     direction?: DropdownDirection;
     label?: string;
 }
 
-export function ListBox({
+export function ListBox<T extends string>({
     className,
     items,
     value,
@@ -36,7 +36,7 @@ export function ListBox({
     disabled,
     direction = 'bottom right',
     label
-}: ListBoxProps) {
+}: ListBoxProps<T>) {
     const optionsClasses = [mapDirectionClass[direction], popupCls.menu];
 
     const selectedItem = useMemo(
@@ -66,7 +66,11 @@ export function ListBox({
                 onChange={onChange}
             >
                 <Listbox.Button className={popupCls.trigger} as="div">
-                    <Button className={cls.button} disabled={disabled}>
+                    <Button
+                        variant="filled"
+                        className={cls.button}
+                        disabled={disabled}
+                    >
                         {selectedItem?.label ?? defaultValue}
                     </Button>
                 </Listbox.Button>
@@ -91,6 +95,8 @@ export function ListBox({
                                     {item.label}
                                     {selected && (
                                         <Icon
+                                            width={12}
+                                            height={12}
                                             Svg={CheckMark}
                                             className={cls.icon}
                                         />

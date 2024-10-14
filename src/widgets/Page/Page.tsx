@@ -12,7 +12,7 @@ import { StateSchema } from '@/app/providers/StoreProvider';
 import { useThrottle } from '@/shared/lib/hooks/useThrottle';
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect';
 import { TestProps } from '@/shared/types/testing';
-import { toggleFeatures } from '../../shared/lib/features';
+import { toggleFeatures } from '@/shared/lib/features';
 import cls from './Page.module.scss';
 
 interface PageProps extends TestProps {
@@ -41,7 +41,11 @@ export function Page({
 
     useInfiniteScroll({
         triggerRef,
-        wrapperRef,
+        wrapperRef: toggleFeatures({
+            name: 'isAppRedesigned',
+            on: () => undefined,
+            off: () => wrapperRef
+        }),
         callback: onScrollEnd
     });
 

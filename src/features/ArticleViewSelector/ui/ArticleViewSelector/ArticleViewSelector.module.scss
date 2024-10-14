@@ -1,7 +1,18 @@
-.button {
-    fill: var(--inverted-secondary-color);
+.ArticleViewSelector {
+    .button {
+        fill: var(--inverted-secondary-color);
 
-    &.selected {
-        fill: var(--primary-color);
+        &.selected {
+            fill: var(--primary-color);
+        }
+    }
+}
+
+.ArticleViewSelectorRedesigned {
+    display: flex;
+    gap: 8px;
+
+    .notSelected {
+        color: var(--light-bg-redesigned);
     }
 }
