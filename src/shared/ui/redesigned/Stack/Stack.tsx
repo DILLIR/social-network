@@ -16,6 +16,7 @@ interface StackProps
         | 'space-around'
         | 'space-evenly';
     alignItems?: 'flex-start' | 'center' | 'flex-end' | 'stretch';
+    flexWrap?: 'wrap' | 'nowrap';
     width?: string;
     style?: React.CSSProperties;
 }
@@ -29,6 +30,7 @@ export function Stack({
     gap,
     width,
     style,
+    flexWrap,
     ...props
 }: StackProps) {
     return (
@@ -40,6 +42,7 @@ export function Stack({
                 justifyContent,
                 alignItems,
                 width,
+                flexWrap,
                 ...style
             }}
             {...props}

@@ -27,8 +27,11 @@ export function ArticleListItemRedesigned({
 }: ArticleListItemProps) {
     const { t } = useTranslation();
 
-    const domains = (
-        <Text className={cls.types} text={article.type.join(',')} />
+    const userInfo = (
+        <Stack direction="row" gap={8} alignItems="center">
+            <Avatar size={32} src={article.user?.avatar} />
+            <Text weight="bold" text={article.user?.username} />
+        </Stack>
     );
 
     const views = (
@@ -102,26 +105,32 @@ export function ArticleListItemRedesigned({
             ])}
         >
             <Card className={cls.card}>
-                <div className={cls.imageWrapper}>
-                    <AppImage
-                        src={article.img}
-                        alt={article.title}
-                        className={cls.img}
-                        fallback={
-                            <Skeleton
-                                className={cls.img}
-                                width="200px"
-                                height="200px"
+                <AppImage
+                    fallback={<Skeleton width={200} height={200} />}
+                    alt={article.title}
+                    src={article.img}
+                    className={cls.img}
+                />
+                <Stack className={cls.info} gap={4}>
+                    <Text title={article.title} className={cls.title} />
+                    <Stack gap={4} className={cls.footer} width="100%">
+                        <Stack
+                            justifyContent="space-between"
+                            alignItems="center"
+                            width="100%"
+                            direction="row"
+                        >
+                            <Text
+                                text={article.createdAt}
+                                className={cls.date}
                             />
-                        }
-                    />
-                    <Text className={cls.date} text={article.createdAt} />
-                </div>
-                <div className={cls.infoWrapper}>
-                    {domains}
-                    {views}
-                </div>
-                <Text text={article.title} className={cls.title} />
+                            {views}
+                        </Stack>
+                        <Stack gap={4} direction="row">
+                            {userInfo}
+                        </Stack>
+                    </Stack>
+                </Stack>
             </Card>
         </AppLink>
     );

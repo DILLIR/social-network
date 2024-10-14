@@ -5,6 +5,8 @@ import { Text, TextAlign, TextSize } from '@/shared/ui/deprecated/Text';
 import { Article, ArticleView } from '../../model/types/article';
 import { ArticleListItem } from '../ArticleListItem/ArticleListItem';
 import { ArticleListItemSkeleton } from '../ArticleListItem/ArticleListItemSkeleton';
+import { ToggleFeatures } from '../../../../shared/lib/features';
+import { Stack } from '../../../../shared/ui/redesigned/Stack';
 import cls from './ArticleList.module.scss';
 
 interface ArticleListProps {
@@ -60,15 +62,32 @@ export function ArticleList({
     }
 
     return (
-        <div
-            data-testid="ArticleList"
-            className={classNames(cls.ArticleList, {}, [
-                className,
-                cls[viewMode]
-            ])}
-        >
-            {articles.length > 0 ? articles.map(renderArticle) : null}
-            {isLoading && getSkeletons(viewMode)}
-        </div>
+        <ToggleFeatures
+            feature="isAppRedesigned"
+            on={
+                <Stack
+                    flexWrap="wrap"
+                    gap={16}
+                    direction="row"
+                    data-testid="ArticleList"
+                    className={classNames(cls.ArticleListRedesigned, {}, [])}
+                >
+                    {articles.length > 0 ? articles.map(renderArticle) : null}
+                    {isLoading && getSkeletons(viewMode)}
+                </Stack>
+            }
+            off={
+                <div
+                    data-testid="ArticleList"
+                    className={classNames(cls.ArticleList, {}, [
+                        className,
+                        cls[viewMode]
+                    ])}
+                >
+                    {articles.length > 0 ? articles.map(renderArticle) : null}
+                    {isLoading && getSkeletons(viewMode)}
+                </div>
+            }
+        />
     );
 }
