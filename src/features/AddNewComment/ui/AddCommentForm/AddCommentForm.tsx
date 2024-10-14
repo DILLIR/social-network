@@ -9,7 +9,7 @@ import {
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
 import { Button } from '@/shared/ui/deprecated/Button';
 import { Input } from '@/shared/ui/deprecated/Input';
-import { Stack } from '@/shared/ui/deprecated/Stack';
+import { Stack } from '@/shared/ui/redesigned/Stack';
 import { getAddNewCommentText } from '../../model/selectors/addNewCommentSelectors';
 import {
     addNewCommentActions,

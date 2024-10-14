@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next';
 import { RatingCard } from '@/entities/Rating';
-import { Stack } from '@/shared/ui/deprecated/Stack';
+import { Stack } from '@/shared/ui/redesigned/Stack';
 import { Page } from '@/widgets/Page';
 
 function MainPage() {

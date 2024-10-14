@@ -10,8 +10,11 @@ import {
 import { getRouteAdminPanel, getRouteProfile } from '@/shared/const/router';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
-import { Avatar } from '@/shared/ui/deprecated/Avatar';
-import { Dropdown } from '@/shared/ui/deprecated/Popups';
+import { Avatar as AvatarDeprecated } from '@/shared/ui/deprecated/Avatar';
+import { Dropdown as DropdownDeprecated } from '@/shared/ui/deprecated/Popups';
+import { ToggleFeatures } from '@/shared/lib/features';
+import { Dropdown } from '@/shared/ui/redesigned/Popups/ui/Dropdown/Dropdown';
+import { Avatar } from '@/shared/ui/redesigned/Avatar';
 import cls from './AvatarDropdown.module.scss';
 
 interface AvatarDropdownProps {
@@ -34,29 +37,46 @@ export function AvatarDropdown({ className }: AvatarDropdownProps) {
         return null;
     }
 
+    const items = [
+        ...(isAdminPanelAvailable
+            ? [
+                  {
+                      content: t('Admin panel'),
+                      href: getRouteAdminPanel()
+                  }
+              ]
+            : []),
+        {
+            content: t('Profile'),
+            href: getRouteProfile(authData.id)
+        },
+        {
+            content: t('Log_out'),
+            onClick: onLogout
+        }
+    ];
+
     return (
-        <Dropdown
-            className={classNames(cls.AvatarDropdown, {}, [className])}
-            direction="bottom right"
-            trigger={<Avatar size={30} src={authData.avatar} />}
-            items={[
-                ...(isAdminPanelAvailable
-                    ? [
-                          {
-                              content: t('Admin panel'),
-                              href: getRouteAdminPanel()
-                          }
-                      ]
-                    : []),
-                {
-                    content: t('Profile'),
-                    href: getRouteProfile(authData.id)
-                },
-                {
-                    content: t('Log_out'),
-                    onClick: onLogout
-                }
-            ]}
+        <ToggleFeatures
+            feature="isArticleRatingEnabled"
+            on={
+                <Dropdown
+                    className={classNames(cls.AvatarDropdown, {}, [className])}
+                    direction="bottom right"
+                    trigger={<Avatar size={40} src={authData.avatar} />}
+                    items={items}
+                />
+            }
+            off={
+                <DropdownDeprecated
+                    className={classNames(cls.AvatarDropdown, {}, [className])}
+                    direction="bottom right"
+                    trigger={
+                        <AvatarDeprecated size={30} src={authData.avatar} />
+                    }
+                    items={items}
+                />
+            }
         />
     );
 }

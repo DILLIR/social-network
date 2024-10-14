@@ -1,0 +1,40 @@
+.options {
+    position: absolute;
+    margin-top: 8px;
+    background: var(--listbox-bg);
+    z-index: 10000;
+    box-shadow: 10px 10px 25px -10px var(--dark-bg-redesigned);
+    overflow: hidden;
+}
+
+.optionsBottomLeft {
+    left: 0;
+}
+
+.optionsBottomRight {
+    right: 0;
+}
+
+.optionsTopRight {
+    bottom: 100%;
+    right: 0;
+    margin-bottom: 8px;
+}
+
+.optionsTopLeft {
+    bottom: 100%;
+    left: 0;
+    margin-bottom: 8px;
+}
+
+.item {
+    padding: 8px 15px;
+    cursor: pointer;
+
+    &.selected {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+    }
+}

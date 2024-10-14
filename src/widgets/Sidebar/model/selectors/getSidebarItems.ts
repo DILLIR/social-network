@@ -28,7 +28,7 @@ export const getSidebarItems = createSelector(getUserAuthData, (userData) => {
                 off: () => MainIconDeprecated,
                 on: () => MainIcon
             }),
-            text: 'Главная'
+            text: 'Main'
         },
         {
             path: getRouteAbout(),
@@ -37,7 +37,7 @@ export const getSidebarItems = createSelector(getUserAuthData, (userData) => {
                 off: () => AboutIconDeprecated,
                 on: () => AboutIcon
             }),
-            text: 'О сайте'
+            text: 'About'
         }
     ];
 
@@ -50,7 +50,7 @@ export const getSidebarItems = createSelector(getUserAuthData, (userData) => {
                     off: () => ProfileIconDeprecated,
                     on: () => ProfileIcon
                 }),
-                text: 'Профиль',
+                text: 'Profile',
                 authOnly: true
             },
             {
@@ -60,7 +60,7 @@ export const getSidebarItems = createSelector(getUserAuthData, (userData) => {
                     off: () => ArticleIconDeprecated,
                     on: () => ArticleIcon
                 }),
-                text: 'Статьи',
+                text: 'Articles',
                 authOnly: true
             }
         );

@@ -6,7 +6,7 @@ import {
     DynamicModuleLoader,
     ReducersList
 } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-import { Stack } from '@/shared/ui/deprecated/Stack';
+import { Stack } from '@/shared/ui/redesigned/Stack';
 import { Page } from '@/widgets/Page';
 import { ArticleRating } from '@/features/ArticleRating';
 import { ToggleFeatures } from '@/shared/lib/features';

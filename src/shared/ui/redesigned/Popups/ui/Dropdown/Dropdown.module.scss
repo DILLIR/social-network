@@ -1,0 +1,59 @@
+.Dropdown {
+    position: relative;
+    width: fit-content;
+}
+
+.trigger {
+    background: none;
+    outline: none;
+    margin: 0;
+    padding: 0;
+    border: none;
+}
+
+.menu {
+    background: var(--dark-bg-redesigned);
+    position: absolute;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+    overflow: hidden;
+}
+
+.item {
+    padding: 10px 24px;
+    width: 100%;
+    border: none;
+    background: none;
+    outline: none;
+    color: var(--text-redesigned);
+    cursor: pointer;
+    white-space: nowrap;
+    text-align: left;
+
+    &.active {
+        background: var(--primary-color);
+        color: var(--inverted-bg-color);
+    }
+}
+
+.optionsBottomLeft {
+    left: 0;
+}
+
+.optionsBottomRight {
+    right: 0;
+}
+
+.optionsTopRight {
+    bottom: 100%;
+    right: 0;
+    margin-bottom: 8px;
+}
+
+.optionsTopLeft {
+    bottom: 100%;
+    left: 0;
+    margin-bottom: 8px;
+}

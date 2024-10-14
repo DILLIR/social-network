@@ -19,10 +19,7 @@ interface StackProps
     width?: string;
     style?: React.CSSProperties;
 }
-/**
- * Outdated, use components from redesigned directory
- * @deprecated
- */
+
 export function Stack({
     className,
     children,

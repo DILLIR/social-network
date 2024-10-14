@@ -5,10 +5,7 @@ interface AppImageProps extends React.ImgHTMLAttributes<HTMLImageElement> {
     fallback?: JSX.Element;
     errorFallback?: JSX.Element;
 }
-/**
- * Outdated, use components from redesigned directory
- * @deprecated
- */
+
 export function AppImage({
     className,
     src,
