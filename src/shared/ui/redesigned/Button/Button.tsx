@@ -13,6 +13,8 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     size?: ButtonSize;
     children: ReactNode;
     disabled?: boolean;
+    startIcon?: ReactNode;
+    endIcon?: ReactNode;
 }
 
 export const Button = memo(function Button({
@@ -22,11 +24,15 @@ export const Button = memo(function Button({
     square,
     disabled,
     size = 'm',
+    startIcon,
+    endIcon,
     ...otherProps
 }: ButtonProps) {
     const mods: Mods = {
         [cls.square]: square,
-        [cls.disabled]: disabled
+        [cls.disabled]: disabled,
+        [cls.withStartIcon]: Boolean(startIcon),
+        [cls.withEndIcon]: Boolean(endIcon)
     };
 
     return (
@@ -40,7 +46,9 @@ export const Button = memo(function Button({
             disabled={disabled}
             {...otherProps}
         >
+            {startIcon && <span className={cls.startIcon}>{startIcon}</span>}
             {children}
+            {endIcon && <span className={cls.endIcon}>{endIcon}</span>}
         </button>
     );
 });

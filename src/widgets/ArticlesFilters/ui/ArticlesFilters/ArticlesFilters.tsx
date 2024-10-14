@@ -9,6 +9,8 @@ import { Input } from '@/shared/ui/redesigned/Input';
 import { Stack } from '@/shared/ui/redesigned/Stack';
 import { OrderBy } from '@/shared/types/sort';
 import { TabItem } from '@/shared/ui/deprecated/Tabs/Tabs';
+import SearchIcon from '@/shared/assets/icons/search.svg';
+import { Icon } from '@/shared/ui/redesigned/Icon';
 import cls from './ArticlesFilters.module.scss';
 
 interface ArticlesFiltersProps {
@@ -45,6 +47,7 @@ export const ArticlesFilters = memo((props: ArticlesFiltersProps) => {
         >
             <Stack gap={32}>
                 <Input
+                    startIcon={<Icon Svg={SearchIcon} />}
                     onChange={onChangeSearch}
                     value={search}
                     placeholder={t('Search')}

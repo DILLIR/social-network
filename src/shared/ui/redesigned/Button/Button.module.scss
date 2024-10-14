@@ -1,11 +1,29 @@
 .Button {
     cursor: pointer;
     color: var(--text-redesigned);
-    padding: 6px 15px;
+    padding: 8px 16px;
+    display: flex;
+    align-items: center;
+    transition: color 0.3s ease-in-out;
 
     &:hover {
         color: var(--accent-redesigned);
+
+        .startIcon svg,
+        .endIcon svg {
+            transition: color 0.3s ease-in-out;
+            color: var(--accent-redesigned);
+        }
     }
+}
+
+.withStartIcon,
+.withEndIcon {
+    padding: 0 16px;
+}
+
+.withEndIcon {
+    padding-right: 4px;
 }
 
 .clear {
@@ -19,13 +37,22 @@
     background: var(--light-bg-redesigned);
     border: none;
     outline: none;
-    padding: 8px 16px;
     border-radius: 34px;
 }
 
 .disabled {
     opacity: 0.5;
     cursor: default;
+}
+
+.startIcon,
+.endIcon {
+    display: flex;
+}
+
+.startIcon svg,
+.endIcon svg {
+    color: var(--hint-redesigned);
 }
 
 .square {

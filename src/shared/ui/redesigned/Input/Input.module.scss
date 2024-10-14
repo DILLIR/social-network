@@ -1,55 +1,52 @@
 .InputWrapper {
     display: flex;
+    align-items: center;
+    border-radius: 48px;
+    padding: 8px 16px;
+    border: 1.5px solid var(--icon-redesigned);
+    height: 38px;
+    width: 100%;
+}
+
+.startIcon,
+.endIcon {
+    display: flex;
+}
+
+.withStartIcon {
+    padding-left: 8px;
+}
+
+.withEndIcon {
+    padding-right: 8px;
+}
+
+.focused {
+    border: 1.5px solid var(--accent-redesigned);
+
+    .startIcon svg,
+    .endIcon svg {
+        color: var(--accent-redesigned);
+    }
 }
 
 .Input {
-    background: transparent;
     border: none;
     outline: none;
     width: 100%;
-    color: transparent;
-    text-shadow: 0 0 0 var(--primary-color);
-    font-size: 16px;
-    font-family: "Roboto Mono", monospace;
+    color: var(--text-redesigned);
+    background: none;
+
+    &::placeholder {
+        color: var(--hint-redesigned);
+    }
 
     &:focus {
         outline: none;
     }
 }
 
-.Placeholder {
-    margin-right: 5px;
-}
-
-.caretWrapper {
-    flex-grow: 1;
-    position: relative;
-}
-
-.caret {
-    height: 3px;
-    width: 9px;
-    background-color: var(--primary-color);
-    position: absolute;
-    bottom: 0;
-    animation: blink 0.7s forwards infinite;
-}
-
 .disabled {
     pointer-events: none;
     opacity: 0.7;
-}
-
-@keyframes blink {
-    0% {
-        opacity: 1;
-    }
-
-    50% {
-        opacity: 0.01;
-    }
-
-    100% {
-        opacity: 1;
-    }
 }

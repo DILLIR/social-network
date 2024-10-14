@@ -1,5 +1,5 @@
 import { ChangeEvent, memo, useEffect, useRef, useState } from 'react';
-import { classNames } from '@/shared/lib/classNames/classNames';
+import { classNames, Mods } from '@/shared/lib/classNames/classNames';
 import cls from './Input.module.scss';
 
 type HTMInputProps = Omit<
@@ -12,6 +12,8 @@ interface InputProps extends HTMInputProps {
     value?: string | number;
     onChange?: (value: string) => void;
     autofocus?: boolean;
+    startIcon?: React.ReactNode;
+    endIcon?: React.ReactNode;
 }
 
 export const Input = memo(function Input({
@@ -21,11 +23,12 @@ export const Input = memo(function Input({
     placeholder,
     autofocus,
     disabled,
+    startIcon,
+    endIcon,
     ...props
 }: InputProps) {
     const ref = useRef<HTMLInputElement>(null);
     const [isFocused, setIsFocused] = useState(false);
-    const [caretPosition, setCaretPosition] = useState(0);
 
     useEffect(() => {
         if (autofocus) {
@@ -44,46 +47,30 @@ export const Input = memo(function Input({
 
     const onChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
         onChange?.(e.target.value);
-        setCaretPosition(e.target.selectionStart || 0);
     };
 
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const onSelect = (e: any) => {
-        setCaretPosition(e.target?.selectionStart || 0);
+    const mods: Mods = {
+        [cls.disabled]: disabled,
+        [cls.focused]: isFocused,
+        [cls.withStartIcon]: Boolean(startIcon),
+        [cls.withEndIcon]: Boolean(endIcon)
     };
 
     return (
-        <div
-            className={classNames(
-                cls.InputWrapper,
-                {
-                    [cls.disabled]: disabled
-                },
-                [className]
-            )}
-        >
-            {placeholder && (
-                <div className={cls.Placeholder}>{`${placeholder}>`}</div>
-            )}
-            <div className={cls.caretWrapper}>
-                <input
-                    ref={ref}
-                    value={value}
-                    onChange={onChangeHandler}
-                    className={cls.Input}
-                    onFocus={onFocusHandler}
-                    onBlur={onBlurHandler}
-                    onSelect={onSelect}
-                    disabled={disabled}
-                    {...props}
-                />
-                {isFocused && (
-                    <span
-                        className={cls.caret}
-                        style={{ left: `${caretPosition * 9.6}px` }}
-                    />
-                )}
-            </div>
+        <div className={classNames(cls.InputWrapper, mods, [className])}>
+            {startIcon && <div className={cls.startIcon}>{startIcon}</div>}
+            <input
+                ref={ref}
+                value={value}
+                onChange={onChangeHandler}
+                className={cls.Input}
+                onFocus={onFocusHandler}
+                onBlur={onBlurHandler}
+                disabled={disabled}
+                placeholder={placeholder}
+                {...props}
+            />
+            {endIcon && <div className={cls.endIcon}>{endIcon}</div>}
         </div>
     );
 });

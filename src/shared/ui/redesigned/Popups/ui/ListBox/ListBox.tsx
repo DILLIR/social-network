@@ -1,6 +1,7 @@
 import { Listbox } from '@headlessui/react';
 import { Fragment, ReactNode, useMemo } from 'react';
 import CheckMark from '@/shared/assets/icons/check-mark.svg';
+import ArrowIcon from '@/shared/assets/icons/arrow-bottom.svg';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { DropdownDirection } from '@/shared/types/ui';
 import { Stack } from '@/shared/ui/redesigned/Stack';
@@ -70,6 +71,7 @@ export function ListBox<T extends string>({
                         variant="filled"
                         className={cls.button}
                         disabled={disabled}
+                        endIcon={<Icon Svg={ArrowIcon} />}
                     >
                         {selectedItem?.label ?? defaultValue}
                     </Button>
