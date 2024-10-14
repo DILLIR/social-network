@@ -1,5 +1,7 @@
 import { ChangeEvent, memo, useEffect, useRef, useState } from 'react';
 import { classNames, Mods } from '@/shared/lib/classNames/classNames';
+import { Stack } from '../Stack';
+import { Text } from '../Text';
 import cls from './Input.module.scss';
 
 type HTMInputProps = Omit<
@@ -14,6 +16,7 @@ interface InputProps extends HTMInputProps {
     autofocus?: boolean;
     startIcon?: React.ReactNode;
     endIcon?: React.ReactNode;
+    label?: string;
 }
 
 export const Input = memo(function Input({
@@ -25,6 +28,7 @@ export const Input = memo(function Input({
     disabled,
     startIcon,
     endIcon,
+    label,
     ...props
 }: InputProps) {
     const ref = useRef<HTMLInputElement>(null);
@@ -56,7 +60,7 @@ export const Input = memo(function Input({
         [cls.withEndIcon]: Boolean(endIcon)
     };
 
-    return (
+    const input = (
         <div className={classNames(cls.InputWrapper, mods, [className])}>
             {startIcon && <div className={cls.startIcon}>{startIcon}</div>}
             <input
@@ -73,4 +77,15 @@ export const Input = memo(function Input({
             {endIcon && <div className={cls.endIcon}>{endIcon}</div>}
         </div>
     );
+
+    if (label) {
+        return (
+            <Stack direction="row" gap={8} alignItems="center">
+                <Text text={label} className={cls.label} />
+                {input}
+            </Stack>
+        );
+    }
+
+    return input;
 });

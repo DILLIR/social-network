@@ -53,7 +53,7 @@ export function ListBox<T extends string>({
                         [cls.disabled]: disabled
                     })}
                 >
-                    {`${label}>`}
+                    {label}
                 </span>
             )}
             <Listbox
