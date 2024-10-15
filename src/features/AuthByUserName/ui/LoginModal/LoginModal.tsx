@@ -2,12 +2,12 @@ import { Suspense } from 'react';
 import { useTranslation } from 'react-i18next';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { Loader } from '@/shared/ui/deprecated/Loader';
-import { Modal } from '@/shared/ui/deprecated/Modal';
+import { Modal } from '@/shared/ui/redesigned/Modal';
 import { Text as TextDeprecated } from '@/shared/ui/deprecated/Text';
+import { ToggleFeatures } from '@/shared/lib/features';
+import { Text } from '@/shared/ui/redesigned/Text';
+import { Stack } from '@/shared/ui/redesigned/Stack';
 import { LoginFormAsync } from '../LoginForm/LoginForm.async';
-import { ToggleFeatures } from '../../../../shared/lib/features';
-import { Text } from '../../../../shared/ui/redesigned/Text';
-import { Stack } from '../../../../shared/ui/redesigned/Stack';
 import cls from './LoginModal.module.scss';
 
 interface LoginModalProps {

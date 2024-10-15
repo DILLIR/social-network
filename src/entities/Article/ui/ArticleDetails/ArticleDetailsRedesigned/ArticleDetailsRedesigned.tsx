@@ -11,6 +11,7 @@ import { Skeleton } from '@/shared/ui/redesigned/Skeleton';
 import { Stack } from '@/shared/ui/redesigned/Stack';
 import { Text } from '@/shared/ui/redesigned/Text';
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect';
+import { AppImage } from '@/shared/ui/redesigned/AppImage';
 import {
     getArticleDetailsData,
     getArticleDetailsError,
@@ -24,7 +25,6 @@ import { ArticleImageBlockComponent } from '../../ArticleImageBlockComponent/Art
 import { ArticleTextBlockComponent } from '../../ArticleTextBlockComponent/ArticleTextBlockComponent';
 import { ArticleDetailsProps } from '../ArticleDetails';
 import cls from '../ArticleDetails.module.scss';
-import { AppImage } from '../../../../../shared/ui/redesigned/AppImage';
 
 const reducers: ReducersList = {
     articleDetails: articleDetailsReducer

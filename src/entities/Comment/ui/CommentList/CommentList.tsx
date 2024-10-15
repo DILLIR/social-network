@@ -2,10 +2,11 @@ import { useTranslation } from 'react-i18next';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { Stack } from '@/shared/ui/redesigned/Stack';
 import { Text as TextDeprecated } from '@/shared/ui/deprecated/Text';
-import { Comment } from '../../model/types/comment';
+import { ToggleFeatures } from '@/shared/lib/features';
+import { Text } from '@/shared/ui/redesigned/Text';
+import { Card } from '@/shared/ui/redesigned/Card';
 import { CommentCard } from '../CommentCard/CommentCard';
-import { ToggleFeatures } from '../../../../shared/lib/features';
-import { Text } from '../../../../shared/ui/redesigned/Text';
+import { Comment } from '../../model/types/comment';
 
 interface CommentListProps {
     className?: string;
@@ -43,7 +44,11 @@ export function CommentList({
             ) : (
                 <ToggleFeatures
                     feature="isAppRedesigned"
-                    on={<Text text={t('Comments are missing')} />}
+                    on={
+                        <Card>
+                            <Text text={t('Comments are missing')} />
+                        </Card>
+                    }
                     off={<TextDeprecated text={t('Comments are missing')} />}
                 />
             )}

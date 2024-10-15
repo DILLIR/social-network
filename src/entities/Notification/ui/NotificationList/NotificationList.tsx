@@ -2,9 +2,9 @@ import { classNames } from '@/shared/lib/classNames/classNames';
 import { Skeleton as SkeletonDeprecated } from '@/shared/ui/deprecated/Skeleton';
 import { Skeleton as SkeletonRedesigned } from '@/shared/ui/redesigned/Skeleton';
 import { Stack } from '@/shared/ui/redesigned/Stack';
+import { toggleFeatures } from '@/shared/lib/features';
 import { useNotifications } from '../../api/notificationApi';
 import { NotificationItem } from '../NotificationItem/NotificationItem';
-import { toggleFeatures } from '../../../../shared/lib/features';
 
 interface NotificationListProps {
     className?: string;

@@ -1,7 +1,7 @@
 import { FC, ReactNode, useEffect, useMemo, useState } from 'react';
 import { Theme } from '@/shared/const/theme';
 import { ThemeContext } from '@/shared/lib/context/ThemeContext';
-import { LOCAL_STORAGE_KEY } from '../../../../shared/const/localstorage';
+import { LOCAL_STORAGE_KEY } from '@/shared/const/localstorage';
 
 interface ThemeProviderProps {
     initialTheme?: Theme;

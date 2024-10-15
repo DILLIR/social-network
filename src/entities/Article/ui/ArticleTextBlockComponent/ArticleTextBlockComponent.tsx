@@ -1,9 +1,9 @@
 import { memo } from 'react';
 import { classNames } from '@/shared/lib/classNames/classNames';
+import { Text as TextDeprecated } from '@/shared/ui/deprecated/Text/Text';
+import { Text } from '@/shared/ui/redesigned/Text/Text';
+import { ToggleFeatures } from '@/shared/lib/features';
 import { ArticleTextBLock } from '../../model/types/article';
-import { Text as TextDeprecated } from '../../../../shared/ui/deprecated/Text/Text';
-import { Text } from '../../../../shared/ui/redesigned/Text/Text';
-import { ToggleFeatures } from '../../../../shared/lib/features';
 import cls from './ArticleTextBlockComponent.module.scss';
 
 interface ArticleTextBlockComponentProps {

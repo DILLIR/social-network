@@ -24,7 +24,7 @@ export function ArticleDetailsComments({
     className,
     id
 }: ArticleDetailsCommentsProps) {
-    const { t } = useTranslation('article-details');
+    const { t } = useTranslation();
     const dispatch = useAppDispatch();
 
     const comments = useSelector(getArticleComments.selectAll);

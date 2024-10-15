@@ -1,10 +1,10 @@
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { Card as CardDeprecated } from '../../../../shared/ui/deprecated/Card/Card';
-import { Card as CardRedesigned } from '../../../../shared/ui/redesigned/Card/Card';
-import { Skeleton as SkeletonDeprecated } from '../../../../shared/ui/deprecated/Skeleton/Skeleton';
-import { Skeleton as SkeletonRedesigned } from '../../../../shared/ui/redesigned/Skeleton/Skeleton';
+import { Card as CardDeprecated } from '@/shared/ui/deprecated/Card/Card';
+import { Card as CardRedesigned } from '@/shared/ui/redesigned/Card/Card';
+import { Skeleton as SkeletonDeprecated } from '@/shared/ui/deprecated/Skeleton/Skeleton';
+import { Skeleton as SkeletonRedesigned } from '@/shared/ui/redesigned/Skeleton/Skeleton';
+import { toggleFeatures } from '@/shared/lib/features';
 import { ArticleView } from '../../model/types/article';
-import { toggleFeatures } from '../../../../shared/lib/features';
 import cls from './ArticleListItem.module.scss';
 
 interface ArticleListItemSkeletonProps {

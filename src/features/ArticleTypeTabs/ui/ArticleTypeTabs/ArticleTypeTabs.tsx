@@ -4,7 +4,7 @@ import { classNames } from '@/shared/lib/classNames/classNames';
 import { ArticleType } from '@/entities/Article';
 import { TabItem, Tabs } from '@/shared/ui/redesigned/Tabs';
 import { Tabs as TabsDeprecated } from '@/shared/ui/deprecated/Tabs';
-import { ToggleFeatures } from '../../../../shared/lib/features';
+import { ToggleFeatures } from '@/shared/lib/features';
 
 interface ArticleTypeTabsProps {
     className?: string;

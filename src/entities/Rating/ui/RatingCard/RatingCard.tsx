@@ -8,18 +8,17 @@ import {
 } from '@/shared/ui/deprecated/Button';
 import { Card as CardDeprecated } from '@/shared/ui/deprecated/Card';
 import { Input as InputDeprecated } from '@/shared/ui/deprecated/Input';
-import { Modal as ModalDeprecated } from '@/shared/ui/deprecated/Modal';
+import { Modal } from '@/shared/ui/redesigned/Modal';
 import { Stack } from '@/shared/ui/redesigned/Stack';
 import { StarRating as StarRatingDeprecated } from '@/shared/ui/deprecated/StarRating';
 import { Text as TextDeprecated } from '@/shared/ui/deprecated/Text';
 import { Drawer as DrawerDeprecated } from '@/shared/ui/deprecated/Drawer';
 import { Card } from '@/shared/ui/redesigned/Card';
 import { Button } from '@/shared/ui/redesigned/Button';
-import { ToggleFeatures } from '../../../../shared/lib/features';
-import { Text } from '../../../../shared/ui/redesigned/Text';
-import { Input } from '../../../../shared/ui/redesigned/Input';
-import { Modal } from '../../../../shared/ui/redesigned/Modal';
-import { Drawer } from '../../../../shared/ui/redesigned/Drawer';
+import { ToggleFeatures } from '@/shared/lib/features';
+import { Text } from '@/shared/ui/redesigned/Text';
+import { Input } from '@/shared/ui/redesigned/Input';
+import { Drawer } from '@/shared/ui/redesigned/Drawer';
 
 interface RatingCardProps {
     className?: string;
@@ -165,10 +164,7 @@ export function RatingCard({
                         />
                     </Stack>
                     <BrowserView>
-                        <ModalDeprecated
-                            isOpen={openModal}
-                            onClose={closeModal}
-                        >
+                        <Modal isOpen={openModal} onClose={closeModal}>
                             <Stack gap={16}>
                                 {modalContent}
                                 <Stack
@@ -191,7 +187,7 @@ export function RatingCard({
                                     </ButtonDeprecated>
                                 </Stack>
                             </Stack>
-                        </ModalDeprecated>
+                        </Modal>
                     </BrowserView>
                     <MobileView>
                         <DrawerDeprecated

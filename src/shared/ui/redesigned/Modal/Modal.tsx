@@ -1,7 +1,8 @@
 import { classNames, Mods } from '@/shared/lib/classNames/classNames';
 import { useModal } from '@/shared/lib/hooks/useModal';
-import { Overlay } from '../../redesigned/Overlay/Overlay';
-import { Portal } from '../../redesigned/Portal/Portal';
+import { Overlay } from '../Overlay/Overlay';
+import { Portal } from '../Portal/Portal';
+import { toggleFeatures } from '../../../lib/features';
 import cls from './Modal.module.scss';
 
 interface ModalProps {
@@ -33,9 +34,17 @@ export function Modal({
         return null;
     }
 
+    const mainClass = toggleFeatures({
+        name: 'isAppRedesigned',
+        on: () => cls.modalNew,
+        off: () => cls.modalOld
+    });
+
     return (
-        <Portal element={document.getElementById('app') ?? document.body}>
-            <div className={classNames(cls.Modal, mods, [className])}>
+        <Portal>
+            <div
+                className={classNames(cls.Modal, mods, [className, mainClass])}
+            >
                 <Overlay onClick={close} />
                 <div className={cls.content}>{children}</div>
             </div>

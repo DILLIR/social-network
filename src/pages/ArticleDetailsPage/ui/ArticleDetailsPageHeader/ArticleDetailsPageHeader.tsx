@@ -16,7 +16,7 @@ interface ArticleDetailsPageHeaderProps {
 export function ArticleDetailsPageHeader({
     className
 }: ArticleDetailsPageHeaderProps) {
-    const { t } = useTranslation('article-details');
+    const { t } = useTranslation();
     const navigate = useNavigate();
     const canEdit = useSelector(getCanEditArticle);
     const article = useSelector(getArticleDetailsData);

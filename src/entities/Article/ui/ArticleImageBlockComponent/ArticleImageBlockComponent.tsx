@@ -3,10 +3,10 @@ import { classNames } from '@/shared/lib/classNames/classNames';
 import {
     Text as TextDeprecated,
     TextAlign
-} from '../../../../shared/ui/deprecated/Text/Text';
-import { Text } from '../../../../shared/ui/redesigned/Text';
+} from '@/shared/ui/deprecated/Text/Text';
+import { Text } from '@/shared/ui/redesigned/Text';
+import { ToggleFeatures } from '@/shared/lib/features';
 import { ArticleImageBLock } from '../../model/types/article';
-import { ToggleFeatures } from '../../../../shared/lib/features';
 import cls from './ArticleImageBlockComponent.module.scss';
 
 interface ArticleImageBlockComponentProps {

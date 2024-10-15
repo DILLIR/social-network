@@ -8,7 +8,7 @@ import {
     getArticleDetailsIsLoading
 } from '@/entities/Article';
 import { getRouteArticleEdit } from '@/shared/const/router';
-import { Skeleton } from '../../../../shared/ui/redesigned/Skeleton';
+import { Skeleton } from '@/shared/ui/redesigned/Skeleton';
 import cls from './AdditionalInfoContainer.module.scss';
 
 // eslint-disable-next-line react/display-name

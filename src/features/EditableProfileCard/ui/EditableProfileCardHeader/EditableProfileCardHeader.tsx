@@ -9,14 +9,14 @@ import {
 } from '@/shared/ui/deprecated/Button';
 import { Stack } from '@/shared/ui/redesigned/Stack';
 import { Text as TextDeprecated } from '@/shared/ui/deprecated/Text';
+import { ToggleFeatures } from '@/shared/lib/features';
+import { Button } from '@/shared/ui/redesigned/Button';
+import { Text } from '@/shared/ui/redesigned/Text';
+import { Card } from '@/shared/ui/redesigned/Card';
 import { getProfileReadonly } from '../../model/selectors/getProfileReadonly/getProfileReadonly';
 import { updateProfileData } from '../../model/services/updateProfileData/updateProfileData';
 import { profileActions } from '../../model/slice/profileSlice';
 import { getCanEditProfile } from '../../model/selectors/getCanEditProfile/getCanEditProfile';
-import { ToggleFeatures } from '../../../../shared/lib/features';
-import { Button } from '../../../../shared/ui/redesigned/Button';
-import { Text } from '../../../../shared/ui/redesigned/Text';
-import { Card } from '../../../../shared/ui/redesigned/Card';
 import cls from './EditableProfileCardHeader.module.scss';
 
 interface EditableProfileCardHeaderProps {

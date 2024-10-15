@@ -4,10 +4,10 @@ import { classNames } from '@/shared/lib/classNames/classNames';
 import { OrderBy } from '@/shared/types/sort';
 import { Select, SelectOption } from '@/shared/ui/deprecated/Select';
 import { ArticleSortField } from '@/entities/Article';
-import { ToggleFeatures } from '../../../../shared/lib/features';
-import { ListBox } from '../../../../shared/ui/redesigned/Popups';
-import { Stack } from '../../../../shared/ui/redesigned/Stack';
-import { Text } from '../../../../shared/ui/redesigned/Text';
+import { ToggleFeatures } from '@/shared/lib/features';
+import { ListBox } from '@/shared/ui/redesigned/Popups';
+import { Stack } from '@/shared/ui/redesigned/Stack';
+import { Text } from '@/shared/ui/redesigned/Text';
 import cls from './ArticleSortSelector.module.scss';
 
 interface ArticleSortSelectorProps {

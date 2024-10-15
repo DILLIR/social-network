@@ -1,10 +1,10 @@
 import { memo, useCallback, useMemo } from 'react';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { generateOptions } from '@/shared/lib/generateOptions/generateOptions';
-import { ListBox } from '../../../../shared/ui/redesigned/Popups';
-import { ListBox as ListBoxDeprecated } from '../../../../shared/ui/deprecated/Popups';
+import { ListBox } from '@/shared/ui/redesigned/Popups';
+import { ListBox as ListBoxDeprecated } from '@/shared/ui/deprecated/Popups';
+import { ToggleFeatures } from '@/shared/lib/features';
 import { Country } from '../../types/country';
-import { ToggleFeatures } from '../../../../shared/lib/features';
 
 interface CountrySelectProps {
     className?: string;

@@ -1,7 +1,7 @@
 import { classNames } from '@/shared/lib/classNames/classNames';
+import { Text } from '@/shared/ui/redesigned/Text';
+import { Stack } from '@/shared/ui/redesigned/Stack';
 import { Page } from '../../../../widgets/Page';
-import { Text } from '../../../../shared/ui/redesigned/Text';
-import { Stack } from '../../../../shared/ui/redesigned/Stack';
 import { UiDesignSwitcher } from '../../../../features/UiDesignSwitcher';
 import cls from './SettingsPage.module.scss';
 

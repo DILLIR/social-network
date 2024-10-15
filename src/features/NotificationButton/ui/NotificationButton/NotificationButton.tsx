@@ -14,7 +14,7 @@ import { Popover as PopoverDeprecated } from '@/shared/ui/deprecated/Popups';
 import { Icon } from '@/shared/ui/redesigned/Icon';
 import { ToggleFeatures } from '@/shared/lib/features';
 import { Popover } from '@/shared/ui/redesigned/Popups/ui/Popover/Popover';
-import { Drawer } from '../../../../shared/ui/redesigned/Drawer';
+import { Drawer } from '@/shared/ui/redesigned/Drawer';
 import cls from './NotificationButton.module.scss';
 
 interface NotificationButtonProps {

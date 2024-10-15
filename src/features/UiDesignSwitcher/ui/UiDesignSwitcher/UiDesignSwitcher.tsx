@@ -8,7 +8,7 @@ import { getUserAuthData } from '@/entities/User';
 import { Stack } from '@/shared/ui/redesigned/Stack';
 import { Text } from '@/shared/ui/redesigned/Text';
 import { Skeleton } from '@/shared/ui/redesigned/Skeleton';
-import { useForceUpdate } from '../../../../shared/lib/render/forceUpdate';
+import { useForceUpdate } from '@/shared/lib/render/forceUpdate';
 
 interface UiDesignSwitcherProps {
     className?: string;

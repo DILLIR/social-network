@@ -10,15 +10,15 @@ import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
 import { Button as ButtonDeprecated } from '@/shared/ui/deprecated/Button';
 import { Input as InputDeprecated } from '@/shared/ui/deprecated/Input';
 import { Stack } from '@/shared/ui/redesigned/Stack';
-import { getAddNewCommentText } from '../../model/selectors/addNewCommentSelectors';
+import { ToggleFeatures } from '@/shared/lib/features';
+import { Input } from '@/shared/ui/redesigned/Input';
+import { Button } from '@/shared/ui/redesigned/Button';
+import { Card } from '@/shared/ui/redesigned/Card';
 import {
     addNewCommentActions,
     addNewCommentReducer
 } from '../../model/slices/addNewCommentSlice';
-import { ToggleFeatures } from '../../../../shared/lib/features';
-import { Input } from '../../../../shared/ui/redesigned/Input';
-import { Button } from '../../../../shared/ui/redesigned/Button';
-import { Card } from '../../../../shared/ui/redesigned/Card';
+import { getAddNewCommentText } from '../../model/selectors/addNewCommentSelectors';
 import cls from './AddCommentForm.module.scss';
 
 export interface AddCommentFormProps {
@@ -51,7 +51,7 @@ function AddCommentForm({ className, onSendComment }: AddCommentFormProps) {
     return (
         <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
             <ToggleFeatures
-                feature="isCounterEnabled"
+                feature="isAppRedesigned"
                 on={
                     <Card>
                         <Stack

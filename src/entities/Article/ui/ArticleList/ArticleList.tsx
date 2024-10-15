@@ -7,11 +7,11 @@ import {
     TextSize
 } from '@/shared/ui/deprecated/Text';
 import { Text } from '@/shared/ui/redesigned/Text';
+import { ToggleFeatures } from '@/shared/lib/features';
+import { Stack } from '@/shared/ui/redesigned/Stack';
 import { Article, ArticleView } from '../../model/types/article';
 import { ArticleListItem } from '../ArticleListItem/ArticleListItem';
 import { ArticleListItemSkeleton } from '../ArticleListItem/ArticleListItemSkeleton';
-import { ToggleFeatures } from '../../../../shared/lib/features';
-import { Stack } from '../../../../shared/ui/redesigned/Stack';
 import cls from './ArticleList.module.scss';
 
 interface ArticleListProps {

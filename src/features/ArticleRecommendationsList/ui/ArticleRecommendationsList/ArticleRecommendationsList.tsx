@@ -4,8 +4,8 @@ import { classNames } from '@/shared/lib/classNames/classNames';
 import { Stack } from '@/shared/ui/redesigned/Stack';
 import { Text as TextDeprecated, TextSize } from '@/shared/ui/deprecated/Text';
 import { Text } from '@/shared/ui/redesigned/Text';
+import { ToggleFeatures } from '@/shared/lib/features';
 import { useArticleRecommendationList } from '../../api/articleRecommendationsApi';
-import { ToggleFeatures } from '../../../../shared/lib/features';
 import cls from './ArticleRecommendationsList.module.scss';
 
 interface ArticleRecommendationsListProps {
@@ -15,7 +15,7 @@ interface ArticleRecommendationsListProps {
 export function ArticleRecommendationsList({
     className
 }: ArticleRecommendationsListProps) {
-    const { t } = useTranslation('article-details');
+    const { t } = useTranslation();
     const {
         data: articles,
         isLoading,

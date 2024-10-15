@@ -17,11 +17,22 @@
     z-index: var(--modal-z-index);
     padding: 20px;
     border-radius: 12px;
-    background: var(--bg-color);
     cursor: default;
     transition: 0.3s transform;
     transform: scale(0.5);
     max-width: 60%;
+}
+
+.modalOld {
+    .content {
+        background: var(--bg-color);
+    }
+}
+
+.modalNew {
+    .content {
+        background: var(--light-bg-redesigned);
+    }
 }
 
 .opened {

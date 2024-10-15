@@ -1,6 +1,6 @@
 import { HTMLAttributeAnchorTarget } from 'react';
+import { ToggleFeatures } from '@/shared/lib/features';
 import { Article, ArticleView } from '../../model/types/article';
-import { ToggleFeatures } from '../../../../shared/lib/features';
 import { ArticleListItemDeprecated } from './ArticleListItemDeprecated/ArticleListItemDeprecated';
 import { ArticleListItemRedesigned } from './ArticleListItemRedesigned/ArticleListItemRedesigned';
 

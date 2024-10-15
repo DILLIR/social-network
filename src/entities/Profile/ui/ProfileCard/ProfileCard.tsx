@@ -1,7 +1,7 @@
 import { Country } from '@/entities/Country';
 import { Currency } from '@/entities/Currency';
+import { ToggleFeatures } from '@/shared/lib/features';
 import { Profile } from '../../model/types/profile';
-import { ToggleFeatures } from '../../../../shared/lib/features';
 import { ProfileCardRedesigned } from '../ProfileCardRedesigned/ProfileCardRedesigned';
 import { ProfileCardDeprecated } from '../ProfileCardDeprecated/ProfileCardDeprecated';
 
