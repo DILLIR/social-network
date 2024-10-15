@@ -11,8 +11,9 @@ import { useAppDispatch } from '../shared/lib/hooks/useAppDispatch';
 import { AppLoaderLayout } from '../shared/layouts/AppLoaderLayout';
 import { AppRouter } from './providers/router';
 import { useAppToolbar } from './lib/useAppToolbar';
+import { withTheme } from './providers/ThemeProvider/ui/withTheme';
 
-export function App() {
+function App() {
     const dispatch = useAppDispatch();
     const inited = useSelector(getUserInited);
     const toolbar = useAppToolbar();
@@ -64,3 +65,5 @@ export function App() {
         />
     );
 }
+
+export default withTheme(App);

@@ -36,10 +36,12 @@ export const ArticleTextBlockComponent = memo(
                 )}
                 {block.paragraphs.map((paragraph, index) => (
                     <ToggleFeatures
+                        // eslint-disable-next-line react/no-array-index-key
                         key={index}
                         feature="isAppRedesigned"
                         on={
                             <Text
+                                // eslint-disable-next-line react/no-array-index-key
                                 key={index}
                                 text={paragraph}
                                 className={cls.paragraph}
@@ -47,6 +49,7 @@ export const ArticleTextBlockComponent = memo(
                         }
                         off={
                             <TextDeprecated
+                                // eslint-disable-next-line react/no-array-index-key
                                 key={index}
                                 text={paragraph}
                                 className={cls.paragraph}

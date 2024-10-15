@@ -3,7 +3,7 @@ import SettingsPage from './SettingsPage';
 import type { Meta, StoryObj } from '@storybook/react';
 
 const meta: Meta<typeof SettingsPage> = {
-    title: 'pages/SettingsPage',
+    title: 'page/SettingsPage',
     component: SettingsPage,
     tags: ['autodocs'],
     decorators: [StoreDecorator({})]

@@ -4,6 +4,7 @@ import { Theme } from '../../src/shared/const/theme';
 import { RouterDecorator } from '../../src/shared/config/storybook/RouterDecorator/RouterDecorator';
 import { SuspenseDecorator } from '../../src/shared/config/storybook/SuspenseDecorator/SuspenseDecorator';
 import { ContainerDecorator } from '../../src/shared/config/storybook/ContainerDecorator/ContainerDecorator';
+import { FeaturesFlagsDecorator } from '../../src/shared/config/storybook/FeaturesFlagsDecorator/FeaturesFlagsDecorator';
 import type { Preview } from '@storybook/react';
 import 'loki/configure-react';
 
@@ -31,7 +32,8 @@ const preview: Preview = {
             defaultTheme: 'light',
             parentSelector: 'body'
         }),
-        ContainerDecorator
+        ContainerDecorator,
+        FeaturesFlagsDecorator({})
     ]
 };
 

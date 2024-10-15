@@ -5,7 +5,7 @@ import { Code } from './Code';
 import type { Meta, StoryObj } from '@storybook/react';
 
 const meta: Meta<typeof Code> = {
-    title: 'shared/Code',
+    title: 'Redesigned/shared/Code',
     component: Code,
     tags: ['autodocs'],
     decorators: [StoreDecorator({})]

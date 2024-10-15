@@ -1,5 +1,6 @@
 import { UserRole } from '@/entities/User';
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
+import { NewDesignDecorator } from '../../../../shared/config/storybook/NewDesignDecorator/NewDesignDecorator';
 import { CommentCard } from './CommentCard';
 import type { Meta, StoryObj } from '@storybook/react';
 
@@ -25,6 +26,21 @@ export const Default: Story = {
             }
         }
     }
+};
+
+export const DefaultRedesigned: Story = {
+    args: {
+        comment: {
+            id: '2',
+            text: 'Hello world',
+            user: {
+                id: '2',
+                username: 'Daniel',
+                roles: [UserRole.USER]
+            }
+        }
+    },
+    decorators: [NewDesignDecorator]
 };
 
 export const Loading: Story = {
