@@ -32,8 +32,11 @@ export function Icon({
             className={classNames(cls.Icon, {}, [className])}
             width={width}
             height={height}
-            {...props}
-            onClick={undefined}
+            {...Object.fromEntries(
+                Object.entries(props).filter(
+                    ([key]) => key !== 'clickable' && key !== 'onClick'
+                )
+            )}
         />
     );
 

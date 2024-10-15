@@ -86,7 +86,7 @@ const meta: Meta<typeof ArticleRecommendationsList> = {
     parameters: {
         mockData: [
             {
-                url: `${__API_URL__}/articles?_limit=5`,
+                url: `${__API_URL__}/articles?_limit=5&_expand=user`,
                 method: 'GET',
                 status: 200,
                 response: new Array(9).fill(0).map((_, index) => ({
