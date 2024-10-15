@@ -8,5 +8,7 @@
     "AgeInvalid": "Age is invalid",
     "CountryRequired": "Country is missing",
     "NoData": "No data present",
-    "ServerError": "Something went wrong on server"
+    "ServerError": "Something went wrong on server",
+    "{{count}} views_one": "{{count}} view",
+    "{{count}} views_other": "{{count}} views"
 }

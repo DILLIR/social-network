@@ -6,6 +6,8 @@ export type ButtonVariant = 'clear' | 'outline' | 'filled';
 
 export type ButtonSize = 'm' | 'l' | 'xl';
 
+export type ButtonWidth = 'auto' | 'fit-content';
+
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     className?: string;
     variant?: ButtonVariant;
@@ -15,6 +17,7 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     disabled?: boolean;
     startIcon?: ReactNode;
     endIcon?: ReactNode;
+    width?: ButtonWidth;
 }
 
 export const Button = memo(function Button({
@@ -26,6 +29,7 @@ export const Button = memo(function Button({
     size = 'm',
     startIcon,
     endIcon,
+    width = 'auto',
     ...otherProps
 }: ButtonProps) {
     const mods: Mods = {
@@ -41,7 +45,8 @@ export const Button = memo(function Button({
             className={classNames(cls.Button, mods, [
                 className,
                 cls[variant],
-                cls[size]
+                cls[size],
+                cls[width]
             ])}
             disabled={disabled}
             {...otherProps}

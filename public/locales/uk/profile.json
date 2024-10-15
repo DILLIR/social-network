@@ -8,5 +8,9 @@
     "CountryRequired": "Відсутня країна",
     "NoData": "Немає даних",
     "ServerError": "Щось пішло не так на сервері",
-    "Save": "Зберегти"
+    "Save": "Зберегти",
+    "{{count}} views_zero": "{{count}} переглядів",
+    "{{count}} views_one": "{{count}} перегляд",
+    "{{count}} views_few": "{{count}} перегляди",
+    "{{count}} views_many": "{{count}} переглядів"
 }

@@ -14,6 +14,9 @@ import { Card } from '@/shared/ui/deprecated/Card';
 import { ArticleDetailsComments } from '../ArticleDetailsComments/ArticleDetailsComments';
 import { ArticleDetailsPageHeader } from '../ArticleDetailsPageHeader/ArticleDetailsPageHeader';
 import { articleDetailsPageReducer } from '../../model/slices';
+import { StickyContentLayout } from '../../../../shared/layouts/StickyContentLayout';
+import { DetailsContainer } from '../DetailsContainer/DetailsContainer';
+import { AdditionalInfoContainer } from '../AdditionalInfoContainer/AdditionalInfoContainer';
 
 interface ArticleDetailsPageProps {
     className?: string;
@@ -32,19 +35,35 @@ function ArticleDetailsPage({ className }: ArticleDetailsPageProps) {
 
     return (
         <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
-            <Page className={classNames('', {}, [className])}>
-                <Stack gap={16}>
-                    <ArticleDetailsPageHeader />
-                    <ArticleDetails id={id} />
-                    <ToggleFeatures
-                        feature="isArticleRatingEnabled"
-                        on={<ArticleRating articleId={id} />}
-                        off={<Card>Article rating comming soon</Card>}
+            <ToggleFeatures
+                feature="isAppRedesigned"
+                on={
+                    <StickyContentLayout
+                        content={
+                            <Page className={classNames('', {}, [className])}>
+                                <Stack gap={16}>
+                                    <DetailsContainer />
+                                    <ArticleRating articleId={id} />
+                                    <ArticleRecommendationsList />
+                                    <ArticleDetailsComments id={id} />
+                                </Stack>
+                            </Page>
+                        }
+                        right={<AdditionalInfoContainer />}
                     />
-                    <ArticleRecommendationsList />
-                    <ArticleDetailsComments id={id} />
-                </Stack>
-            </Page>
+                }
+                off={
+                    <Page className={classNames('', {}, [className])}>
+                        <Stack gap={16}>
+                            <ArticleDetailsPageHeader />
+                            <ArticleDetails id={id} />
+                            <Card>Article rating comming soon</Card>
+                            <ArticleRecommendationsList />
+                            <ArticleDetailsComments id={id} />
+                        </Stack>
+                    </Page>
+                }
+            />
         </DynamicModuleLoader>
     );
 }

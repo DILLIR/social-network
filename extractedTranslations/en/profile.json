@@ -8,5 +8,7 @@
   "NoData": "",
   "Profile": "",
   "Save": "",
-  "ServerError": ""
+  "ServerError": "",
+  "{{count}} views": "",
+  "{{count}} views_plural": ""
 }

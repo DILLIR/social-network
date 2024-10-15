@@ -86,7 +86,14 @@
   "Your feedback": "Your feedback",
   "login_error": "login_error",
   "read more": "read more",
+  "{{count}} vie": "",
+  "{{count}} vie_plural": "",
+  "{{count}} views": "",
+  "{{count}} views_plural": "",
+  "{{count}} просмотров": "",
+  "{{count}} просмотров_plural": "",
   "Попробуйте обновить страницу": "",
   "Произошла ошибка при загрузке профиля": "",
+  "Редактировать": "",
   "Сщтештгу": "Сщтештгу"
 }
