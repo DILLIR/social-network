@@ -63,7 +63,7 @@ export function ArticleListItemSkeleton({
 
     return (
         <div className={classNames(mainClass, {}, [className, cls[view]])}>
-            <Card className={cls.card} style={{ height: '350px' }}>
+            <Card className={cls.card} style={{ height: '340px' }}>
                 <div className={cls.imageWrapper}>
                     <Skeleton width={200} height={200} className={cls.img} />
                 </div>

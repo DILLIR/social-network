@@ -40,7 +40,7 @@ export function Tabs<T extends string | number>({
                 border="rounded"
                 size="none"
             >
-                <Text text={tab.node} size="s" />
+                <Text text={tab.node} size="m" />
             </Card>
         ),
         [onClick, value]
