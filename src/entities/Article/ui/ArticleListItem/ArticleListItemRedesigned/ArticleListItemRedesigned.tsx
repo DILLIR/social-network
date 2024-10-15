@@ -104,9 +104,9 @@ export function ArticleListItemRedesigned({
                 cls[view]
             ])}
         >
-            <Card className={cls.card}>
+            <Card className={cls.card} size="none">
                 <AppImage
-                    fallback={<Skeleton width={200} height={200} />}
+                    fallback={<Skeleton width="100%" height={200} />}
                     alt={article.title}
                     src={article.img}
                     className={cls.img}

@@ -11,10 +11,7 @@ interface ModalProps {
     onClose?: () => void;
     lazy?: boolean;
 }
-/**
- * Outdated, use components from redesigned directory
- * @deprecated
- */
+
 export function Modal({
     className,
     children,

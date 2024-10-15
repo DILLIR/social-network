@@ -128,10 +128,7 @@ function DrawerAsync({ ...props }: DrawerProps) {
 
     return <DrawerContent {...props} />;
 }
-/**
- * Outdated, use components from redesigned directory
- * @deprecated
- */
+
 export function Drawer({ ...props }: DrawerProps) {
     return (
         <AnimationProvider>

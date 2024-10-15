@@ -1,5 +1,8 @@
 export type { ArticleDetailsSchema } from '@/entities/Article/model/types/articleDetailsSchema';
-export { getArticleDetailsData } from './model/selectors/ArticleDetails';
+export {
+    getArticleDetailsData,
+    getArticleDetailsIsLoading
+} from './model/selectors/ArticleDetails';
 export {
     ArticleSortField,
     ArticleType,

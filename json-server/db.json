@@ -946,7 +946,7 @@
       },
       "avatar": "https://avatars.githubusercontent.com/u/44670502?v=1",
       "jsonSettings": {
-        "theme": "app_dark_theme",
+        "theme": "app_light_theme",
         "isFirstVisit": true,
         "settingsPageHasBeenOpen": false,
         "isArticlePageWasOpen": true
@@ -1130,6 +1130,12 @@
       "articleId": "4",
       "rate": 5,
       "id": "O8VqIev"
+    },
+    {
+      "userId": "1",
+      "articleId": "1",
+      "rate": 5,
+      "id": "2EgPL8C"
     }
   ],
   "profile-ratings": [

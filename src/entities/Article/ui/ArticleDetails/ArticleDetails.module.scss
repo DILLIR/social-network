@@ -1,3 +1,11 @@
 .ArticleDetails {
     min-height: 100%;
 }
+
+.ArticleDetailsRedesigned {
+    .img {
+        border-radius: 16px;
+        max-height: 420px;
+        width: 100%;
+    }
+}

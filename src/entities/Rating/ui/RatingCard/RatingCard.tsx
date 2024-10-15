@@ -1,14 +1,25 @@
 import { useCallback, useState } from 'react';
 import { BrowserView, MobileView } from 'react-device-detect';
 import { useTranslation } from 'react-i18next';
-import { Button, ButtonSize, ButtonTheme } from '@/shared/ui/deprecated/Button';
-import { Card } from '@/shared/ui/deprecated/Card';
-import { Input } from '@/shared/ui/deprecated/Input';
-import { Modal } from '@/shared/ui/deprecated/Modal';
+import {
+    Button as ButtonDeprecated,
+    ButtonSize,
+    ButtonTheme
+} from '@/shared/ui/deprecated/Button';
+import { Card as CardDeprecated } from '@/shared/ui/deprecated/Card';
+import { Input as InputDeprecated } from '@/shared/ui/deprecated/Input';
+import { Modal as ModalDeprecated } from '@/shared/ui/deprecated/Modal';
 import { Stack } from '@/shared/ui/redesigned/Stack';
-import { StarRating } from '@/shared/ui/deprecated/StarRating';
-import { Text } from '@/shared/ui/deprecated/Text';
-import { Drawer } from '@/shared/ui/deprecated/Drawer';
+import { StarRating as StarRatingDeprecated } from '@/shared/ui/deprecated/StarRating';
+import { Text as TextDeprecated } from '@/shared/ui/deprecated/Text';
+import { Drawer as DrawerDeprecated } from '@/shared/ui/deprecated/Drawer';
+import { Card } from '@/shared/ui/redesigned/Card';
+import { Button } from '@/shared/ui/redesigned/Button';
+import { ToggleFeatures } from '../../../../shared/lib/features';
+import { Text } from '../../../../shared/ui/redesigned/Text';
+import { Input } from '../../../../shared/ui/redesigned/Input';
+import { Modal } from '../../../../shared/ui/redesigned/Modal';
+import { Drawer } from '../../../../shared/ui/redesigned/Drawer';
 
 interface RatingCardProps {
     className?: string;
@@ -61,63 +72,145 @@ export function RatingCard({
     }, [onCancel, starsCount]);
 
     const modalContent = (
-        <>
-            <Text title={feedbackTitle} />
-            <Input
-                data-testid="RatingCard.Input"
-                placeholder={t('Your feedback')}
-                value={feedback}
-                onChange={(value) => setFeedback(value)}
-            />
-        </>
+        <ToggleFeatures
+            feature="isAppRedesigned"
+            on={
+                <>
+                    <Text title={feedbackTitle} />
+                    <Input
+                        data-testid="RatingCard.Input"
+                        placeholder={t('Your feedback')}
+                        value={feedback}
+                        onChange={(value) => setFeedback(value)}
+                    />
+                </>
+            }
+            off={
+                <>
+                    <TextDeprecated title={feedbackTitle} />
+                    <InputDeprecated
+                        data-testid="RatingCard.Input"
+                        placeholder={t('Your feedback')}
+                        value={feedback}
+                        onChange={(value) => setFeedback(value)}
+                    />
+                </>
+            }
+        />
     );
 
     return (
-        <Card className={className} data-testid="RatingCard">
-            <Stack alignItems="center">
-                <Text title={starsCount ? t('Thank you for rate') : title} />
-                <StarRating
-                    selectedStars={starsCount}
-                    size={40}
-                    onSelect={onSelectStars}
-                />
-            </Stack>
-            <BrowserView>
-                <Modal isOpen={openModal} onClose={closeModal}>
-                    <Stack gap={16}>
-                        {modalContent}
-                        <Stack
-                            direction="row"
-                            gap={16}
-                            justifyContent="flex-end"
+        <ToggleFeatures
+            feature="isAppRedesigned"
+            on={
+                <Card className={className} data-testid="RatingCard">
+                    <Stack alignItems="center">
+                        <Text
+                            title={starsCount ? t('Thank you for rate') : title}
+                        />
+                        <StarRatingDeprecated
+                            selectedStars={starsCount}
+                            size={40}
+                            onSelect={onSelectStars}
+                        />
+                    </Stack>
+                    <BrowserView>
+                        <Modal isOpen={openModal} onClose={closeModal}>
+                            <Stack gap={16}>
+                                {modalContent}
+                                <Stack
+                                    direction="row"
+                                    gap={16}
+                                    justifyContent="flex-end"
+                                >
+                                    <Button
+                                        onClick={cancelHandler}
+                                        variant="outline"
+                                        data-testid="RatingCard.Cancel"
+                                    >
+                                        {t('Cancel')}
+                                    </Button>
+                                    <Button
+                                        onClick={acceptHandler}
+                                        data-testid="RatingCard.Send"
+                                    >
+                                        {t('Send')}
+                                    </Button>
+                                </Stack>
+                            </Stack>
+                        </Modal>
+                    </BrowserView>
+                    <MobileView>
+                        <Drawer isOpen={openModal} onClose={closeModal}>
+                            <Stack gap={32}>
+                                {modalContent}
+                                <Button onClick={acceptHandler} size="l">
+                                    {t('Send')}
+                                </Button>
+                            </Stack>
+                        </Drawer>
+                    </MobileView>
+                </Card>
+            }
+            off={
+                <CardDeprecated className={className} data-testid="RatingCard">
+                    <Stack alignItems="center">
+                        <TextDeprecated
+                            title={starsCount ? t('Thank you for rate') : title}
+                        />
+                        <StarRatingDeprecated
+                            selectedStars={starsCount}
+                            size={40}
+                            onSelect={onSelectStars}
+                        />
+                    </Stack>
+                    <BrowserView>
+                        <ModalDeprecated
+                            isOpen={openModal}
+                            onClose={closeModal}
                         >
-                            <Button
-                                onClick={cancelHandler}
-                                theme={ButtonTheme.OUTLINE_RED}
-                                data-testid="RatingCard.Cancel"
-                            >
-                                {t('Cancel')}
-                            </Button>
-                            <Button
-                                onClick={acceptHandler}
-                                data-testid="RatingCard.Send"
-                            >
-                                {t('Send')}
-                            </Button>
-                        </Stack>
-                    </Stack>
-                </Modal>
-            </BrowserView>
-            <MobileView>
-                <Drawer isOpen={openModal} onClose={closeModal}>
-                    <Stack gap={32}>
-                        {modalContent}
-                        <Button onClick={acceptHandler} size={ButtonSize.L}>
-                            {t('Send')}
-                        </Button>
-                    </Stack>
-                </Drawer>
-            </MobileView>
-        </Card>
+                            <Stack gap={16}>
+                                {modalContent}
+                                <Stack
+                                    direction="row"
+                                    gap={16}
+                                    justifyContent="flex-end"
+                                >
+                                    <ButtonDeprecated
+                                        onClick={cancelHandler}
+                                        theme={ButtonTheme.OUTLINE_RED}
+                                        data-testid="RatingCard.Cancel"
+                                    >
+                                        {t('Cancel')}
+                                    </ButtonDeprecated>
+                                    <ButtonDeprecated
+                                        onClick={acceptHandler}
+                                        data-testid="RatingCard.Send"
+                                    >
+                                        {t('Send')}
+                                    </ButtonDeprecated>
+                                </Stack>
+                            </Stack>
+                        </ModalDeprecated>
+                    </BrowserView>
+                    <MobileView>
+                        <DrawerDeprecated
+                            isOpen={openModal}
+                            onClose={closeModal}
+                        >
+                            <Stack gap={32}>
+                                {modalContent}
+                                <ButtonDeprecated
+                                    onClick={acceptHandler}
+                                    size={ButtonSize.L}
+                                >
+                                    {t('Send')}
+                                </ButtonDeprecated>
+                            </Stack>
+                        </DrawerDeprecated>
+                    </MobileView>
+                </CardDeprecated>
+            }
+        />
     );
 }
