@@ -8,6 +8,7 @@ import { ToggleFeatures } from '@/shared/lib/features';
 import { PageLoader } from '@/widgets/PageLoader';
 import { MainLayout } from '@/shared/layouts/MainLayout';
 import { useAppDispatch } from '../shared/lib/hooks/useAppDispatch';
+import { AppLoaderLayout } from '../shared/layouts/AppLoaderLayout';
 import { AppRouter } from './providers/router';
 
 export function App() {
@@ -21,7 +22,15 @@ export function App() {
     }, [dispatch, inited]);
 
     if (!inited) {
-        return <PageLoader />;
+        return (
+            <div className={classNames('app_redesigned', {}, [])} id="app">
+                <ToggleFeatures
+                    feature="isAppRedesigned"
+                    on={<AppLoaderLayout />}
+                    off={<PageLoader />}
+                />
+            </div>
+        );
     }
 
     return (
