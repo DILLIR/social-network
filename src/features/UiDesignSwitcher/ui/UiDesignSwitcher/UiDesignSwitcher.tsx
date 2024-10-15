@@ -8,6 +8,7 @@ import { getUserAuthData } from '@/entities/User';
 import { Stack } from '@/shared/ui/redesigned/Stack';
 import { Text } from '@/shared/ui/redesigned/Text';
 import { Skeleton } from '@/shared/ui/redesigned/Skeleton';
+import { useForceUpdate } from '../../../../shared/lib/render/forceUpdate';
 
 interface UiDesignSwitcherProps {
     className?: string;
@@ -19,6 +20,7 @@ export function UiDesignSwitcher({ className }: UiDesignSwitcherProps) {
     const authData = useSelector(getUserAuthData);
     const dispatch = useAppDispatch();
     const [isLoading, setIsLoading] = useState(false);
+    const forceUpdate = useForceUpdate();
 
     const items = [
         {
@@ -43,6 +45,7 @@ export function UiDesignSwitcher({ className }: UiDesignSwitcherProps) {
                 })
             );
             setIsLoading(false);
+            forceUpdate();
         }
     };
 

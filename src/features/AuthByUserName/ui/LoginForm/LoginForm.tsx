@@ -27,6 +27,7 @@ import { Input } from '../../../../shared/ui/redesigned/Input';
 import { Text } from '../../../../shared/ui/redesigned/Text';
 import { Button } from '../../../../shared/ui/redesigned/Button';
 import { Stack } from '../../../../shared/ui/redesigned/Stack';
+import { useForceUpdate } from '../../../../shared/lib/render/forceUpdate';
 import cls from './LoginForm.module.scss';
 
 export interface LoginFormProps {
@@ -46,6 +47,7 @@ const LoginForm = memo(function LoginForm({
     const password = useSelector(getLoginPassword);
     const isLoading = useSelector(getLoginIsLoading);
     const error = useSelector(getLoginError);
+    const forceUpdate = useForceUpdate();
 
     const onChangeUsername = useCallback(
         (value: string) => {
@@ -65,8 +67,9 @@ const LoginForm = memo(function LoginForm({
         const result = await dispatch(loginByUsername({ username, password }));
         if (result.meta.requestStatus === 'fulfilled' && onSuccess) {
             onSuccess();
+            forceUpdate();
         }
-    }, [dispatch, username, password, onSuccess]);
+    }, [dispatch, username, password, onSuccess, forceUpdate]);
 
     return (
         <DynamicModuleLoader reducers={initialReducers} removeAfterUnmount>

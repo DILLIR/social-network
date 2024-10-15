@@ -971,7 +971,8 @@
       "password": "123",
       "features": {
         "isArticleRatingEnabled": false,
-        "isCounterEnabled": true
+        "isCounterEnabled": true,
+        "isAppRedesigned": true
       },
       "roles": [
         "ADMIN"
