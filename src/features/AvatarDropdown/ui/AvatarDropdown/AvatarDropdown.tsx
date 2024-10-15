@@ -7,7 +7,11 @@ import {
     isUserManager,
     userActions
 } from '@/entities/User';
-import { getRouteAdminPanel, getRouteProfile } from '@/shared/const/router';
+import {
+    getRouteAdminPanel,
+    getRouteProfile,
+    getRouteSettings
+} from '@/shared/const/router';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
 import { Avatar as AvatarDeprecated } from '@/shared/ui/deprecated/Avatar';
@@ -47,6 +51,10 @@ export function AvatarDropdown({ className }: AvatarDropdownProps) {
               ]
             : []),
         {
+            content: t('Settings'),
+            href: getRouteSettings()
+        },
+        {
             content: t('Profile'),
             href: getRouteProfile(authData.id)
         },
@@ -58,12 +66,18 @@ export function AvatarDropdown({ className }: AvatarDropdownProps) {
 
     return (
         <ToggleFeatures
-            feature="isArticleRatingEnabled"
+            feature="isAppRedesigned"
             on={
                 <Dropdown
                     className={classNames(cls.AvatarDropdown, {}, [className])}
                     direction="bottom right"
-                    trigger={<Avatar size={40} src={authData.avatar} />}
+                    trigger={
+                        <Avatar
+                            size={40}
+                            src={authData.avatar}
+                            className={cls.avatar}
+                        />
+                    }
                     items={items}
                 />
             }

@@ -16,7 +16,7 @@ interface NotificationItemProps {
 export function NotificationItem({ className, item }: NotificationItemProps) {
     const content = (
         <ToggleFeatures
-            feature="isArticleRatingEnabled"
+            feature="isAppRedesigned"
             on={
                 <Card
                     className={classNames(cls.NotificationItem, {}, [

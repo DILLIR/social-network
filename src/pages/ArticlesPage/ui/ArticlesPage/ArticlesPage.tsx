@@ -43,7 +43,7 @@ function ArticlesPage({ className }: ArticlesPageProps) {
 
     const content = (
         <ToggleFeatures
-            feature="isArticleRatingEnabled"
+            feature="isAppRedesigned"
             on={
                 <StickyContentLayout
                     left={<ViewSelectorContainer />}

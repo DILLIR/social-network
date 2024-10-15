@@ -28,7 +28,7 @@ export const ThemeSwitcher = memo(function ThemeSwitcher({
 
     return (
         <ToggleFeatures
-            feature="isArticleRatingEnabled"
+            feature="isAppRedesigned"
             on={
                 <Icon
                     Svg={ThemeIcon}

@@ -30,6 +30,7 @@
 .item {
     padding: 8px 15px;
     cursor: pointer;
+    white-space: nowrap;
 
     &.selected {
         display: flex;
