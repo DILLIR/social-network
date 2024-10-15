@@ -1,5 +1,7 @@
 # Social-Network
 
+![App screen](<docs/assets/Screenshot 2024-10-16 at 00.45.42.png>)
+
 This project is a robust, production-ready web application boilerplate. It is built with modern technologies like React, TypeScript, Webpack, and Storybook. It also includes a comprehensive testing setup with Jest and Loki, and it enforces code quality with ESLint and Stylelint.
 
 ## Table of Contents
@@ -20,6 +22,7 @@ This project is a robust, production-ready web application boilerplate. It is bu
   - [Working with Data](#working-with-data)
   - [Working with Feature Flags](#working-with-feature-flags)
   - [Entities](#entities)
+  - [Screenshots](#screenshots)
 
 ## Online Links
 
@@ -201,8 +204,8 @@ It takes an object with the following options:
 
 ```typescript
 {
-   name: feature flag name, 
-   on: function that will execute when the feature is turned ON, 
+   name: feature flag name,
+   on: function that will execute when the feature is turned ON,
    off: function that will execute when the feature is turned OFF
 }
 ```
@@ -223,3 +226,26 @@ To automatically remove a feature, use the remove-feature.ts script, which accep
 -   [Profile](/src/entities/Profile)
 -   [Rating](/src/entities/Rating)
 -   [User](/src/entities/User)
+
+## Screenshots
+
+![App screen ](<docs/assets/Screenshot 2024-10-16 at 00.45.02.png>)
+_Gold theme_
+
+![App screen ](<docs/assets/Screenshot 2024-10-16 at 00.44.48.png>)
+_Light theme_
+
+![App screen ](<docs/assets/Screenshot 2024-10-16 at 00.44.23.png>)
+_Loading skeletons_
+
+![App screen ](<docs/assets/Screenshot 2024-10-16 at 00.43.23.png>)
+_Login modal_
+
+![App screen ](<docs/assets/Screenshot 2024-10-16 at 00.42.57.png>)
+_Profile page_
+
+![App screen ](<docs/assets/Screenshot 2024-10-16 at 00.42.47.png>)
+_Article details page_
+
+![App screen ](<docs/assets/Screenshot 2024-10-16 at 00.42.30.png>)
+_Articles list page_

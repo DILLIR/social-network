@@ -169,7 +169,7 @@
     "lint-staged": {
         "**/*.{ts,tsx}": [
             "prettier --write",
-            "eslint"
+            "eslint --fix"
         ],
         "**/*.scss": "npx stylelint"
     }
