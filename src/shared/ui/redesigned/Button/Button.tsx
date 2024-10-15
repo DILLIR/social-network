@@ -3,6 +3,7 @@ import { classNames, Mods } from '@/shared/lib/classNames/classNames';
 import cls from './Button.module.scss';
 
 export type ButtonVariant = 'clear' | 'outline' | 'filled';
+export type ButtonColor = 'normal' | 'success' | 'error';
 
 export type ButtonSize = 'm' | 'l' | 'xl';
 
@@ -18,6 +19,7 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     startIcon?: ReactNode;
     endIcon?: ReactNode;
     width?: ButtonWidth;
+    color?: ButtonColor;
 }
 
 export const Button = memo(function Button({
@@ -30,6 +32,7 @@ export const Button = memo(function Button({
     startIcon,
     endIcon,
     width = 'auto',
+    color = 'normal',
     ...otherProps
 }: ButtonProps) {
     const mods: Mods = {
@@ -46,7 +49,8 @@ export const Button = memo(function Button({
                 className,
                 cls[variant],
                 cls[size],
-                cls[width]
+                cls[width],
+                cls[color]
             ])}
             disabled={disabled}
             {...otherProps}

@@ -31,12 +31,28 @@
 }
 
 .outline {
-    border: 1.5px solid var(--icon-redesigned);
+    border: 2px solid var(--icon-redesigned);
     border-radius: 32px;
     background: none;
 
     &:hover {
-        border: 1.5px solid var(--accent-redesigned);
+        border: 2px solid var(--accent-redesigned);
+    }
+
+    &.error {
+        border: 2px solid var(--cancel-redesigned);
+
+        &:hover {
+            opacity: 0.8;
+        }
+    }
+
+    &.success {
+        border: 2px solid var(--save-redesigned);
+
+        &:hover {
+            opacity: 0.8;
+        }
     }
 }
 

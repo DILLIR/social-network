@@ -19,7 +19,7 @@ export function NotificationItem({ className, item }: NotificationItemProps) {
             feature="isAppRedesigned"
             on={
                 <Card
-                    className={classNames(cls.NotificationItem, {}, [
+                    className={classNames(cls.NotificationItemRedesign, {}, [
                         className
                     ])}
                 >
