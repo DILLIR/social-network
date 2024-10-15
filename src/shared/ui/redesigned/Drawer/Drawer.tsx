@@ -7,7 +7,8 @@ import {
     useAnimationLibs
 } from '@/shared/lib/components/AnimationProvider/AnimationProvider';
 import { useTheme } from '@/shared/lib/hooks/useTheme';
-import { Loader } from '../Loader/Loader';
+import { toggleFeatures } from '@/shared/lib/features';
+import { Loader } from '../../deprecated/Loader';
 import cls from './Drawer.module.scss';
 
 interface DrawerProps {
@@ -86,13 +87,20 @@ export function DrawerContent({
 
     const display = y.to((py) => (py < height ? 'block' : 'none'));
 
+    const mainClass = toggleFeatures({
+        name: 'isAppRedesigned',
+        on: () => cls.drawerNew,
+        off: () => cls.drawerOld
+    });
+
     return (
-        <Portal element={document.getElementById('app') ?? document.body}>
+        <Portal>
             <div
                 className={classNames(cls.Drawer, mods, [
                     className,
                     theme,
-                    'app_drawer'
+                    'app_drawer',
+                    mainClass
                 ])}
             >
                 <Overlay onClick={close} />

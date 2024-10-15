@@ -1,0 +1,45 @@
+.Drawer {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    opacity: 0;
+    pointer-events: none;
+    z-index: -1;
+    display: flex;
+    align-items: flex-end;
+}
+
+.opened {
+    pointer-events: auto;
+    opacity: 1;
+    z-index: var(--modal-z-index);
+
+    .content {
+        transform: translateY(0);
+    }
+}
+
+.sheet {
+    z-index: var(--modal-z-index);
+    position: fixed;
+    left: 0;
+    right: 0;
+    height: calc(100vh + 100px);
+    border-radius: 12px 12px 0;
+    touch-action: none;
+    padding: 15px;
+}
+
+.drawerOld {
+    .sheet {
+        background: var(--bg-color);
+    }
+}
+
+.drawerNew {
+    .sheet {
+        background: var(--light-bg-redesigned);
+    }
+}

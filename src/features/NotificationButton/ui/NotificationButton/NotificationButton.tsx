@@ -8,12 +8,13 @@ import {
     Button as ButtonDeprecated,
     ButtonTheme
 } from '@/shared/ui/deprecated/Button';
-import { Drawer } from '@/shared/ui/deprecated/Drawer';
+import { Drawer as DrawerDeprecated } from '@/shared/ui/deprecated/Drawer';
 import { Icon as IconDeprecated } from '@/shared/ui/deprecated/Icon';
 import { Popover as PopoverDeprecated } from '@/shared/ui/deprecated/Popups';
 import { Icon } from '@/shared/ui/redesigned/Icon';
 import { ToggleFeatures } from '@/shared/lib/features';
 import { Popover } from '@/shared/ui/redesigned/Popups/ui/Popover/Popover';
+import { Drawer } from '../../../../shared/ui/redesigned/Drawer';
 import cls from './NotificationButton.module.scss';
 
 interface NotificationButtonProps {
@@ -87,10 +88,28 @@ export function NotificationButton({ className }: NotificationButtonProps) {
                 />
             </BrowserView>
             <MobileView>
-                {trigger}
-                <Drawer isOpen={openDrawer} onClose={onCloseDrawer}>
-                    <NotificationList />
-                </Drawer>
+                <ToggleFeatures
+                    feature="isAppRedesigned"
+                    on={
+                        <>
+                            {trigger}
+                            <Drawer isOpen={openDrawer} onClose={onCloseDrawer}>
+                                <NotificationList />
+                            </Drawer>
+                        </>
+                    }
+                    off={
+                        <>
+                            {trigger}
+                            <DrawerDeprecated
+                                isOpen={openDrawer}
+                                onClose={onCloseDrawer}
+                            >
+                                <NotificationList />
+                            </DrawerDeprecated>
+                        </>
+                    }
+                />
             </MobileView>
         </div>
     );
