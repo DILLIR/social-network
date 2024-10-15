@@ -6,6 +6,7 @@ import { Text as TextDeprecated, TextSize } from '@/shared/ui/deprecated/Text';
 import { Text } from '@/shared/ui/redesigned/Text';
 import { useArticleRecommendationList } from '../../api/articleRecommendationsApi';
 import { ToggleFeatures } from '../../../../shared/lib/features';
+import cls from './ArticleRecommendationsList.module.scss';
 
 interface ArticleRecommendationsListProps {
     className?: string;
@@ -29,7 +30,7 @@ export function ArticleRecommendationsList({
         <Stack
             gap={8}
             data-testid="ArticleRecommendationsList"
-            className={classNames('', {}, [className])}
+            className={classNames(cls.wrapper, {}, [className])}
         >
             <ToggleFeatures
                 feature="isAppRedesigned"

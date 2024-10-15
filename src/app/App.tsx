@@ -10,10 +10,12 @@ import { MainLayout } from '@/shared/layouts/MainLayout';
 import { useAppDispatch } from '../shared/lib/hooks/useAppDispatch';
 import { AppLoaderLayout } from '../shared/layouts/AppLoaderLayout';
 import { AppRouter } from './providers/router';
+import { useAppToolbar } from './lib/useAppToolbar';
 
 export function App() {
     const dispatch = useAppDispatch();
     const inited = useSelector(getUserInited);
+    const toolbar = useAppToolbar();
 
     useEffect(() => {
         if (!inited) {
@@ -54,6 +56,7 @@ export function App() {
                             header={<Navbar />}
                             content={<AppRouter />}
                             sidebar={<Sidebar />}
+                            toolbar={toolbar}
                         />
                     </Suspense>
                 </div>
