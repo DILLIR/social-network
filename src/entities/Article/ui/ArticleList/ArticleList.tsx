@@ -1,7 +1,12 @@
 import { useTranslation } from 'react-i18next';
 import { HTMLAttributeAnchorTarget } from 'react';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { Text, TextAlign, TextSize } from '@/shared/ui/deprecated/Text';
+import {
+    Text as TextDeprecated,
+    TextAlign,
+    TextSize
+} from '@/shared/ui/deprecated/Text';
+import { Text } from '@/shared/ui/redesigned/Text';
 import { Article, ArticleView } from '../../model/types/article';
 import { ArticleListItem } from '../ArticleListItem/ArticleListItem';
 import { ArticleListItemSkeleton } from '../ArticleListItem/ArticleListItemSkeleton';
@@ -52,10 +57,22 @@ export function ArticleList({
                     cls[viewMode]
                 ])}
             >
-                <Text
-                    size={TextSize.L}
-                    title={t('Articles not found')}
-                    align={TextAlign.CENTER}
+                <ToggleFeatures
+                    feature="isAppRedesigned"
+                    on={
+                        <Text
+                            size="l"
+                            title={t('Articles not found')}
+                            align={TextAlign.CENTER}
+                        />
+                    }
+                    off={
+                        <TextDeprecated
+                            size={TextSize.L}
+                            title={t('Articles not found')}
+                            align={TextAlign.CENTER}
+                        />
+                    }
                 />
             </div>
         );
