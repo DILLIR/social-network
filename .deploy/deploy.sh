@@ -1,6 +1,5 @@
-cd ~/social-network
-git pull origin main
+cd ..
 npm run build:prod
 
-rm -rf ~/../var/www/social-network/html
-mv ~/social-network/build ~/../var/www/social-network/html
+rm -rf /root/../var/www/social-network/html
+mv /root/.delpoy/build ~/../var/www/social-network/html

@@ -17,4 +17,4 @@ jobs:
           USER: ${{ secrets.USER }}
           KEY: ${{ secrets.KEY }}
           FOLDER: "/root/.deploy"
-          RUN: "cd ~/social-network/.deploy; chmod +x ./deploy.sh; ./deploy.sh"
+          RUN: "cd ./.deploy; chmod +x ./deploy.sh; ./deploy.sh"
