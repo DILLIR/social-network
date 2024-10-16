@@ -8,7 +8,7 @@ function MainPage() {
     return (
         <Page dataTestId="MainPage">
             <Text title={t('MAIN PAGE')} />
-            <Text title="Hello world!" />
+            <Text title="Hello world! 23" />
         </Page>
     );
 }
