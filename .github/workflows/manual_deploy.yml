@@ -1,19 +1,18 @@
-# Please read the next section below before using for your own safety "variables".
-name: manual-deploy
-    
+name: manual deploy
+
 on: workflow_dispatch
 
 jobs:
-  run_pull:
-    name: deploying to server via ssh
-    runs-on: ubuntu-latest
-    steps:
-    - name: install ssh keys
-      run: |
-        install -m 600 -D /dev/null ~/.ssh/id_rsa
-        echo "${{ secrets.KEY }}" > ~/.ssh/id_rsa
-        ssh-keyscan -H ${{ secrets.IP }} > ~/.ssh/known_hosts
-    - name: connect and pull
-      run: ssh ${{ secrets.USER }}@${{ secrets.IP }} "source ~/.nvm/nvm.sh && cd /root/social-network && git checkout main && git pull && npm run build:prod && rm -rf /root/../var/www/social-network/html && mv /root/social-network/build ~/../var/www/social-network/html && pm2 restart 0"
-    - name: cleanup
-      run: rm -rf ~/.ssh
+    run_pull:
+        name: deploying to server via ssh
+        runs-on: ubuntu-latest
+        steps:
+            - name: install ssh keys
+              run: |
+                  install -m 600 -D /dev/null ~/.ssh/id_rsa
+                  echo "${{ secrets.KEY }}" > ~/.ssh/id_rsa
+                  ssh-keyscan -H ${{ secrets.IP }} > ~/.ssh/known_hosts
+            - name: connect and pull
+              run: ssh ${{ secrets.USER }}@${{ secrets.IP }} "source ~/.nvm/nvm.sh && cd /root/social-network && git checkout main && git pull && cd ./.deploy && chmod +x deploy.sh && ./deploy.sh"
+            - name: cleanup
+              run: rm -rf ~/.ssh
