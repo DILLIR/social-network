@@ -30,6 +30,6 @@ jobs:
         echo "${{ secrets.KEY }}" > ~/.ssh/id_rsa
         ssh-keyscan -H ${{ secrets.IP }} > ~/.ssh/known_hosts
     - name: connect and pull
-      run: ssh ${{ secrets.USER }}@${{ secrets.IP }} "cd /root/social-network && git checkout main && git pull && pwd && exit"
+      run: ssh ${{ secrets.USER }}@${{ secrets.IP }} "cd /root/social-network && git checkout main && git pull && cd ./.deploy && chmod +x ./deploy.sh && ./deploy.sh"
     - name: cleanup
       run: rm -rf ~/.ssh
