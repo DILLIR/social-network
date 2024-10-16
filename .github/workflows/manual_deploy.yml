@@ -3,18 +3,33 @@ name: 🐥 ssh-action-deploy
     
 on: workflow_dispatch
 
+# jobs:
+#   build:
+#     name: 🕳️ Ubuntu...
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: 💞 Github actions...
+#         uses: actions/checkout@v3
+#       - name: 🌈 Deploy with ssh...
+#         uses: sebastianjnuwu/ssh-action-deploy@v3
+#         with:
+#           IP: ${{ secrets.IP }}
+#           USER: ${{ secrets.USER }}
+#           KEY: ${{ secrets.KEY }}
+#           FOLDER: "/root/.deploy"
+#           RUN: "cd ./.deploy; chmod +x ./deploy.sh; ./deploy.sh"
+
 jobs:
-  build:
-    name: 🕳️ Ubuntu...
+  run_pull:
+    name: run pull
     runs-on: ubuntu-latest
     steps:
-      - name: 💞 Github actions...
-        uses: actions/checkout@v3
-      - name: 🌈 Deploy with ssh...
-        uses: sebastianjnuwu/ssh-action-deploy@v3
-        with:
-          IP: ${{ secrets.IP }}
-          USER: ${{ secrets.USER }}
-          KEY: ${{ secrets.KEY }}
-          FOLDER: "/root/.deploy"
-          RUN: "cd ./.deploy; chmod +x ./deploy.sh; ./deploy.sh"
+    - name: install ssh keys
+      run: |
+        install -m 600 -D /dev/null ~/.ssh/id_rsa
+        echo "${{ secrets.KEY }}" > ~/.ssh/id_rsa
+        ssh-keyscan -H ${{ secrets.IP }} > ~/.ssh/known_hosts
+    - name: connect and pull
+      run: ssh ${{ secrets.USER }}@${{ secrets.IP }} "cd /root/social-network && git checkout main && git pull && pwd && exit"
+    - name: cleanup
+      run: rm -rf ~/.ssh
