@@ -10,11 +10,9 @@ import {
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect';
 import { Stack } from '@/shared/ui/redesigned/Stack';
-import { Text as TextDeprecated, TextTheme } from '@/shared/ui/deprecated/Text';
 import { Text } from '@/shared/ui/redesigned/Text';
 import { ProfileCard } from '@/entities/Profile';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { ToggleFeatures } from '@/shared/lib/features';
 import { Card } from '@/shared/ui/redesigned/Card';
 import { getProfileError } from '../../model/selectors/getProfileError/getProfileError';
 import { getProfileForm } from '../../model/selectors/getProfileForm/getProfileForm';
@@ -123,34 +121,17 @@ export function EditableProfileCard({
         <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
             <Stack gap={16} className={classNames('', {}, [className])}>
                 <EditableProfileCardHeader />
-                <ToggleFeatures
-                    feature="isAppRedesigned"
-                    on={
-                        <>
-                            {validateErrors?.map((error) => (
-                                <Card key={error}>
-                                    <Text
-                                        variant="error"
-                                        text={validateErrorTranslates[error]}
-                                        data-testid="EditableProfileCard.Error"
-                                    />
-                                </Card>
-                            ))}
-                        </>
-                    }
-                    off={
-                        <>
-                            {validateErrors?.map((error) => (
-                                <TextDeprecated
-                                    key={error}
-                                    theme={TextTheme.ERROR}
-                                    text={validateErrorTranslates[error]}
-                                    data-testid="EditableProfileCard.Error"
-                                />
-                            ))}
-                        </>
-                    }
-                />
+                <>
+                    {validateErrors?.map((error) => (
+                        <Card key={error}>
+                            <Text
+                                variant="error"
+                                text={validateErrorTranslates[error]}
+                                data-testid="EditableProfileCard.Error"
+                            />
+                        </Card>
+                    ))}
+                </>
 
                 <ProfileCard
                     data={formData}

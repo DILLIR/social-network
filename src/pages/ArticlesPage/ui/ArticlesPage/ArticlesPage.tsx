@@ -10,13 +10,11 @@ import { Stack } from '@/shared/ui/redesigned/Stack';
 import { Page } from '@/widgets/Page';
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect';
 import { ArticlePageGreeting } from '@/features/ArticlePageGreeting';
-import { ToggleFeatures } from '@/shared/lib/features';
 import { StickyContentLayout } from '@/shared/layouts/StickyContentLayout';
 import { fetchNextArticlesPage } from '../../model/services/fetchNextArticlesPage/fetchNextArticlesPage';
 import { initArticlesPage } from '../../model/services/initArticlesPage/initArticlesPage';
 import { articlesPageReducer } from '../../model/slices/articlesPageSlice';
 import { ArticlesInfiniteList } from '../ArticlesInfiniteList/ArticlesInfiniteList';
-import { ArticlesPageFilters } from '../ArticlesPageFilters/ArticlesPageFilters';
 import { ViewSelectorContainer } from '../ViewSelectorContainer/ViewSelectorContainer';
 import { FiltersContainer } from '../FiltersContainer/FiltersContainer';
 
@@ -42,34 +40,16 @@ function ArticlesPage({ className }: ArticlesPageProps) {
     });
 
     const content = (
-        <ToggleFeatures
-            feature="isAppRedesigned"
-            on={
-                <StickyContentLayout
-                    left={<ViewSelectorContainer />}
-                    right={<FiltersContainer />}
-                    content={
-                        <Page
-                            className={classNames('', {}, [className])}
-                            onScrollEnd={onLoadNextPart}
-                            dataTestId="ArticlesPage"
-                        >
-                            <Stack gap={24}>
-                                <ArticlesInfiniteList />
-                                <ArticlePageGreeting />
-                            </Stack>
-                        </Page>
-                    }
-                />
-            }
-            off={
+        <StickyContentLayout
+            left={<ViewSelectorContainer />}
+            right={<FiltersContainer />}
+            content={
                 <Page
                     className={classNames('', {}, [className])}
                     onScrollEnd={onLoadNextPart}
                     dataTestId="ArticlesPage"
                 >
                     <Stack gap={24}>
-                        <ArticlesPageFilters />
                         <ArticlesInfiniteList />
                         <ArticlePageGreeting />
                     </Stack>

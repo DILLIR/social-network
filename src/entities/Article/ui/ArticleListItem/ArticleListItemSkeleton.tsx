@@ -1,9 +1,6 @@
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { Card as CardDeprecated } from '@/shared/ui/deprecated/Card/Card';
 import { Card as CardRedesigned } from '@/shared/ui/redesigned/Card/Card';
-import { Skeleton as SkeletonDeprecated } from '@/shared/ui/deprecated/Skeleton/Skeleton';
 import { Skeleton as SkeletonRedesigned } from '@/shared/ui/redesigned/Skeleton/Skeleton';
-import { toggleFeatures } from '@/shared/lib/features';
 import { ArticleView } from '../../model/types/article';
 import cls from './ArticleListItem.module.scss';
 
@@ -16,23 +13,11 @@ export function ArticleListItemSkeleton({
     className,
     view
 }: ArticleListItemSkeletonProps) {
-    const Skeleton = toggleFeatures({
-        name: 'isAppRedesigned',
-        on: () => SkeletonRedesigned,
-        off: () => SkeletonDeprecated
-    });
+    const Skeleton = SkeletonRedesigned;
 
-    const Card = toggleFeatures({
-        name: 'isAppRedesigned',
-        on: () => CardRedesigned,
-        off: () => CardDeprecated
-    });
+    const Card = CardRedesigned;
 
-    const mainClass = toggleFeatures({
-        name: 'isAppRedesigned',
-        on: () => cls.ArticleListItemRedesigned,
-        off: () => cls.ArticleListItem
-    });
+    const mainClass = cls.ArticleListItemRedesigned;
 
     if (view === ArticleView.LIST) {
         return (

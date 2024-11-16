@@ -7,7 +7,6 @@ import {
     useAnimationLibs
 } from '@/shared/lib/components/AnimationProvider/AnimationProvider';
 import { useTheme } from '@/shared/lib/hooks/useTheme';
-import { toggleFeatures } from '@/shared/lib/features';
 import { Loader } from '../../deprecated/Loader';
 import cls from './Drawer.module.scss';
 
@@ -87,11 +86,7 @@ export function DrawerContent({
 
     const display = y.to((py) => (py < height ? 'block' : 'none'));
 
-    const mainClass = toggleFeatures({
-        name: 'isAppRedesigned',
-        on: () => cls.drawerNew,
-        off: () => cls.drawerOld
-    });
+    const mainClass = cls.drawerNew;
 
     return (
         <Portal>

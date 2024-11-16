@@ -7,9 +7,7 @@ import { AddCommentForm } from '@/features/AddNewComment';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect';
 import { Stack } from '@/shared/ui/redesigned/Stack';
-import { Text as TextDeprecated, TextSize } from '@/shared/ui/deprecated/Text';
 import { Text } from '@/shared/ui/redesigned/Text';
-import { ToggleFeatures } from '@/shared/lib/features';
 import { getArticleCommentsIsLoading } from '../../model/selectors/comments';
 import { addCommentForArticle } from '../../model/services/addCommentForArticle/addCommentForArticle';
 import { fetchCommentByArticleId } from '../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
@@ -45,16 +43,7 @@ export function ArticleDetailsComments({
     return (
         <Stack gap={16} className={classNames('', {}, [className])}>
             <Stack gap={8}>
-                <ToggleFeatures
-                    feature="isAppRedesigned"
-                    on={<Text size="l" title={t('Comments')} />}
-                    off={
-                        <TextDeprecated
-                            size={TextSize.L}
-                            title={t('Comments')}
-                        />
-                    }
-                />
+                <Text size="l" title={t('Comments')} />
                 <AddCommentForm onSendComment={onSendComment} />
             </Stack>
             <CommentList isLoading={commentsIsLoading} comments={comments} />

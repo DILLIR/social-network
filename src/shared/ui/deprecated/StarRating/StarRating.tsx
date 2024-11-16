@@ -1,8 +1,6 @@
 import { useState } from 'react';
 import StarIcon from '@/shared/assets/icons/star.svg';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { Icon as IconDeprecated } from '../Icon/Icon';
-import { toggleFeatures, ToggleFeatures } from '../../../lib/features';
 import { Icon } from '../../redesigned/Icon';
 import cls from './StarRating.module.scss';
 
@@ -45,11 +43,7 @@ export function StarRating({
         onSelect?.(value);
     };
 
-    const mainClass = toggleFeatures({
-        name: 'isAppRedesigned',
-        on: () => cls.StarRatingRedesigned,
-        off: () => cls.StarRating
-    });
+    const mainClass = cls.StarRatingRedesigned;
 
     return (
         <div className={classNames(mainClass, {}, [className])}>
@@ -70,18 +64,7 @@ export function StarRating({
                     'data-selected': currentStarsCount >= starNumber
                 };
                 return (
-                    <ToggleFeatures
-                        key={starNumber}
-                        feature="isAppRedesigned"
-                        on={
-                            <Icon
-                                clickable={!isSelected}
-                                {...props}
-                                key={starNumber}
-                            />
-                        }
-                        off={<IconDeprecated {...props} key={starNumber} />}
-                    />
+                    <Icon clickable={!isSelected} {...props} key={starNumber} />
                 );
             })}
         </div>

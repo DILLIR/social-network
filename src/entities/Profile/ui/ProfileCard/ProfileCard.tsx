@@ -1,9 +1,7 @@
 import { Country } from '@/entities/Country';
 import { Currency } from '@/entities/Currency';
-import { ToggleFeatures } from '@/shared/lib/features';
 import { Profile } from '../../model/types/profile';
 import { ProfileCardRedesigned } from '../ProfileCardRedesigned/ProfileCardRedesigned';
-import { ProfileCardDeprecated } from '../ProfileCardDeprecated/ProfileCardDeprecated';
 
 export interface ProfileCardProps {
     className?: string;
@@ -22,11 +20,5 @@ export interface ProfileCardProps {
 }
 
 export function ProfileCard(props: ProfileCardProps) {
-    return (
-        <ToggleFeatures
-            feature="isAppRedesigned"
-            on={<ProfileCardRedesigned {...props} />}
-            off={<ProfileCardDeprecated {...props} />}
-        />
-    );
+    return <ProfileCardRedesigned {...props} />;
 }

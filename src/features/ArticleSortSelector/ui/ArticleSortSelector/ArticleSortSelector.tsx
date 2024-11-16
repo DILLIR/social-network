@@ -2,9 +2,8 @@ import { useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { OrderBy } from '@/shared/types/sort';
-import { Select, SelectOption } from '@/shared/ui/deprecated/Select';
+import { SelectOption } from '@/shared/ui/deprecated/Select';
 import { ArticleSortField } from '@/entities/Article';
-import { ToggleFeatures } from '@/shared/lib/features';
 import { ListBox } from '@/shared/ui/redesigned/Popups';
 import { Stack } from '@/shared/ui/redesigned/Stack';
 import { Text } from '@/shared/ui/redesigned/Text';
@@ -60,49 +59,20 @@ export function ArticleSortSelector({
     );
 
     return (
-        <ToggleFeatures
-            feature="isAppRedesigned"
-            on={
-                <div
-                    className={classNames(cls.ArticleSortSelector, {}, [
-                        className
-                    ])}
-                >
-                    <Stack gap={8}>
-                        <Text text={t('Sort by')} />
-                        <ListBox
-                            items={sortFieldOptions}
-                            value={sort}
-                            onChange={onChangeSort}
-                        />
-                        <ListBox
-                            items={orderOptions}
-                            value={order}
-                            onChange={onChangeOrder}
-                        />
-                    </Stack>
-                </div>
-            }
-            off={
-                <div
-                    className={classNames(cls.ArticleSortSelector, {}, [
-                        className
-                    ])}
-                >
-                    <Select
-                        label={t('Sort by')}
-                        options={sortFieldOptions}
-                        value={sort}
-                        onChange={onChangeSort}
-                    />
-                    <Select
-                        label={t('Direction')}
-                        options={orderOptions}
-                        value={order}
-                        onChange={onChangeOrder}
-                    />
-                </div>
-            }
-        />
+        <div className={classNames(cls.ArticleSortSelector, {}, [className])}>
+            <Stack gap={8}>
+                <Text text={t('Sort by')} />
+                <ListBox
+                    items={sortFieldOptions}
+                    value={sort}
+                    onChange={onChangeSort}
+                />
+                <ListBox
+                    items={orderOptions}
+                    value={order}
+                    onChange={onChangeOrder}
+                />
+            </Stack>
+        </div>
     );
 }

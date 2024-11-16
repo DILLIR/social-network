@@ -2,12 +2,9 @@ import { useTranslation } from 'react-i18next';
 import { HTMLAttributeAnchorTarget } from 'react';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import {
-    Text as TextDeprecated,
-    TextAlign,
-    TextSize
+    TextAlign
 } from '@/shared/ui/deprecated/Text';
 import { Text } from '@/shared/ui/redesigned/Text';
-import { ToggleFeatures } from '@/shared/lib/features';
 import { Stack } from '@/shared/ui/redesigned/Stack';
 import { Article, ArticleView } from '../../model/types/article';
 import { ArticleListItem } from '../ArticleListItem/ArticleListItem';
@@ -57,54 +54,25 @@ export function ArticleList({
                     cls[viewMode]
                 ])}
             >
-                <ToggleFeatures
-                    feature="isAppRedesigned"
-                    on={
-                        <Text
-                            size="l"
-                            title={t('Articles not found')}
-                            align={TextAlign.CENTER}
-                        />
-                    }
-                    off={
-                        <TextDeprecated
-                            size={TextSize.L}
-                            title={t('Articles not found')}
-                            align={TextAlign.CENTER}
-                        />
-                    }
+                <Text
+                    size="l"
+                    title={t('Articles not found')}
+                    align={TextAlign.CENTER}
                 />
             </div>
         );
     }
 
     return (
-        <ToggleFeatures
-            feature="isAppRedesigned"
-            on={
-                <Stack
-                    flexWrap="wrap"
-                    gap={16}
-                    direction="row"
-                    data-testid="ArticleList"
-                    className={classNames(cls.ArticleListRedesigned, {}, [])}
-                >
-                    {articles.length > 0 ? articles.map(renderArticle) : null}
-                    {isLoading && getSkeletons(viewMode)}
-                </Stack>
-            }
-            off={
-                <div
-                    data-testid="ArticleList"
-                    className={classNames(cls.ArticleList, {}, [
-                        className,
-                        cls[viewMode]
-                    ])}
-                >
-                    {articles.length > 0 ? articles.map(renderArticle) : null}
-                    {isLoading && getSkeletons(viewMode)}
-                </div>
-            }
-        />
+        <Stack
+            flexWrap="wrap"
+            gap={16}
+            direction="row"
+            data-testid="ArticleList"
+            className={classNames(cls.ArticleListRedesigned, {}, [])}
+        >
+            {articles.length > 0 ? articles.map(renderArticle) : null}
+            {isLoading && getSkeletons(viewMode)}
+        </Stack>
     );
 }

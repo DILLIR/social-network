@@ -2,7 +2,6 @@ import { classNames, Mods } from '@/shared/lib/classNames/classNames';
 import { useModal } from '@/shared/lib/hooks/useModal';
 import { Overlay } from '../Overlay/Overlay';
 import { Portal } from '../Portal/Portal';
-import { toggleFeatures } from '../../../lib/features';
 import cls from './Modal.module.scss';
 
 interface ModalProps {
@@ -34,11 +33,7 @@ export function Modal({
         return null;
     }
 
-    const mainClass = toggleFeatures({
-        name: 'isAppRedesigned',
-        on: () => cls.modalNew,
-        off: () => cls.modalOld
-    });
+    const mainClass = cls.modalNew;
 
     return (
         <Portal>

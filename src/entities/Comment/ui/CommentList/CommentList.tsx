@@ -1,8 +1,6 @@
 import { useTranslation } from 'react-i18next';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { Stack } from '@/shared/ui/redesigned/Stack';
-import { Text as TextDeprecated } from '@/shared/ui/deprecated/Text';
-import { ToggleFeatures } from '@/shared/lib/features';
 import { Text } from '@/shared/ui/redesigned/Text';
 import { Card } from '@/shared/ui/redesigned/Card';
 import { CommentCard } from '../CommentCard/CommentCard';
@@ -42,15 +40,9 @@ export function CommentList({
                     />
                 ))
             ) : (
-                <ToggleFeatures
-                    feature="isAppRedesigned"
-                    on={
-                        <Card>
-                            <Text text={t('Comments are missing')} />
-                        </Card>
-                    }
-                    off={<TextDeprecated text={t('Comments are missing')} />}
-                />
+                <Card>
+                    <Text text={t('Comments are missing')} />
+                </Card>
             )}
         </Stack>
     );

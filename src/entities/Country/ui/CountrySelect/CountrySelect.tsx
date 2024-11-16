@@ -2,8 +2,6 @@ import { memo, useCallback, useMemo } from 'react';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { generateOptions } from '@/shared/lib/generateOptions/generateOptions';
 import { ListBox } from '@/shared/ui/redesigned/Popups';
-import { ListBox as ListBoxDeprecated } from '@/shared/ui/deprecated/Popups';
-import { ToggleFeatures } from '@/shared/lib/features';
 import { Country } from '../../types/country';
 
 interface CountrySelectProps {
@@ -38,11 +36,5 @@ export const CountrySelect = memo(function CountrySelect({
         label: 'Select your country'
     };
 
-    return (
-        <ToggleFeatures
-            feature="isAppRedesigned"
-            on={<ListBox {...props} />}
-            off={<ListBoxDeprecated {...props} />}
-        />
-    );
+    return <ListBox {...props} />;
 });

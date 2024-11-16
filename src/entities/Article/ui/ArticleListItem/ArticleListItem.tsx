@@ -1,7 +1,5 @@
 import { HTMLAttributeAnchorTarget } from 'react';
-import { ToggleFeatures } from '@/shared/lib/features';
 import { Article, ArticleView } from '../../model/types/article';
-import { ArticleListItemDeprecated } from './ArticleListItemDeprecated/ArticleListItemDeprecated';
 import { ArticleListItemRedesigned } from './ArticleListItemRedesigned/ArticleListItemRedesigned';
 
 export interface ArticleListItemProps {
@@ -12,11 +10,5 @@ export interface ArticleListItemProps {
 }
 
 export function ArticleListItem(props: ArticleListItemProps) {
-    return (
-        <ToggleFeatures
-            feature="isAppRedesigned"
-            on={<ArticleListItemRedesigned {...props} />}
-            off={<ArticleListItemDeprecated {...props} />}
-        />
-    );
+    return <ArticleListItemRedesigned {...props} />;
 }

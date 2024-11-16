@@ -2,9 +2,7 @@ import { useTranslation } from 'react-i18next';
 import { ArticleList } from '@/entities/Article';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { Stack } from '@/shared/ui/redesigned/Stack';
-import { Text as TextDeprecated, TextSize } from '@/shared/ui/deprecated/Text';
 import { Text } from '@/shared/ui/redesigned/Text';
-import { ToggleFeatures } from '@/shared/lib/features';
 import { useArticleRecommendationList } from '../../api/articleRecommendationsApi';
 import cls from './ArticleRecommendationsList.module.scss';
 
@@ -32,16 +30,7 @@ export function ArticleRecommendationsList({
             data-testid="ArticleRecommendationsList"
             className={classNames(cls.wrapper, {}, [className])}
         >
-            <ToggleFeatures
-                feature="isAppRedesigned"
-                on={<Text size="l" title={t('Recommendations')} />}
-                off={
-                    <TextDeprecated
-                        size={TextSize.L}
-                        title={t('Recommendations')}
-                    />
-                }
-            />
+            <Text size="l" title={t('Recommendations')} />
             <ArticleList target="_blank" articles={articles} />
         </Stack>
     );

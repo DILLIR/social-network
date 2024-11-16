@@ -1,5 +1,4 @@
 import { useParams } from 'react-router-dom';
-import { ArticleDetails } from '@/entities/Article';
 import { ArticleRecommendationsList } from '@/features/ArticleRecommendationsList';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import {
@@ -9,11 +8,8 @@ import {
 import { Stack } from '@/shared/ui/redesigned/Stack';
 import { Page } from '@/widgets/Page';
 import { ArticleRating } from '@/features/ArticleRating';
-import { ToggleFeatures } from '@/shared/lib/features';
-import { Card } from '@/shared/ui/deprecated/Card';
 import { StickyContentLayout } from '@/shared/layouts/StickyContentLayout';
 import { ArticleDetailsComments } from '../ArticleDetailsComments/ArticleDetailsComments';
-import { ArticleDetailsPageHeader } from '../ArticleDetailsPageHeader/ArticleDetailsPageHeader';
 import { articleDetailsPageReducer } from '../../model/slices';
 import { DetailsContainer } from '../DetailsContainer/DetailsContainer';
 import { AdditionalInfoContainer } from '../AdditionalInfoContainer/AdditionalInfoContainer';
@@ -35,34 +31,18 @@ function ArticleDetailsPage({ className }: ArticleDetailsPageProps) {
 
     return (
         <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
-            <ToggleFeatures
-                feature="isAppRedesigned"
-                on={
-                    <StickyContentLayout
-                        content={
-                            <Page className={classNames('', {}, [className])}>
-                                <Stack gap={16}>
-                                    <DetailsContainer />
-                                    <ArticleRating articleId={id} />
-                                    <ArticleRecommendationsList />
-                                    <ArticleDetailsComments id={id} />
-                                </Stack>
-                            </Page>
-                        }
-                        right={<AdditionalInfoContainer />}
-                    />
-                }
-                off={
+            <StickyContentLayout
+                content={
                     <Page className={classNames('', {}, [className])}>
                         <Stack gap={16}>
-                            <ArticleDetailsPageHeader />
-                            <ArticleDetails id={id} />
-                            <Card>Article rating comming soon</Card>
+                            <DetailsContainer />
+                            <ArticleRating articleId={id} />
                             <ArticleRecommendationsList />
                             <ArticleDetailsComments id={id} />
                         </Stack>
                     </Page>
                 }
+                right={<AdditionalInfoContainer />}
             />
         </DynamicModuleLoader>
     );
